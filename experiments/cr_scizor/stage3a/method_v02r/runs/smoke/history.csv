@@ -1,0 +1,2 @@
+epoch,steps,train_loss,train_regression_loss,train_classification_loss,train_rank_loss,replacement_auroc,replacement_auprc,score_mae,score_spearman,teacher_forced_primary_auroc
+0,2,0.4137016534805298,0.041043637320399284,0.6964301466941833,0.0977717898786068,0.467043277247817,0.2524827230097358,0.28018360557023103,0.01811554232374568,0.3560606060606061

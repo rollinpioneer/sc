@@ -1,0 +1,598 @@
+{
+  "can": [
+    {
+      "task": "can",
+      "demo_id": "demo_2",
+      "steps": 113,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_3",
+      "steps": 98,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_4",
+      "steps": 102,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_5",
+      "steps": 134,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_6",
+      "steps": 115,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_7",
+      "steps": 115,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_8",
+      "steps": 127,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_9",
+      "steps": 120,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5"
+    }
+  ],
+  "square": [
+    {
+      "task": "square",
+      "demo_id": "demo_2",
+      "steps": 124,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_3",
+      "steps": 149,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_4",
+      "steps": 154,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_5",
+      "steps": 144,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_6",
+      "steps": 144,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_7",
+      "steps": 150,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_8",
+      "steps": 160,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_9",
+      "steps": 152,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "confirmation",
+      "source_dataset": "/home/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5"
+    }
+  ]
+}

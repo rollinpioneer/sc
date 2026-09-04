@@ -1,0 +1,78 @@
+{
+  "chunk_sample_summary": {
+    "ambiguous_sample_count": 0,
+    "effective_pair_coverage": {
+      "test": {
+        "covered": 52,
+        "expected": 52
+      },
+      "train": {
+        "covered": 120,
+        "expected": 120
+      },
+      "validation": {
+        "covered": 44,
+        "expected": 44
+      }
+    },
+    "positive_sample_count": 3432,
+    "sample_count": 6547,
+    "sample_type_counts": {
+      "clean_control": 320,
+      "effective_hard_negative": 697,
+      "no_effect_control": 2098,
+      "positive": 3432
+    },
+    "seed": 20260831,
+    "split_sample_counts": {
+      "test": 1471,
+      "train": 3756,
+      "validation": 1320
+    }
+  },
+  "feature_manifest": {
+    "demo_count": 1360,
+    "feature_index_sha256": "523845ef25789570f7a5df87dd21419d80bee5cf0e5424063b682984e95e4ca3",
+    "image_embedding_dim": 768,
+    "source_split_manifest_sha256": "e8b81c36c20ac2ebefc739fa4ff1bb5167b32842b69bc8fb93f9be6a3484ab0b",
+    "source_transition_labels_sha256": "b2cbb25de15e1f804eb4498738c4218d61e1c0b3a621d59b13254a4afec0be0a",
+    "split_demo_counts": {
+      "test": 272,
+      "train": 816,
+      "validation": 272
+    },
+    "split_transition_counts": {
+      "test": 36516,
+      "train": 105366,
+      "validation": 34714
+    },
+    "state_pad_dim": 71,
+    "transition_count": 176596,
+    "visual_encoder": "facebook/dinov2-base"
+  },
+  "requirements": {
+    "ambiguous_excluded": true,
+    "canonical_feature_index": true,
+    "clean_controls": 320,
+    "dataloader_smoke_passed": false,
+    "effective_pair_coverage": {
+      "test": {
+        "covered": 52,
+        "expected": 52
+      },
+      "train": {
+        "covered": 120,
+        "expected": 120
+      },
+      "validation": {
+        "covered": 44,
+        "expected": 44
+      }
+    },
+    "frozen_inputs": true,
+    "no_effect_controls": 2098,
+    "train_only_normalizer": true
+  },
+  "stage": "2A+2B",
+  "status": "passed"
+}

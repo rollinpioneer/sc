@@ -1,0 +1,9 @@
+{
+  "schema": "stage3f_r_v1_status_v1",
+  "method_version": "stage3_v02r_method_v1",
+  "decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "reason": "validation gate failed under fused_pair_score-only protocol",
+  "status": "FROZEN_BASELINE_NOT_OVERWRITTEN",
+  "aggregation_repair_allowed": true,
+  "blind_generated": false
+}

@@ -1,0 +1,26 @@
+Stage-1 environment freeze
+Generated: 2026-09-01 (Asia/Shanghai)
+
+Project root: /home/xushijie/work/cr_scizor/SCIZOR
+Git commit: 75051b3d45676a033533896da16a6a7abf8ac42e
+Repository-prescribed environment: conda `curation` (README); closest local environment: `scizor-curation`
+
+System Python: 3.14.6
+System PyTorch: unavailable (ModuleNotFoundError)
+System CUDA via PyTorch: unavailable (PyTorch unavailable)
+`scizor-curation` Python: 3.11.16
+`scizor-curation` PyTorch: unavailable (ModuleNotFoundError)
+Robomimic training import check: blocked by missing `psutil` in system Python
+Simulator/benchmark package version: unavailable until the project environment is repaired
+
+GPU inventory (privileged nvidia-smi query):
+  GPU 0: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+  GPU 1: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+  GPU 2: NVIDIA A100-SXM4-40GB, 40960 MiB total, 18455 MiB used, 72% utilization
+  GPU 3: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+  GPU 4: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+  GPU 5: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+  GPU 6: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+  GPU 7: NVIDIA A100-SXM4-40GB, 40960 MiB total, 0 MiB used, 0% utilization
+
+Default Stage-1 GPU: GPU 0. GPU 2 is intentionally excluded because it is occupied.

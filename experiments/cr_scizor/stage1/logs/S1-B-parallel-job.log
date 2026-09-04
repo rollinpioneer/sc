@@ -1,0 +1,17 @@
+START 2026-09-02T09:10:06+08:00 pid=1452933
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "/home/xushijie/.local/lib/python3.14/site-packages/h5py/_hl/group.py", line 668, in copy
+    dest_path = pp.basename(h5i.get_name(source[source_path].id))
+                                         ~~~~~~^^^^^^^^^^^^^
+  File "/home/xushijie/.local/lib/python3.14/site-packages/h5py/_hl/group.py", line 407, in __getitem__
+    return self._get(name)
+           ~~~~~~~~~^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/home/xushijie/.local/lib/python3.14/site-packages/h5py/_hl/group.py", line 421, in _get
+    oid = h5o.open(self.id, self._e(name), lapl=lapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5o.pyx", line 255, in h5py.h5o.open
+KeyError: "Unable to synchronously open object (object 'can_demo_0_axis_impulse_t102_m1.00' doesn't exist)"

@@ -1,0 +1,24 @@
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage2/models/responsibility_model.py:51: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+{
+  "method": "responsibility_iter1_seed0__best_localization",
+  "split": "validation",
+  "chunks": 34442,
+  "transitions": 34714
+}
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage2/models/responsibility_model.py:51: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+{
+  "method": "responsibility_iter1_seed0__best_effect_bacc",
+  "split": "validation",
+  "chunks": 34442,
+  "transitions": 34714
+}
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage2/models/responsibility_model.py:51: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+{
+  "method": "responsibility_iter1_seed0__best_gate_gap",
+  "split": "validation",
+  "chunks": 34442,
+  "transitions": 34714
+}

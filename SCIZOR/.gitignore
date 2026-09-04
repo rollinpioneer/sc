@@ -1,0 +1,5 @@
+.DS_Store
+safe_commit.sh
+
+# Large, reproducible stage-1 artifacts (checkpoints, rollout videos, logs).
+/outputs/stage1/

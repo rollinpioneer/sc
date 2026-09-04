@@ -1,0 +1,14 @@
+{
+  "split": "validation",
+  "queries": 2303,
+  "replacement_rows": 9463,
+  "ood_queries": 0,
+  "ood_rate": 0.0,
+  "source_counts": {
+    "nn_real": 6908,
+    "codebook_medoid": 2299,
+    "paired_clean_upper_bound": 256
+  },
+  "proposal_queries": 2222,
+  "teacher_forced_queries": 252
+}

@@ -1,0 +1,330 @@
+{
+  "action_horizon": 1,
+  "curation": {
+    "base_control_freq": null,
+    "curate_short_traj_len": 0,
+    "curate_small_action_thres": 0.0,
+    "curation_df_path": null,
+    "curation_eps": 0.02,
+    "delta_gripping_act_ratio": 0.0,
+    "hardcode_subop_curation": false,
+    "load_delta_gripping_act": true,
+    "load_delta_proprio": true,
+    "pivot_df_path": null,
+    "pivot_end_step": 200000,
+    "pivot_end_weight": 3.0,
+    "pivot_start_step": 10000,
+    "pivot_start_weight": 1.0,
+    "random_curate": false,
+    "save_folder": null,
+    "semdedup_config": {}
+  },
+  "dali_kwargs": {
+    "buffer_device": null,
+    "buffer_size": 2,
+    "device": "cpu",
+    "num_dataset": 1,
+    "num_device": 1,
+    "num_threads_per_dataset": 32,
+    "prefetch_queue_depth": 2,
+    "save_gpu_memory": false
+  },
+  "dataset_kwargs": {
+    "balance_weights": true,
+    "batch_size": 512,
+    "frame_transform_kwargs": {
+      "image_augment_kwargs": {
+        "primary": {
+          "augment_order": [
+            "random_resized_crop"
+          ],
+          "random_brightness": [
+            0.2
+          ],
+          "random_contrast": [
+            0.8,
+            1.2
+          ],
+          "random_hue": [
+            0.1
+          ],
+          "random_resized_crop": {
+            "ratio": [
+              0.9,
+              1.1
+            ],
+            "scale": [
+              0.8,
+              1.0
+            ]
+          },
+          "random_saturation": [
+            0.8,
+            1.2
+          ]
+        }
+      },
+      "image_dropout_prob": 0.0,
+      "num_parallel_calls": 200,
+      "resize_size": {
+        "primary": [
+          256,
+          256
+        ],
+        "wrist": [
+          128,
+          128
+        ]
+      }
+    },
+    "oxe_kwargs": {
+      "data_dir": null,
+      "data_mix": null,
+      "load_camera_views": [
+        "primary",
+        "wrist"
+      ],
+      "load_depth": false
+    },
+    "shuffle_buffer_size": 25000,
+    "traj_read_threads": 48,
+    "traj_transform_kwargs": {
+      "action_horizon": 1,
+      "goal_relabeling_kwargs": {
+        "max_goal_time_diff": null,
+        "min_goal_time_diff": -1.0,
+        "neighbor_time": 2.0,
+        "time_bins": [
+          [
+            0.0,
+            0.5
+          ],
+          [
+            0.5,
+            1.0
+          ],
+          [
+            1.0,
+            2.0
+          ],
+          [
+            2.0,
+            5.0
+          ],
+          [
+            5.0,
+            10000.0
+          ]
+        ]
+      },
+      "goal_relabeling_strategy": "custom_uniform_v4",
+      "subsample_length": 100,
+      "task_augment_kwargs": {
+        "keep_image_prob": 0.5
+      },
+      "task_augment_strategy": null,
+      "window_size": 1
+    },
+    "traj_transform_threads": 48
+  },
+  "discriminator": {
+    "action_horizon": 1,
+    "action_query_length": 1,
+    "activate_action_embedding": true,
+    "cat_start_feature": false,
+    "d_model": 768,
+    "encoder_type": "dinov2",
+    "eval_metrics": {
+      "mae": false,
+      "mse": false,
+      "pred_dist_bins": 3,
+      "thres": [
+        0.5,
+        0.6,
+        0.7,
+        0.8
+      ]
+    },
+    "frozen_encoder": true,
+    "fusion_blocks_type": "self-attn",
+    "future_action": 0,
+    "future_image": true,
+    "head_token": "cls",
+    "head_type": "rank",
+    "histroy_dropout_rate": 0.25,
+    "loss_fn_type": "cross_entropy",
+    "metrics": {
+      "mae": true,
+      "mse": true,
+      "pred_dist_bins": 5,
+      "thres": [
+        0.5,
+        0.6,
+        0.8
+      ]
+    },
+    "model_cfg_path": "GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py",
+    "n_heads": 8,
+    "no_action_input": true,
+    "no_text_input": true,
+    "normalize_linear_combination": false,
+    "num_blocks": 6,
+    "num_ranks": null,
+    "rank_thres": [
+      [
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        1.0
+      ],
+      [
+        1.0,
+        2.0
+      ],
+      [
+        2.0,
+        5.0
+      ],
+      [
+        5.0,
+        10000.0
+      ]
+    ],
+    "use_delta_grip_act": false,
+    "use_norm_delta_proprio": false,
+    "weights_path": "GroundingDINO/weights/groundingdino_swint_ogc.pth",
+    "window_size": 1
+  },
+  "discriminator_dataset_kwargs": {
+    "action_aug": false,
+    "action_aug_kwargs": {
+      "flip_arg": {
+        "grip_flip_score": 2.0,
+        "randomize_prob": 0.05
+      },
+      "random_flip_rpy_arg": {
+        "randomize_prob": 0.1,
+        "rpy_action_scale": 0.5,
+        "rpy_flip_score_scale": 1.5
+      },
+      "random_xyz_rpy_scale_arg": {
+        "random_scale": {
+          "peak_prob": 0.6,
+          "peaks": [
+            0.05,
+            3.0
+          ],
+          "scale_range": [
+            0.0,
+            8.0
+          ],
+          "std": [
+            0.05,
+            0.5
+          ]
+        },
+        "randomize_prob": 0.1,
+        "strategy": "bimodal",
+        "xyz_rpy_norm_score_scale": 2.0,
+        "xyz_rpy_score_alpha": 5.0
+      },
+      "score_range": [
+        0.0,
+        2.0
+      ],
+      "transform_xyz_arg": {
+        "randomize_prob": 0.25,
+        "rotation_kwargs": {
+          "mean_theta": 2.094395066666667,
+          "std_theta": 0.5235987666666667,
+          "strategy": "normal",
+          "theta_range": [
+            1.5707963,
+            3.1415926
+          ]
+        },
+        "rotation_score_scale": 4.0
+      }
+    },
+    "action_noise_scale": 0.02,
+    "history_aug_prob": 0.25,
+    "image_key": "agentview_image",
+    "obs_aug_kwargs": {
+      "dropout_image_prob": 0.1,
+      "text_add_front_prob": 0.5,
+      "text_front": "robot arm . gripper . "
+    },
+    "proprio_noise_scale": 0.002
+  },
+  "eval_batch_size": 32,
+  "eval_hdf5_path": null,
+  "eval_interval": 2000,
+  "future_action": 0,
+  "future_image": true,
+  "grad_accum_steps": 1,
+  "hdf5_dataset_kwargs": {
+    "batch_size": 8,
+    "data_dir": "/home/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/train_data",
+    "freq": 20,
+    "num_workers": 4,
+    "obs_keys": {
+      "agentview_image": 84,
+      "robot0_eye_in_hand_image": 84
+    },
+    "time_bins": [
+      [
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        1.0
+      ],
+      [
+        1.0,
+        2.0
+      ],
+      [
+        2.0,
+        5.0
+      ],
+      [
+        5.0,
+        10000.0
+      ]
+    ]
+  },
+  "load_path": null,
+  "log_interval": 100,
+  "mixed_precision": false,
+  "num_datasets": 1,
+  "num_steps": 20,
+  "optimizer": {
+    "lr": 0.0001,
+    "weight_decay": 0.001
+  },
+  "prefetch_num_batches": 2,
+  "save_dir": null,
+  "save_interval": 20,
+  "scheduler": {
+    "max_lr": 0.0001,
+    "pct_start": 0.1,
+    "total_steps": 20
+  },
+  "seed": 0,
+  "subop_dataset": {
+    "batch_size": 1,
+    "dataset_names": null,
+    "label_balance": false,
+    "metrics": "fail_grasp,",
+    "path": null
+  },
+  "wandb": {
+    "entity": null,
+    "group": null,
+    "project": "suboptimal_classifier"
+  },
+  "window_size": 1
+}

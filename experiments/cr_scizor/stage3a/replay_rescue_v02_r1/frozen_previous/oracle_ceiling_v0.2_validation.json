@@ -1,0 +1,143 @@
+{
+  "split": "validation",
+  "paired_clean": {
+    "metrics": {
+      "auroc": 0.6393741455263557,
+      "auprc": 0.24404906883071248,
+      "n": 256,
+      "positive": 29
+    },
+    "engineering": {
+      "branch_pre_state_equal_rate": 1.0,
+      "reference_exact_all_horizons_rate": 1.0,
+      "finite_target_rate": 1.0,
+      "paired_clean_exact_all_horizons_rate": 1.0
+    },
+    "normalizer": {
+      "can": {
+        "10": {
+          "dense_mean_delta": 1e-06,
+          "stage_mean_delta": 1e-06
+        },
+        "20": {
+          "dense_mean_delta": 1e-06,
+          "stage_mean_delta": 1e-06
+        },
+        "40": {
+          "dense_mean_delta": 1e-06,
+          "stage_mean_delta": 1e-06
+        }
+      },
+      "square": {
+        "10": {
+          "dense_mean_delta": 1e-06,
+          "stage_mean_delta": 1e-06
+        },
+        "20": {
+          "dense_mean_delta": 1e-06,
+          "stage_mean_delta": 1e-06
+        },
+        "40": {
+          "dense_mean_delta": 1e-06,
+          "stage_mean_delta": 1e-06
+        }
+      }
+    },
+    "score_distribution": {
+      "effective": {
+        "n": 29,
+        "median": 0.9000000000000001,
+        "mean": 0.4975208218083473
+      },
+      "no_effect": {
+        "n": 227,
+        "median": 5.551115123125783e-17,
+        "mean": 0.1776000278231002
+      }
+    }
+  },
+  "primary_feasible": {
+    "metrics": {
+      "auroc": 0.6630715479264773,
+      "auprc": 0.23165953676862808,
+      "n": 256,
+      "positive": 29
+    },
+    "score_distribution": {
+      "effective": {
+        "n": 29,
+        "median": 0.11230705564190803,
+        "mean": 0.19233112053890483
+      },
+      "no_effect": {
+        "n": 227,
+        "median": 0.0043649777313073575,
+        "mean": 0.043502208225550794
+      }
+    }
+  },
+  "best_of_4_feasible": {
+    "metrics": {
+      "auroc": 0.6513747531520583,
+      "auprc": 0.24546916276526023,
+      "n": 256,
+      "positive": 29
+    },
+    "score_distribution": {
+      "effective": {
+        "n": 29,
+        "median": 0.20373594475202508,
+        "mean": 0.24358593069841894
+      },
+      "no_effect": {
+        "n": 227,
+        "median": 0.05418317409731355,
+        "mean": 0.12840106845150032
+      }
+    }
+  },
+  "feasible_engineering": {
+    "branch_pre_state_equal_rate": 1.0,
+    "reference_exact_all_horizons_rate": 1.0,
+    "finite_target_rate": 1.0
+  },
+  "feasible_normalizer": {
+    "can": {
+      "10": {
+        "dense_mean_delta": 0.04071137309074402,
+        "stage_mean_delta": 0.0407278835773468
+      },
+      "20": {
+        "dense_mean_delta": 0.02109605073928833,
+        "stage_mean_delta": 0.021172374486923218
+      },
+      "40": {
+        "dense_mean_delta": 0.023093894124031067,
+        "stage_mean_delta": 0.022502154111862183
+      }
+    },
+    "square": {
+      "10": {
+        "dense_mean_delta": 0.03820815086364746,
+        "stage_mean_delta": 0.03716301918029785
+      },
+      "20": {
+        "dense_mean_delta": 0.03492659330368042,
+        "stage_mean_delta": 0.03319535404443742
+      },
+      "40": {
+        "dense_mean_delta": 0.03409606218338013,
+        "stage_mean_delta": 0.03201387822628021
+      }
+    }
+  },
+  "validation_pair_count": 256,
+  "validation_feasible_rows": 1024,
+  "engineering_pass": true,
+  "method_pass": false,
+  "oracle_ceiling_pass": false,
+  "frozen_thresholds": {
+    "validation_paired_clean_auroc": 0.7,
+    "validation_primary_feasible_auroc": 0.7
+  }
+}

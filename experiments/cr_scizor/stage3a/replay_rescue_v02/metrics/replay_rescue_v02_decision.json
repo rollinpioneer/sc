@@ -1,0 +1,38 @@
+{
+  "decision": "STOP_STAGE3A_V02_ORACLE_CEILING_FAILURE",
+  "v01_status": "FAILED_AND_FROZEN",
+  "v02_generation_attempted": true,
+  "runtime_fingerprint_sha256": "1a310e15962111b52503a7069b6261c5fffbc7603ea0f1493e1dc265d3b893a9",
+  "pilot": {
+    "num_pairs": 160,
+    "determinism_pass": true,
+    "paired_clean_auroc": 0.7399794450154162
+  },
+  "full_v02": {
+    "num_pairs": 1024,
+    "engineering_pass": true
+  },
+  "oracle_ceiling": {
+    "paired_clean_auroc": 0.6393741455263557,
+    "primary_feasible_auroc": 0.6630715479264773,
+    "best_of_4_auroc": 0.6513747531520583,
+    "paired_clean_auprc": 0.24404906883071248,
+    "primary_feasible_auprc": 0.23165953676862808
+  },
+  "proposer_transfer": {
+    "action_only_top5_recall": null,
+    "evaluated": false,
+    "frozen_checkpoints": {
+      "action_only": "../stage2/runs/action_only_seed_0/best.pt",
+      "full": "../stage2/runs/full_seed_0/best.pt"
+    },
+    "full_top5_recall": null,
+    "protocol_gate": "oracle_ceiling_pass",
+    "protocol_gate_value": false,
+    "reason": "skipped because v0.2 oracle ceiling did not pass; v0.1 proposer scores are not v0.2 transfer evidence"
+  },
+  "continue_stage3a_e": false,
+  "failed_rules": [
+    "oracle_method_ceiling"
+  ]
+}

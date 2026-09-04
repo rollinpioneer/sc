@@ -1,0 +1,10 @@
+{
+  "epochs": 30,
+  "best": {
+    "replacement_auroc": 0.8374549077855151,
+    "replacement_auprc": 0.6975334088716624,
+    "score_mae": 0.17265015454198485,
+    "score_spearman": 0.6627437995933899,
+    "teacher_forced_primary_auroc": 0.7777777777777778
+  }
+}

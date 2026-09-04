@@ -1,0 +1,7 @@
+# Large artifact placeholder
+
+- Original path: `experiments/cr_scizor/stage1/baseline/seed_2/model_2000.pth`
+- Original filename: `model_2000.pth`
+- Size: `441097670` bytes
+- Classification: model checkpoint
+- Upload policy: omitted from GitHub mirror; retained locally at the original project path.

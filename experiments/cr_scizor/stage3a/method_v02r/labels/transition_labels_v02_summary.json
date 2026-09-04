@@ -1,0 +1,22 @@
+{
+  "clean_group_count": 64,
+  "effective_pair_count": 85,
+  "failure_type_pair_counts": {
+    "delayed_failure": 44,
+    "no_effect": 939,
+    "recovery_failure": 18,
+    "recovery_success": 23
+  },
+  "perturbed_pair_count": 1024,
+  "perturbed_transition_count": 131840,
+  "responsibility_region": "effective pairs use frozen perturb_t plus/minus one; no-effect pairs are false",
+  "split_pair_counts": {
+    "train": 768,
+    "validation": 256
+  },
+  "split_transition_counts": {
+    "train": 105366,
+    "validation": 34714
+  },
+  "total_transition_count": 140080
+}

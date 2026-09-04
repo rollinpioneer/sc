@@ -1,0 +1,7 @@
+{
+  "v01_recovery": "FAILED_AND_FROZEN",
+  "v02_replay_engineering": "PASSED",
+  "v02_old_oracle_decision": "SUPERSEDED_BY_V02R_CONFIRMATION",
+  "v02r_decision": "RESUME_STAGE3A_E_ON_V02R",
+  "stage3a_e_allowed": true
+}

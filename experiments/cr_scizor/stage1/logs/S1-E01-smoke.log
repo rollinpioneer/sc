@@ -1,0 +1,26 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+Traceback (most recent call last):
+  File "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/curation/suboptimal_classifier/./accelerate_train_one_loader.py", line 2, in <module>
+    from curation.suboptimal_classifier.dataset.dataset import AugActionDataset, ExternIterator 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xushijie/work/cr_scizor/SCIZOR/curation/suboptimal_classifier/dataset/dataset.py", line 1, in <module>
+    from curation.suboptimal_classifier.dataset.dino_dali_transform import InterleaveDaliDataset, ExternIterator, count_time_decorator, get_timer
+  File "/home/xushijie/work/cr_scizor/SCIZOR/curation/suboptimal_classifier/dataset/dino_dali_transform.py", line 1, in <module>
+    from nvidia.dali import pipeline_def
+ModuleNotFoundError: No module named 'nvidia.dali'
+Traceback (most recent call last):
+  File "/home/xushijie/.conda/envs/scizor-curation/bin/accelerate", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/accelerate/commands/launch.py", line 1407, in launch_command
+    simple_launcher(args)
+  File "/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/accelerate/commands/launch.py", line 993, in simple_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/home/xushijie/.conda/envs/scizor-curation/bin/python', './accelerate_train_one_loader.py', '--name', 'stage1_smoke', '--debug', '--config.seed=0', '--config.hdf5_dataset_kwargs.data_dir=/home/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/train_data', '--config.hdf5_dataset_kwargs.batch_size=8', '--config.hdf5_dataset_kwargs.num_workers=4', '--config.save_dir=/home/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/smoke', '--config.discriminator.action_query_length=1', '--config.discriminator.num_blocks=6', '--config.discriminator.head_token=cls', '--config.optimizer.lr=1e-4', '--config.num_steps=20', '--config.window_size=1', '--config.action_horizon=1', '--config.future_action=0', '--config.discriminator.loss_fn_type=cross_entropy', '--port', '1889', '--config.save_interval=20', '--config.eval_interval=20', '--config.discriminator.no_action_input=True', '--config.future_image=True', '--config.discriminator.frozen_encoder=True', '--config.discriminator.encoder_type=dinov2', '--config.discriminator.d_model=768', '--config.num_datasets=1', '--config.discriminator.fusion_blocks_type=self-attn', '--config.discriminator.head_type=rank', '--config.discriminator.no_text_input=True', '--config.grad_accum_steps=1', '--config.discriminator_dataset_kwargs.image_key=agentview_image']' returned non-zero exit status 1.
+ERROR conda.cli.main_run:execute(148): `conda run bash /home/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/scripts/run_subop_train.sh` failed. (See above for error)

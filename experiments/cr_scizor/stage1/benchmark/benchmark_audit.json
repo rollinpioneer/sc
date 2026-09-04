@@ -1,0 +1,13 @@
+{
+  "ambiguous_rate": 0.0,
+  "error_count": 0,
+  "errors": [],
+  "has_final_failure": true,
+  "has_recovery_success": true,
+  "pair_count": 1280,
+  "single_changed_action_rate": 1.0,
+  "task_counts": {
+    "can": 640,
+    "square": 640
+  }
+}

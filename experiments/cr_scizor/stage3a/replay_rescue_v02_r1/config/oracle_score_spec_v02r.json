@@ -1,0 +1,15 @@
+{
+  "version": "v0.2-r1",
+  "max_horizon": 100,
+  "diagnostic_horizons": [20, 40, 60, 80, 100],
+  "persistence_window": 3,
+  "component_weights": {"dense": 0.4, "stage": 0.5, "success": 0.1},
+  "component_clip": 1.0,
+  "stage_delta_mode": "max_component_difference",
+  "normalizer_source": "v0.2_train_paired_clean_framewise_delta",
+  "normalizer_quantile": 0.9,
+  "normalizer_zero_epsilon": 1e-12,
+  "main_score": "maximum_3_frame_mean_of_weighted_normalized_delta_within_100_frames",
+  "paired_clean_confirmation_auroc_gate": 0.7,
+  "primary_feasible_confirmation_auroc_gate": 0.7
+}

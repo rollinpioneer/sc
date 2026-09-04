@@ -1,0 +1,16 @@
+{
+  "ambiguous_pair_count": 15,
+  "ambiguous_rate": 0.01171875,
+  "clean_sequence_count": 80,
+  "clean_transition_count": 10388,
+  "consistent_no_effect_negative_control_pair_count": 1049,
+  "effective_intervention_pair_count": 216,
+  "errors": [],
+  "original_inconsistent_no_effect_count": 15,
+  "pair_count": 1280,
+  "passed": true,
+  "perturbed_transition_count": 166208,
+  "remaining_inconsistent_no_effect_count": 0,
+  "review_video_count": 15,
+  "total_transition_count": 176596
+}

@@ -1,0 +1,7 @@
+bd715b8 stage2E: evaluate learned transition responsibility on frozen test
+e6b512e stage2D: train and select responsibility network on validation
+b2ffc9b stage2C: implement gated transition responsibility network
+ef3910a stage2B: build fixed chunk responsibility dataset
+3c34b0e stage2A: freeze stage1 inputs and extract responsibility features
+7e5bb8b stage1A: reproduce SCIZOR outcome baseline and export evidence interface
+75051b3 update installation instructions in README.md

@@ -1,0 +1,15 @@
+/home/__compress_data/xushijie/.conda/envs/cupid/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/datamil/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/gsp/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/latex-perl/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/lerobot/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/lerobotpi0/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/lerobotpi05/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/lerobotpi0fast/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/mimicgen/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/occi-boss-bcvilt-np123/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/occi-boss-bcvilt/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/occi-boss/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/scizor-curation/conda-meta/history
+/home/__compress_data/xushijie/.conda/envs/strap/conda-meta/history
+/opt/miniconda3/conda-meta/history

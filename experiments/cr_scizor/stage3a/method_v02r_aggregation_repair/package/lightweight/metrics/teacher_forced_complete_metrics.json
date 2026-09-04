@@ -1,0 +1,52 @@
+{
+  "action_only": {
+    "auprc": 0.24292183401140655,
+    "auroc": 0.7291508430806624,
+    "n": 256,
+    "positive": 29,
+    "prevalence": 0.11328125
+  },
+  "by_task": {
+    "can": {
+      "action_only": {
+        "auprc": 0.41536876838976294,
+        "auroc": 0.8258928571428571,
+        "n": 128,
+        "positive": 16,
+        "prevalence": 0.125
+      },
+      "full": {
+        "auprc": 0.33189841385283236,
+        "auroc": 0.828125,
+        "n": 128,
+        "positive": 16,
+        "prevalence": 0.125
+      }
+    },
+    "square": {
+      "action_only": {
+        "auprc": 0.11916680776627614,
+        "auroc": 0.557190635451505,
+        "n": 128,
+        "positive": 13,
+        "prevalence": 0.1015625
+      },
+      "full": {
+        "auprc": 0.13350082977946426,
+        "auroc": 0.6133779264214047,
+        "n": 128,
+        "positive": 13,
+        "prevalence": 0.1015625
+      }
+    }
+  },
+  "effective_pair_count": 29,
+  "full": {
+    "auprc": 0.24538740830923372,
+    "auroc": 0.7520887133525748,
+    "score_mae": 0.15669967104573201,
+    "score_spearman": 0.7898920980642873
+  },
+  "pair_count": 256,
+  "schema": "stage3f_r_complete_teacher_metrics_v1"
+}

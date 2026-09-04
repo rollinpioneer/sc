@@ -1,0 +1,8 @@
+{
+  "groups": 1088,
+  "pairs": 1024,
+  "split_counts": {
+    "train": 768,
+    "validation": 256
+  }
+}

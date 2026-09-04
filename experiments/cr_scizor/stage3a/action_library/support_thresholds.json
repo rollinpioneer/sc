@@ -1,0 +1,12 @@
+{
+  "can": {
+    "state_distance_q95": 0.23069136291742326,
+    "action_delta_q99": 2.043612999916078,
+    "num_queries": 2723
+  },
+  "square": {
+    "state_distance_q95": 0.24386896193027488,
+    "action_delta_q99": 2.0497163772583007,
+    "num_queries": 3475
+  }
+}

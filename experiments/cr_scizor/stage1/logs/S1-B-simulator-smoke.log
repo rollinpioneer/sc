@@ -1,0 +1,37 @@
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+WARNING: robosuite task zoo environments not imported, possibly because robosuite_task_zoo is not installed...
+Got error: No module named 'robosuite_task_zoo'
+WARNING: could not import mimicgen envs
+WARNING: could not import robocasa envs
+WARNING: could not import dexmimicgen envs
+WARNING: could not import LIBERO envs
+
+Traceback (most recent call last):
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/xushijie/work/cr_scizor/SCIZOR/stage1/benchmark/replay_smoke.py", line 36, in <module>
+    if __name__=='__main__': main()
+  File "/home/xushijie/work/cr_scizor/SCIZOR/stage1/benchmark/replay_smoke.py", line 32, in main
+    records=[run('can',args.can,args.output_dir),run('square',args.square,args.output_dir)]
+  File "/home/xushijie/work/cr_scizor/SCIZOR/stage1/benchmark/replay_smoke.py", line 19, in run
+    env, _=create_shaped_env(dataset)
+  File "/home/xushijie/work/cr_scizor/SCIZOR/stage1/benchmark/simulator_replay.py", line 10, in create_shaped_env
+    return env_utils.create_env_from_metadata(meta, render=False, render_offscreen=True), meta
+  File "/home/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/utils/env_utils.py", line 184, in create_env_from_metadata
+    env = create_env(
+  File "/home/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/utils/env_utils.py", line 135, in create_env
+    env = env_class(
+  File "/home/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py", line 132, in __init__
+    valid_gpu_devices = [int(d) for d in valid_gpu_devices]
+  File "/home/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py", line 132, in <listcomp>
+    valid_gpu_devices = [int(d) for d in valid_gpu_devices]
+ValueError: invalid literal for int() with base 10: ''

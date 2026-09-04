@@ -1,0 +1,7 @@
+### git log
+### relevant commits
+875915a stage3A-DR1: diagnose and freeze benchmark transition alignment
+### current files
+e71c67ddaae3b0a2f9de3eaecbb1370618d9a16e66b15234d766204b467b0154  stage1/benchmark/simulator_replay.py
+56743a4c380e37b126e98d84d8bdfc9b82a68986717114d98d74564df25891e4  stage1/benchmark/generate_benchmark.py
+db4dc804fc29cf6a64bb3993364a668c515ac17e6428737d5289556fdb1aa6fc  stage1/benchmark/outcome_labels.py

@@ -1,0 +1,37 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+WARNING: robosuite task zoo environments not imported, possibly because robosuite_task_zoo is not installed...
+Got error: No module named 'robosuite_task_zoo'
+WARNING: could not import mimicgen envs
+WARNING: could not import robocasa envs
+WARNING: could not import dexmimicgen envs
+WARNING: could not import LIBERO envs
+0
+Created environment with name PickPlaceCan
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name PickPlaceCan
+Action size is 7
+{
+  "source": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5",
+  "demo_id": "demo_0",
+  "runtime_model_sha256": "f1a4f7840b2f16f1e5674574357db2157e4199882b5d83427fca9d964703ffc7",
+  "steps": 118,
+  "max_states_pre_abs": 0.0,
+  "max_states_post_abs": 0.0,
+  "max_reward_abs": 0.0,
+  "max_staged_abs": 0.0,
+  "success_all_equal": true,
+  "determinism_pass": true
+}

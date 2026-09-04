@@ -1,0 +1,2 @@
+# BLOCKED: populate from the immutable supplied Robomimic HDF5 candidate pool.
+# One original candidate/cluster identifier per line. Do not invent IDs.

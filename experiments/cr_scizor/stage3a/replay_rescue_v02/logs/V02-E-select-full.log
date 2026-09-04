@@ -1,0 +1,114 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+WARNING: robosuite task zoo environments not imported, possibly because robosuite_task_zoo is not installed...
+Got error: No module named 'robosuite_task_zoo'
+WARNING: could not import mimicgen envs
+WARNING: could not import robocasa envs
+WARNING: could not import dexmimicgen envs
+WARNING: could not import LIBERO envs
+0
+Created environment with name PickPlaceCan
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name PickPlaceCan
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name NutAssemblySquare
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name NutAssemblySquare
+Action size is 7
+{
+  "selected": {
+    "can": [
+      "demo_0",
+      "demo_1",
+      "demo_11",
+      "demo_14",
+      "demo_100",
+      "demo_101",
+      "demo_102",
+      "demo_103",
+      "demo_106",
+      "demo_107",
+      "demo_108",
+      "demo_110",
+      "demo_111",
+      "demo_112",
+      "demo_113",
+      "demo_114",
+      "demo_115",
+      "demo_116",
+      "demo_117",
+      "demo_118",
+      "demo_119",
+      "demo_120",
+      "demo_121",
+      "demo_122",
+      "demo_123",
+      "demo_124",
+      "demo_127",
+      "demo_131",
+      "demo_132",
+      "demo_133",
+      "demo_134",
+      "demo_135"
+    ],
+    "square": [
+      "demo_0",
+      "demo_10",
+      "demo_12",
+      "demo_14",
+      "demo_100",
+      "demo_101",
+      "demo_103",
+      "demo_104",
+      "demo_105",
+      "demo_108",
+      "demo_109",
+      "demo_110",
+      "demo_111",
+      "demo_112",
+      "demo_113",
+      "demo_114",
+      "demo_116",
+      "demo_117",
+      "demo_118",
+      "demo_119",
+      "demo_120",
+      "demo_121",
+      "demo_122",
+      "demo_123",
+      "demo_125",
+      "demo_128",
+      "demo_129",
+      "demo_131",
+      "demo_132",
+      "demo_134",
+      "demo_135",
+      "demo_136"
+    ]
+  },
+  "tested": 64
+}

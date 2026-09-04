@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/proposals/proposal_candidates_train.parquet",
+      "split": "train",
+      "rows": 6426,
+      "pairs": 768,
+      "max_rows_per_pair": 10,
+      "effective_pairs": 120,
+      "effective_pairs_with_region": 120,
+      "effective_coverage": 1.0,
+      "no_effect_pairs": 648
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/proposals/proposal_candidates_validation.parquet",
+      "split": "validation",
+      "rows": 2222,
+      "pairs": 256,
+      "max_rows_per_pair": 10,
+      "effective_pairs": 44,
+      "effective_pairs_with_region": 34,
+      "effective_coverage": 0.7727272727272727,
+      "no_effect_pairs": 212
+    }
+  ]
+}

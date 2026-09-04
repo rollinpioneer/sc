@@ -1,0 +1,6 @@
+{
+  "status": "MISALIGNED_PROVISIONAL",
+  "usable_for_verifier_training": false,
+  "reason": "simulator next-state alignment failed",
+  "stage3a_e_or_later_run": false
+}

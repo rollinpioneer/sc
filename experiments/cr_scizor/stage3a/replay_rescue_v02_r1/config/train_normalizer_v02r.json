@@ -1,0 +1,32 @@
+{
+  "source": "v0.2 train paired-clean framewise deltas",
+  "max_horizon": 100,
+  "quantile": 0.9,
+  "zero_epsilon": 1e-12,
+  "tasks": {
+    "can": {
+      "dense_scale": 0.02600127756595609,
+      "stage_scale": 0.027418997883796693,
+      "train_pair_count": 384,
+      "dense_nonzero_count": 14312,
+      "stage_nonzero_count": 12453
+    },
+    "square": {
+      "dense_scale": 0.012174415588378907,
+      "stage_scale": 0.012874054908752448,
+      "train_pair_count": 384,
+      "dense_nonzero_count": 15590,
+      "stage_nonzero_count": 12884
+    }
+  },
+  "normalizer": {
+    "can": {
+      "dense_scale": 0.02600127756595609,
+      "stage_scale": 0.027418997883796693
+    },
+    "square": {
+      "dense_scale": 0.012174415588378907,
+      "stage_scale": 0.012874054908752448
+    }
+  }
+}

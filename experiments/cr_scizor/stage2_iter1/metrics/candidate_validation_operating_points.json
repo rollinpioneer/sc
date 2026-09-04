@@ -1,0 +1,82 @@
+{
+  "active_validation_transition_count": 32053,
+  "methods": {
+    "action_only_iter1_seed0__best_effect_bacc": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 1.6663319688525746e-06,
+      "validation_delete_count": 9616
+    },
+    "action_only_iter1_seed0__best_gate_gap": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 1.6663319688525746e-06,
+      "validation_delete_count": 9616
+    },
+    "action_only_iter1_seed0__best_localization": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 8.435770970649514e-09,
+      "validation_delete_count": 9616
+    },
+    "future_discount": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.02636817106197408,
+      "validation_delete_count": 9616
+    },
+    "original_scizor": {
+      "selection": "score >= validation percentile threshold",
+      "threshold": 0.5024318337440491,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed0__best_effect_bacc": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.0007885979765765994,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed0__best_gate_gap": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.0007885979765765994,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed0__best_localization": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 3.4111470315068004e-09,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed1__best_effect_bacc": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.001860513248333584,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed1__best_gate_gap": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.00011227578346828526,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed1__best_localization": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.004108157303134186,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed2__best_effect_bacc": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.006909074938528659,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed2__best_gate_gap": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.0011408960608625396,
+      "validation_delete_count": 9616
+    },
+    "responsibility_iter1_seed2__best_localization": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 3.1659376342751955e-08,
+      "validation_delete_count": 9616
+    },
+    "uniform": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.025525744189590503,
+      "validation_delete_count": 9616
+    }
+  },
+  "reference_percentile": 0.7,
+  "selection_split": "validation"
+}

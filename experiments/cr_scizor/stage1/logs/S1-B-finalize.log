@@ -1,0 +1,16 @@
+FINALIZE_START 2026-09-02T09:37:33+08:00
+MERGE_OK 1280 1360
+{
+  "pair_count": 1280,
+  "task_counts": {
+    "can": 640,
+    "square": 640
+  },
+  "single_changed_action_rate": 1.0,
+  "error_count": 0,
+  "errors": [],
+  "ambiguous_rate": 0.0,
+  "has_final_failure": true,
+  "has_recovery_success": true
+}
+FINALIZE_SUCCESS 2026-09-02T09:37:41+08:00

@@ -1,0 +1,55 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage3a/oracle/diagnose_state_layout.py", line 163, in <module>
+    if __name__ == "__main__": main()
+  File "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage3a/oracle/diagnose_state_layout.py", line 143, in main
+    pre, nxt, texture_patch = replay_one(pool.env(str(query["task"])), data, t, alignment, mode)
+  File "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage3a/oracle/diagnose_state_layout.py", line 93, in replay_one
+    env.reset_to(payload(states[pre_idx], runtime_model))
+  File "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py", line 227, in reset_to
+    self.env.reset_from_xml_string(xml)
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/base.py", line 560, in reset_from_xml_string
+    self.reset()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/base.py", line 258, in reset
+    self._reset_internal()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/manipulation/pick_place.py", line 690, in _reset_internal
+    super()._reset_internal()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/robot_env.py", line 510, in _reset_internal
+    super()._reset_internal()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/base.py", line 305, in _reset_internal
+    self._setup_references()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/manipulation/pick_place.py", line 545, in _setup_references
+    super()._setup_references()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/robot_env.py", line 313, in _setup_references
+    super()._setup_references()
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/environments/base.py", line 206, in _setup_references
+    self.model.generate_id_mappings(sim=self.sim)
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/models/tasks/task.py", line 115, in generate_id_mappings
+    get_ids(sim=sim, elements=model.visual_geoms + model.contact_geoms, element_type="geom"),
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/utils/mjcf_utils.py", line 853, in get_ids
+    elements = [get_ids(sim=sim, elements=ele, element_type=element_type, inplace=True) for ele in elements]
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/utils/mjcf_utils.py", line 853, in <listcomp>
+    elements = [get_ids(sim=sim, elements=ele, element_type=element_type, inplace=True) for ele in elements]
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/utils/mjcf_utils.py", line 842, in get_ids
+    elements = sim.model.geom_name2id(elements)
+  File "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/utils/binding_utils.py", line 393, in geom_name2id
+    raise ValueError('No "geom" with name %s exists. Available "geom" names = %s.' % (name, self.geom_names))
+ValueError: No "geom" with name robot0_g0_vis exists. Available "geom" names = ('floor', 'wall_leftcorner_visual', 'wall_rightcorner_visual', 'wall_left_visual', 'wall_right_visual', 'wall_rear_visual', 'wall_front_visual', 'bin1_leg1_visual', 'bin1_leg2_visual', 'bin1_leg3_visual', 'bin1_leg4_visual', None, 'bin2_leg1_visual', 'bin2_leg2_visual', 'bin2_leg3_visual', 'bin2_leg4_visual', 'robot0_link0_visual', 'robot0_link0_collision', 'robot0_link1_visual', 'robot0_link1_collision', 'robot0_link2_visual', 'robot0_link2_collision', 'robot0_link3_visual', 'robot0_link3_collision', 'robot0_link4_visual', 'robot0_link4_collision', 'robot0_link5_visual', 'robot0_link5_collision', 'robot0_link6_visual', 'robot0_link6_collision', 'robot0_link7_visual', 'robot0_link7_collision', 'gripper0_hand_visual', 'gripper0_hand_collision', 'gripper0_finger1_visual', 'gripper0_finger1_collision', 'gripper0_finger1_pad_collision', 'gripper0_finger2_visual', 'gripper0_finger2_collision', 'gripper0_finger2_pad_collision', 'mount0_controller_box_col', 'mount0_pedestal_feet_col', 'mount0_torso_vis', 'mount0_pedestal_vis', 'mount0_pedestal_col', 'VisualMilk_g0', 'VisualBread_g0', 'VisualCereal_g0', 'VisualCan_g0', 'Milk_g0', 'Milk_g0_visual', 'Bread_g0', 'Bread_g0_visual', 'Cereal_g0', 'Cereal_g0_visual', 'Can_g0', 'Can_g0_visual').
+WARNING: robosuite task zoo environments not imported, possibly because robosuite_task_zoo is not installed...
+Got error: No module named 'robosuite_task_zoo'
+WARNING: could not import mimicgen envs
+WARNING: could not import robocasa envs
+WARNING: could not import dexmimicgen envs
+WARNING: could not import LIBERO envs
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+ERROR conda.cli.main_run:execute(148): `conda run env PYTHONPATH=/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic:/home/__compress_data/xushijie/work/cr_scizor/SCIZOR MUJOCO_GL=egl python -m stage3a.oracle.diagnose_state_layout --benchmark-hdf5 /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/benchmark_v0.1.hdf5 --plan /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/oracle/plans/validation_plan.jsonl --can-source /home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5 --square-source /home/__compress_data/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5 --output-diagnostics /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/alignment_repair/diagnostics/state_layout_diagnostics.json --output-alignment /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/alignment_repair/config/transition_alignment.json --queries-per-cell 2 --median-threshold 1e-4 --p95-threshold 1e-3` failed. (See above for error)

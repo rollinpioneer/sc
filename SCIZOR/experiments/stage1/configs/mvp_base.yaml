@@ -1,0 +1,49 @@
+stage: 1
+substage: baseline
+status: blocked_pending_datamil_and_dataset
+benchmark:
+  name: robomimic
+  task_ids: [can]
+data:
+  root: /home/xushijie/work/cr_scizor/data/robomimic
+  version: robomimic_can_mh_image_hdf5_required
+  candidate_pool: experiments/stage1/configs/candidate_pool_ids.txt
+  target_demo_count: 5
+  # These must be populated from the supplied HDF5 only; fabricated IDs would
+  # invalidate the experiment.
+  target_demo_ids: []
+  data_seed: 0
+clustering:
+  method: original_datamil_required
+  params: {}
+selection:
+  budget_type: cluster_count
+  budget: null
+  topk_rule: descending_influence
+influence:
+  method: original_datamil_required
+  checkpoint: null
+  params: {}
+policy:
+  backbone: robomimic_bc_gmm
+  init_checkpoint: null
+train:
+  optimizer: adam
+  learning_rate: 0.0001
+  batch_size: 16
+  steps: 600_epochs
+  precision: fp32
+  train_seed: 0
+eval:
+  distribution: in_distribution
+  episodes_smoke: 5
+  episodes_baseline: 80
+  eval_seed: 100
+compute:
+  gpu_ids: [0]
+  num_workers: 2
+output:
+  root: outputs/stage1
+pipeline:
+  # Must be set to a real original-DataMIL executable before a run is allowed.
+  command: null

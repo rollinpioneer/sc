@@ -1,0 +1,369 @@
+{
+  "artifacts": [
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/no_effect_false_attribution__can_demo_109_axis_impulse_t108_m1_00.mp4",
+      "size_bytes": 129629
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/no_effect_false_attribution__can_demo_109_zero_motion_t108_m1_00.mp4",
+      "size_bytes": 131653
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/no_effect_false_attribution__can_demo_10_axis_impulse_t118_m1_00.mp4",
+      "size_bytes": 131413
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/recovery_false_deletion__can_demo_13_reverse_motion_t69_m1_00.mp4",
+      "size_bytes": 137557
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/recovery_false_deletion__square_demo_115_flip_gripper_t75_m0_50.mp4",
+      "size_bytes": 173636
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/recovery_false_deletion__square_demo_115_zero_motion_t75_m0_50.mp4",
+      "size_bytes": 164280
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/responsible_miss__square_demo_102_zero_motion_t134_m0_50.mp4",
+      "size_bytes": 243015
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/responsible_miss__square_demo_115_axis_impulse_t85_m0_25.mp4",
+      "size_bytes": 174484
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/responsible_miss__square_demo_1_zero_motion_t58_m0_50.mp4",
+      "size_bytes": 150292
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/top1_accurate__can_demo_109_axis_impulse_t62_m1_00.mp4",
+      "size_bytes": 133579
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/top1_accurate__can_demo_109_axis_impulse_t80_m1_00.mp4",
+      "size_bytes": 133027
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/cases/top1_accurate__can_demo_109_axis_impulse_t97_m1_00.mp4",
+      "size_bytes": 132215
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/all_stage2_iter1_predictions.parquet",
+      "size_bytes": 4052574
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/action_only_iter1_seed0_chunks.parquet",
+      "size_bytes": 1145315
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/action_only_iter1_seed0_transitions.parquet",
+      "size_bytes": 1011536
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/responsibility_iter1_seed0_chunks.parquet",
+      "size_bytes": 1124072
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/responsibility_iter1_seed0_transitions.parquet",
+      "size_bytes": 839604
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/responsibility_iter1_seed1_chunks.parquet",
+      "size_bytes": 1148491
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/responsibility_iter1_seed1_transitions.parquet",
+      "size_bytes": 1021211
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/responsibility_iter1_seed2_chunks.parquet",
+      "size_bytes": 1142274
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/test/responsibility_iter1_seed2_transitions.parquet",
+      "size_bytes": 998515
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/action_only_iter1_seed0__best_effect_bacc_chunks.parquet",
+      "size_bytes": 1077530
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/action_only_iter1_seed0__best_effect_bacc_transitions.parquet",
+      "size_bytes": 959410
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/action_only_iter1_seed0__best_gate_gap_chunks.parquet",
+      "size_bytes": 1077508
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/action_only_iter1_seed0__best_gate_gap_transitions.parquet",
+      "size_bytes": 959388
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/action_only_iter1_seed0__best_localization_chunks.parquet",
+      "size_bytes": 1069035
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/action_only_iter1_seed0__best_localization_transitions.parquet",
+      "size_bytes": 885687
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/all_candidate_validation_predictions.parquet",
+      "size_bytes": 4272795
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed0__best_effect_bacc_chunks.parquet",
+      "size_bytes": 1078187
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed0__best_effect_bacc_transitions.parquet",
+      "size_bytes": 964868
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed0__best_gate_gap_chunks.parquet",
+      "size_bytes": 1078166
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed0__best_gate_gap_transitions.parquet",
+      "size_bytes": 964847
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed0__best_localization_chunks.parquet",
+      "size_bytes": 1057014
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed0__best_localization_transitions.parquet",
+      "size_bytes": 788479
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed1__best_effect_bacc_chunks.parquet",
+      "size_bytes": 1073675
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed1__best_effect_bacc_transitions.parquet",
+      "size_bytes": 943263
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed1__best_gate_gap_chunks.parquet",
+      "size_bytes": 1081420
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed1__best_gate_gap_transitions.parquet",
+      "size_bytes": 976122
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed1__best_localization_chunks.parquet",
+      "size_bytes": 1071508
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed1__best_localization_transitions.parquet",
+      "size_bytes": 931257
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed2__best_effect_bacc_chunks.parquet",
+      "size_bytes": 1054549
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed2__best_effect_bacc_transitions.parquet",
+      "size_bytes": 898333
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed2__best_gate_gap_chunks.parquet",
+      "size_bytes": 1075772
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed2__best_gate_gap_transitions.parquet",
+      "size_bytes": 954141
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed2__best_localization_chunks.parquet",
+      "size_bytes": 1072400
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_candidates/responsibility_iter1_seed2__best_localization_transitions.parquet",
+      "size_bytes": 882579
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/action_only_iter1_seed0_chunks.parquet",
+      "size_bytes": 1077402
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/action_only_iter1_seed0_transitions.parquet",
+      "size_bytes": 959282
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/all_selected_validation_predictions.parquet",
+      "size_bytes": 2112944
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/responsibility_iter1_seed0_chunks.parquet",
+      "size_bytes": 1056879
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/responsibility_iter1_seed0_transitions.parquet",
+      "size_bytes": 788344
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/responsibility_iter1_seed1_chunks.parquet",
+      "size_bytes": 1081313
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/responsibility_iter1_seed1_transitions.parquet",
+      "size_bytes": 976015
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/responsibility_iter1_seed2_chunks.parquet",
+      "size_bytes": 1075665
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/predictions/validation_selected/responsibility_iter1_seed2_transitions.parquet",
+      "size_bytes": 954034
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/best.pt",
+      "sha256": "9b3f982cb41818749c0dab1766156817141b8efa2c2cd13aa61e1cd9941cd3b5",
+      "size_bytes": 8162701
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/best_effect_bacc.pt",
+      "sha256": "48774bec571bf82ba8fb119bfc49e5fff246c07204750d0832875075f774baf8",
+      "size_bytes": 8169181
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/best_gate_gap.pt",
+      "sha256": "d8d6ba4bb43e772fb33f1abf173c9a8f1135d448c464a3671b90876c79489847",
+      "size_bytes": 8168905
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/best_localization.pt",
+      "sha256": "b78d773d83a67e3cb4b9541bd3650bdd943949a4b52de9fb36c14bfade335d97",
+      "size_bytes": 8169273
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/last.pt",
+      "sha256": "bcfbfcab532eeb2b36be2e5d67058bb2018b016d4d381d5560676903d0f96a34",
+      "size_bytes": 8162573
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/selected.pt",
+      "sha256": "48774bec571bf82ba8fb119bfc49e5fff246c07204750d0832875075f774baf8",
+      "size_bytes": 8169181
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/best.pt",
+      "sha256": "b61f3a0fcbeab811443a0d66469e9d586b6ebdf0676654027cac259bf39a578a",
+      "size_bytes": 8162637
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/best_effect_bacc.pt",
+      "sha256": "23aad77564ad71bce376c2ea85c80f9f414c9926cf3b34d5227417dd68962f2e",
+      "size_bytes": 8169181
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/best_gate_gap.pt",
+      "sha256": "919bdb51ee51768539398769611fc042b6f7aef407e179d707594109e6dc307f",
+      "size_bytes": 8168905
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/best_localization.pt",
+      "sha256": "821b5ea2e9546d974379316110e193c3e034c2d20f9d5ed5aae23e05856c223a",
+      "size_bytes": 8169273
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/last.pt",
+      "sha256": "c782e4836793dbc219f78605b4e7d57f355b401563749415b70b838a6eb97780",
+      "size_bytes": 8162573
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/selected.pt",
+      "sha256": "821b5ea2e9546d974379316110e193c3e034c2d20f9d5ed5aae23e05856c223a",
+      "size_bytes": 8169273
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_1/best.pt",
+      "sha256": "662251e77864864b733790d4f89a08ecba7d61f39dda637260a94118efa268b3",
+      "size_bytes": 8162637
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_1/best_effect_bacc.pt",
+      "sha256": "cf5134643d4fc2cdf611d353aef8193417825f0206364fba5cb1683f1977fb20",
+      "size_bytes": 8169181
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_1/best_gate_gap.pt",
+      "sha256": "8ce90882ea6d15f558c67547e7ee110a9b6bf204dbe082f5a944bc1efcae48a7",
+      "size_bytes": 8168905
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_1/best_localization.pt",
+      "sha256": "f22d849c54e68cce6b32ee4ab763c04287ba7a3f2192c42f937bff0a23fedec0",
+      "size_bytes": 8169273
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_1/last.pt",
+      "sha256": "9009eb32de3a3166cd330bfe3239cb860c263c93367706d0f239168b2c422b74",
+      "size_bytes": 8162573
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_1/selected.pt",
+      "sha256": "8ce90882ea6d15f558c67547e7ee110a9b6bf204dbe082f5a944bc1efcae48a7",
+      "size_bytes": 8168905
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best.pt",
+      "sha256": "c52945e783f864bc91aaa96133731eece53c0f6a46753cdde2e93125cbb5f08b",
+      "size_bytes": 8162637
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best_effect_bacc.pt",
+      "sha256": "0ea8303d7a1f849503c680bbc8dd8e15d4fcc66d4df7dc6bf7a87bc843a2dd13",
+      "size_bytes": 8169181
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best_gate_gap.pt",
+      "sha256": "0f3837dd3277afd94f4bfd5c4b97acd9aaad3e9af98698f3f65f4d3b57e15d97",
+      "size_bytes": 8168905
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best_localization.pt",
+      "sha256": "a0314f6aaad220086abc7a228c92f808643d31281daa53ae8adf53201fb87c71",
+      "size_bytes": 8169273
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/last.pt",
+      "sha256": "2cab02177e55ecf41d9526812fcf8967a733881b81c44400e6ed2563528d2c59",
+      "size_bytes": 8162573
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/selected.pt",
+      "sha256": "0f3837dd3277afd94f4bfd5c4b97acd9aaad3e9af98698f3f65f4d3b57e15d97",
+      "size_bytes": 8168905
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/smoke/best.pt",
+      "sha256": "53cfc243b1c160202624597a8534fead5da9f8883180a4dbe248dd0bc9f05174",
+      "size_bytes": 8161485
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/smoke/best_effect_bacc.pt",
+      "sha256": "fce497f06d7e30b65c136248b65d5b9237e774ca433ac4cdafa8a4d489acfd93",
+      "size_bytes": 8167965
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/smoke/best_gate_gap.pt",
+      "sha256": "3688d8d8b0ecd93b13233c973cc21df14e16cd83359d99540a9c482e7101065d",
+      "size_bytes": 8167689
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/smoke/best_localization.pt",
+      "sha256": "b9a0767b5236de2947931194614d896d5f4572844b7c82264116c14a8b3151b3",
+      "size_bytes": 8168057
+    },
+    {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/smoke/last.pt",
+      "sha256": "78db034f9b7959894b5e9070229b5045508e32a15c854ed0c033b030207338eb",
+      "size_bytes": 8161421
+    }
+  ]
+}

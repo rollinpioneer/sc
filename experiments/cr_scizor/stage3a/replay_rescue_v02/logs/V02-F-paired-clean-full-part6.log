@@ -1,0 +1,65 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+WARNING: robosuite task zoo environments not imported, possibly because robosuite_task_zoo is not installed...
+Got error: No module named 'robosuite_task_zoo'
+WARNING: could not import mimicgen envs
+WARNING: could not import robocasa envs
+WARNING: could not import dexmimicgen envs
+WARNING: could not import LIBERO envs
+0
+Created environment with name PickPlaceCan
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name PickPlaceCan
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name NutAssemblySquare
+Action size is 7
+
+============= Initialized Observation Utils with Obs Spec =============
+
+using obs modality: low_dim with keys: ['robot0_eef_pos']
+using obs modality: rgb with keys: []
+0
+Created environment with name NutAssemblySquare
+Action size is 7
+{
+  "engineering": {
+    "pair_count": 128,
+    "branch_pre_state_equal_rate": 1.0,
+    "reference_exact_all_horizons_rate": 1.0,
+    "paired_clean_exact_all_horizons_rate": 1.0,
+    "finite_target_rate": 1.0
+  },
+  "metrics": {
+    "overall_auroc": 0.7203252032520325,
+    "overall_auprc": 0.07579852871381111,
+    "can_auroc": 0.6031746031746031,
+    "can_n": 64,
+    "square_auroc": 0.8208333333333333,
+    "square_n": 64
+  },
+  "failure_type_counts": {
+    "no_effect": 123,
+    "delayed_failure": 4,
+    "recovery_success": 1
+  },
+  "effective_count": 5,
+  "no_effect_count": 123
+}

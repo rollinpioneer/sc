@@ -1,0 +1,44 @@
+{
+  "scales": {
+    "can": {
+      "10": {
+        "dense_mean": 0.3252764642238616,
+        "stage_mean": 1.0776587009429932
+      },
+      "20": {
+        "dense_mean": 0.3540646195411674,
+        "stage_mean": 0.8450844764709516
+      },
+      "40": {
+        "dense_mean": 0.4022580027580257,
+        "stage_mean": 0.8748636245727541
+      }
+    },
+    "square": {
+      "10": {
+        "dense_mean": 0.29008964896202,
+        "stage_mean": 1.0101051330566402
+      },
+      "20": {
+        "dense_mean": 0.27799326777458094,
+        "stage_mean": 0.7817536354064923
+      },
+      "40": {
+        "dense_mean": 0.30985938906669563,
+        "stage_mean": 0.6946429789066313
+      }
+    }
+  },
+  "formula": {
+    "dense_weight": 0.4,
+    "stage_weight": 0.5,
+    "success_weight": 0.1,
+    "horizon_weights": [
+      0.2,
+      0.3,
+      0.5
+    ],
+    "positive_threshold": 0.05
+  },
+  "train_rows_for_scale": 25295
+}

@@ -1,0 +1,21 @@
+### stage1 logs
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-background-job.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-background-supervisor-launch.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-background-supervisor.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-calibration.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-env-install-base.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-finalize.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-full-benchmark.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-merge-existing.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-parallel-job.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-B-simulator-smoke.log
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/logs/S1-D-score-benchmark.log
+### command mentions
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage3a/rescue/print_runtime_fingerprint.py:47:        "conda_default_env": os.environ.get("CONDA_DEFAULT_ENV"),
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py:102:        self._is_v1 = (robosuite.__version__.split(".")[0] == "1")
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py:104:            assert (int(robosuite.__version__.split(".")[1]) >= 2), "only support robosuite v0.3 and v1.2+"
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py:142:        robosuite_version_id = int(robosuite.__version__.split(".")[1])
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py:220:            robosuite_version_id = int(robosuite.__version__.split(".")[1])
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py:483:        return robosuite.__version__
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/envs/env_robosuite.py:528:        is_v1 = (robosuite.__version__.split(".")[0] == "1")
+### shell history mentions

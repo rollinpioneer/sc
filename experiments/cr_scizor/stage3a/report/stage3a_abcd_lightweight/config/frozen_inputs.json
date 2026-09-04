@@ -1,0 +1,74 @@
+{
+  "benchmark_h5": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/benchmark_v0.1.hdf5",
+    "size_bytes": 704242486,
+    "sha256": "2898deb0f8bef19ed28337fe883867265689222ba63d408e1d4c17a487b603bd"
+  },
+  "pair_metadata": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/pair_metadata.jsonl",
+    "size_bytes": 1441170,
+    "sha256": "f058b9f9811e7f1e19684256dc6ef2de1238bbbc370ceeff37c2eb7317dcc7f4"
+  },
+  "transition_labels": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/transition_labels.parquet",
+    "size_bytes": 311839,
+    "sha256": "b2cbb25de15e1f804eb4498738c4218d61e1c0b3a621d59b13254a4afec0be0a"
+  },
+  "split_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/split_manifest.json",
+    "size_bytes": 62039,
+    "sha256": "e8b81c36c20ac2ebefc739fa4ff1bb5167b32842b69bc8fb93f9be6a3484ab0b"
+  },
+  "chunk_evidence": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/chunk_evidence.parquet",
+    "size_bytes": 3812715,
+    "sha256": "3617b2406b2d18d75f757c703a42680d2ed73b91ff046bcdfee5b8e0a8d95b74"
+  },
+  "full_proposer_checkpoint": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/selected.pt",
+    "size_bytes": 8169273,
+    "sha256": "821b5ea2e9546d974379316110e193c3e034c2d20f9d5ed5aae23e05856c223a"
+  },
+  "action_proposer_checkpoint": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/selected.pt",
+    "size_bytes": 8169181,
+    "sha256": "48774bec571bf82ba8fb119bfc49e5fff246c07204750d0832875075f774baf8"
+  },
+  "stage3a_config": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage3a/configs/counterfactual_feasibility.json",
+    "size_bytes": 2438,
+    "sha256": "d2cea1075e8d437125b0d242182e9380228300d572c0c5fb8e0407074acc3a90"
+  },
+  "can_hdf5": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5",
+    "size_bytes": 2010694944,
+    "sha256": "635a1b93e10a65049cb5ab5d1fc947281a72af6c6c991c021477a745c82cdf5d"
+  },
+  "square_hdf5": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5",
+    "size_bytes": 2603429840,
+    "sha256": "8901b2e4546c59d57436e2dcad4ba643c806ae3db0133b4bd1859236a0f4eae0"
+  },
+  "magnitude_config": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/calibration/magnitude_config.json",
+    "size_bytes": 3465,
+    "sha256": "30233f885c5f8b4b678b1d3915e5c1bf5f2e058c073ad33ae5ffe06ffbeaf916"
+  },
+  "feature_index": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_index.parquet",
+    "size_bytes": 60470,
+    "sha256": "523845ef25789570f7a5df87dd21419d80bee5cf0e5424063b682984e95e4ca3"
+  },
+  "normalizer": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/normalizer.npz",
+    "size_bytes": 4780,
+    "sha256": "46298bcafa6ecdc072ef0f68ed7d4e14138d13ff6a7ce5ac0354dd5388f151da"
+  },
+  "stage2_go_no_go": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/metrics/go_no_go.json",
+    "size_bytes": 2039,
+    "sha256": "a974f0a27ec2ad58e14b815d8738dda7f25ee20e27d139f56fcce8a0954dea73"
+  },
+  "stage2_status": "NO_GO_SWITCH_DIRECTION",
+  "stage3a_role": "counterfactual_verifier_feasibility_only"
+}

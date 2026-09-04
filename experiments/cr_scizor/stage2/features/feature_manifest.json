@@ -1,0 +1,20 @@
+{
+  "demo_count": 1360,
+  "feature_index_sha256": "523845ef25789570f7a5df87dd21419d80bee5cf0e5424063b682984e95e4ca3",
+  "image_embedding_dim": 768,
+  "source_split_manifest_sha256": "e8b81c36c20ac2ebefc739fa4ff1bb5167b32842b69bc8fb93f9be6a3484ab0b",
+  "source_transition_labels_sha256": "b2cbb25de15e1f804eb4498738c4218d61e1c0b3a621d59b13254a4afec0be0a",
+  "split_demo_counts": {
+    "test": 272,
+    "train": 816,
+    "validation": 272
+  },
+  "split_transition_counts": {
+    "test": 36516,
+    "train": 105366,
+    "validation": 34714
+  },
+  "state_pad_dim": 71,
+  "transition_count": 176596,
+  "visual_encoder": "facebook/dinov2-base"
+}

@@ -1,0 +1,42 @@
+{
+  "python": "3.9.25 (main, Nov  3 2025, 22:33:05) \n[GCC 11.2.0]",
+  "executable": "/home/xushijie/.conda/envs/mimicgen/bin/python",
+  "platform": "Linux-7.1.8-1.el10.elrepo.x86_64-x86_64-with-glibc2.39",
+  "conda_prefix": "/home/xushijie/.conda/envs/mimicgen",
+  "pythonpath": "/home/xushijie/work/cr_scizor/SCIZOR/robomimic:/home/xushijie/work/cr_scizor/SCIZOR",
+  "modules": {
+    "robomimic": {
+      "version": "0.2.0",
+      "file": "/home/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/__init__.py"
+    },
+    "robosuite": {
+      "version": "1.4.1",
+      "file": "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/__init__.py"
+    },
+    "mujoco": {
+      "version": "2.3.2",
+      "file": "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/mujoco/__init__.py"
+    },
+    "numpy": {
+      "version": "1.26.4",
+      "file": "/home/xushijie/.local/lib/python3.9/site-packages/numpy/__init__.py"
+    },
+    "h5py": {
+      "version": "3.14.0",
+      "file": "/home/xushijie/.local/lib/python3.9/site-packages/h5py/__init__.py"
+    },
+    "mimicgen": {
+      "version": "1.0.1",
+      "file": "/home/__compress_data/xushijie/stage_aware_gateS/02_env_sequential_pickplace3/build/mimicgen_src/mimicgen/__init__.py"
+    }
+  },
+  "scizor_git_head": "875915ad23f27341d460d7d8d7019e57b660d792",
+  "scizor_git_status": "M .gitignore\n M robomimic/robomimic/envs/env_robosuite.py\n M stage1/src/export_chunk_evidence.py\n M stage1/src/export_transition_scores.py\n?? curation.egg-info/\n?? curation/suboptimal_classifier/__pycache__/\n?? curation/suboptimal_classifier/config/__pycache__/\n?? curation/suboptimal_classifier/dataset/__pycache__/\n?? curation/suboptimal_classifier/discriminator/__pycache__/\n?? curation/video_encoding/__pycache__/\n?? experiments/\n?? robomimic/robomimic/__pycache__/\n?? robomimic/robomimic/algo/__pycache__/\n?? robomimic/robomimic/config/__pycache__/\n?? robomimic/robomimic/envs/__pycache__/\n?? robomimic/robomimic/models/__pycache__/\n?? robomimic/robomimic/utils/__pycache__/\n?? stage1/benchmark/build_transition_labels.py\n?? stage1/benchmark/freeze_stage1c.py\n?? stage1/benchmark/generate_benchmark.py\n?? stage1/benchmark/intervention_times.py\n?? stage1/benchmark/make_group_split.py\n?? stage1/benchmark/outcome_labels.py\n?? stage1/benchmark/perturbations.py\n?? stage1/benchmark/render_pair_cases.py\n?? stage1/benchmark/replay_smoke.py\n?? stage1/benchmark/select_magnitudes.py\n?? stage1/benchmark/simulator_replay.py\n?? stage1/benchmark/summarize_benchmark.py\n?? stage1/benchmark/verify_stage1c.py\n?? stage1/benchmark/verify_stage1c_freeze.py\n?? stage1/evaluation/\n?? stage2/__pycache__/\n?? stage2/data/__pycache__/\n?? stage2/evaluation/__pycache__/\n?? stage2/inference/__pycache__/\n?? stage2/models/__pycache__/\n?? stage2/train/__pycache__/\n?? stage3a/__pycache__/\n?? stage3a/data/__pycache__/\n?? stage3a/evaluation/__pycache__/\n?? stage3a/library/__pycache__/\n?? stage3a/oracle/__pycache__/\n?? stage3a/proposals/__pycache__/\n?? stage3a/rescue/\n?? stage3a/rescue_v02/",
+  "important_file_hashes": {
+    "stage1/benchmark/simulator_replay.py": "e71c67ddaae3b0a2f9de3eaecbb1370618d9a16e66b15234d766204b467b0154",
+    "stage1/benchmark/perturbations.py": "b03658ceaa68c60a808349b78b52f1f27955317b972e8cdd4ad7de113ae999c0",
+    "stage1/benchmark/intervention_times.py": "7a93a2126d29f7d450bde87a9200c3b9313aca924dd147d0e0de2f641817a2d0",
+    "stage1/benchmark/outcome_labels.py": "db4dc804fc29cf6a64bb3993364a668c515ac17e6428737d5289556fdb1aa6fc",
+    "stage3a/rescue_v02/common.py": "4f6b93c797f3f8b09f73afb97a285b136c1f955aca67631edf30fe565b353e5c"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "MISALIGNED_PROVISIONAL",
+  "source": "../oracle/oracle_summary.json",
+  "validation_primary_oracle_auroc": 0.5649656946826759,
+  "validation_teacher_forced_primary_auroc": 0.6173885077186964,
+  "validation_paired_clean_upper_bound_auroc": 0.6097234133790738,
+  "usable_for_verifier_training": false
+}

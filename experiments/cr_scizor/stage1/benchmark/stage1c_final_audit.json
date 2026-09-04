@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "group_count": 80,
+  "pair_count": 1280,
+  "passed": true,
+  "review_video_count": 25,
+  "split_transition_counts": {
+    "test": 36516,
+    "train": 105366,
+    "validation": 34714
+  },
+  "transition_count": 176596
+}

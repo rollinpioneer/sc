@@ -1,0 +1,27 @@
+{
+  "benchmark": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/replay_rescue_v02_r1/benchmark/benchmark_v0.2_confirmation.hdf5",
+  "metadata_rows": 256,
+  "counts": {
+    "can/perturbed": 128,
+    "can/clean": 8,
+    "square/perturbed": 128,
+    "square/clean": 8
+  },
+  "pair_count": 256,
+  "effective_count": 28,
+  "failure_type_counts": {
+    "no_effect": 228,
+    "recovery_success": 14,
+    "delayed_failure": 8,
+    "recovery_failure": 6
+  },
+  "action_diff_one_rate": 1.0,
+  "finite_rate": 1.0,
+  "lengths_equal_rate": 1.0,
+  "errors": [],
+  "audit_pass": true,
+  "split_counts": {
+    "confirmation": 256
+  },
+  "has_effective_and_no_effect": true
+}

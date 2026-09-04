@@ -1,0 +1,14 @@
+{
+  "aggregation_repair_attempted": true,
+  "blind_generated": false,
+  "decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "development_gate_pass": false,
+  "failed_rules": [
+    "development_aggregation_gate"
+  ],
+  "schema": "stage3f_r_final_decision_v1",
+  "selected_method": null,
+  "selected_source": null,
+  "selected_threshold": null,
+  "stage3_v1_decision_preserved": true
+}

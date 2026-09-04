@@ -1,0 +1,30 @@
+{
+  "ambiguous_exclusion_pair_count": 15,
+  "clean_deduplication_key": [
+    "task",
+    "base_demo_id"
+  ],
+  "clean_episode_count": 80,
+  "clean_transition_count": 10388,
+  "consistent_no_effect_negative_control_pair_count": 1049,
+  "effective_intervention_pair_count": 216,
+  "failure_type_pair_counts": {
+    "ambiguous": 15,
+    "delayed_failure": 68,
+    "direct_failure": 7,
+    "no_effect": 1049,
+    "recovery_failure": 66,
+    "recovery_success": 75
+  },
+  "manifest_applied": true,
+  "no_effect_false_attribution_rate": null,
+  "no_effect_false_attribution_rate_definition": "fraction of consistent no_effect intervention steps receiving high model responsibility score; model scores are not part of simulator ground truth",
+  "perturbed_pair_count": 1280,
+  "perturbed_transition_count": 166208,
+  "split_counts": {
+    "test": 36516,
+    "train": 105366,
+    "validation": 34714
+  },
+  "total_transition_count": 176596
+}

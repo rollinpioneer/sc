@@ -1,0 +1,30 @@
+/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[1/2] can/can_demo_0_axis_impulse_t102_m1.00
+[2/2] can/can_demo_0_axis_impulse_t112_m1.00
+{
+  "demo_count": 2,
+  "feature_index_sha256": "d9bf9eb465611892519eb7cf1c0e2167b1138667ee40368c1fcd4a33d9272ea2",
+  "image_embedding_dim": 768,
+  "num_shards": 1,
+  "shard_index": 0,
+  "source_split_manifest_sha256": "e8b81c36c20ac2ebefc739fa4ff1bb5167b32842b69bc8fb93f9be6a3484ab0b",
+  "source_transition_labels_sha256": "b2cbb25de15e1f804eb4498738c4218d61e1c0b3a621d59b13254a4afec0be0a",
+  "split_demo_counts": {
+    "train": 2
+  },
+  "split_transition_counts": {
+    "train": 236
+  },
+  "state_pad_dim": 71,
+  "transition_count": 236,
+  "visual_encoder": "facebook/dinov2-base"
+}

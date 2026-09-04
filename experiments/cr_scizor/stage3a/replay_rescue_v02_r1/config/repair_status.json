@@ -1,0 +1,15 @@
+{
+  "previous_decision": "STOP_STAGE3A_V02_ORACLE_CEILING_FAILURE",
+  "previous_decision_status": "SUPERSEDED_BY_V02R_CONFIRMATION",
+  "reasons": [
+    "paired_clean_normalizer_field_mismatch",
+    "40_frame_oracle_shorter_than_observed_failure_delay"
+  ],
+  "stage3a_e_allowed": true,
+  "confirmation_read_allowed": true,
+  "score_definition_frozen": true,
+  "pre_confirmation_commit": "1d2a29e",
+  "confirmation_evaluation_count": 1,
+  "final_decision": "RESUME_STAGE3A_E_ON_V02R",
+  "final_commit": "3417dec8660141656df90070672b2b45c5482d47"
+}

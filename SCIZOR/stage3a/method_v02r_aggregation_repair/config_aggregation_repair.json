@@ -1,0 +1,85 @@
+{
+  "version": "stage3f-r-aggregation-repair-v1",
+  "development_split": "validation",
+  "development_pair_count": 256,
+  "development_effective_pair_count": 29,
+  "replacement_background_quantile": 0.8,
+  "outcome_deficit": {
+    "source": "max_V_c_over_covering_chunks",
+    "clip_min": 0.0,
+    "clip_max": 1.0,
+    "chunk_interval": "start_t_inclusive_end_t_exclusive"
+  },
+  "candidate_sources": {
+    "action_top5": {
+      "membership_column": "in_action_top5",
+      "raw_score_column": "raw_action_score",
+      "rank_column": "action_rank"
+    },
+    "union_top5": {
+      "membership_column": "in_union_top5",
+      "raw_score_column": "raw_union_score",
+      "rank_column": "union_rank"
+    },
+    "full_top5_diagnostic": {
+      "membership_column": "in_full_top5",
+      "raw_score_column": "raw_full_score",
+      "rank_column": "full_rank"
+    }
+  },
+  "diagnostic_methods": ["action_raw", "union_raw", "full_raw"],
+  "eligible_methods": [
+    "action_cf_only",
+    "action_current_fused",
+    "action_defect_gated",
+    "action_defect_contrast",
+    "union_defect_contrast"
+  ],
+  "score_formulas": {
+    "replacement_cf": "replacement_cf_score",
+    "transition_cf_max": "max_k replacement_cf",
+    "transition_cf_contrast": "max_k replacement_cf - median_k replacement_cf",
+    "train_background_max": "q80 transition_cf_max on train no_effect, grouped by task and source",
+    "train_background_contrast": "q80 transition_cf_contrast on train no_effect, grouped by task and source",
+    "local_deficit": "clip(max covering V_c,0,1)",
+    "action_cf_only": "pair=max_j transition_cf_max",
+    "action_current_fused": "pair=max_j transition_cf_max*proposal_rank_weight",
+    "action_defect_gated": "pair=max_j local_deficit*relu(transition_cf_max-background_max)",
+    "defect_contrast_transition": "local_deficit*relu(transition_cf_contrast-background_contrast)",
+    "defect_contrast_pair": "max_j defect_contrast_transition - median_j defect_contrast_transition"
+  },
+  "pair_universe": {
+    "include_all_perturbed_pairs": true,
+    "missing_pipeline_score": 0.0,
+    "missing_predicted_t": -1
+  },
+  "complete_teacher_forced": {
+    "expected_pairs": 256,
+    "expected_effective_pairs": 29,
+    "required_full_auroc": 0.7
+  },
+  "development_gate": {
+    "no_effect_far_cap": 0.2,
+    "min_pair_auroc": 0.7,
+    "min_effective_recall": 0.4,
+    "min_proposal_region_recall": 0.5,
+    "min_task_pair_auroc": 0.6
+  },
+  "method_tiebreak": [
+    "AUPRC within 0.01 of best",
+    "lowest no_effect FAR within 0.02",
+    "highest effective recall",
+    "highest top1_within_1",
+    "fewest mean candidates",
+    "lexicographic method_id"
+  ],
+  "blind_gate": {
+    "max_no_effect_far": 0.25,
+    "min_pair_auroc": 0.7,
+    "min_effective_recall": 0.35,
+    "min_top1_within_1": 0.25,
+    "min_task_pair_auroc": 0.6,
+    "min_auprc_prevalence_multiple": 2.0
+  },
+  "second_repair_allowed": false
+}

@@ -1,0 +1,81 @@
+{
+  "action_library": {
+    "index": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/replay_rescue_v02/library/action_library_index.parquet",
+      "role": "frozen action library index",
+      "sha256": "bde61209f36e0d28842797fad7d2b013415b43b7291093060c3c048be69c18ac"
+    },
+    "support_thresholds": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/replay_rescue_v02/library/support_thresholds.json",
+      "role": "frozen action support thresholds",
+      "sha256": "15f27d370462966316dfe138eb1578c8f36a1f34fba42964acc649112962cd64"
+    }
+  },
+  "blind_benchmark": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/blind_test/benchmark_v0.2_final_test.hdf5",
+    "role": "frozen final blind benchmark",
+    "sha256": null
+  },
+  "blind_benchmark_freeze": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/config/blind_test_freeze.sha256",
+    "role": "blind benchmark freeze checksum",
+    "sha256": null
+  },
+  "code_commit": "c72ff2e087c6dbef2a5fe9e44509bc14b44c2ec8",
+  "confirmation_decision": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/config/v02r_confirmation_decision.json",
+    "role": "v0.2-R confirmation decision",
+    "sha256": "3a84c5f3e79b51cab05137b24b488799fe9b029e327ab94cd7426030a71bafae"
+  },
+  "feature_normalizer": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/features/verifier_normalizer.npz",
+    "role": "train-only verifier normalizer",
+    "sha256": "0d5e72c685bbb0c3747350e795105e6616698dbe79032ba7db85c8936ff106e9"
+  },
+  "final_decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "large_artifact_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/report/large_artifact_manifest.json",
+    "role": "large artifact manifest",
+    "sha256": "ca823f86067088d7262b028770b388b3437d3971d25aff4dd72d8d8db91813a7"
+  },
+  "long_result_definition": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/replay_rescue_v02_r1/config/oracle_score_spec_v02r.json",
+    "role": "long-horizon oracle score definition",
+    "sha256": "3cef19b5e2858caa81f96b01aa5b9053975689d16a3de3e2cbd2498659dbfda1"
+  },
+  "proposal_calibration": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/proposals/proposal_score_calibration_v02.json",
+    "role": "frozen proposer calibration",
+    "sha256": "2bff98780d2acdb8f6e7848cc6560e656d049093bb24b8639fac44a30205e6bb"
+  },
+  "schema": "stage3_v02r_method_bundle_v1",
+  "selected_proposer": null,
+  "selected_proposer_checkpoint": {
+    "path": null,
+    "role": "selected frozen proposer checkpoint",
+    "sha256": null
+  },
+  "selected_threshold": null,
+  "validation_protocol": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/metrics/validation_frozen_protocol.json",
+    "role": "frozen validation protocol",
+    "sha256": "07f306677633bbd9093e059cd2c02446b1b438d6c6de7c2aeb1258ac58ce243b"
+  },
+  "verifier_checkpoints": {
+    "full_seed_0": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/runs/full_seed_0/best.pt",
+      "role": "full verifier checkpoint",
+      "sha256": "3bdc1744722a0caa49416964364d19bc6c11334ac2a0849af2b746d010e50be2"
+    },
+    "full_seed_1": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/runs/full_seed_1/best.pt",
+      "role": "full verifier checkpoint",
+      "sha256": "d69bfa25ab7978a0d94781b9819cc3d09d4e956d75441158d132fa185bb5902b"
+    },
+    "full_seed_2": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/runs/full_seed_2/best.pt",
+      "role": "full verifier checkpoint",
+      "sha256": "65b5d9666b45eb564114d04a34fba6c87fcce9181941072a3164e029ffd9498b"
+    }
+  }
+}

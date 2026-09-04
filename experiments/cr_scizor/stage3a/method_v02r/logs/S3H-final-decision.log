@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "confirmation_engineering_pass": true,
+    "confirmation_method_pass": true,
+    "validation_gate_pass": false
+  },
+  "confirmation_decision": "RESUME_STAGE3A_E_ON_V02R",
+  "decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "failed_rules": [
+    "validation_gate"
+  ],
+  "schema": "stage3_v02r_final_decision_v1",
+  "selected_proposer": null,
+  "selected_threshold": null,
+  "validation_only": true
+}

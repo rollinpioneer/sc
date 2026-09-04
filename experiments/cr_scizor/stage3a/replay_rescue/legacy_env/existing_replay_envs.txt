@@ -1,0 +1,162 @@
+===== /home/xushijie/.conda/envs/cupid/bin/python =====
+{
+  "robosuite": {
+    "error": "Exception('\\nMissing path to your environment variable. \\nCurrent values LD_LIBRARY_PATH=\\nPlease add following line to .bashrc:\\nexport LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/xushijie/.mujoco/mujoco210/bin')"
+  },
+  "mujoco_py": {
+    "error": "Exception('\\nMissing path to your environment variable. \\nCurrent values LD_LIBRARY_PATH=\\nPlease add following line to .bashrc:\\nexport LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/xushijie/.mujoco/mujoco210/bin')"
+  },
+  "mujoco": {
+    "version": "3.2.6",
+    "file": "/home/xushijie/.conda/envs/cupid/lib/python3.9/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "version": "0.2.0",
+    "file": "/home/xushijie/.conda/envs/cupid/lib/python3.9/site-packages/robomimic/__init__.py"
+  }
+}
+===== /home/xushijie/.conda/envs/lerobot/bin/python =====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/lerobot/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+{
+  "robosuite": {
+    "version": "1.4.0",
+    "file": "/home/xushijie/.conda/envs/lerobot/lib/python3.10/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "3.4.0",
+    "file": "/home/xushijie/.conda/envs/lerobot/lib/python3.10/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "version": "0.2.0",
+    "file": "/home/xushijie/.conda/envs/lerobot/lib/python3.10/site-packages/robomimic/__init__.py"
+  }
+}
+===== /home/xushijie/.conda/envs/lerobotpi0/bin/python =====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/lerobotpi0/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+{
+  "robosuite": {
+    "version": "1.4.0",
+    "file": "/home/xushijie/.conda/envs/lerobotpi0/lib/python3.10/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "3.6.0",
+    "file": "/home/xushijie/.conda/envs/lerobotpi0/lib/python3.10/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "version": "0.2.0",
+    "file": "/home/xushijie/.conda/envs/lerobotpi0/lib/python3.10/site-packages/robomimic/__init__.py"
+  }
+}
+===== /home/xushijie/.conda/envs/mimicgen/bin/python =====
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+{
+  "robosuite": {
+    "version": "1.4.1",
+    "file": "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "2.3.2",
+    "file": "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "version": "0.3.0",
+    "file": "/home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robomimic/__init__.py"
+  }
+}
+===== /home/xushijie/.conda/envs/occi-boss-bcvilt-np123/bin/python =====
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/occi-boss-bcvilt-np123/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+{
+  "robosuite": {
+    "version": "1.4.1",
+    "file": "/home/xushijie/.conda/envs/occi-boss-bcvilt-np123/lib/python3.10/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "3.2.3",
+    "file": "/home/xushijie/.conda/envs/occi-boss-bcvilt-np123/lib/python3.10/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "version": "0.2.0",
+    "file": "/home/xushijie/.conda/envs/occi-boss-bcvilt-np123/lib/python3.10/site-packages/robomimic/__init__.py"
+  }
+}
+===== /home/xushijie/.conda/envs/occi-boss-bcvilt/bin/python =====
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/occi-boss-bcvilt/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+{
+  "robosuite": {
+    "version": "1.4.1",
+    "file": "/home/xushijie/.conda/envs/occi-boss-bcvilt/lib/python3.10/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "3.2.3",
+    "file": "/home/xushijie/.conda/envs/occi-boss-bcvilt/lib/python3.10/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "version": "0.2.0",
+    "file": "/home/xushijie/.conda/envs/occi-boss-bcvilt/lib/python3.10/site-packages/robomimic/__init__.py"
+  }
+}
+===== /home/xushijie/.conda/envs/strap/bin/python =====
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/xushijie/.conda/envs/strap/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+{
+  "robosuite": {
+    "version": "1.4.0",
+    "file": "/home/xushijie/.conda/envs/strap/lib/python3.10/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "3.3.7",
+    "file": "/home/xushijie/.conda/envs/strap/lib/python3.10/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "error": "ModuleNotFoundError(\"No module named 'robomimic'\")"
+  }
+}
+===== /home/__compress_data/xushijie/work/cr_scizor/.venvs/scizor-robomimic/bin/python =====
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/__compress_data/xushijie/work/cr_scizor/.venvs/scizor-robomimic/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+{
+  "robosuite": {
+    "version": "1.4.1",
+    "file": "/home/__compress_data/xushijie/work/cr_scizor/.venvs/scizor-robomimic/lib/python3.11/site-packages/robosuite/__init__.py"
+  },
+  "mujoco_py": {
+    "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+  },
+  "mujoco": {
+    "version": "3.12.0",
+    "file": "/home/__compress_data/xushijie/work/cr_scizor/.venvs/scizor-robomimic/lib/python3.11/site-packages/mujoco/__init__.py"
+  },
+  "robomimic": {
+    "error": "ModuleNotFoundError(\"No module named 'robomimic'\")"
+  }
+}

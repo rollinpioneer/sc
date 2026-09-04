@@ -1,0 +1,15 @@
+{
+  "schema": "stage3f_r_development_protocol_v1",
+  "development_gate_pass": false,
+  "decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "selected_method": null,
+  "selected_source": null,
+  "selected_threshold": null,
+  "selected_formula": null,
+  "background_path": "background/train_background.json",
+  "failed_rules": [
+    "no_valid_fixed_aggregation_method"
+  ],
+  "candidate_replacement_full_auroc": 0.8486127414115119,
+  "complete_teacher_forced_full_auroc": 0.7520887133525748
+}

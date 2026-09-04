@@ -1,0 +1,22 @@
+{
+  "rows": {
+    "can": 2723,
+    "square": 3475
+  },
+  "train_clean_demos": {
+    "can": 24,
+    "square": 24
+  },
+  "support_thresholds": {
+    "can": {
+      "state_distance_q95": 18.106855010986333,
+      "action_delta_q99": 2.0984293603897095,
+      "num_queries": 2723
+    },
+    "square": {
+      "state_distance_q95": 24.775681304931627,
+      "action_delta_q99": 2.0813287448883058,
+      "num_queries": 3475
+    }
+  }
+}

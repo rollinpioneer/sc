@@ -1,0 +1,5 @@
+/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+wrote 236 chunks to /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/method_v02r/evidence/chunk_evidence_v02_smoke.parquet

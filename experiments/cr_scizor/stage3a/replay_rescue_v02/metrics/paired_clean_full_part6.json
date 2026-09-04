@@ -1,0 +1,24 @@
+{
+  "engineering": {
+    "pair_count": 128,
+    "branch_pre_state_equal_rate": 1.0,
+    "reference_exact_all_horizons_rate": 1.0,
+    "paired_clean_exact_all_horizons_rate": 1.0,
+    "finite_target_rate": 1.0
+  },
+  "metrics": {
+    "overall_auroc": 0.7203252032520325,
+    "overall_auprc": 0.07579852871381111,
+    "can_auroc": 0.6031746031746031,
+    "can_n": 64,
+    "square_auroc": 0.8208333333333333,
+    "square_n": 64
+  },
+  "failure_type_counts": {
+    "no_effect": 123,
+    "delayed_failure": 4,
+    "recovery_success": 1
+  },
+  "effective_count": 5,
+  "no_effect_count": 123
+}

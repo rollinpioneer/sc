@@ -1,0 +1,14 @@
+{
+  "benchmark_hdf5": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/benchmark_v0.1.hdf5",
+  "pair_metadata": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/pair_metadata.jsonl",
+  "transition_labels": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/transition_labels.parquet",
+  "split_manifest": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/split_manifest.json",
+  "chunk_evidence": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/chunk_evidence.parquet",
+  "stage1_all_predictions": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/all_predictions.parquet",
+  "stage1_operating_points": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/metrics/operating_points.json",
+  "frozen_scizor_checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/frozen/model_10000.pth",
+  "expected_stage1_repo_commit": "75051b3d45676a033533896da16a6a7abf8ac42e",
+  "expected_split_sha256": "e8b81c36c20ac2ebefc739fa4ff1bb5167b32842b69bc8fb93f9be6a3484ab0b",
+  "expected_checkpoint_sha256": "ce741ef70abb1de14c0a2df352f7ab5ce95a2cc7efe44996890c6af9ca964d2d",
+  "benchmark_size_bytes": 704242486
+}

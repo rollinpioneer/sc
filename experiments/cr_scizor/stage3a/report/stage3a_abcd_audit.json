@@ -1,0 +1,170 @@
+{
+  "stage": "3A-A-D",
+  "status": "audited",
+  "later_stages_run": false,
+  "config": {
+    "seed": 20260902,
+    "top_k_per_model": 5,
+    "replacements_per_query": 4,
+    "horizons": [
+      10,
+      20,
+      40
+    ],
+    "workers": 8
+  },
+  "frozen_inputs": {
+    "manifest_present": true,
+    "sha256_present": true,
+    "sha256_verified": true,
+    "stage2_status": "NO_GO_SWITCH_DIRECTION",
+    "sha256_check_tail": [
+      "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_index.parquet: OK",
+      "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/normalizer.npz: OK",
+      "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/metrics/go_no_go.json: OK"
+    ]
+  },
+  "proposals": {
+    "train": {
+      "rows": 6426,
+      "pairs": 768,
+      "duplicate_pair_t_rows": 0,
+      "max_rows_per_pair": 10,
+      "max_rows_le_10": true,
+      "split_values": [
+        "train"
+      ],
+      "effective_region_union_recall": 0.15625,
+      "effective_pairs_with_region": 120
+    },
+    "validation": {
+      "rows": 2222,
+      "pairs": 256,
+      "duplicate_pair_t_rows": 0,
+      "max_rows_per_pair": 10,
+      "max_rows_le_10": true,
+      "split_values": [
+        "validation"
+      ],
+      "effective_region_union_recall": 0.1328125,
+      "effective_pairs_with_region": 34
+    }
+  },
+  "action_library": {
+    "rows": 6198,
+    "by_task": {
+      "square": 3475,
+      "can": 2723
+    },
+    "source_split_values": [
+      "train"
+    ],
+    "source_variant_values": [
+      "clean"
+    ],
+    "train_clean_only_provenance": true,
+    "same_base_demo_candidates_in_smoke": 0,
+    "retrieval_smoke_queries": 8,
+    "retrieval_smoke_replacement_counts": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "faiss": {
+      "can": {
+        "type": "IndexFlatL2",
+        "ntotal": 2723,
+        "dimension": 73,
+        "is_index_flat_l2": true
+      },
+      "square": {
+        "type": "IndexFlatL2",
+        "ntotal": 3475,
+        "dimension": 73,
+        "is_index_flat_l2": true
+      }
+    }
+  },
+  "oracle": {
+    "train": {
+      "plan_rows": 27301,
+      "raw_rows": 27301,
+      "sample_rows": 27301,
+      "plan_unique_replacement_ids": 27301,
+      "raw_unique_replacement_ids": 27301,
+      "missing_raw_ids": 0,
+      "extra_raw_ids": 0,
+      "raw_duplicate_ids": 0,
+      "raw_required_fields_finite": true,
+      "reference_replay_ok_rate": 1.0,
+      "target_finite": true,
+      "target_valid_rows": 25985,
+      "verifier_eligible_rows": 16649,
+      "oracle_only_rows": 766,
+      "primary_rows": 16649,
+      "plan_identity_after_faiss_rebuild_verified": true
+    },
+    "validation": {
+      "plan_rows": 9463,
+      "raw_rows": 9463,
+      "sample_rows": 9463,
+      "plan_unique_replacement_ids": 9463,
+      "raw_unique_replacement_ids": 9463,
+      "missing_raw_ids": 0,
+      "extra_raw_ids": 0,
+      "raw_duplicate_ids": 0,
+      "raw_required_fields_finite": true,
+      "reference_replay_ok_rate": 1.0,
+      "target_finite": true,
+      "target_valid_rows": 8839,
+      "verifier_eligible_rows": 6030,
+      "oracle_only_rows": 256,
+      "primary_rows": 6030,
+      "plan_identity_after_faiss_rebuild_verified": true
+    }
+  },
+  "alignment": {
+    "checks": [
+      {
+        "query_id": "can:demo_0:axis_impulse:t102:m1.00|t56",
+        "task": "can",
+        "query_t": 56,
+        "next_state_l2": 6.8102827072143555,
+        "pass": false,
+        "pre_action_state_index": null
+      },
+      {
+        "query_id": "can:demo_0:axis_impulse:t102:m1.00|t52",
+        "task": "can",
+        "query_t": 52,
+        "next_state_l2": 0.19640620052814484,
+        "pass": false,
+        "pre_action_state_index": null
+      }
+    ],
+    "median_l2": 3.50334445387125,
+    "all_pass": false,
+    "alignment_status": "failed",
+    "failure_reason": "simulator next state did not reproduce benchmark states[t+1] within 1e-4; preserve recorded index and do not claim alignment"
+  },
+  "environment": {
+    "simulator_conda_environment_requested": "scizor-robomimic",
+    "simulator_conda_environment_available": false,
+    "simulator_conda_environment_used": "mimicgen",
+    "original_environment_error": "EnvironmentLocationNotFound: Not a conda environment: /home/xushijie/.conda/envs/scizor-robomimic",
+    "faiss_version": "1.10.0"
+  },
+  "checks": {
+    "stage2_decision_frozen": true,
+    "proposals_pass": true,
+    "action_library_pass": true,
+    "oracle_pass": true,
+    "alignment_pass": false,
+    "abcd_structural_pass": true
+  }
+}

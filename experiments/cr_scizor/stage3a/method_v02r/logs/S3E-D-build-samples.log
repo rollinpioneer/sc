@@ -1,0 +1,22 @@
+{
+  "train": {
+    "candidate_rows_excluded_invalid": 1358,
+    "max_group_size": 4,
+    "positive_rate": 0.24908720185878894,
+    "query_groups": 5374,
+    "sample_rows": 21089,
+    "teacher_forced_rows_added": 1199,
+    "teacher_rows_excluded_invalid": 448,
+    "valid_rate": 1.0
+  },
+  "validation": {
+    "candidate_rows_excluded_invalid": 211,
+    "max_group_size": 4,
+    "positive_rate": 0.25762135287190896,
+    "query_groups": 1937,
+    "sample_rows": 7643,
+    "teacher_forced_rows_added": 386,
+    "teacher_rows_excluded_invalid": 122,
+    "valid_rate": 1.0
+  }
+}

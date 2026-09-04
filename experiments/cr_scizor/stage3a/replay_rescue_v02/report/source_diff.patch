@@ -1,0 +1,1335 @@
+diff --git a/robomimic/robomimic/envs/env_robosuite.py b/robomimic/robomimic/envs/env_robosuite.py
+index 1e737a2..33de8b0 100644
+--- a/robomimic/robomimic/envs/env_robosuite.py
++++ b/robomimic/robomimic/envs/env_robosuite.py
+@@ -121,8 +121,9 @@ class EnvRobosuite(EB.EnvBase):
+                 cuda_visible_device = os.environ.get("CUDA_VISIBLE_DEVICES", "")
+                 print(cuda_visible_device)
+                 if cuda_visible_device.isnumeric():
+-                    # assume that user specified a specific GPU ID
+-                    kwargs["render_gpu_device_id"] = int(cuda_visible_device)
++                    # CUDA_VISIBLE_DEVICES remaps the visible device list inside the process.
++                    # Use the first visible device index for single-GPU visibility.
++                    kwargs["render_gpu_device_id"] = 0
+                 else:
+                     # ensure that we select the correct GPU device for rendering by testing for EGL rendering
+                     # NOTE: this package should be installed from this link (https://github.com/StanfordVL/egl_probe)
+@@ -131,7 +132,7 @@ class EnvRobosuite(EB.EnvBase):
+                     valid_gpu_devices = cuda_visible_device.split(",")
+                     valid_gpu_devices = [int(d) for d in valid_gpu_devices]
+                     if len(valid_gpu_devices) > 0:
+-                        kwargs["render_gpu_device_id"] = valid_gpu_devices[-1]
++                        kwargs["render_gpu_device_id"] = len(valid_gpu_devices) - 1
+         else:
+             # make sure gripper visualization is turned off (we almost always want this for learning)
+             kwargs["gripper_visualization"] = False
+diff --git a/stage3a/rescue_v02/__init__.py b/stage3a/rescue_v02/__init__.py
+new file mode 100644
+index 0000000..7489f97
+--- /dev/null
++++ b/stage3a/rescue_v02/__init__.py
+@@ -0,0 +1 @@
++"""Replay-locked Stage 3A v0.2 rescue pipeline."""
+diff --git a/stage3a/rescue_v02/audit_benchmark_v02.py b/stage3a/rescue_v02/audit_benchmark_v02.py
+new file mode 100644
+index 0000000..b7be592
+--- /dev/null
++++ b/stage3a/rescue_v02/audit_benchmark_v02.py
+@@ -0,0 +1,61 @@
++from __future__ import annotations
++
++import argparse
++import json
++from collections import Counter
++from pathlib import Path
++
++import h5py
++import numpy as np
++
++
++REQUIRED = ("actions", "states_pre", "states_post", "rewards", "staged_rewards", "success")
++
++
++def text(v):
++    return v.decode() if isinstance(v, bytes) else v
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--benchmark", type=Path, required=True); p.add_argument("--metadata", type=Path, required=True); p.add_argument("--split-manifest", type=Path); p.add_argument("--expected-pairs", type=int, default=None); p.add_argument("--output", type=Path, required=True); a = p.parse_args()
++    counts = Counter(); errors = []; pair_rows = []
++    with h5py.File(a.benchmark, "r") as h5:
++        for name, g in h5["data"].items():
++            variant = text(g.attrs.get("variant", "")); task = text(g.attrs.get("task", "")); counts[(task, variant)] += 1
++            for key in REQUIRED:
++                if key not in g: errors.append(f"{name}:missing:{key}")
++            if variant == "clean":
++                if "success" in g and (len(g["success"]) == 0 or not bool(g["success"][-1])): errors.append(f"{name}:clean_final_success")
++                continue
++            if variant != "perturbed": continue
++            actions = np.asarray(g["actions"]); pre = np.asarray(g["states_pre"]); post = np.asarray(g["states_post"])
++            clean = h5["data/" + text(g.attrs["clean_demo_id"])]
++            clean_actions = np.asarray(clean["actions"])
++            t = int(g.attrs.get("perturb_t", -1)); diff_count = int(np.count_nonzero(np.any(actions != clean_actions, axis=1)))
++            finite = all(np.isfinite(np.asarray(g[key])).all() for key in ("actions", "states_pre", "states_post", "rewards", "staged_rewards"))
++            row = {"name": name, "task": task, "perturb_t": t, "action_diff_count": diff_count, "lengths_equal": len(actions) == len(pre) == len(post) == len(g["success"]), "finite": bool(finite), "failure_type": text(g.attrs.get("failure_type", "")), "effective": bool(g.attrs.get("is_effective_intervention", False))}
++            pair_rows.append(row)
++            if diff_count != 1: errors.append(f"{name}:action_diff_count={diff_count}")
++            if not row["lengths_equal"]: errors.append(f"{name}:length_mismatch")
++            if not finite: errors.append(f"{name}:nonfinite")
++    metadata_rows = [json.loads(x) for x in a.metadata.read_text(encoding="utf-8").splitlines() if x.strip()]
++    result = {"benchmark": str(a.benchmark), "metadata_rows": len(metadata_rows), "counts": {f"{t}/{v}": n for (t, v), n in counts.items()}, "pair_count": len(pair_rows), "effective_count": sum(x["effective"] for x in pair_rows), "failure_type_counts": dict(Counter(x["failure_type"] for x in pair_rows)), "action_diff_one_rate": float(sum(x["action_diff_count"] == 1 for x in pair_rows) / len(pair_rows)) if pair_rows else 0.0, "finite_rate": float(sum(x["finite"] for x in pair_rows) / len(pair_rows)) if pair_rows else 0.0, "lengths_equal_rate": float(sum(x["lengths_equal"] for x in pair_rows) / len(pair_rows)) if pair_rows else 0.0, "errors": errors, "audit_pass": not errors}
++    if a.split_manifest:
++        manifest = json.loads(a.split_manifest.read_text(encoding="utf-8")); seen = set()
++        for split, pair_ids in manifest.items():
++            for pair_id in pair_ids:
++                if pair_id in seen: errors.append(f"duplicate_split_pair:{pair_id}")
++                seen.add(pair_id)
++        metadata_ids = {str(r["pair_id"]) for r in metadata_rows}
++        if seen != metadata_ids: errors.append("split_manifest_metadata_mismatch")
++        if "test" in manifest and manifest["test"]: errors.append("v01_test_leakage")
++        result["split_counts"] = {k: len(v) for k, v in manifest.items()}
++    if a.expected_pairs is not None and len(pair_rows) != a.expected_pairs: errors.append(f"pair_count={len(pair_rows)} expected={a.expected_pairs}")
++    result["has_effective_and_no_effect"] = bool(result["effective_count"] and result["failure_type_counts"].get("no_effect", 0))
++    # Split validation runs after the initial per-pair scan, so make the exit
++    # status reflect every error collected above rather than a stale snapshot.
++    result["audit_pass"] = not errors
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text(json.dumps(result, indent=2), encoding="utf-8"); print(json.dumps(result, indent=2)); raise SystemExit(0 if result["audit_pass"] else 1)
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/build_action_library_v02.py b/stage3a/rescue_v02/build_action_library_v02.py
+new file mode 100644
+index 0000000..974200c
+--- /dev/null
++++ b/stage3a/rescue_v02/build_action_library_v02.py
+@@ -0,0 +1,111 @@
++"""Build the frozen v0.2 train-clean real-action library.
++
++This is intentionally independent of the simulator runtime: it is run in the
++curation environment, where FAISS, sklearn and a parquet engine are pinned.
++Only clean groups tagged ``split=train`` are eligible as library members.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import faiss
++import h5py
++import numpy as np
++import pandas as pd
++from sklearn.cluster import MiniBatchKMeans
++
++
++def text(value):
++    return value.decode("utf-8") if isinstance(value, bytes) else value
++
++
++def main() -> None:
++    p = argparse.ArgumentParser()
++    p.add_argument("--benchmark", type=Path, required=True)
++    p.add_argument("--metadata", type=Path, required=True)
++    p.add_argument("--split-manifest", type=Path, required=True)
++    p.add_argument("--state-key", default="states_pre")
++    p.add_argument("--split", default="train")
++    p.add_argument("--codebook-size", type=int, default=64)
++    p.add_argument("--output-dir", type=Path, required=True)
++    p.add_argument("--seed", type=int, default=20260902)
++    a = p.parse_args()
++    if a.split != "train":
++        raise ValueError("v0.2 action library must be built from train only")
++    if a.state_key != "states_pre":
++        raise ValueError("v0.2 protocol freezes state key to states_pre")
++    manifest = json.loads(a.split_manifest.read_text(encoding="utf-8"))
++    if manifest.get("test"):
++        raise ValueError("v0.1 test / test split is forbidden in v0.2")
++    a.output_dir.mkdir(parents=True, exist_ok=True)
++    records = {"can": [], "square": []}
++    raw_states = {"can": [], "square": []}
++    actions = {"can": [], "square": []}
++    with h5py.File(a.benchmark, "r") as h5:
++        for name, g in h5["data"].items():
++            if text(g.attrs.get("variant", "")) != "clean" or text(g.attrs.get("split", "")) != "train":
++                continue
++            task = text(g.attrs["task"])
++            if task not in records:
++                raise ValueError(f"unexpected task: {task}")
++            states = np.asarray(g[a.state_key], dtype=np.float32)
++            acts = np.asarray(g["actions"], dtype=np.float32)
++            if len(states) != len(acts):
++                raise ValueError(f"{name}: state/action length mismatch")
++            base = text(g.attrs["base_demo_id"])
++            for t in range(len(acts)):
++                records[task].append({
++                    "library_row": len(records[task]), "library_id": f"{task}_lib_{len(records[task]):06d}",
++                    "task": task, "base_demo_id": base, "t": int(t), "clean_demo_id": name,
++                })
++            raw_states[task].append(states)
++            actions[task].append(acts)
++    support, summary = {}, {"rows": {}, "train_clean_demos": {}}
++    all_index = []
++    for task in ("can", "square"):
++        if not records[task]:
++            raise ValueError(f"no train clean rollouts for {task}")
++        states = np.concatenate(raw_states[task], axis=0).astype(np.float32)
++        acts = np.concatenate(actions[task], axis=0).astype(np.float32)
++        tab = pd.DataFrame(records[task])
++        mean, std = states.mean(0), states.std(0)
++        normalized = np.clip((states - mean) / np.maximum(std, 1e-6), -10.0, 10.0).astype(np.float32)
++        index = faiss.IndexFlatL2(normalized.shape[1]); index.add(np.ascontiguousarray(normalized))
++        # The support calibration excludes the originating base demo exactly as
++        # online retrieval does.  Query progressively deeper only if needed.
++        base_ids = tab.base_demo_id.to_numpy()
++        k = min(len(tab), 128)
++        distances, neighbors = index.search(np.ascontiguousarray(normalized), k)
++        best_d, best_delta = [], []
++        for i in range(len(tab)):
++            chosen = next((int(j) for d, j in zip(distances[i], neighbors[i]) if j >= 0 and base_ids[int(j)] != base_ids[i]), None)
++            if chosen is not None:
++                best_d.append(float(np.sum((normalized[i] - normalized[chosen]) ** 2)))
++                best_delta.append(float(np.linalg.norm(acts[i] - acts[chosen])))
++        if not best_d:
++            raise ValueError(f"{task}: no cross-demo neighbors for support")
++        clusters = min(int(a.codebook_size), len(acts))
++        km = MiniBatchKMeans(n_clusters=clusters, random_state=a.seed, n_init=3, batch_size=min(2048, len(acts))).fit(acts)
++        tab["action_cluster_id"] = km.labels_.astype(np.int64)
++        medoids = []
++        for cid, center in enumerate(km.cluster_centers_):
++            members = np.flatnonzero(km.labels_ == cid)
++            j = int(members[np.argmin(np.sum((acts[members] - center) ** 2, axis=1))])
++            medoids.append({"cluster_id": int(cid), "library_row": j, "library_id": str(tab.iloc[j].library_id), "action": acts[j].astype(float).tolist(), "cluster_size": int(len(members))})
++        np.savez(a.output_dir / f"library_{task}.npz", states=normalized, actions=acts, state_mean=mean.astype(np.float32), state_std=std.astype(np.float32))
++        faiss.write_index(index, str(a.output_dir / f"state_{task}.faiss"))
++        (a.output_dir / f"codebook_{task}.json").write_text(json.dumps({"task": task, "medoids": medoids}, indent=2), encoding="utf-8")
++        support[task] = {"state_distance_q95": float(np.quantile(best_d, 0.95)), "action_delta_q99": float(np.quantile(best_delta, 0.99)), "num_queries": len(best_d)}
++        summary["rows"][task] = len(tab); summary["train_clean_demos"][task] = int(tab.base_demo_id.nunique())
++        all_index.append(tab)
++    pd.concat(all_index, ignore_index=True).to_parquet(a.output_dir / "action_library_index.parquet", index=False)
++    (a.output_dir / "support_thresholds.json").write_text(json.dumps(support, indent=2), encoding="utf-8")
++    summary["support_thresholds"] = support
++    (a.output_dir / "action_library_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
++    print(json.dumps(summary, indent=2))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/stage3a/rescue_v02/build_teacher_forced_plans.py b/stage3a/rescue_v02/build_teacher_forced_plans.py
+new file mode 100644
+index 0000000..156ca4c
+--- /dev/null
++++ b/stage3a/rescue_v02/build_teacher_forced_plans.py
+@@ -0,0 +1,125 @@
++"""Create deterministic, train-library replacement plans at each true perturb_t."""
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import faiss
++import h5py
++import numpy as np
++import pandas as pd
++
++
++def text(value):
++    return value.decode("utf-8") if isinstance(value, bytes) else value
++
++
++def json_rows(path: Path):
++    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
++
++
++def retrieve(task, state, action, base_id, lib, thresholds, codebook, count):
++    table, arrays, index = lib[task]
++    ar = arrays
++    q = np.clip((np.asarray(state, np.float32) - ar["state_mean"]) / np.maximum(ar["state_std"], 1e-6), -10.0, 10.0).astype(np.float32)
++    k = min(64, len(table)); distances, indices = index.search(np.ascontiguousarray(q[None]), k)
++    max_delta = float(thresholds[task]["action_delta_q99"]); state_limit = float(thresholds[task]["state_distance_q95"])
++    chosen, used_clusters = [], set()
++    def valid(j, state_distance, require_state_support, require_diversity=True):
++        row = table.iloc[int(j)]
++        delta = float(np.linalg.norm(ar["actions"][j] - action))
++        if str(row.base_demo_id) == str(base_id) or (require_state_support and state_distance > state_limit) or not (0.02 <= delta <= max_delta):
++            return None
++        if require_diversity and any(float(np.linalg.norm(ar["actions"][j] - ar["actions"][old])) < 0.10 for old in chosen):
++            return None
++        return row, delta
++    for d, j in zip(distances[0], indices[0]):
++        if j < 0: continue
++        got = valid(int(j), float(d), True)
++        if got is None: continue
++        row, delta = got; chosen.append(int(j)); used_clusters.add(int(row.action_cluster_id))
++        if len(chosen) == count: break
++    if len(chosen) < count:
++        for medoid in sorted(codebook[task]["medoids"], key=lambda x: (-x["cluster_size"], x["cluster_id"])):
++            if len(chosen) == count: break
++            if int(medoid["cluster_id"]) in used_clusters: continue
++            # Frozen Stage 3A-C policy: a real-action medoid may fill an
++            # otherwise insufficient neighborhood. Its state distance remains
++            # recorded and is marked out-of-domain below when above q95.
++            j = int(medoid["library_row"]); d = float(np.sum((ar["states"][j] - q) ** 2)); got = valid(j, d, False)
++            if got is None: continue
++            row, delta = got; chosen.append(j); used_clusters.add(int(row.action_cluster_id))
++    # The frozen primary retrieval remains above.  A tiny number of extreme
++    # reverse-motion queries cannot meet four-way diversity within the fixed
++    # 64-medoid set; fill only their non-primary tail slot with a real action.
++    diversity_fallback = set(); global_fallback = set()
++    if len(chosen) < count:
++        for medoid in sorted(codebook[task]["medoids"], key=lambda x: (-x["cluster_size"], x["cluster_id"])):
++            if len(chosen) == count: break
++            j = int(medoid["library_row"])
++            if j in chosen: continue
++            d = float(np.sum((ar["states"][j] - q) ** 2)); got = valid(j, d, False, require_diversity=False)
++            if got is None: continue
++            chosen.append(j); diversity_fallback.add(j)
++    if len(chosen) < count:
++        action_order = np.argsort(np.linalg.norm(ar["actions"] - action, axis=1), kind="stable")
++        for j in action_order:
++            if len(chosen) == count: break
++            j = int(j)
++            if j in chosen: continue
++            d = float(np.sum((ar["states"][j] - q) ** 2)); got = valid(j, d, False, require_diversity=False)
++            if got is None: continue
++            chosen.append(j); global_fallback.add(j)
++    out = []
++    for rank, j in enumerate(chosen):
++        row = table.iloc[j]; d = float(np.sum((ar["states"][j] - q) ** 2)); delta = float(np.linalg.norm(ar["actions"][j] - action))
++        source = "nn_real" if rank < 3 else "codebook_medoid"
++        if j in diversity_fallback: source = "codebook_medoid_diversity_fallback"
++        if j in global_fallback: source = "global_real_action_fallback"
++        out.append({"replacement_rank": rank, "replacement_source": source, "replacement_action": ar["actions"][j].astype(float).tolist(), "library_id": str(row.library_id), "library_base_demo_id": str(row.base_demo_id), "library_clean_demo_id": str(row.clean_demo_id), "library_t": int(row.t), "state_distance": d, "action_delta_l2": delta, "state_in_domain": bool(d <= state_limit), "action_in_domain": bool(0.02 <= delta <= max_delta)})
++    return out
++
++
++def main():
++    p = argparse.ArgumentParser()
++    p.add_argument("--benchmark", type=Path, required=True); p.add_argument("--metadata", type=Path, required=True)
++    p.add_argument("--split-manifest", type=Path, required=True); p.add_argument("--action-library", type=Path, required=True)
++    p.add_argument("--query-source", default="perturb_t"); p.add_argument("--num-replacements", type=int, default=4)
++    p.add_argument("--output", type=Path, required=True); p.add_argument("--jsonl-output", type=Path); a = p.parse_args()
++    if a.query_source != "perturb_t" or a.num_replacements != 4:
++        raise ValueError("v0.2 protocol freezes true perturb_t and four replacements")
++    manifest = json.loads(a.split_manifest.read_text(encoding="utf-8"))
++    if manifest.get("test"): raise ValueError("test split is forbidden")
++    metadata = {str(r["pair_id"]): r for r in json_rows(a.metadata)}
++    thresholds = json.loads((a.action_library / "support_thresholds.json").read_text())
++    lib, codebook = {}, {}
++    for task in ("can", "square"):
++        table = pd.read_parquet(a.action_library / "action_library_index.parquet"); table = table[table.task.eq(task)].reset_index(drop=True)
++        with np.load(a.action_library / f"library_{task}.npz") as z: arrays = {k: z[k].copy() for k in z.files}
++        lib[task] = (table, arrays, faiss.read_index(str(a.action_library / f"state_{task}.faiss")))
++        codebook[task] = json.loads((a.action_library / f"codebook_{task}.json").read_text())
++    rows, short = [], []
++    with h5py.File(a.benchmark, "r") as h5:
++        for name, g in h5["data"].items():
++            if text(g.attrs.get("variant", "")) != "perturbed": continue
++            pair_id, task = text(g.attrs["pair_id"]), text(g.attrs["task"])
++            meta = metadata.get(pair_id)
++            if meta is None: raise ValueError(f"metadata missing {pair_id}")
++            split = str(meta["split"])
++            if split not in {"train", "validation"}: raise ValueError(f"forbidden split {split}")
++            t = int(g.attrs["perturb_t"]); actions = np.asarray(g["actions"], np.float32); states = np.asarray(g["states_pre"], np.float32)
++            found = retrieve(task, states[t], actions[t], text(g.attrs["base_demo_id"]), lib, thresholds, codebook, a.num_replacements)
++            if len(found) != a.num_replacements: short.append({"pair_id": pair_id, "found": len(found)}); continue
++            for repl in found:
++                rid = f"{pair_id}|t{t}|r{repl['replacement_rank']}|{repl['replacement_source']}"
++                rows.append({"replacement_id": rid, "query_id": f"{pair_id}|t{t}", "pair_id": pair_id, "task": task, "base_demo_id": text(g.attrs["base_demo_id"]), "split": split, "perturbed_demo_id": name, "clean_demo_id": text(g.attrs["clean_demo_id"]), "query_t": t, "episode_length": len(actions), "query_source": "teacher_forced_perturb_t", "failure_type": text(g.attrs.get("failure_type", "")), "is_effective_intervention": bool(g.attrs.get("is_effective_intervention", False)), **repl})
++    if short: raise RuntimeError(f"could not produce four replacements for {len(short)} pairs: {short[:5]}")
++    a.output.parent.mkdir(parents=True, exist_ok=True); pd.DataFrame(rows).to_parquet(a.output, index=False)
++    if a.jsonl_output:
++        a.jsonl_output.parent.mkdir(parents=True, exist_ok=True)
++        a.jsonl_output.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
++    print(json.dumps({"pairs": len(rows) // 4, "replacement_rows": len(rows), "by_split": {s: sum(r["split"] == s for r in rows) for s in ("train", "validation")}}, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/capture_runtime.py b/stage3a/rescue_v02/capture_runtime.py
+new file mode 100644
+index 0000000..de11973
+--- /dev/null
++++ b/stage3a/rescue_v02/capture_runtime.py
+@@ -0,0 +1,62 @@
++from __future__ import annotations
++
++import hashlib
++import importlib
++import json
++import os
++import platform
++import subprocess
++import sys
++from pathlib import Path
++
++
++def info(name):
++    try:
++        module = importlib.import_module(name)
++        return {"version": getattr(module, "__version__", None), "file": getattr(module, "__file__", None)}
++    except Exception as exc:
++        return {"error": repr(exc)}
++
++
++def file_hash(path):
++    p = Path(path)
++    if not p.is_file():
++        return None
++    h = hashlib.sha256()
++    with p.open("rb") as f:
++        for block in iter(lambda: f.read(1024 * 1024), b""):
++            h.update(block)
++    return h.hexdigest()
++
++
++def git(args, cwd):
++    try:
++        return subprocess.check_output(["git", *args], cwd=cwd, text=True, stderr=subprocess.DEVNULL).strip()
++    except Exception:
++        return None
++
++
++def main():
++    root = Path(os.environ["SCIZOR_ROOT"])
++    payload = {
++        "python": sys.version,
++        "executable": sys.executable,
++        "platform": platform.platform(),
++        "conda_prefix": os.environ.get("CONDA_PREFIX"),
++        "pythonpath": os.environ.get("PYTHONPATH"),
++        "modules": {name: info(name) for name in ("robomimic", "robosuite", "mujoco", "numpy", "h5py", "mimicgen")},
++        "scizor_git_head": git(["rev-parse", "HEAD"], str(root)),
++        "scizor_git_status": git(["status", "--short"], str(root)),
++        "important_file_hashes": {rel: file_hash(root / rel) for rel in (
++            "stage1/benchmark/simulator_replay.py", "stage1/benchmark/perturbations.py",
++            "stage1/benchmark/intervention_times.py", "stage1/benchmark/outcome_labels.py",
++            "stage3a/rescue_v02/common.py")},
++    }
++    out = Path(os.environ["V02_ROOT"]) / "config" / "runtime_fingerprint.json"
++    out.parent.mkdir(parents=True, exist_ok=True)
++    out.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
++    print(json.dumps({"output": str(out), "scizor_git_head": payload["scizor_git_head"]}, indent=2))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/stage3a/rescue_v02/common.py b/stage3a/rescue_v02/common.py
+new file mode 100644
+index 0000000..7ec4b29
+--- /dev/null
++++ b/stage3a/rescue_v02/common.py
+@@ -0,0 +1,112 @@
++from __future__ import annotations
++
++import hashlib
++import json
++from pathlib import Path
++
++import numpy as np
++
++
++def text(value):
++    return value.decode("utf-8") if isinstance(value, bytes) else value
++
++
++def sha256_bytes(value: bytes) -> str:
++    return hashlib.sha256(value).hexdigest()
++
++
++def sha256_file(path: str | Path) -> str:
++    h = hashlib.sha256()
++    with Path(path).open("rb") as handle:
++        for block in iter(lambda: handle.read(1024 * 1024), b""):
++            h.update(block)
++    return h.hexdigest()
++
++
++def env_for_dataset(dataset_path: str):
++    from stage1.benchmark.simulator_replay import create_shaped_env
++
++    return create_shaped_env(str(dataset_path))
++
++
++def _state(env):
++    # EnvRobosuite.get_state() also serializes the full XML on every call.
++    # For per-step replay checks the simulator flat state is the canonical
++    # numeric state and avoids that expensive serialization.
++    return np.asarray(env.env.sim.get_state().flatten()).copy()
++
++
++def _staged(env):
++    fn = getattr(env.env, "staged_rewards", None)
++    if fn is None:
++        return np.zeros(0, dtype=np.float32)
++    return np.asarray(fn(), dtype=np.float32).reshape(-1).copy()
++
++
++def replay(env, initial_state, actions, *, render_images=True, height=84, width=84, model_xml=None):
++    """Replay actions while explicitly recording pre- and post-action state."""
++    env.reset()
++    payload = {"states": np.asarray(initial_state).copy()}
++    if model_xml is not None:
++        payload["model"] = model_xml
++    env.reset_to(payload)
++    actions = np.asarray(actions).copy()
++    pre_states, post_states, images_pre, images_post = [], [], [], []
++    rewards, staged, success = [], [], []
++    for action in actions:
++        pre_states.append(_state(env))
++        if render_images:
++            images_pre.append(np.asarray(env.render(mode="rgb_array", height=height, width=width, camera_name="agentview")).copy())
++        _, reward, _, _ = env.step(action)
++        post_states.append(_state(env))
++        if render_images:
++            images_post.append(np.asarray(env.render(mode="rgb_array", height=height, width=width, camera_name="agentview")).copy())
++        rewards.append(float(reward))
++        staged.append(_staged(env))
++        success.append(bool(env.is_success().get("task", False)))
++    out = {
++        "actions": actions,
++        "states_pre": np.asarray(pre_states),
++        "states_post": np.asarray(post_states),
++        "rewards": np.asarray(rewards, dtype=np.float32),
++        "staged_rewards": np.asarray(staged, dtype=np.float32),
++        "success": np.asarray(success, dtype=np.bool_),
++    }
++    if render_images:
++        out["images_pre"] = np.asarray(images_pre, dtype=np.uint8)
++        out["images_post"] = np.asarray(images_post, dtype=np.uint8)
++    return out
++
++
++def compare_rollouts(left, right):
++    fields = ["states_pre", "states_post", "rewards", "staged_rewards", "success"]
++    result = {}
++    for field in fields:
++        a, b = np.asarray(left[field]), np.asarray(right[field])
++        result[field] = {
++            "shape_equal": bool(a.shape == b.shape),
++            "max_abs": float(np.max(np.abs(a.astype(np.float64) - b.astype(np.float64)))) if a.shape == b.shape and a.size else None,
++            "array_equal": bool(np.array_equal(a, b)),
++        }
++    result["pass"] = all(x["array_equal"] for x in result.values())
++    return result
++
++
++def env_metadata(env, runtime_fingerprint_sha256: str | None = None):
++    model_xml = env.env.model.get_xml()
++    meta = getattr(env, "env_meta", {}) or {}
++    kwargs = meta.get("env_kwargs", {}) if isinstance(meta, dict) else {}
++    return {
++        "runtime_resolved_model_sha256": sha256_bytes(model_xml.encode("utf-8")),
++        "control_freq": int(kwargs.get("control_freq", 20)),
++        "simulation_timestep": float(getattr(env.env.sim, "model", env.env.sim).opt.timestep),
++        "num_internal_sim_steps_per_action": int(getattr(env.env, "control_freq", kwargs.get("control_freq", 20))),
++        "controller_config_json": json.dumps(kwargs.get("controller_configs", {}), sort_keys=True, default=str),
++        "runtime_fingerprint_sha256": runtime_fingerprint_sha256 or "",
++    }
++
++
++def perturb_action(action, kind, magnitude, rng, low, high):
++    from stage1.benchmark.perturbations import perturb_action as base
++
++    return base(action, kind, magnitude, rng, low, high)
+diff --git a/stage3a/rescue_v02/evaluate_oracle_ceiling.py b/stage3a/rescue_v02/evaluate_oracle_ceiling.py
+new file mode 100644
+index 0000000..88b72f1
+--- /dev/null
++++ b/stage3a/rescue_v02/evaluate_oracle_ceiling.py
+@@ -0,0 +1,92 @@
++"""Evaluate frozen v0.2 paired-clean and feasible-oracle ceilings on validation."""
++from __future__ import annotations
++
++import argparse
++import json
++from collections import defaultdict
++from pathlib import Path
++
++import numpy as np
++
++
++HORIZONS, H_WEIGHTS = (10, 20, 40), (0.2, 0.3, 0.5)
++
++
++def read_rows(path):
++    return [json.loads(x) for x in Path(path).read_text(encoding="utf-8").splitlines() if x.strip()]
++
++
++def auc_ap(labels, scores):
++    y, s = np.asarray(labels, np.int64), np.asarray(scores, float)
++    n_pos, n_neg = int(y.sum()), int(len(y) - y.sum())
++    if not n_pos or not n_neg: return {"auroc": None, "auprc": None, "n": len(y), "positive": n_pos}
++    order = np.argsort(s, kind="mergesort"); ranks = np.empty(len(s), float)
++    i = 0
++    while i < len(s):
++        j = i + 1
++        while j < len(s) and s[order[j]] == s[order[i]]: j += 1
++        ranks[order[i:j]] = (i + 1 + j) / 2.0; i = j
++    auc = float((ranks[y == 1].sum() - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg))
++    desc = np.argsort(-s, kind="mergesort"); yy = y[desc]; tp = np.cumsum(yy); ap = float((tp / np.arange(1, len(y) + 1) * yy).sum() / n_pos)
++    return {"auroc": auc, "auprc": ap, "n": int(len(y)), "positive": n_pos}
++
++
++def scales(rows):
++    out = {}
++    for task in ("can", "square"):
++        out[task] = {}
++        subset = [r for r in rows if r.get("split") == "train" and r.get("task") == task and r.get("finite_target", True) and int(r.get("actual_horizon", 0)) >= 10]
++        for h in HORIZONS:
++            out[task][str(h)] = {}
++            for key in ("dense_mean_delta", "stage_mean_delta"):
++                values = np.asarray([float(r.get(f"{key}_h{h}", np.nan)) for r in subset], float); values = values[np.isfinite(values)]
++                out[task][str(h)][key] = float(max(np.quantile(np.abs(values), .90), 1e-6)) if len(values) else 1e-6
++    return out
++
++
++def score(row, normalizer):
++    total = 0.0
++    for h, hw in zip(HORIZONS, H_WEIGHTS):
++        sc = normalizer[row["task"]][str(h)]
++        dense = np.clip(float(row[f"dense_delta_h{h}"] if f"dense_delta_h{h}" in row else row[f"dense_mean_delta_h{h}"]) / sc["dense_mean_delta"], -1, 1)
++        stage = np.clip(float(row[f"stage_delta_h{h}"] if f"stage_delta_h{h}" in row else row[f"stage_mean_delta_h{h}"]) / sc["stage_mean_delta"], -1, 1)
++        success = float(row[f"success_delta_h{h}"])
++        total += hw * (0.4 * dense + 0.5 * stage + 0.1 * success)
++    return float(total)
++
++
++def engineering(rows, paired=False):
++    keys = ["branch_pre_state_equal", "reference_exact_all_horizons", "finite_target"]
++    if paired: keys.append("paired_clean_exact_all_horizons")
++    return {f"{key}_rate": float(sum(bool(r.get(key, False)) for r in rows) / len(rows)) if rows else 0.0 for key in keys}
++
++
++def distribution(rows):
++    return {name: {"n": len(values), "median": float(np.median(values)) if values else None, "mean": float(np.mean(values)) if values else None} for name, values in (("effective", [r["score"] for r in rows if r["is_effective_intervention"]]), ("no_effect", [r["score"] for r in rows if not r["is_effective_intervention"]]))}
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--paired-clean", type=Path, required=True); p.add_argument("--feasible", type=Path, required=True); p.add_argument("--split", default="validation"); p.add_argument("--output", type=Path, required=True); a = p.parse_args()
++    if a.split != "validation": raise ValueError("ceiling gate is validation-only")
++    paired, feasible = read_rows(a.paired_clean), read_rows(a.feasible)
++    for rows, name in ((paired, "paired"), (feasible, "feasible")):
++        if any(r.get("split") not in {"train", "validation"} for r in rows): raise ValueError(f"{name}: forbidden split")
++    paired_norm, feasible_norm = scales(paired), scales(feasible)
++    for r in paired: r["score"] = score(r, paired_norm)
++    for r in feasible: r["score"] = score(r, feasible_norm)
++    pval = [r for r in paired if r["split"] == a.split]
++    fval = [r for r in feasible if r["split"] == a.split]
++    primary = [r for r in fval if int(r["replacement_rank"]) == 0]
++    by_pair = defaultdict(list)
++    for r in fval: by_pair[r["pair_id"]].append(r)
++    best = [max(rs, key=lambda r: r["score"]) for rs in by_pair.values()]
++    def metric(rows): return auc_ap([int(bool(r["is_effective_intervention"])) for r in rows], [r["score"] for r in rows])
++    paired_metrics, primary_metrics, best_metrics = metric(pval), metric(primary), metric(best)
++    p_eng, f_eng = engineering(paired, paired=True), engineering(feasible)
++    engineering_pass = (p_eng["branch_pre_state_equal_rate"] == 1.0 and p_eng["reference_exact_all_horizons_rate"] >= .999 and p_eng["paired_clean_exact_all_horizons_rate"] >= .999 and p_eng["finite_target_rate"] >= .99 and f_eng["branch_pre_state_equal_rate"] == 1.0 and f_eng["reference_exact_all_horizons_rate"] >= .999 and f_eng["finite_target_rate"] >= .99)
++    method_pass = bool(paired_metrics["auroc"] is not None and paired_metrics["auroc"] >= .70 and primary_metrics["auroc"] is not None and primary_metrics["auroc"] >= .70)
++    result = {"split": a.split, "paired_clean": {"metrics": paired_metrics, "engineering": p_eng, "normalizer": paired_norm, "score_distribution": distribution(pval)}, "primary_feasible": {"metrics": primary_metrics, "score_distribution": distribution(primary)}, "best_of_4_feasible": {"metrics": best_metrics, "score_distribution": distribution(best)}, "feasible_engineering": f_eng, "feasible_normalizer": feasible_norm, "validation_pair_count": len(pval), "validation_feasible_rows": len(fval), "engineering_pass": engineering_pass, "method_pass": method_pass, "oracle_ceiling_pass": bool(engineering_pass and method_pass), "frozen_thresholds": {"validation_paired_clean_auroc": .70, "validation_primary_feasible_auroc": .70}}
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text(json.dumps(result, indent=2), encoding="utf-8"); print(json.dumps(result, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/generate_benchmark_v02.py b/stage3a/rescue_v02/generate_benchmark_v02.py
+new file mode 100644
+index 0000000..8f17726
+--- /dev/null
++++ b/stage3a/rescue_v02/generate_benchmark_v02.py
+@@ -0,0 +1,126 @@
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++from pathlib import Path
++
++import h5py
++import numpy as np
++
++from stage1.benchmark.intervention_times import select_intervention_times
++from stage1.benchmark.outcome_labels import label_outcome
++from .common import env_for_dataset, env_metadata, perturb_action, replay, sha256_bytes, sha256_file, text
++
++
++PERTURBATIONS = ("zero_motion", "reverse_motion", "flip_gripper", "axis_impulse")
++
++
++def write_rollout(parent, rollout, include_images=True):
++    for key in ("actions", "states_pre", "states_post", "rewards", "staged_rewards", "success"):
++        parent.create_dataset(key, data=rollout[key], compression="gzip")
++    if include_images:
++        obs = parent.create_group("obs")
++        obs.create_dataset("agentview_image_pre", data=rollout["images_pre"], compression="gzip")
++        obs.create_dataset("agentview_image_post", data=rollout["images_post"], compression="gzip")
++
++
++def magnitude(task, kind, pair_meta):
++    vals = [float(r["magnitude"]) for r in pair_meta if r.get("task") == task and r.get("perturbation_type") == kind]
++    if not vals:
++        raise ValueError(f"no frozen magnitude for {task}/{kind}")
++    return float(vals[0])
++
++
++def main():
++    p = argparse.ArgumentParser()
++    p.add_argument("--base-manifest", type=Path, required=True)
++    p.add_argument("--can-source", type=Path, required=True)
++    p.add_argument("--square-source", type=Path, required=True)
++    p.add_argument("--stage1-pair-meta", type=Path, required=True)
++    p.add_argument("--runtime-fingerprint", type=Path, required=True)
++    p.add_argument("--output-hdf5", type=Path, required=True)
++    p.add_argument("--output-meta", type=Path, required=True)
++    p.add_argument("--num-intervention-points", type=int, default=4)
++    p.add_argument("--perturbations", default=",".join(PERTURBATIONS))
++    p.add_argument("--seed", type=int, default=20260831)
++    p.add_argument("--no-images", action="store_true")
++    a = p.parse_args()
++    bases = json.loads(a.base_manifest.read_text(encoding="utf-8"))
++    pair_meta = [json.loads(line) for line in a.stage1_pair_meta.read_text(encoding="utf-8").splitlines() if line.strip()]
++    kinds = tuple(x.strip() for x in a.perturbations.split(","))
++    runtime_hash = sha256_file(a.runtime_fingerprint)
++    sources = {"can": a.can_source, "square": a.square_source}
++    if a.output_hdf5.exists():
++        raise FileExistsError(a.output_hdf5)
++    a.output_hdf5.parent.mkdir(parents=True, exist_ok=True); a.output_meta.parent.mkdir(parents=True, exist_ok=True)
++    rng = np.random.default_rng(a.seed)
++    total = 0
++    with h5py.File(a.output_hdf5, "w") as out, a.output_meta.open("w", encoding="utf-8") as mf:
++        data = out.create_group("data")
++        data.attrs["benchmark_version"] = "v0.2_replay_locked"
++        data.attrs["created_from"] = "current_runtime_self_consistent_replay"
++        data.attrs["v01_lineage_required"] = False
++        data.attrs["generator_git_commit"] = "recorded_in_runtime_fingerprint"
++        data.attrs["generator_source_sha256"] = sha256_file(Path(__file__))
++        data.attrs["runtime_fingerprint_sha256"] = runtime_hash
++        for task in ("can", "square"):
++            env, _ = env_for_dataset(sources[task])
++            try:
++                runtime = env_metadata(env, runtime_hash)
++                with h5py.File(sources[task], "r") as src:
++                    for candidate in bases[task]:
++                        demo_id = str(candidate["demo_id"])
++                        demo = src[f"data/{demo_id}"]
++                        actions = np.asarray(demo["actions"][:]).copy(); initial = np.asarray(demo["states"][0]).copy()
++                        model_xml = env.env.model.get_xml()
++                        clean_a = replay(env, initial, actions, render_images=not a.no_images, model_xml=model_xml)
++                        clean_b = replay(env, initial, actions, render_images=not a.no_images, model_xml=model_xml)
++                        for key in ("states_pre", "states_post", "rewards", "staged_rewards", "success"):
++                            if not np.array_equal(clean_a[key], clean_b[key]):
++                                raise RuntimeError(f"clean determinism failed for {task}/{demo_id}/{key}")
++                        if not bool(clean_a["success"][-1]):
++                            raise RuntimeError(f"clean final success failed for {task}/{demo_id}")
++                        base_attrs = {
++                            "task": task, "base_demo_id": demo_id, "source_dataset": str(sources[task]),
++                            "source_model_file": text(demo.attrs.get("model_file", "")),
++                            "source_model_sha256": hashlib.sha256(str(demo.attrs.get("model_file", "")).encode()).hexdigest(),
++                            "source_initial_state_sha256": hashlib.sha256(initial.tobytes()).hexdigest(),
++                            "source_action_sha256": hashlib.sha256(actions.tobytes()).hexdigest(),
++                            "state_layout": "explicit_pre_and_post", "split": str(candidate.get("split", "pilot")), **runtime,
++                        }
++                        clean_name = f"{task}_{demo_id}_clean"
++                        clean_group = data.create_group(clean_name); write_rollout(clean_group, clean_a, not a.no_images)
++                        for key, value in base_attrs.items(): clean_group.attrs[key] = value
++                        clean_group.attrs.update({"variant": "clean", "pair_id": f"{task}:{demo_id}:clean", "perturb_t": -1, "failure_type": "clean", "final_success": True})
++                        plan = select_intervention_times(actions, num_times=a.num_intervention_points)
++                        low, high = env.env.action_spec
++                        for perturb_t, reason in plan:
++                            for kind in kinds:
++                                mag = magnitude(task, kind, pair_meta)
++                                pert_actions = actions.copy(); pert_actions[int(perturb_t)] = perturb_action(actions[int(perturb_t)], kind, mag, rng, low, high)
++                                if int(np.count_nonzero(np.any(pert_actions != actions, axis=1))) != 1:
++                                    raise RuntimeError(f"single-action check failed for {task}/{demo_id}/{perturb_t}/{kind}")
++                                pert = replay(env, initial, pert_actions, render_images=not a.no_images, model_xml=model_xml)
++                                label = label_outcome(clean_a, pert, int(perturb_t))
++                                pair_id = f"{task}:{demo_id}:{kind}:t{int(perturb_t)}:m{mag:.2f}"
++                                name = f"{task}_{demo_id}_{kind}_t{int(perturb_t)}_m{mag:.2f}"
++                                g = data.create_group(name); write_rollout(g, pert, not a.no_images)
++                                attrs = {**base_attrs, "variant": "perturbed", "pair_id": pair_id, "perturb_t": int(perturb_t), "selection_reason": reason, "perturbation_type": kind, "magnitude": mag, "original_action": json.dumps(actions[int(perturb_t)].tolist()), "perturbed_action": json.dumps(pert_actions[int(perturb_t)].tolist()), "action_diff_count": 1, "failure_onset": -1 if label["failure_onset"] is None else int(label["failure_onset"]), "failure_type": label["failure_type"], "recovery_start": -1 if label["recovery_start"] is None else int(label["recovery_start"]), "recovery_end": -1 if label["recovery_end"] is None else int(label["recovery_end"]), "final_success": bool(pert["success"][-1]), "is_effective_intervention": label["failure_type"] in {"direct_failure", "delayed_failure", "recovery_failure", "recovery_success"}, "clean_demo_id": clean_name, "episode_length": len(pert_actions)}
++                                for key, value in attrs.items(): g.attrs[key] = value
++                                mf.write(json.dumps({"pair_id": pair_id, "task": task, "base_demo_id": demo_id, "split": str(candidate.get("split", "pilot")), "clean_demo_id": clean_name, "perturbed_demo_id": name, "perturb_t": int(perturb_t), "perturbation_type": kind, "magnitude": mag, **{k: label.get(k) for k in ("failure_onset", "failure_type", "recovery_start", "recovery_end", "label_status")}, "final_success_clean": True, "final_success_perturbed": bool(pert["success"][-1]), "is_effective_intervention": attrs["is_effective_intervention"]}, ensure_ascii=False) + "\n")
++                                total += 1
++                        # A simulator crash must not leave a structurally
++                        # unreadable HDF5 shard. The complete shard is still
++                        # required for merge, but this checkpoint makes a
++                        # failed attempt diagnosable and bounded to one demo.
++                        mf.flush()
++                        out.flush()
++            finally:
++                env.close()
++        data.attrs["total_pairs"] = total
++    print(json.dumps({"pair_count": total, "output_hdf5": str(a.output_hdf5), "output_meta": str(a.output_meta)}, indent=2))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/stage3a/rescue_v02/make_v02_rescue_decision.py b/stage3a/rescue_v02/make_v02_rescue_decision.py
+new file mode 100644
+index 0000000..9999db9
+--- /dev/null
++++ b/stage3a/rescue_v02/make_v02_rescue_decision.py
+@@ -0,0 +1,46 @@
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++from pathlib import Path
++
++
++def read(path):
++    return json.loads(Path(path).read_text(encoding="utf-8"))
++
++
++def sha256(path):
++    h = hashlib.sha256()
++    with Path(path).open("rb") as f:
++        for block in iter(lambda: f.read(1 << 20), b""):
++            h.update(block)
++    return h.hexdigest()
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True); p.add_argument("--output", type=Path, required=True); p.add_argument("--proposer-transfer", type=Path); a = p.parse_args(); root = a.root
++    pilot_audit = read(root / "pilot/benchmark_v0.2_pilot_audit.json"); pilot_oracle = read(root / "metrics/paired_clean_pilot_summary.json")
++    full_audit_path, ceiling_path = root / "metrics/benchmark_v0.2_train_val_audit.json", root / "metrics/oracle_ceiling_v0.2_validation.json"
++    if not (root / "pilot/benchmark_v0.2_pilot.hdf5").is_file():
++        raise RuntimeError("v0.2 fallback was not executed; STOP is not a valid final decision")
++    if not full_audit_path.is_file() or not ceiling_path.is_file():
++        raise RuntimeError("full v0.2 audit and oracle ceiling are required before a final decision")
++    full_audit, ceiling = read(full_audit_path), read(ceiling_path)
++    proposer = read(a.proposer_transfer) if a.proposer_transfer and a.proposer_transfer.is_file() else {"evaluated": False, "full_top5_recall": None, "action_only_top5_recall": None}
++    pilot_eng = pilot_oracle.get("engineering", {})
++    pilot_pass = bool(pilot_audit.get("audit_pass") and all(pilot_eng.get(k) == 1.0 for k in ("branch_pre_state_equal_rate", "reference_exact_all_horizons_rate", "paired_clean_exact_all_horizons_rate", "finite_target_rate")))
++    full_engineering = bool(full_audit.get("audit_pass") and ceiling.get("engineering_pass")); ceiling_pass = bool(ceiling.get("oracle_ceiling_pass"))
++    failed = []
++    if not pilot_pass: failed.append("pilot_engineering")
++    if not full_audit.get("audit_pass"): failed.append("full_benchmark_audit")
++    if not ceiling.get("engineering_pass"): failed.append("full_oracle_engineering")
++    if full_engineering and not ceiling.get("method_pass"): failed.append("oracle_method_ceiling")
++    decision = "STOP_STAGE3A_V02_ENGINEERING_FAILURE" if not full_engineering else ("STOP_STAGE3A_V02_ORACLE_CEILING_FAILURE" if not ceiling_pass else "REGENERATE_AND_RESUME_STAGE3A_ON_V02")
++    pilot_auc = pilot_oracle.get("metrics", {}).get("overall_auroc")
++    pmetrics, fmetrics, bmetrics = ceiling["paired_clean"]["metrics"], ceiling["primary_feasible"]["metrics"], ceiling["best_of_4_feasible"]["metrics"]
++    result = {"decision": decision, "v01_status": "FAILED_AND_FROZEN", "v02_generation_attempted": True, "runtime_fingerprint_sha256": sha256(root / "config/runtime_fingerprint.json"), "pilot": {"num_pairs": pilot_audit.get("pair_count", 0), "determinism_pass": pilot_pass, "paired_clean_auroc": pilot_auc}, "full_v02": {"num_pairs": full_audit.get("pair_count", 0), "engineering_pass": full_engineering}, "oracle_ceiling": {"paired_clean_auroc": pmetrics.get("auroc"), "primary_feasible_auroc": fmetrics.get("auroc"), "best_of_4_auroc": bmetrics.get("auroc"), "paired_clean_auprc": pmetrics.get("auprc"), "primary_feasible_auprc": fmetrics.get("auprc")}, "proposer_transfer": proposer, "continue_stage3a_e": decision == "REGENERATE_AND_RESUME_STAGE3A_ON_V02", "failed_rules": failed}
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text(json.dumps(result, indent=2), encoding="utf-8"); print(json.dumps(result, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/merge_benchmark_shards.py b/stage3a/rescue_v02/merge_benchmark_shards.py
+new file mode 100644
+index 0000000..d7482fb
+--- /dev/null
++++ b/stage3a/rescue_v02/merge_benchmark_shards.py
+@@ -0,0 +1,52 @@
++from __future__ import annotations
++
++import argparse
++import json
++from collections import defaultdict
++from pathlib import Path
++
++import h5py
++
++
++def text(v):
++    return v.decode("utf-8") if isinstance(v, bytes) else v
++
++
++def main():
++    p = argparse.ArgumentParser()
++    p.add_argument("--hdf5-shards", nargs="+", type=Path, required=True)
++    p.add_argument("--meta-shards", nargs="+", type=Path, required=True)
++    p.add_argument("--output-hdf5", type=Path, required=True)
++    p.add_argument("--output-meta", type=Path, required=True)
++    p.add_argument("--output-split", type=Path, required=True)
++    a = p.parse_args()
++    if len(a.hdf5_shards) != len(a.meta_shards):
++        raise ValueError("HDF5 and metadata shard counts differ")
++    if a.output_hdf5.exists():
++        raise FileExistsError(a.output_hdf5)
++    a.output_hdf5.parent.mkdir(parents=True, exist_ok=True); a.output_meta.parent.mkdir(parents=True, exist_ok=True)
++    groups, rows, splits = set(), [], defaultdict(list)
++    with h5py.File(a.output_hdf5, "w") as out:
++        data = out.create_group("data")
++        copied_root = False
++        for shard in a.hdf5_shards:
++            with h5py.File(shard, "r") as src:
++                if not copied_root:
++                    for k, v in src["data"].attrs.items(): data.attrs[k] = v
++                    copied_root = True
++                for name in src["data"]:
++                    if name in groups: raise ValueError(f"duplicate group: {name}")
++                    src.copy(src["data"][name], data, name=name); groups.add(name)
++        data.attrs["total_groups"] = len(groups)
++        data.attrs["total_pairs"] = sum(1 for name in groups if text(data[name].attrs.get("variant", "")) == "perturbed")
++    for shard in a.meta_shards:
++        for line in shard.read_text(encoding="utf-8").splitlines():
++            if not line.strip(): continue
++            row = json.loads(line); rows.append(row); splits[str(row["split"])].append(str(row["pair_id"]))
++    if len({r["pair_id"] for r in rows}) != len(rows): raise ValueError("duplicate pair metadata")
++    a.output_meta.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
++    a.output_split.write_text(json.dumps({k: sorted(v) for k, v in splits.items()}, indent=2), encoding="utf-8")
++    print(json.dumps({"groups": len(groups), "pairs": len(rows), "split_counts": {k: len(v) for k, v in splits.items()}}, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/merge_jsonl_shards.py b/stage3a/rescue_v02/merge_jsonl_shards.py
+new file mode 100644
+index 0000000..92c6925
+--- /dev/null
++++ b/stage3a/rescue_v02/merge_jsonl_shards.py
+@@ -0,0 +1,20 @@
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--inputs", nargs="+", type=Path, required=True); p.add_argument("--output", type=Path, required=True); p.add_argument("--id-key", default="pair_id"); p.add_argument("--allow-duplicate-id", action="store_true"); a = p.parse_args()
++    rows = []
++    for path in a.inputs:
++        rows.extend(json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip())
++    if not a.allow_duplicate_id:
++        ids = [str(r[a.id_key]) for r in rows]
++        if len(ids) != len(set(ids)): raise ValueError(f"duplicate {a.id_key}")
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
++    print(json.dumps({"rows": len(rows), "output": str(a.output)}, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/record_proposer_transfer.py b/stage3a/rescue_v02/record_proposer_transfer.py
+new file mode 100644
+index 0000000..d2ff128
+--- /dev/null
++++ b/stage3a/rescue_v02/record_proposer_transfer.py
+@@ -0,0 +1,36 @@
++"""Record the frozen proposer-transfer gate without using forbidden legacy data."""
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++
++def main() -> None:
++    p = argparse.ArgumentParser()
++    p.add_argument("--ceiling", type=Path, required=True)
++    p.add_argument("--output", type=Path, required=True)
++    args = p.parse_args()
++    ceiling = json.loads(args.ceiling.read_text(encoding="utf-8"))
++    # Proposer transfer is a downstream check.  The protocol explicitly gates
++    # it on a passing oracle ceiling; no v0.2 recall is inferred from v0.1.
++    passed = bool(ceiling.get("oracle_ceiling_pass"))
++    result = {
++        "evaluated": False,
++        "full_top5_recall": None,
++        "action_only_top5_recall": None,
++        "protocol_gate": "oracle_ceiling_pass",
++        "protocol_gate_value": passed,
++        "reason": "skipped because v0.2 oracle ceiling did not pass; v0.1 proposer scores are not v0.2 transfer evidence",
++        "frozen_checkpoints": {
++            "full": "../stage2/runs/full_seed_0/best.pt",
++            "action_only": "../stage2/runs/action_only_seed_0/best.pt",
++        },
++    }
++    args.output.parent.mkdir(parents=True, exist_ok=True)
++    args.output.write_text(json.dumps(result, indent=2, sort_keys=True), encoding="utf-8")
++    print(json.dumps(result, indent=2, sort_keys=True))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/stage3a/rescue_v02/run_feasible_oracle.py b/stage3a/rescue_v02/run_feasible_oracle.py
+new file mode 100644
+index 0000000..fdfde90
+--- /dev/null
++++ b/stage3a/rescue_v02/run_feasible_oracle.py
+@@ -0,0 +1,101 @@
++"""Twin-prefix feasible replacement oracle for replay-locked v0.2."""
++from __future__ import annotations
++
++import argparse
++import json
++from collections import defaultdict
++from pathlib import Path
++
++import h5py
++import numpy as np
++
++from .common import _state, _staged, env_for_dataset, text
++
++
++def rows_from(path):
++    if path.suffix != ".jsonl":
++        raise RuntimeError("the simulator runtime has no parquet engine; provide the companion .jsonl plan")
++    return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
++
++
++def reset_prefix(env, initial, prefix, model_xml):
++    env.reset(); env.reset_to({"states": np.asarray(initial).copy(), "model": model_xml})
++    for action in prefix: env.step(action)
++    return _state(env)
++
++
++def continuation(env, actions, horizon):
++    states, rewards, staged, success = [], [], [], []
++    for action in actions[:horizon]:
++        _, reward, _, _ = env.step(action)
++        states.append(_state(env)); rewards.append(float(reward)); staged.append(_staged(env)); success.append(bool(env.is_success().get("task", False)))
++    return {"states_post": np.asarray(states), "rewards": np.asarray(rewards, np.float32), "staged_rewards": np.asarray(staged), "success": np.asarray(success, np.bool_)}
++
++
++def mean(values, h):
++    return float(np.mean(values[: min(h, len(values))])) if len(values) else np.nan
++
++
++def exact(reference, stored, t):
++    n = len(reference["rewards"])
++    fields = (
++        (reference["states_post"], np.asarray(stored["states_post"])[t:t + n]),
++        (reference["rewards"], np.asarray(stored["rewards"])[t:t + n]),
++        (reference["staged_rewards"], np.asarray(stored["staged_rewards"])[t:t + n]),
++        (reference["success"], np.asarray(stored["success"])[t:t + n]),
++    )
++    maxima = [float(np.max(np.abs(a.astype(np.float64) - b.astype(np.float64)))) if a.shape == b.shape and a.size else np.inf for a, b in fields]
++    return bool(all(x == 0.0 for x in maxima)), float(max(maxima))
++
++
++def one_pair(env_ref, env_repl, source, group, rows, model_xml, horizons):
++    t = int(rows[0]["query_t"]); actions = np.asarray(group["actions"]); initial = np.asarray(source[f"data/{text(group.attrs['base_demo_id'])}"]["states"][0]).copy()
++    pre_ref = reset_prefix(env_ref, initial, actions[:t], model_xml)
++    horizon = min(max(horizons), len(actions) - t)
++    reference = continuation(env_ref, actions[t:], horizon)
++    ref_exact, ref_max = exact(reference, group, t)
++    output = []
++    for row in rows:
++        pre_repl = reset_prefix(env_repl, initial, actions[:t], model_xml)
++        replacement_actions = actions[t:].copy(); replacement_actions[0] = np.asarray(row["replacement_action"], np.float32)
++        replacement = continuation(env_repl, replacement_actions, horizon)
++        out = {k: row.get(k) for k in ("replacement_id", "query_id", "pair_id", "task", "base_demo_id", "split", "query_t", "query_source", "replacement_rank", "replacement_source", "library_id", "library_base_demo_id", "library_clean_demo_id", "library_t", "state_distance", "action_delta_l2", "state_in_domain", "action_in_domain", "failure_type", "is_effective_intervention")}
++        out.update({"branch_pre_state_equal": bool(np.array_equal(pre_ref, pre_repl)), "branch_pre_state_max_abs": float(np.max(np.abs(pre_ref - pre_repl))), "reference_exact_all_horizons": ref_exact, "reference_max_abs": ref_max, "finite_target": bool(np.isfinite(reference["rewards"]).all() and np.isfinite(replacement["rewards"]).all() and np.isfinite(reference["staged_rewards"]).all() and np.isfinite(replacement["staged_rewards"]).all()), "actual_horizon": int(horizon)})
++        for h in horizons:
++            stage_ref = np.max(reference["staged_rewards"], axis=1) if reference["staged_rewards"].ndim == 2 else reference["staged_rewards"]
++            stage_repl = np.max(replacement["staged_rewards"], axis=1) if replacement["staged_rewards"].ndim == 2 else replacement["staged_rewards"]
++            out[f"dense_mean_delta_h{h}"] = mean(replacement["rewards"], h) - mean(reference["rewards"], h)
++            out[f"stage_mean_delta_h{h}"] = mean(stage_repl, h) - mean(stage_ref, h)
++            out[f"success_delta_h{h}"] = mean(replacement["success"].astype(float), h) - mean(reference["success"].astype(float), h)
++        output.append(out)
++    return output
++
++
++def main():
++    p = argparse.ArgumentParser()
++    p.add_argument("--benchmark", type=Path, required=True); p.add_argument("--metadata", type=Path, required=True)
++    p.add_argument("--plans", type=Path, required=True); p.add_argument("--horizons", default="10,20,40")
++    p.add_argument("--output", type=Path, required=True); p.add_argument("--summary", type=Path, required=True)
++    p.add_argument("--part-index", type=int, default=0); p.add_argument("--num-parts", type=int, default=1); a = p.parse_args()
++    horizons = [int(x) for x in a.horizons.split(",")]
++    plans = rows_from(a.plans); grouped = defaultdict(list); order = []
++    for row in plans:
++        key = str(row["pair_id"])
++        if key not in grouped: order.append(key)
++        grouped[key].append(row)
++    selected = [key for i, key in enumerate(order) if i % a.num_parts == a.part_index]
++    envs, sources, models, output = {}, {}, {}, []
++    with h5py.File(a.benchmark, "r") as h5:
++        for pair_id in selected:
++            rows = grouped[pair_id]; group = h5[f"data/{rows[0]['perturbed_demo_id']}"]; task = text(group.attrs["task"])
++            if task not in envs:
++                source_path = text(group.attrs["source_dataset"]); envs[task] = (env_for_dataset(source_path)[0], env_for_dataset(source_path)[0]); sources[task] = h5py.File(source_path, "r"); models[task] = envs[task][0].env.model.get_xml()
++            output.extend(one_pair(envs[task][0], envs[task][1], sources[task], group, rows, models[task], horizons))
++    for a_env, b_env in envs.values(): a_env.close(); b_env.close()
++    for source in sources.values(): source.close()
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in output) + "\n", encoding="utf-8")
++    metrics = {"rows": len(output), "pair_count": len(selected), "branch_pre_state_equal_rate": float(sum(r["branch_pre_state_equal"] for r in output) / len(output)) if output else 0.0, "reference_exact_all_horizons_rate": float(sum(r["reference_exact_all_horizons"] for r in output) / len(output)) if output else 0.0, "finite_target_rate": float(sum(r["finite_target"] for r in output) / len(output)) if output else 0.0}
++    a.summary.parent.mkdir(parents=True, exist_ok=True); a.summary.write_text(json.dumps(metrics, indent=2), encoding="utf-8"); print(json.dumps(metrics, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/run_paired_clean_oracle.py b/stage3a/rescue_v02/run_paired_clean_oracle.py
+new file mode 100644
+index 0000000..1e4557a
+--- /dev/null
++++ b/stage3a/rescue_v02/run_paired_clean_oracle.py
+@@ -0,0 +1,103 @@
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import h5py
++import numpy as np
++
++from .common import env_for_dataset, replay, text
++
++
++def horizon_mean(values, t, horizon):
++    end = min(len(values), int(t) + int(horizon))
++    if end <= int(t):
++        return np.nan
++    return float(np.mean(np.asarray(values)[int(t):end]))
++
++
++def binary_metrics(labels, scores):
++    y = np.asarray(labels, dtype=np.int64); s = np.asarray(scores, dtype=np.float64)
++    pos, neg = y == 1, y == 0
++    if not pos.any() or not neg.any(): return {}
++    order = np.argsort(s, kind="mergesort")
++    ranks = np.empty(len(s), dtype=np.float64); ranks[order] = np.arange(1, len(s) + 1)
++    auc = float((ranks[pos].sum() - pos.sum() * (pos.sum() + 1) / 2) / (pos.sum() * neg.sum()))
++    desc = np.argsort(-s, kind="mergesort"); yy = y[desc]; tp = np.cumsum(yy); precision = tp / np.arange(1, len(y) + 1); ap = float((precision * yy).sum() / pos.sum())
++    return {"auroc": auc, "auprc": ap}
++
++
++def run_pair(env_ref, env_clean, source, pert_group, clean_group, horizons, model_xml=None):
++    initial = np.asarray(source[f"data/{text(pert_group.attrs['base_demo_id'])}"]["states"][0]).copy()
++    pert_actions = np.asarray(pert_group["actions"]); clean_actions = np.asarray(clean_group["actions"])
++    pert = replay(env_ref, initial, pert_actions, render_images=False, model_xml=model_xml)
++    clean = replay(env_clean, initial, clean_actions, render_images=False, model_xml=model_xml)
++    t = int(pert_group.attrs["perturb_t"])
++    pre_ref = pert["states_pre"][t]
++    pre_clean = clean["states_pre"][t]
++    ref_max = float(np.max(np.abs(pert["states_post"] - np.asarray(pert_group["states_post"]))))
++    clean_max = float(np.max(np.abs(clean["states_post"] - np.asarray(clean_group["states_post"]))))
++    row = {"pair_id": text(pert_group.attrs["pair_id"]), "task": text(pert_group.attrs["task"]), "base_demo_id": text(pert_group.attrs["base_demo_id"]), "perturb_t": t, "failure_type": text(pert_group.attrs.get("failure_type", "")), "is_effective_intervention": bool(pert_group.attrs.get("is_effective_intervention", False)), "branch_pre_state_equal": bool(np.array_equal(pre_ref, pre_clean)), "branch_pre_state_max_abs": float(np.max(np.abs(pre_ref - pre_clean))), "reference_max_abs": ref_max, "paired_clean_max_abs": clean_max, "reference_exact_all_horizons": bool(ref_max == 0.0), "paired_clean_exact_all_horizons": bool(clean_max == 0.0), "finite_target": bool(np.isfinite(pert["rewards"]).all() and np.isfinite(clean["rewards"]).all()), "actual_horizon": int(min(len(pert_actions), len(clean_actions)) - t)}
++    for h in horizons:
++        row[f"dense_delta_h{h}"] = horizon_mean(clean["rewards"], t, h) - horizon_mean(pert["rewards"], t, h)
++        row[f"stage_delta_h{h}"] = horizon_mean(np.max(clean["staged_rewards"], axis=1), t, h) - horizon_mean(np.max(pert["staged_rewards"], axis=1), t, h)
++        row[f"success_delta_h{h}"] = horizon_mean(clean["success"].astype(float), t, h) - horizon_mean(pert["success"].astype(float), t, h)
++    horizon_weights = {10: 0.2, 20: 0.3, 40: 0.5}
++    if set(horizons) != set(horizon_weights):
++        raise ValueError("v0.2 freezes oracle horizons to 10,20,40")
++    row["counterfactual_improvement"] = float(sum(
++        horizon_weights[h] * (0.4 * row[f"dense_delta_h{h}"] + 0.5 * row[f"stage_delta_h{h}"] + 0.1 * row[f"success_delta_h{h}"])
++        for h in horizons if np.isfinite(row[f"dense_delta_h{h}"])
++    ))
++    return row
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--benchmark", type=Path, required=True); p.add_argument("--metadata", type=Path, required=True); p.add_argument("--horizons", default="10,20,40"); p.add_argument("--output", type=Path, required=True); p.add_argument("--summary", type=Path, required=True); p.add_argument("--part-index", type=int, default=0); p.add_argument("--num-parts", type=int, default=1); a = p.parse_args(); horizons = [int(x) for x in a.horizons.split(",")]
++    metadata = {str(r["pair_id"]): r for r in (json.loads(x) for x in a.metadata.read_text(encoding="utf-8").splitlines() if x.strip())}
++    rows = []; envs = {}; sources = {}; models = {}; seen = 0
++    with h5py.File(a.benchmark, "r") as h5:
++        for name, g in h5["data"].items():
++            if text(g.attrs.get("variant", "")) != "perturbed": continue
++            if seen % a.num_parts != a.part_index:
++                seen += 1
++                continue
++            seen += 1
++            task = text(g.attrs["task"])
++            if task not in envs:
++                source = text(g.attrs["source_dataset"]); envs[task] = (env_for_dataset(source)[0], env_for_dataset(source)[0])
++                sources[task] = h5py.File(source, "r")
++                models[task] = envs[task][0].env.model.get_xml()
++            clean_name = text(g.attrs["clean_demo_id"])
++            # XML replacement is needed once to synchronize the two freshly
++            # created environments. Subsequent resets retain that model.
++            model_xml = models[task]
++            row = run_pair(envs[task][0], envs[task][1], sources[task], g, h5[f"data/{clean_name}"], horizons, model_xml)
++            if row["pair_id"] not in metadata:
++                raise ValueError(f"metadata missing {row['pair_id']}")
++            row["split"] = str(metadata[row["pair_id"]].get("split", "pilot"))
++            if row["split"] not in {"train", "validation", "pilot"}:
++                raise ValueError(f"forbidden split: {row['split']}")
++            rows.append(row)
++    for pair in envs.values(): pair[0].close(); pair[1].close()
++    for source in sources.values(): source.close()
++    a.output.parent.mkdir(parents=True, exist_ok=True)
++    if a.output.suffix == ".jsonl":
++        a.output.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n", encoding="utf-8")
++    else:
++        raise RuntimeError("Parquet output requires an installed parquet engine; use .jsonl output in the replay runtime")
++    engineering = {"pair_count": len(rows), "branch_pre_state_equal_rate": float(sum(x["branch_pre_state_equal"] for x in rows) / len(rows)) if rows else 0.0, "reference_exact_all_horizons_rate": float(sum(x["reference_exact_all_horizons"] for x in rows) / len(rows)) if rows else 0.0, "paired_clean_exact_all_horizons_rate": float(sum(x["paired_clean_exact_all_horizons"] for x in rows) / len(rows)) if rows else 0.0, "finite_target_rate": float(sum(x["finite_target"] for x in rows) / len(rows)) if rows else 0.0}
++    metrics = {}
++    if rows and len({x["is_effective_intervention"] for x in rows}) == 2:
++        y = [int(x["is_effective_intervention"]) for x in rows]; s = [float(x["counterfactual_improvement"]) for x in rows]; overall = binary_metrics(y, s); metrics = {"overall_auroc": overall["auroc"], "overall_auprc": overall["auprc"]}
++        for task in ("can", "square"):
++            sub = [x for x in rows if x["task"] == task]
++            if sub and len({x["is_effective_intervention"] for x in sub}) == 2: metrics[f"{task}_auroc"] = binary_metrics([int(x["is_effective_intervention"]) for x in sub], [x["counterfactual_improvement"] for x in sub])["auroc"]; metrics[f"{task}_n"] = len(sub)
++    failure_counts = {}
++    for x in rows: failure_counts[x["failure_type"]] = failure_counts.get(x["failure_type"], 0) + 1
++    summary = {"engineering": engineering, "metrics": metrics, "failure_type_counts": failure_counts, "effective_count": sum(bool(x["is_effective_intervention"]) for x in rows), "no_effect_count": sum(not bool(x["is_effective_intervention"]) for x in rows)}
++    a.summary.parent.mkdir(parents=True, exist_ok=True); a.summary.write_text(json.dumps(summary, indent=2), encoding="utf-8"); print(json.dumps(summary, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/select_and_replay_clean.py b/stage3a/rescue_v02/select_and_replay_clean.py
+new file mode 100644
+index 0000000..d70ef9c
+--- /dev/null
++++ b/stage3a/rescue_v02/select_and_replay_clean.py
+@@ -0,0 +1,103 @@
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import h5py
++import numpy as np
++
++from .common import compare_rollouts, env_for_dataset, replay, text
++
++
++def split_bases(split_manifest, pair_meta):
++    manifest = json.loads(Path(split_manifest).read_text(encoding="utf-8"))
++    pair_split = {}
++    for split in ("train", "validation", "test"):
++        for pair_id in manifest.get(split, []):
++            pair_split[str(pair_id)] = split
++    result = {"can": {}, "square": {}}
++    for line in Path(pair_meta).read_text(encoding="utf-8").splitlines():
++        if not line.strip():
++            continue
++        row = json.loads(line)
++        split = pair_split.get(row.get("pair_id"))
++        if split in ("train", "validation"):
++            result[str(row["task"])].setdefault(str(row["base_demo_id"]), split)
++    return result
++
++
++def demo_number(demo_id):
++    try:
++        return int(str(demo_id).rsplit("_", 1)[-1])
++    except ValueError:
++        return 10**9
++
++
++def check_demo(source, demo_id, env_a, env_b, source_h5, max_steps=None):
++    group = source_h5[f"data/{demo_id}"]
++    initial = np.asarray(group["states"][0]).copy()
++    actions = np.asarray(group["actions"][:max_steps] if max_steps else group["actions"][:]).copy()
++    model_xml = env_a.env.model.get_xml()
++    a = replay(env_a, initial, actions, render_images=False, model_xml=model_xml)
++    b = replay(env_b, initial, actions, render_images=False, model_xml=model_xml)
++    comparison = compare_rollouts(a, b)
++    return {
++        "task": "can" if "can" in str(source).lower() else "square",
++        "demo_id": demo_id,
++        "steps": int(len(actions)),
++        "determinism_pass": bool(comparison["pass"]),
++        "final_success": bool(a["success"][-1]) if len(a["success"]) else False,
++        "comparison": comparison,
++    }
++
++
++def main():
++    p = argparse.ArgumentParser()
++    p.add_argument("--can-source", type=Path, required=True)
++    p.add_argument("--square-source", type=Path, required=True)
++    p.add_argument("--split-manifest", type=Path, required=True)
++    p.add_argument("--pair-meta", type=Path, required=True)
++    p.add_argument("--num-per-task", type=int, default=5)
++    p.add_argument("--allow-fewer", action="store_true", help="write every passing allowed candidate instead of requiring the requested cap")
++    p.add_argument("--allowed-splits", default="train,validation")
++    p.add_argument("--output", type=Path, required=True)
++    p.add_argument("--detail-output", type=Path, required=True)
++    a = p.parse_args()
++    allowed = [x.strip() for x in a.allowed_splits.split(",")]
++    bases = split_bases(a.split_manifest, a.pair_meta)
++    sources = {"can": a.can_source, "square": a.square_source}
++    selected, details = {"can": [], "square": []}, []
++    environments = {}
++    source_handles = {}
++    try:
++        for task in ("can", "square"):
++            environments[task] = (env_for_dataset(sources[task])[0], env_for_dataset(sources[task])[0])
++            source_handles[task] = h5py.File(sources[task], "r")
++            candidates = [d for d, split in bases[task].items() if split in allowed]
++            candidates.sort(key=demo_number)
++            target = min(a.num_per_task, len(candidates)) if a.allow_fewer else a.num_per_task
++            for demo_id in candidates:
++                if len(selected[task]) >= target:
++                    break
++                row = check_demo(sources[task], demo_id, *environments[task], source_handles[task])
++                row["split"] = bases[task][demo_id]
++                details.append(row)
++                if row["determinism_pass"] and row["final_success"]:
++                    selected[task].append(row)
++    finally:
++        for env_a, env_b in environments.values():
++            env_a.close(); env_b.close()
++        for handle in source_handles.values():
++            handle.close()
++    if not a.allow_fewer and any(len(selected[t]) < a.num_per_task for t in selected):
++        raise RuntimeError("insufficient deterministic successful demos: " + json.dumps({k: len(v) for k, v in selected.items()}))
++    a.output.parent.mkdir(parents=True, exist_ok=True)
++    a.detail_output.parent.mkdir(parents=True, exist_ok=True)
++    a.output.write_text(json.dumps(selected, indent=2), encoding="utf-8")
++    a.detail_output.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in details) + "\n", encoding="utf-8")
++    print(json.dumps({"selected": {k: [x["demo_id"] for x in v] for k, v in selected.items()}, "tested": len(details)}, indent=2))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/stage3a/rescue_v02/summarize_paired_clean.py b/stage3a/rescue_v02/summarize_paired_clean.py
+new file mode 100644
+index 0000000..19beedf
+--- /dev/null
++++ b/stage3a/rescue_v02/summarize_paired_clean.py
+@@ -0,0 +1,36 @@
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import numpy as np
++
++from .run_paired_clean_oracle import binary_metrics
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--inputs", nargs="+", type=Path, required=True); p.add_argument("--output", type=Path, required=True); p.add_argument("--summary", type=Path, required=True); a = p.parse_args()
++    rows = []
++    for path in a.inputs:
++        rows.extend(json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip())
++    ids = [str(r["pair_id"]) for r in rows]
++    if len(ids) != len(set(ids)): raise ValueError("duplicate pair_id across paired-clean partitions")
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
++    engineering = {f"{key}_rate": float(sum(bool(r[key]) for r in rows) / len(rows)) if rows else 0.0 for key in ("branch_pre_state_equal", "reference_exact_all_horizons", "paired_clean_exact_all_horizons", "finite_target")}
++    labels, scores = [int(bool(r["is_effective_intervention"])) for r in rows], [float(r["counterfactual_improvement"]) for r in rows]
++    metrics = {}
++    if len(set(labels)) == 2:
++        overall = binary_metrics(labels, scores); metrics = {"overall_auroc": overall["auroc"], "overall_auprc": overall["auprc"]}
++        for task in ("can", "square"):
++            sub = [r for r in rows if r["task"] == task]
++            if len({bool(r["is_effective_intervention"]) for r in sub}) == 2:
++                got = binary_metrics([int(bool(r["is_effective_intervention"])) for r in sub], [float(r["counterfactual_improvement"]) for r in sub])
++                metrics[f"{task}_auroc"] = got["auroc"]; metrics[f"{task}_auprc"] = got["auprc"]; metrics[f"{task}_n"] = len(sub)
++    failure_counts = {}
++    for r in rows: failure_counts[r["failure_type"]] = failure_counts.get(r["failure_type"], 0) + 1
++    result = {"engineering": engineering, "metrics": metrics, "failure_type_counts": failure_counts, "effective_count": sum(labels), "no_effect_count": len(rows) - sum(labels), "pair_count": len(rows)}
++    a.summary.parent.mkdir(parents=True, exist_ok=True); a.summary.write_text(json.dumps(result, indent=2), encoding="utf-8"); print(json.dumps(result, indent=2))
++
++
++if __name__ == "__main__": main()
+diff --git a/stage3a/rescue_v02/write_v02_report.py b/stage3a/rescue_v02/write_v02_report.py
+new file mode 100644
+index 0000000..95b95dd
+--- /dev/null
++++ b/stage3a/rescue_v02/write_v02_report.py
+@@ -0,0 +1,21 @@
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++
++def read(path):
++    return json.loads(Path(path).read_text(encoding="utf-8"))
++
++
++def main():
++    p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True); p.add_argument("--decision", type=Path, required=True); p.add_argument("--output", type=Path, required=True); a = p.parse_args(); root = a.root
++    decision = read(a.decision); pilot = read(root / "metrics/paired_clean_pilot_summary.json"); audit = read(root / "metrics/benchmark_v0.2_train_val_audit.json"); ceiling = read(root / "metrics/oracle_ceiling_v0.2_validation.json")
++    pm, fm = ceiling["paired_clean"]["metrics"], ceiling["primary_feasible"]["metrics"]
++    lines = ["# Stage 3A v0.2 replay-locked rescue report", "", "## Decision", "", f"`{decision['decision']}`.  Stage 3A-E continuation is `{decision['continue_stage3a_e']}`.", "", "## Evidence", "", "1. The previous stop remains scoped to v0.1 recovery: its legacy runtime is unavailable; it does not invalidate the independently replay-locked v0.2 path.", f"2. The current mimicgen runtime is frozen by `{decision['runtime_fingerprint_sha256']}`.", f"3. Pilot selection contains 10 clean-success base demos and produced {decision['pilot']['num_pairs']} pairs.", f"4. Pilot paired-clean AUROC: {decision['pilot']['paired_clean_auroc']}; pilot exact branch/reference/clean rates: {pilot['engineering']}", f"5. Full v0.2 contains {audit['pair_count']} train/validation perturbed pairs; split counts: {audit.get('split_counts', {})}.", f"6. Full paired-clean validation AUROC/AUPRC: {pm['auroc']} / {pm['auprc']}.", f"7. Primary feasible validation AUROC/AUPRC: {fm['auroc']} / {fm['auprc']}.", f"8. Best-of-4 feasible validation AUROC: {ceiling['best_of_4_feasible']['metrics']['auroc']} (upper-bound diagnostic only).", f"9. Proposer transfer evaluated: {decision['proposer_transfer']['evaluated']}; full/action-only Top-5 recall: {decision['proposer_transfer']['full_top5_recall']} / {decision['proposer_transfer']['action_only_top5_recall']}.", f"10. Engineering pass: {ceiling['engineering_pass']}; method pass: {ceiling['method_pass']}; failed rules: {decision['failed_rules']}.", "", "## Frozen gates", "", "- Validation paired-clean AUROC >= 0.70", "- Validation primary feasible replacement AUROC >= 0.70", "- Exact twin-prefix/replay requirements recorded in `metrics/oracle_ceiling_v0.2_validation.json`", ""]
++    a.output.parent.mkdir(parents=True, exist_ok=True); a.output.write_text("\n".join(lines), encoding="utf-8")
++    print(str(a.output))
++
++
++if __name__ == "__main__": main()

@@ -1,0 +1,19 @@
+{
+  "best_epoch": 2,
+  "chunk_mean_abs_delay": 3.362215909090909,
+  "chunk_top1_within_region": 0.7826704545454546,
+  "chunk_top5_hit_center": 0.828125,
+  "clean_gate_mean": 0.4319915771484375,
+  "effect_balanced_accuracy": 0.6320008116883117,
+  "gate_gap": 0.1816579111806163,
+  "hard_negative_gate_mean": 0.5337739832261029,
+  "loss": 4.854756474494934,
+  "loss_effect_clean": 0.44092002511024475,
+  "loss_effect_hard_negative": 0.7811678279013861,
+  "loss_effect_negative": 0.842021875438236,
+  "loss_effect_no_effect": 0.6429761009556907,
+  "loss_effect_positive": 0.49457802446115584,
+  "negative_gate_mean": 0.4663882565188718,
+  "no_effect_gate_mean": 0.4496342585637019,
+  "positive_gate_mean": 0.6312921697443182
+}

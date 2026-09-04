@@ -1,0 +1,67 @@
+{
+  "stage": "Stage 3A alignment repair",
+  "decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "stage2_decision_preserved": "NO_GO_SWITCH_DIRECTION",
+  "failed_rules": [
+    "simulator_transition_alignment_failed"
+  ],
+  "values": {
+    "alignment": "config/transition_alignment.json",
+    "diagnostics": "diagnostics/state_layout_diagnostics.json",
+    "selected_state_layout": null,
+    "selected_oracle_replay_mode": null,
+    "pre_verifier_gate": {
+      "status": "not_run",
+      "reason": "alignment_failed"
+    },
+    "diagnostic_summaries": {
+      "direct_state_reset+pre_action": {
+        "pre_state_median_l2": 1.1102230246574683e-16,
+        "pre_state_p95_l2": 3.172152755714969e-16,
+        "next_state_median_l2": 2.2839096647750985,
+        "next_state_p95_l2": 4.524667930853819,
+        "passed": false
+      },
+      "direct_state_reset+post_action": {
+        "pre_state_median_l2": 2.3856587923044213e-16,
+        "pre_state_p95_l2": 3.0454572163563236e-16,
+        "next_state_median_l2": 2.025171520524592,
+        "next_state_p95_l2": 2.348869574892968,
+        "passed": false
+      },
+      "prefix_replay+pre_action": {
+        "pre_state_median_l2": 1.6072522475784474,
+        "pre_state_p95_l2": 4.378894749072576,
+        "next_state_median_l2": 1.1645706552176562,
+        "next_state_p95_l2": 1.8068502116233596,
+        "passed": false
+      },
+      "prefix_replay+post_action": {
+        "pre_state_median_l2": 0.23919409973806252,
+        "pre_state_p95_l2": 1.5059785677825688,
+        "next_state_median_l2": 0.1645764489440729,
+        "next_state_p95_l2": 1.5099367304009574,
+        "passed": false
+      }
+    },
+    "baseline_state_alignment": {
+      "status": "failed",
+      "next_state_l2_checks": [
+        6.8102827072143555,
+        0.19640620052814484
+      ],
+      "median_l2": 3.50334445387125
+    },
+    "baseline_validation_oracle_auroc": {
+      "paired_clean_upper_bound": 0.6097234133790738,
+      "teacher_forced_primary_feasible": 0.6173885077186964,
+      "primary_feasible_replacement": 0.5649656946826759,
+      "status": "MISALIGNED_PROVISIONAL"
+    }
+  },
+  "test_read": false,
+  "blind_holdout_generated": false,
+  "stage3a_e_executed": false,
+  "stage3a_f_executed": false,
+  "stage3a_g_executed": false
+}

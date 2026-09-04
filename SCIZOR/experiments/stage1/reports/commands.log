@@ -1,0 +1,11 @@
+git rev-parse --show-toplevel
+rg -n -i 'datamil|data.?model|influence|metagradient|target.?demo' . -g '!octo/**' -g '!dlimp/**'
+find /home/xushijie -type f \( -name '*.hdf5' -o -name '*.h5' \)
+nvidia-smi --query-gpu=index,name,memory.total,memory.used,utilization.gpu --format=csv,noheader,nounits
+conda env list
+conda run -n scizor-curation python -c 'import torch, yaml, h5py, psutil'
+PYTHONPATH="$PWD/robomimic" python robomimic/robomimic/scripts/train.py --help
+experiments/stage1/scripts/run_stage1_smoke.sh 
+python experiments/stage1/tools/aggregate_stage1.py --experiment-dir outputs/stage1/S1_12_robomimic_can_td5_budget_unfrozen_seed0_20260901-075926 --report experiments/stage1/reports/baseline_summary.md
+experiments/stage1/scripts/run_stage1_smoke.sh experiments/stage1/configs/mvp_base.yaml 0
+bash experiments/stage1/scripts/run_stage1_baseline.sh

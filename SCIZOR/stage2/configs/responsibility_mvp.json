@@ -1,0 +1,54 @@
+{
+  "data": {
+    "image_key": "agentview_image",
+    "visual_encoder": "facebook/dinov2-base",
+    "visual_batch_size": 128,
+    "visual_dtype": "float16",
+    "max_horizon": 40,
+    "min_horizon": 8,
+    "positive_chunks_per_pair": 16,
+    "hard_negative_chunks_per_effective_pair": 4,
+    "no_effect_chunks_per_pair": 2,
+    "clean_chunks_per_demo": 4,
+    "target_region_weights": [0.25, 0.5, 0.25],
+    "feature_cache_lru_size": 32
+  },
+  "model": {
+    "image_dim": 768,
+    "d_model": 256,
+    "n_heads": 4,
+    "num_layers": 3,
+    "dim_feedforward": 512,
+    "dropout": 0.1,
+    "task_embedding_dim": 16,
+    "image_projection_dim": 96,
+    "image_delta_projection_dim": 64,
+    "state_projection_dim": 48,
+    "state_delta_projection_dim": 32,
+    "action_projection_dim": 64,
+    "num_tasks": 2
+  },
+  "loss": {
+    "lambda_localization": 1.0,
+    "lambda_effect": 1.0,
+    "lambda_rank": 0.25,
+    "rank_margin": 0.2
+  },
+  "train": {
+    "batch_size": 64,
+    "epochs": 50,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "warmup_steps": 200,
+    "gradient_clip_norm": 1.0,
+    "early_stop_patience": 12,
+    "num_workers": 4,
+    "mixed_precision": true,
+    "seeds": [0, 1, 2]
+  },
+  "evaluation": {
+    "reference_validation_delete_count": 9616,
+    "bootstrap_samples": 500,
+    "bootstrap_seed": 20260831
+  }
+}

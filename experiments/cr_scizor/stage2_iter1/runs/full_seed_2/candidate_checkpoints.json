@@ -1,0 +1,86 @@
+{
+  "best_effect_bacc": {
+    "epoch": 1,
+    "key": [
+      0.6153612012987013,
+      0.05606879387702135,
+      0.6619318181818182,
+      -4.427556818181818
+    ],
+    "metrics": {
+      "chunk_mean_abs_delay": 4.427556818181818,
+      "chunk_top1_within_region": 0.6619318181818182,
+      "chunk_top5_hit_center": 0.8380681818181818,
+      "clean_gate_mean": 0.4739990234375,
+      "effect_balanced_accuracy": 0.6153612012987013,
+      "gate_gap": 0.05606879387702135,
+      "hard_negative_gate_mean": 0.5023444680606618,
+      "loss": 4.910099262282962,
+      "loss_effect_clean": 0.4252384120509738,
+      "loss_effect_hard_negative": 0.6783734091690609,
+      "loss_effect_negative": 0.7255438481058393,
+      "loss_effect_no_effect": 0.5618050623507727,
+      "loss_effect_positive": 0.5524256115867978,
+      "negative_gate_mean": 0.4854752181412338,
+      "no_effect_gate_mean": 0.48169532189002406,
+      "positive_gate_mean": 0.5377641157670454
+    },
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best_effect_bacc.pt"
+  },
+  "best_gate_gap": {
+    "epoch": 3,
+    "key": [
+      0.16178157779720279,
+      0.6132305194805194,
+      0.6434659090909091,
+      -4.0241477272727275
+    ],
+    "metrics": {
+      "chunk_mean_abs_delay": 4.0241477272727275,
+      "chunk_top1_within_region": 0.6434659090909091,
+      "chunk_top5_hit_center": 0.7585227272727273,
+      "clean_gate_mean": 0.14543533325195312,
+      "effect_balanced_accuracy": 0.6132305194805194,
+      "gate_gap": 0.16178157779720279,
+      "hard_negative_gate_mean": 0.22532743566176472,
+      "loss": 5.619388967752457,
+      "loss_effect_clean": 0.11422014520281837,
+      "loss_effect_hard_negative": 0.28860241015042576,
+      "loss_effect_negative": 0.3285947997300398,
+      "loss_effect_no_effect": 0.25401440333752406,
+      "loss_effect_positive": 1.1230701406796773,
+      "negative_gate_mean": 0.20721467748864905,
+      "no_effect_gate_mean": 0.2108130821814904,
+      "positive_gate_mean": 0.3725946599786932
+    },
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best_gate_gap.pt"
+  },
+  "best_localization": {
+    "epoch": 12,
+    "key": [
+      0.7727272727272727,
+      -2.524147727272727,
+      0.5630073051948052,
+      0.12579356205578035
+    ],
+    "metrics": {
+      "chunk_mean_abs_delay": 2.524147727272727,
+      "chunk_top1_within_region": 0.7727272727272727,
+      "chunk_top5_hit_center": 0.7997159090909091,
+      "clean_gate_mean": 0.028116879053413868,
+      "effect_balanced_accuracy": 0.5630073051948052,
+      "gate_gap": 0.12579356205578035,
+      "hard_negative_gate_mean": 0.04096551765413845,
+      "loss": 17.92090625628563,
+      "loss_effect_clean": 0.061692456810089336,
+      "loss_effect_hard_negative": 0.21939260803793287,
+      "loss_effect_negative": 0.24531167783676383,
+      "loss_effect_no_effect": 0.23767207645029148,
+      "loss_effect_positive": 7.133475144704183,
+      "negative_gate_mean": 0.0491559925404462,
+      "no_effect_gate_mean": 0.05507342818264778,
+      "positive_gate_mean": 0.18086699023842812
+    },
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_2/best_localization.pt"
+  }
+}

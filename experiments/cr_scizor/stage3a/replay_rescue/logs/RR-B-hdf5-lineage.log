@@ -1,0 +1,16 @@
+{
+  "can": {
+    "num_demos": 10,
+    "median_action_max_abs": 0.0,
+    "best_state_relation": "source_plus1",
+    "best_state_median_row_l2": 2.057416596232943,
+    "model_file_all_match": false
+  },
+  "square": {
+    "num_demos": 10,
+    "median_action_max_abs": 0.0,
+    "best_state_relation": "source_plus1",
+    "best_state_median_row_l2": 0.041282383967858036,
+    "model_file_all_match": false
+  }
+}

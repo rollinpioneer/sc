@@ -1,0 +1,9 @@
+{
+  "effective_pairs": 29,
+  "invalid_rows": 20,
+  "pairs": 256,
+  "schema": "stage3f_r_complete_teacher_forced_v1",
+  "source_rows": 256,
+  "split": "validation",
+  "teacher_forced": true
+}

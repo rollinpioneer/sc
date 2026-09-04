@@ -1,0 +1,18 @@
+metric,value
+pair_count,1280
+task_failure_counts,{"can::ambiguous": 9, "can::delayed_failure": 19, "can::direct_failure": 3, "can::no_effect": 532, "can::recovery_failure": 39, "can::recovery_success": 38, "square::ambiguous": 6, "square::delayed_failure": 49, "square::direct_failure": 4, "square::no_effect": 517, "square::recovery_failure": 27, "square::recovery_success": 37}
+perturbation_magnitude_counts,{"axis_impulse::0.25": 160, "axis_impulse::1.0": 160, "flip_gripper::0.5": 160, "flip_gripper::1.0": 160, "reverse_motion::0.25": 160, "reverse_motion::1.0": 160, "zero_motion::0.5": 160, "zero_motion::1.0": 160}
+failure_type_counts,{"ambiguous": 15, "delayed_failure": 68, "direct_failure": 7, "no_effect": 1049, "recovery_failure": 66, "recovery_success": 75}
+label_status_counts,{"ambiguous": 15, "ok": 1265}
+final_success_counts,{"clean=True,perturbed=False": 141, "clean=True,perturbed=True": 1139}
+ambiguous_rate,0.01171875
+recovery_success_rate,0.05859375
+recovery_failure_rate,0.0515625
+onset_delay_mean,34.96104049682617
+onset_delay_std,30.397560119628906
+onset_delay_min,0.0
+onset_delay_max,110.0
+action_delta_norm_mean,0.9947429895401001
+action_delta_norm_std,0.7769984006881714
+action_delta_norm_min,0.028188781812787056
+action_delta_norm_max,3.5263216495513916

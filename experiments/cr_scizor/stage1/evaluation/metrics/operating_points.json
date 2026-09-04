@@ -1,0 +1,22 @@
+{
+  "active_validation_transition_count": 32053,
+  "methods": {
+    "future_discount": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.02636817106197408,
+      "validation_delete_count": 9616
+    },
+    "original_scizor": {
+      "selection": "score >= validation percentile threshold",
+      "threshold": 0.5024318337440491,
+      "validation_delete_count": 9616
+    },
+    "uniform": {
+      "selection": "validation score rank with deterministic task,demo,t tie break",
+      "threshold": 0.025525744189590503,
+      "validation_delete_count": 9616
+    }
+  },
+  "reference_percentile": 0.7,
+  "selection_split": "validation"
+}

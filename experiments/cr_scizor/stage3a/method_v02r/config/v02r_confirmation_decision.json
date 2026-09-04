@@ -1,0 +1,13 @@
+{
+  "decision": "RESUME_STAGE3A_E_ON_V02R",
+  "engineering_pass": true,
+  "method_pass": true,
+  "paired_clean_confirmation_auroc": 0.9051535087719298,
+  "primary_feasible_confirmation_auroc": 0.9071115288220551,
+  "thresholds": {
+    "paired_clean_auroc": 0.7,
+    "primary_feasible_auroc": 0.7
+  },
+  "failed_rules": [],
+  "old_v02_stop_status": "SUPERSEDED_BY_V02R_CONFIRMATION"
+}

@@ -1,0 +1,7 @@
+{
+  "v01_recovery": "FAILED_AND_FROZEN",
+  "legacy_runtime": "UNAVAILABLE_AND_CLOSED",
+  "current_runtime_twin_determinism": "PASSED",
+  "v02_fallback": "COMPLETED_ORACLE_CEILING_FAILED",
+  "stage3a_final_decision": "STOP_STAGE3A_V02_ORACLE_CEILING_FAILURE"
+}

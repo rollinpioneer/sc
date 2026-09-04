@@ -1,0 +1,58 @@
+{
+  "candidate_replacement": {
+    "full": {
+      "auroc": 0.8486127414115119,
+      "auprc": 0.6932734601846052,
+      "n": 7643,
+      "positive": 1969,
+      "prevalence": 0.25762135287190896
+    },
+    "action_only": {
+      "auroc": 0.8435631563109051,
+      "auprc": 0.6607529414805392,
+      "n": 7643,
+      "positive": 1969,
+      "prevalence": 0.25762135287190896
+    },
+    "full_score_mae": 0.16607798383656602,
+    "full_score_spearman": 0.6778366081898036
+  },
+  "teacher_forced_primary": {
+    "full": {
+      "auroc": 0.7424242424242424,
+      "auprc": 0.31722589462527545,
+      "n": 103,
+      "positive": 4,
+      "prevalence": 0.038834951456310676
+    },
+    "action_only": {
+      "auroc": 0.6742424242424242,
+      "auprc": 0.12415805137844611,
+      "n": 103,
+      "positive": 4,
+      "prevalence": 0.038834951456310676
+    },
+    "by_task": {
+      "can": {
+        "auroc": 0.7391304347826086,
+        "auprc": 0.07692307692307693,
+        "n": 47,
+        "positive": 1,
+        "prevalence": 0.02127659574468085
+      },
+      "square": {
+        "auroc": 0.6981132075471698,
+        "auprc": 0.4003267973856209,
+        "n": 56,
+        "positive": 3,
+        "prevalence": 0.05357142857142857
+      }
+    }
+  },
+  "full_vs_action_only": {
+    "replacement_auprc_difference_full_minus_action": 0.032520518704066026,
+    "teacher_forced_auroc_difference_full_minus_action": 0.06818181818181823,
+    "full_matched_recall_no_effect_far": 0.15151515151515152,
+    "action_only_matched_recall_no_effect_far": 0.1717171717171717
+  }
+}

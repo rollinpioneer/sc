@@ -1,0 +1,37 @@
+{
+  "schema": "stage3_v02r_progress_snapshot_v1",
+  "snapshot_kind": "final_validation_only",
+  "generated_at_utc": "2026-09-04T08:52:13+00:00",
+  "source_commit": "c72ff2e087c6dbef2a5fe9e44509bc14b44c2ec8",
+  "completed_stages": [
+    "3E-A frozen inputs and confirmation gate",
+    "3E-B labels, features, and train-only verifier normalization",
+    "3E-C frozen evidence and full/action proposer transfer",
+    "3E-D candidate-level train and validation long counterfactual oracle",
+    "3E-E verifier smoke, three full seeds, action-only diagnostic, and validation ensemble",
+    "3F validation learning, pipeline scoring, and frozen protocol",
+    "3H validation-only decision, leaderboard, report, bundle, and artifact manifest"
+  ],
+  "in_progress_stage": null,
+  "finalization_state": "Validation gate failed; blind benchmark correctly not generated.",
+  "final_decision": "SWITCH_TO_COVERAGE_CONSTRAINED_SOFT_SCIZOR",
+  "validation_gate_pass": false,
+  "blind_test_generated": false,
+  "oracle": {
+    "train_query_groups": 5312,
+    "train_rows": 21248,
+    "validation_query_groups": 1867,
+    "validation_rows": 7468,
+    "branch_pre_state_equal_rate": 1.0,
+    "reference_exact_rate": 1.0,
+    "finite_target_rate": 1.0
+  },
+  "large_artifact_policy": "HDF5, NPZ, Parquet, checkpoints, FAISS, videos, and JSONL are recorded in the manifest and excluded from the lightweight ZIP.",
+  "artifacts": {
+    "validation_protocol": "metrics/validation_frozen_protocol.json",
+    "final_decision": "metrics/stage3_final_decision.json",
+    "final_report": "report/stage3_v02r_final_report.md",
+    "method_bundle": "report/stage3_method_bundle.json",
+    "large_artifact_manifest": "report/large_artifact_manifest.json"
+  }
+}

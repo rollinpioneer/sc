@@ -1,0 +1,23 @@
+
+Loading weights:   0%|          | 0/223 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 223/223 [00:00<00:00, 9203.47it/s]
+step=1 loss=1.597760
+step=2 loss=1.641626
+step=3 loss=1.636659
+step=4 loss=1.690263
+step=5 loss=1.533818
+step=6 loss=1.774079
+step=7 loss=1.885238
+step=8 loss=1.733831
+step=9 loss=1.641535
+step=10 loss=1.903129
+step=11 loss=1.529913
+step=12 loss=1.404879
+step=13 loss=1.904740
+step=14 loss=1.904733
+step=15 loss=1.779786
+step=16 loss=1.779771
+step=17 loss=1.654822
+step=18 loss=1.779751
+step=19 loss=1.529794
+step=20 loss=1.779807

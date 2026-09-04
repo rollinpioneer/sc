@@ -1,0 +1,2 @@
+epoch,train_loss,optimizer_steps,learning_rate,validation_loss,validation_chunk_top1_within_region,validation_chunk_top5_hit_center,validation_chunk_mean_abs_delay,validation_effect_balanced_accuracy,validation_positive_gate_mean,validation_negative_gate_mean,validation_no_effect_gate_mean,validation_clean_gate_mean
+1,4.338761329650879,2,0.0,3.80808424949646,1.0,1.0,0.0,0.5,0.15627288818359375,0.150689697265625,0.15138719902663936,0.1492767333984375

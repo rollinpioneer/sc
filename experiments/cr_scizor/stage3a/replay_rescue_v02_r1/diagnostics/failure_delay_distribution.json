@@ -1,0 +1,286 @@
+{
+  "effective_with_onset": 85,
+  "descriptive": {
+    "all": {
+      "n": 85,
+      "min": 0.0,
+      "q25": 19.0,
+      "median": 37.0,
+      "mean": 41.16470588235294,
+      "q75": 62.0,
+      "max": 96.0
+    },
+    "split/train": {
+      "n": 56,
+      "min": 0.0,
+      "q25": 19.0,
+      "median": 31.0,
+      "mean": 36.94642857142857,
+      "q75": 52.25,
+      "max": 90.0
+    },
+    "split/validation": {
+      "n": 29,
+      "min": 5.0,
+      "q25": 25.0,
+      "median": 46.0,
+      "mean": 49.310344827586206,
+      "q75": 71.0,
+      "max": 96.0
+    },
+    "split_task/train/can": {
+      "n": 37,
+      "min": 5.0,
+      "q25": 17.0,
+      "median": 25.0,
+      "mean": 27.16216216216216,
+      "q75": 39.0,
+      "max": 52.0
+    },
+    "split_task/train/square": {
+      "n": 19,
+      "min": 0.0,
+      "q25": 45.0,
+      "median": 62.0,
+      "mean": 56.0,
+      "q75": 71.0,
+      "max": 90.0
+    },
+    "split_task/validation/can": {
+      "n": 16,
+      "min": 5.0,
+      "q25": 14.5,
+      "median": 30.0,
+      "mean": 28.6875,
+      "q75": 43.75,
+      "max": 61.0
+    },
+    "split_task/validation/square": {
+      "n": 13,
+      "min": 13.0,
+      "q25": 71.0,
+      "median": 81.0,
+      "mean": 74.6923076923077,
+      "q75": 94.0,
+      "max": 96.0
+    },
+    "task/can": {
+      "n": 53,
+      "min": 5.0,
+      "q25": 15.0,
+      "median": 26.0,
+      "mean": 27.62264150943396,
+      "q75": 39.0,
+      "max": 61.0
+    },
+    "task/square": {
+      "n": 32,
+      "min": 0.0,
+      "q25": 58.25,
+      "median": 68.5,
+      "mean": 63.59375,
+      "q75": 81.0,
+      "max": 96.0
+    }
+  },
+  "coverage": {
+    "all": {
+      "20": {
+        "count": 24,
+        "fraction": 0.2823529411764706
+      },
+      "40": {
+        "count": 46,
+        "fraction": 0.5411764705882353
+      },
+      "60": {
+        "count": 62,
+        "fraction": 0.7294117647058823
+      },
+      "80": {
+        "count": 75,
+        "fraction": 0.8823529411764706
+      },
+      "100": {
+        "count": 85,
+        "fraction": 1.0
+      }
+    },
+    "split/train": {
+      "20": {
+        "count": 17,
+        "fraction": 0.30357142857142855
+      },
+      "40": {
+        "count": 34,
+        "fraction": 0.6071428571428571
+      },
+      "60": {
+        "count": 46,
+        "fraction": 0.8214285714285714
+      },
+      "80": {
+        "count": 53,
+        "fraction": 0.9464285714285714
+      },
+      "100": {
+        "count": 56,
+        "fraction": 1.0
+      }
+    },
+    "split/validation": {
+      "20": {
+        "count": 7,
+        "fraction": 0.2413793103448276
+      },
+      "40": {
+        "count": 12,
+        "fraction": 0.41379310344827586
+      },
+      "60": {
+        "count": 16,
+        "fraction": 0.5517241379310345
+      },
+      "80": {
+        "count": 22,
+        "fraction": 0.7586206896551724
+      },
+      "100": {
+        "count": 29,
+        "fraction": 1.0
+      }
+    },
+    "split_task/train/can": {
+      "20": {
+        "count": 15,
+        "fraction": 0.40540540540540543
+      },
+      "40": {
+        "count": 29,
+        "fraction": 0.7837837837837838
+      },
+      "60": {
+        "count": 37,
+        "fraction": 1.0
+      },
+      "80": {
+        "count": 37,
+        "fraction": 1.0
+      },
+      "100": {
+        "count": 37,
+        "fraction": 1.0
+      }
+    },
+    "split_task/train/square": {
+      "20": {
+        "count": 2,
+        "fraction": 0.10526315789473684
+      },
+      "40": {
+        "count": 5,
+        "fraction": 0.2631578947368421
+      },
+      "60": {
+        "count": 9,
+        "fraction": 0.47368421052631576
+      },
+      "80": {
+        "count": 16,
+        "fraction": 0.8421052631578947
+      },
+      "100": {
+        "count": 19,
+        "fraction": 1.0
+      }
+    },
+    "split_task/validation/can": {
+      "20": {
+        "count": 6,
+        "fraction": 0.375
+      },
+      "40": {
+        "count": 11,
+        "fraction": 0.6875
+      },
+      "60": {
+        "count": 15,
+        "fraction": 0.9375
+      },
+      "80": {
+        "count": 16,
+        "fraction": 1.0
+      },
+      "100": {
+        "count": 16,
+        "fraction": 1.0
+      }
+    },
+    "split_task/validation/square": {
+      "20": {
+        "count": 1,
+        "fraction": 0.07692307692307693
+      },
+      "40": {
+        "count": 1,
+        "fraction": 0.07692307692307693
+      },
+      "60": {
+        "count": 1,
+        "fraction": 0.07692307692307693
+      },
+      "80": {
+        "count": 6,
+        "fraction": 0.46153846153846156
+      },
+      "100": {
+        "count": 13,
+        "fraction": 1.0
+      }
+    },
+    "task/can": {
+      "20": {
+        "count": 21,
+        "fraction": 0.39622641509433965
+      },
+      "40": {
+        "count": 40,
+        "fraction": 0.7547169811320755
+      },
+      "60": {
+        "count": 52,
+        "fraction": 0.9811320754716981
+      },
+      "80": {
+        "count": 53,
+        "fraction": 1.0
+      },
+      "100": {
+        "count": 53,
+        "fraction": 1.0
+      }
+    },
+    "task/square": {
+      "20": {
+        "count": 3,
+        "fraction": 0.09375
+      },
+      "40": {
+        "count": 6,
+        "fraction": 0.1875
+      },
+      "60": {
+        "count": 10,
+        "fraction": 0.3125
+      },
+      "80": {
+        "count": 22,
+        "fraction": 0.6875
+      },
+      "100": {
+        "count": 32,
+        "fraction": 1.0
+      }
+    }
+  }
+}

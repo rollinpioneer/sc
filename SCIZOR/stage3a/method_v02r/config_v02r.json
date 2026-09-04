@@ -1,0 +1,79 @@
+{
+  "version": "stage3-v02r-method-v1",
+  "tasks": ["can", "square"],
+  "seed": 20260903,
+  "feature": {
+    "visual_encoder": "facebook/dinov2-base",
+    "image_embedding_dim": 768,
+    "state_key": "states_pre",
+    "image_key": "auto",
+    "history_length": 4,
+    "continuation_horizon": 100,
+    "state_pad_dim": "auto"
+  },
+  "proposal": {
+    "full_top_k": 5,
+    "action_top_k": 5,
+    "union_max_candidates": 10,
+    "goal_time_seconds": 2.0,
+    "batch_size": 128
+  },
+  "replacement": {
+    "num_replacements": 4,
+    "exclude_same_base_demo": true,
+    "min_action_delta": 0.02,
+    "min_future_steps": 20,
+    "max_future_steps": 100
+  },
+  "oracle": {
+    "score_key": "counterfactual_improvement_long",
+    "positive_threshold": 0.5,
+    "score_max": 0.9
+  },
+  "model": {
+    "image_context_dim": 128,
+    "image_delta_dim": 64,
+    "state_context_dim": 96,
+    "state_delta_dim": 48,
+    "action_sequence_hidden": 96,
+    "task_embedding_dim": 8,
+    "trunk_dims": [256, 128],
+    "dropout": 0.1
+  },
+  "training": {
+    "full_seeds": [0, 1, 2],
+    "action_only_seed": 0,
+    "group_batch_size": 64,
+    "max_epochs": 80,
+    "early_stop_patience": 12,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "grad_clip_norm": 1.0,
+    "num_workers": 4,
+    "mixed_precision": true,
+    "loss_weights": {"regression": 1.0, "classification": 0.5, "within_query_rank": 0.25},
+    "rank_margin": 0.1,
+    "rank_target_gap": 0.2
+  },
+  "ensemble": {"std_multiplier": 1.0, "replacement_score": "normalized_score_lcb_times_positive_lcb"},
+  "validation": {
+    "no_effect_far_cap": 0.2,
+    "min_replacement_oracle_auroc": 0.7,
+    "min_teacher_forced_pair_auroc": 0.7,
+    "min_proposal_region_recall": 0.5,
+    "min_pipeline_pair_auroc": 0.7,
+    "min_pipeline_effective_recall": 0.4,
+    "min_task_pair_auroc": 0.6
+  },
+  "blind_test": {
+    "can_base_demos": 10,
+    "square_base_demos": 10,
+    "expected_pairs": 320,
+    "max_no_effect_far": 0.25,
+    "min_pair_auroc": 0.7,
+    "min_effective_recall": 0.35,
+    "min_top1_within_1": 0.25,
+    "min_task_pair_auroc": 0.6,
+    "min_auprc_prevalence_multiple": 2.0
+  }
+}

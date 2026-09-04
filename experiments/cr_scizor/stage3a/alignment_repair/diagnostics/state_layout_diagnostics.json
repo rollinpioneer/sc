@@ -1,0 +1,715 @@
+{
+  "queries_per_cell": 2,
+  "selected_queries": [
+    {
+      "query_id": "can:demo_108:reverse_motion:t60:m1.00|t39",
+      "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+      "task": "can",
+      "query_t": 39,
+      "failure_cell": "effective"
+    },
+    {
+      "query_id": "can:demo_108:reverse_motion:t60:m1.00|t50",
+      "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+      "task": "can",
+      "query_t": 50,
+      "failure_cell": "effective"
+    },
+    {
+      "query_id": "can:demo_108:axis_impulse:t39:m1.00|t1",
+      "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+      "task": "can",
+      "query_t": 1,
+      "failure_cell": "no_effect"
+    },
+    {
+      "query_id": "can:demo_108:axis_impulse:t39:m1.00|t2",
+      "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+      "task": "can",
+      "query_t": 2,
+      "failure_cell": "no_effect"
+    },
+    {
+      "query_id": "square:demo_120:axis_impulse:t82:m0.25|t61",
+      "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+      "task": "square",
+      "query_t": 61,
+      "failure_cell": "effective"
+    },
+    {
+      "query_id": "square:demo_120:axis_impulse:t82:m0.25|t69",
+      "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+      "task": "square",
+      "query_t": 69,
+      "failure_cell": "effective"
+    },
+    {
+      "query_id": "square:demo_10:axis_impulse:t126:m0.25|t47",
+      "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+      "task": "square",
+      "query_t": 47,
+      "failure_cell": "no_effect"
+    },
+    {
+      "query_id": "square:demo_10:axis_impulse:t126:m0.25|t54",
+      "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+      "task": "square",
+      "query_t": 54,
+      "failure_cell": "no_effect"
+    }
+  ],
+  "median_threshold": 0.0001,
+  "p95_threshold": 0.001,
+  "summaries": {
+    "direct_state_reset+pre_action": {
+      "queries": 8,
+      "pre_state_median_l2": 1.1102230246574683e-16,
+      "pre_state_p95_l2": 3.172152755714969e-16,
+      "next_state_median_l2": 2.2839096647750985,
+      "next_state_p95_l2": 4.524667930853819,
+      "passed": false
+    },
+    "direct_state_reset+post_action": {
+      "queries": 8,
+      "pre_state_median_l2": 2.3856587923044213e-16,
+      "pre_state_p95_l2": 3.0454572163563236e-16,
+      "next_state_median_l2": 2.025171520524592,
+      "next_state_p95_l2": 2.348869574892968,
+      "passed": false
+    },
+    "prefix_replay+pre_action": {
+      "queries": 8,
+      "pre_state_median_l2": 1.6072522475784474,
+      "pre_state_p95_l2": 4.378894749072576,
+      "next_state_median_l2": 1.1645706552176562,
+      "next_state_p95_l2": 1.8068502116233596,
+      "passed": false
+    },
+    "prefix_replay+post_action": {
+      "queries": 8,
+      "pre_state_median_l2": 0.23919409973806252,
+      "pre_state_p95_l2": 1.5059785677825688,
+      "next_state_median_l2": 0.1645764489440729,
+      "next_state_p95_l2": 1.5099367304009574,
+      "passed": false
+    }
+  },
+  "details": {
+    "direct_state_reset+pre_action": [
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t39",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 39,
+        "pre_action_state_index": 39,
+        "expected_next_state_index": 40,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 0.0,
+        "next_state_l2": 3.828569981100395
+      },
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t50",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 50,
+        "pre_action_state_index": 50,
+        "expected_next_state_index": 51,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 0.0,
+        "next_state_l2": 1.4312672818776624
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t1",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 1,
+        "pre_action_state_index": 1,
+        "expected_next_state_index": 2,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 3.188920802108387e-16,
+        "next_state_l2": 0.7802914724289022
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t2",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 2,
+        "pre_action_state_index": 2,
+        "expected_next_state_index": 3,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 3.141012098127193e-16,
+        "next_state_l2": 0.37354095297362955
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t61",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 61,
+        "pre_action_state_index": 61,
+        "expected_next_state_index": 62,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 2.4825341532484017e-16,
+        "next_state_l2": 4.899489903797972
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t69",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 69,
+        "pre_action_state_index": 69,
+        "expected_next_state_index": 70,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.0,
+        "next_state_l2": 2.256746093657647
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t47",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 47,
+        "pre_action_state_index": 47,
+        "expected_next_state_index": 48,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.0,
+        "next_state_l2": 2.3183308146573434
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t54",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 54,
+        "pre_action_state_index": 54,
+        "expected_next_state_index": 55,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 2.2204460493149366e-16,
+        "next_state_l2": 2.3110732358925503
+      }
+    ],
+    "direct_state_reset+post_action": [
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t39",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 39,
+        "pre_action_state_index": 38,
+        "expected_next_state_index": 39,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 0.0,
+        "next_state_l2": 1.8188405419400926
+      },
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t50",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 50,
+        "pre_action_state_index": 49,
+        "expected_next_state_index": 50,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 2.779024842816778e-16,
+        "next_state_l2": 1.3848715701722532
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t1",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 1,
+        "pre_action_state_index": 0,
+        "expected_next_state_index": 1,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 2.2887834313604414e-16,
+        "next_state_l2": 0.09214845395364453
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t2",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 2,
+        "pre_action_state_index": 1,
+        "expected_next_state_index": 2,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 3.188920802108387e-16,
+        "next_state_l2": 0.15705389086432467
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t61",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 61,
+        "pre_action_state_index": 60,
+        "expected_next_state_index": 61,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 2.4825341532484017e-16,
+        "next_state_l2": 2.336150867700744
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t69",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 69,
+        "pre_action_state_index": 68,
+        "expected_next_state_index": 69,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 2.4825341532484017e-16,
+        "next_state_l2": 2.2315024991090917
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t47",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 47,
+        "pre_action_state_index": 46,
+        "expected_next_state_index": 47,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.0,
+        "next_state_l2": 2.307284611650151
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t54",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 54,
+        "pre_action_state_index": 53,
+        "expected_next_state_index": 54,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 2.2204460493149366e-16,
+        "next_state_l2": 2.355718109534935
+      }
+    ],
+    "prefix_replay+pre_action": [
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t39",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 39,
+        "pre_action_state_index": 39,
+        "expected_next_state_index": 40,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 1.5884764449394626,
+        "next_state_l2": 1.6016478720374288
+      },
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t50",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 50,
+        "pre_action_state_index": 50,
+        "expected_next_state_index": 51,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 1.6260280502174325,
+        "next_state_l2": 1.63012828580429
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t1",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 1,
+        "pre_action_state_index": 1,
+        "expected_next_state_index": 2,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 2.293179203682907,
+        "next_state_l2": 1.880773019533628
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t2",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 2,
+        "pre_action_state_index": 2,
+        "expected_next_state_index": 3,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 1.880773019533628,
+        "next_state_l2": 1.6695649969328614
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t61",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 61,
+        "pre_action_state_index": 61,
+        "expected_next_state_index": 62,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.07398934624656132,
+        "next_state_l2": 0.14036883985798235
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t69",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 69,
+        "pre_action_state_index": 69,
+        "expected_next_state_index": 70,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.11469786257253715,
+        "next_state_l2": 0.21885005837230825
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t47",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 47,
+        "pre_action_state_index": 47,
+        "expected_next_state_index": 48,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 5.5019723504362466,
+        "next_state_l2": 0.7274934383978838
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t54",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 54,
+        "pre_action_state_index": 54,
+        "expected_next_state_index": 55,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.16622991437011309,
+        "next_state_l2": 0.10870332834278566
+      }
+    ],
+    "prefix_replay+post_action": [
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t39",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 39,
+        "pre_action_state_index": 38,
+        "expected_next_state_index": 39,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 1.5081410416894816,
+        "next_state_l2": 1.5140133576178774
+      },
+      {
+        "query_id": "can:demo_108:reverse_motion:t60:m1.00|t50",
+        "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+        "task": "can",
+        "failure_cell": "effective",
+        "query_t": 50,
+        "pre_action_state_index": 49,
+        "expected_next_state_index": 50,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 1.501962544812588,
+        "next_state_l2": 1.5023658512838207
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t1",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 1,
+        "pre_action_state_index": 0,
+        "expected_next_state_index": 1,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 0.8460280836691355,
+        "next_state_l2": 0.42658832711424965
+      },
+      {
+        "query_id": "can:demo_108:axis_impulse:t39:m1.00|t2",
+        "pair_id": "can:demo_108:axis_impulse:t39:m1.00",
+        "task": "can",
+        "failure_cell": "no_effect",
+        "query_t": 2,
+        "pre_action_state_index": 1,
+        "expected_next_state_index": 2,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "tex-steel-brushed",
+          "Milk_tex-ceramic",
+          "Cereal_tex-cereal",
+          "Can_tex-can"
+        ],
+        "pre_state_l2": 0.42658832711424965,
+        "next_state_l2": 0.27698770816439316
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t61",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 61,
+        "pre_action_state_index": 60,
+        "expected_next_state_index": 61,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.02950457641676008,
+        "next_state_l2": 0.030553066157922734
+      },
+      {
+        "query_id": "square:demo_120:axis_impulse:t82:m0.25|t69",
+        "pair_id": "square:demo_120:axis_impulse:t82:m0.25",
+        "task": "square",
+        "failure_cell": "effective",
+        "query_t": 69,
+        "pre_action_state_index": 68,
+        "expected_next_state_index": 69,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.03545992976736406,
+        "next_state_l2": 0.041506581580298206
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t47",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 47,
+        "pre_action_state_index": 46,
+        "expected_next_state_index": 47,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.049601536391145666,
+        "next_state_l2": 0.04976297476134998
+      },
+      {
+        "query_id": "square:demo_10:axis_impulse:t126:m0.25|t54",
+        "pair_id": "square:demo_10:axis_impulse:t126:m0.25",
+        "task": "square",
+        "failure_cell": "no_effect",
+        "query_t": 54,
+        "pre_action_state_index": 53,
+        "expected_next_state_index": 54,
+        "model_file_source": "source_demo",
+        "model_file_texture_compatibility_patch": [
+          "steel-metal",
+          "brass-metal",
+          "tex-ceramic",
+          "tex-steel-brushed",
+          "SquareNut_brass-metal",
+          "RoundNut_steel-metal"
+        ],
+        "pre_state_l2": 0.05179987236187537,
+        "next_state_l2": 0.05216518972375261
+      }
+    ]
+  }
+}

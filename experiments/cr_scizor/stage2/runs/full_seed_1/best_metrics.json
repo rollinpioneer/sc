@@ -1,0 +1,12 @@
+{
+  "best_epoch": 10,
+  "chunk_mean_abs_delay": 3.2855113636363638,
+  "chunk_top1_within_region": 0.7769886363636364,
+  "chunk_top5_hit_center": 0.7954545454545454,
+  "clean_gate_mean": 0.006742958910763264,
+  "effect_balanced_accuracy": 0.502637987012987,
+  "loss": 6.695389657990918,
+  "negative_gate_mean": 0.018405066875668317,
+  "no_effect_gate_mean": 0.014012386019413289,
+  "positive_gate_mean": 0.04718828412958167
+}

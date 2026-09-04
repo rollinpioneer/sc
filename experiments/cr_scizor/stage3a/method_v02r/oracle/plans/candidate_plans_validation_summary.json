@@ -1,0 +1,1875 @@
+{
+  "split": "validation",
+  "proposal_source": "union_top5",
+  "candidate_rows_before_future_filter": 2240,
+  "query_count": 1867,
+  "replacement_rows": 7468,
+  "skipped_queries": [
+    {
+      "pair_id": "can:demo_108:axis_impulse:t60:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:axis_impulse:t60:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:axis_impulse:t87:m1.00",
+      "query_t": 88,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:axis_impulse:t87:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:axis_impulse:t87:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:axis_impulse:t87:m1.00",
+      "query_t": 81,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t39:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t39:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t50:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t60:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t87:m1.00",
+      "query_t": 87,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t87:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t87:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:flip_gripper:t87:m1.00",
+      "query_t": 88,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t39:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t39:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+      "query_t": 77,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t60:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t87:m1.00",
+      "query_t": 88,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t87:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t87:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:reverse_motion:t87:m1.00",
+      "query_t": 81,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t39:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t39:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t39:m1.00",
+      "query_t": 92,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t60:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t60:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t87:m1.00",
+      "query_t": 85,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t87:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_108:zero_motion:t87:m1.00",
+      "query_t": 88,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t115:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t115:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t115:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t64:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t64:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t85:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t85:m1.00",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t85:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t85:m1.00",
+      "query_t": 113,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t85:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t95:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t95:m1.00",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t95:m1.00",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t95:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t95:m1.00",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:axis_impulse:t95:m1.00",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t115:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t115:m1.00",
+      "query_t": 116,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t115:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t64:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t64:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t64:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t85:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t85:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t85:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t95:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t95:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:flip_gripper:t95:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t115:m1.00",
+      "query_t": 116,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t115:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t115:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t115:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t64:m1.00",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t64:m1.00",
+      "query_t": 126,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t64:m1.00",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t64:m1.00",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t64:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t95:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:reverse_motion:t95:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t115:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t115:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t115:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t64:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t64:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t85:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t95:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_117:zero_motion:t95:m1.00",
+      "query_t": 109,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t32:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t32:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t32:m1.00",
+      "query_t": 69,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t32:m1.00",
+      "query_t": 68,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t42:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t53:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t53:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 79,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 78,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 68,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 69,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:axis_impulse:t78:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t32:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t32:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t32:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t32:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t42:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t42:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t42:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t53:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t53:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t53:m1.00",
+      "query_t": 80,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t78:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t78:m1.00",
+      "query_t": 78,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t78:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:flip_gripper:t78:m1.00",
+      "query_t": 79,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t32:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t32:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t32:m1.00",
+      "query_t": 78,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t42:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t53:m1.00",
+      "query_t": 70,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t53:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t53:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t78:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t78:m1.00",
+      "query_t": 79,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t78:m1.00",
+      "query_t": 69,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t78:m1.00",
+      "query_t": 78,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:reverse_motion:t78:m1.00",
+      "query_t": 70,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t32:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t32:m1.00",
+      "query_t": 76,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t32:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t32:m1.00",
+      "query_t": 70,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t32:m1.00",
+      "query_t": 78,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t42:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t42:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t53:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t53:m1.00",
+      "query_t": 74,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t53:m1.00",
+      "query_t": 70,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t78:m1.00",
+      "query_t": 79,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t78:m1.00",
+      "query_t": 71,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t78:m1.00",
+      "query_t": 69,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t78:m1.00",
+      "query_t": 78,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_118:zero_motion:t78:m1.00",
+      "query_t": 70,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:axis_impulse:t119:m1.00",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:axis_impulse:t119:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:axis_impulse:t119:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:axis_impulse:t50:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t119:m1.00",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t119:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t119:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t50:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t50:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t50:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t60:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t60:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t60:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t76:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t76:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:flip_gripper:t76:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t119:m1.00",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t119:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t119:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t119:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t50:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t50:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t50:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t60:m1.00",
+      "query_t": 114,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t60:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:reverse_motion:t60:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t119:m1.00",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t119:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t119:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t119:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t50:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t50:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t60:m1.00",
+      "query_t": 115,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t60:m1.00",
+      "query_t": 112,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_122:zero_motion:t60:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_124:axis_impulse:t119:m1.00",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_124:axis_impulse:t119:m1.00",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_124:axis_impulse:t119:m1.00",
+      "query_t": 116,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_124:axis_impulse:t119:m1.00",
+      "query_t": 113,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_124:axis_impulse:t75:m1.00",
+      "query_t": 113,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t52:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t78:m1.00",
+      "query_t": 84,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t90:m1.00",
+      "query_t": 91,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t90:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t90:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t90:m1.00",
+      "query_t": 100,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:axis_impulse:t90:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t52:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t52:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t62:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t62:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t78:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t78:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t90:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:flip_gripper:t90:m1.00",
+      "query_t": 91,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:reverse_motion:t62:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:reverse_motion:t78:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:reverse_motion:t90:m1.00",
+      "query_t": 91,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:reverse_motion:t90:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:zero_motion:t62:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:zero_motion:t62:m1.00",
+      "query_t": 84,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:zero_motion:t78:m1.00",
+      "query_t": 84,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:zero_motion:t78:m1.00",
+      "query_t": 86,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:zero_motion:t90:m1.00",
+      "query_t": 90,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_127:zero_motion:t90:m1.00",
+      "query_t": 91,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:axis_impulse:t117:m1.00",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:axis_impulse:t60:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:axis_impulse:t60:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t117:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t117:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t60:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t60:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t70:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t85:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:flip_gripper:t85:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:reverse_motion:t117:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:reverse_motion:t117:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:reverse_motion:t117:m1.00",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:reverse_motion:t85:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:zero_motion:t117:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:zero_motion:t117:m1.00",
+      "query_t": 123,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:zero_motion:t60:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:zero_motion:t60:m1.00",
+      "query_t": 111,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_135:zero_motion:t85:m1.00",
+      "query_t": 110,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:axis_impulse:t106:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:axis_impulse:t73:m1.00",
+      "query_t": 98,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t106:m1.00",
+      "query_t": 106,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t106:m1.00",
+      "query_t": 104,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t106:m1.00",
+      "query_t": 107,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t106:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t48:m1.00",
+      "query_t": 104,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t48:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t48:m1.00",
+      "query_t": 109,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t48:m1.00",
+      "query_t": 98,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t63:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t63:m1.00",
+      "query_t": 98,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t73:m1.00",
+      "query_t": 102,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t73:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:flip_gripper:t73:m1.00",
+      "query_t": 98,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t106:m1.00",
+      "query_t": 107,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t106:m1.00",
+      "query_t": 102,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t106:m1.00",
+      "query_t": 104,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t106:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t48:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t48:m1.00",
+      "query_t": 102,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t48:m1.00",
+      "query_t": 104,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t48:m1.00",
+      "query_t": 98,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:reverse_motion:t73:m1.00",
+      "query_t": 98,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t106:m1.00",
+      "query_t": 107,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t106:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t106:m1.00",
+      "query_t": 106,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t48:m1.00",
+      "query_t": 104,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t48:m1.00",
+      "query_t": 102,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t48:m1.00",
+      "query_t": 103,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t48:m1.00",
+      "query_t": 99,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "can:demo_14:zero_motion:t48:m1.00",
+      "query_t": 109,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_10:flip_gripper:t126:m0.50",
+      "query_t": 127,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_10:flip_gripper:t126:m0.50",
+      "query_t": 126,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_10:flip_gripper:t126:m0.50",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_10:flip_gripper:t126:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t119:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t61:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t61:m0.25",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t71:m0.25",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t71:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t97:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:axis_impulse:t97:m0.25",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t119:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t119:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t119:m0.50",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t61:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t71:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t97:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:flip_gripper:t97:m0.50",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t119:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t61:m0.25",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t61:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t71:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t71:m0.25",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t97:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:reverse_motion:t97:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t119:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t61:m0.50",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t61:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t71:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t71:m0.50",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t97:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_111:zero_motion:t97:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t102:m0.25",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t102:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t102:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t102:m0.25",
+      "query_t": 116,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t117:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t117:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t117:m0.25",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t117:m0.25",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t72:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:axis_impulse:t72:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t102:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t102:m0.50",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t102:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t102:m0.50",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t117:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t62:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:flip_gripper:t72:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:reverse_motion:t117:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:reverse_motion:t117:m0.25",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:reverse_motion:t117:m0.25",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:reverse_motion:t117:m0.25",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:reverse_motion:t117:m0.25",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:zero_motion:t117:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:zero_motion:t117:m0.50",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:zero_motion:t117:m0.50",
+      "query_t": 117,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:zero_motion:t117:m0.50",
+      "query_t": 120,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_117:zero_motion:t117:m0.50",
+      "query_t": 118,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:axis_impulse:t61:m0.25",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:axis_impulse:t92:m0.25",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:axis_impulse:t92:m0.25",
+      "query_t": 153,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:axis_impulse:t92:m0.25",
+      "query_t": 162,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:flip_gripper:t161:m0.50",
+      "query_t": 161,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:flip_gripper:t61:m0.50",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:reverse_motion:t82:m0.25",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:reverse_motion:t92:m0.25",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:zero_motion:t82:m0.50",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_120:zero_motion:t92:m0.50",
+      "query_t": 149,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_122:flip_gripper:t136:m0.50",
+      "query_t": 136,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_122:flip_gripper:t136:m0.50",
+      "query_t": 137,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_122:reverse_motion:t64:m0.25",
+      "query_t": 136,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_122:zero_motion:t64:m0.50",
+      "query_t": 136,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:axis_impulse:t50:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:axis_impulse:t60:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:axis_impulse:t60:m0.25",
+      "query_t": 128,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:axis_impulse:t70:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:flip_gripper:t129:m0.50",
+      "query_t": 129,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:flip_gripper:t129:m0.50",
+      "query_t": 130,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:reverse_motion:t129:m0.25",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:reverse_motion:t60:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:reverse_motion:t60:m0.25",
+      "query_t": 126,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:reverse_motion:t70:m0.25",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:reverse_motion:t70:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:reverse_motion:t70:m0.25",
+      "query_t": 129,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:zero_motion:t129:m0.50",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:zero_motion:t60:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:zero_motion:t60:m0.50",
+      "query_t": 126,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:zero_motion:t70:m0.50",
+      "query_t": 122,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:zero_motion:t70:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_131:zero_motion:t70:m0.50",
+      "query_t": 129,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:axis_impulse:t142:m0.25",
+      "query_t": 150,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:axis_impulse:t74:m0.25",
+      "query_t": 146,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:axis_impulse:t74:m0.25",
+      "query_t": 154,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:axis_impulse:t84:m0.25",
+      "query_t": 155,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:axis_impulse:t84:m0.25",
+      "query_t": 145,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:flip_gripper:t142:m0.50",
+      "query_t": 143,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:flip_gripper:t142:m0.50",
+      "query_t": 153,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:flip_gripper:t61:m0.50",
+      "query_t": 143,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:flip_gripper:t74:m0.50",
+      "query_t": 143,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:reverse_motion:t142:m0.25",
+      "query_t": 143,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:reverse_motion:t61:m0.25",
+      "query_t": 155,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:reverse_motion:t61:m0.25",
+      "query_t": 146,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:reverse_motion:t61:m0.25",
+      "query_t": 153,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:zero_motion:t142:m0.50",
+      "query_t": 143,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:zero_motion:t61:m0.50",
+      "query_t": 155,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:zero_motion:t61:m0.50",
+      "query_t": 146,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_132:zero_motion:t61:m0.50",
+      "query_t": 153,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t129:m0.25",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t129:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t34:m0.25",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t34:m0.25",
+      "query_t": 119,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t34:m0.25",
+      "query_t": 128,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t68:m0.25",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:axis_impulse:t68:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:flip_gripper:t129:m0.50",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:flip_gripper:t129:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:flip_gripper:t56:m0.50",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:flip_gripper:t56:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:flip_gripper:t68:m0.50",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:reverse_motion:t129:m0.25",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:reverse_motion:t129:m0.25",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:zero_motion:t129:m0.50",
+      "query_t": 124,
+      "reason": "insufficient_future"
+    },
+    {
+      "pair_id": "square:demo_135:zero_motion:t129:m0.50",
+      "query_t": 125,
+      "reason": "insufficient_future"
+    }
+  ],
+  "max_replacements_per_query": 4
+}

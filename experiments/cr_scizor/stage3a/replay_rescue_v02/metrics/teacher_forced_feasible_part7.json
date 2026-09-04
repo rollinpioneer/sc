@@ -1,0 +1,7 @@
+{
+  "rows": 256,
+  "pair_count": 64,
+  "branch_pre_state_equal_rate": 1.0,
+  "reference_exact_all_horizons_rate": 1.0,
+  "finite_target_rate": 1.0
+}

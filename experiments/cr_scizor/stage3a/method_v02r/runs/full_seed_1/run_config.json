@@ -1,0 +1,12 @@
+{
+  "mode": "full",
+  "seed": 1,
+  "max_steps": null,
+  "best": {
+    "replacement_auroc": 0.8401125982871985,
+    "replacement_auprc": 0.6793095771969775,
+    "score_mae": 0.16772971551906635,
+    "score_spearman": 0.6591546476629613,
+    "teacher_forced_primary_auroc": 0.7121212121212122
+  }
+}

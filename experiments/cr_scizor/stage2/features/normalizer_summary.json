@@ -1,0 +1,17 @@
+{
+  "demo_count": 816,
+  "scalar_names": [
+    "motion_norm",
+    "rotation_norm",
+    "delta_action_norm",
+    "gripper_action",
+    "gripper_delta",
+    "state_delta_norm",
+    "image_delta_norm",
+    "interaction_proxy",
+    "relative_position"
+  ],
+  "split": "train",
+  "state_pad_dim": 71,
+  "transition_count": 105366
+}

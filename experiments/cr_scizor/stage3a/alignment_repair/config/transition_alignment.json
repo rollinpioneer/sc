@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "failure_reason": "neither direct reset nor prefix replay reproduced benchmark transitions",
+  "median_threshold": 0.0001,
+  "p95_threshold": 0.001,
+  "diagnostics": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/alignment_repair/diagnostics/state_layout_diagnostics.json"
+}

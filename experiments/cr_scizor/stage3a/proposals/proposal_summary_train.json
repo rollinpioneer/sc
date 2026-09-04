@@ -1,0 +1,22 @@
+{
+  "rows": 6426,
+  "pairs": 768,
+  "max_rows_per_pair": 10,
+  "splits": {
+    "train": 6426
+  },
+  "calibration": {
+    "full": {
+      "mean": 0.0009802031361407985,
+      "std": 0.0161214627184206,
+      "count": 99168
+    },
+    "action": {
+      "mean": 0.0023068706286923763,
+      "std": 0.021519770165231322,
+      "count": 99168
+    },
+    "method": "sigmoid_train_zscore"
+  },
+  "top_k_per_model": 5
+}

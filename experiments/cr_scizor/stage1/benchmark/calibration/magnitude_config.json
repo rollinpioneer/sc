@@ -1,0 +1,160 @@
+{
+  "rates": {
+    "can": {
+      "axis_impulse": {
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "1.0": 0.15
+      },
+      "flip_gripper": {
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.05,
+        "1.0": 0.0
+      },
+      "reverse_motion": {
+        "0.25": 0.05,
+        "0.5": 0.1,
+        "0.75": 0.05,
+        "1.0": 0.1
+      },
+      "zero_motion": {
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.05,
+        "1.0": 0.05
+      }
+    },
+    "square": {
+      "axis_impulse": {
+        "0.25": 0.3,
+        "0.5": 0.5,
+        "0.75": 0.5,
+        "1.0": 0.0
+      },
+      "flip_gripper": {
+        "0.25": 0.05,
+        "0.5": 0.3,
+        "0.75": 0.25,
+        "1.0": 0.0
+      },
+      "reverse_motion": {
+        "0.25": 0.3,
+        "0.5": 0.3,
+        "0.75": 0.6,
+        "1.0": 0.0
+      },
+      "zero_motion": {
+        "0.25": 0.25,
+        "0.5": 0.3,
+        "0.75": 0.3,
+        "1.0": 0.0
+      }
+    }
+  },
+  "selected": {
+    "can": {
+      "axis_impulse": {
+        "any_candidate_over_floor": false,
+        "fallback_added_1.0": true,
+        "magnitude": 1.0,
+        "rates": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.15
+        },
+        "within_target_window": false
+      },
+      "flip_gripper": {
+        "any_candidate_over_floor": false,
+        "fallback_added_1.0": true,
+        "magnitude": 1.0,
+        "rates": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.05,
+          "1.0": 0.0
+        },
+        "within_target_window": false
+      },
+      "reverse_motion": {
+        "any_candidate_over_floor": false,
+        "fallback_added_1.0": true,
+        "magnitude": 1.0,
+        "rates": {
+          "0.25": 0.05,
+          "0.5": 0.1,
+          "0.75": 0.05,
+          "1.0": 0.1
+        },
+        "within_target_window": false
+      },
+      "zero_motion": {
+        "any_candidate_over_floor": false,
+        "fallback_added_1.0": true,
+        "magnitude": 1.0,
+        "rates": {
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.05,
+          "1.0": 0.05
+        },
+        "within_target_window": false
+      }
+    },
+    "square": {
+      "axis_impulse": {
+        "any_candidate_over_floor": true,
+        "fallback_added_1.0": false,
+        "magnitude": 0.25,
+        "rates": {
+          "0.25": 0.3,
+          "0.5": 0.5,
+          "0.75": 0.5,
+          "1.0": 0.0
+        },
+        "within_target_window": true
+      },
+      "flip_gripper": {
+        "any_candidate_over_floor": true,
+        "fallback_added_1.0": false,
+        "magnitude": 0.5,
+        "rates": {
+          "0.25": 0.05,
+          "0.5": 0.3,
+          "0.75": 0.25,
+          "1.0": 0.0
+        },
+        "within_target_window": true
+      },
+      "reverse_motion": {
+        "any_candidate_over_floor": true,
+        "fallback_added_1.0": false,
+        "magnitude": 0.25,
+        "rates": {
+          "0.25": 0.3,
+          "0.5": 0.3,
+          "0.75": 0.6,
+          "1.0": 0.0
+        },
+        "within_target_window": true
+      },
+      "zero_motion": {
+        "any_candidate_over_floor": true,
+        "fallback_added_1.0": false,
+        "magnitude": 0.5,
+        "rates": {
+          "0.25": 0.25,
+          "0.5": 0.3,
+          "0.75": 0.3,
+          "1.0": 0.0
+        },
+        "within_target_window": true
+      }
+    }
+  },
+  "target_max_rate": 0.7,
+  "target_min_rate": 0.3
+}

@@ -1,0 +1,2310 @@
+{
+  "can": [
+    {
+      "task": "can",
+      "demo_id": "demo_0",
+      "steps": 118,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_1",
+      "steps": 118,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_11",
+      "steps": 94,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_14",
+      "steps": 113,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_100",
+      "steps": 118,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_101",
+      "steps": 131,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_102",
+      "steps": 105,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_103",
+      "steps": 96,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_106",
+      "steps": 121,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_107",
+      "steps": 113,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_108",
+      "steps": 94,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_110",
+      "steps": 124,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_111",
+      "steps": 106,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_112",
+      "steps": 107,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_113",
+      "steps": 115,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_114",
+      "steps": 124,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_115",
+      "steps": 105,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_116",
+      "steps": 82,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_117",
+      "steps": 128,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_118",
+      "steps": 85,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_119",
+      "steps": 120,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_120",
+      "steps": 102,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_121",
+      "steps": 96,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_122",
+      "steps": 126,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_123",
+      "steps": 146,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_124",
+      "steps": 129,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_127",
+      "steps": 103,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_131",
+      "steps": 126,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_132",
+      "steps": 115,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_133",
+      "steps": 102,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_134",
+      "steps": 139,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "can",
+      "demo_id": "demo_135",
+      "steps": 126,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    }
+  ],
+  "square": [
+    {
+      "task": "square",
+      "demo_id": "demo_0",
+      "steps": 127,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_10",
+      "steps": 134,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_12",
+      "steps": 133,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_14",
+      "steps": 152,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_100",
+      "steps": 137,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_101",
+      "steps": 164,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_103",
+      "steps": 158,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_104",
+      "steps": 120,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_105",
+      "steps": 154,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_108",
+      "steps": 145,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_109",
+      "steps": 156,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_110",
+      "steps": 130,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_111",
+      "steps": 130,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_112",
+      "steps": 129,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_113",
+      "steps": 181,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_114",
+      "steps": 134,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_116",
+      "steps": 163,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_117",
+      "steps": 130,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_118",
+      "steps": 136,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_119",
+      "steps": 166,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_120",
+      "steps": 167,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_121",
+      "steps": 139,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_122",
+      "steps": 147,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_123",
+      "steps": 140,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_125",
+      "steps": 144,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_128",
+      "steps": 143,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_129",
+      "steps": 154,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_131",
+      "steps": 136,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_132",
+      "steps": 159,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_134",
+      "steps": 133,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_135",
+      "steps": 135,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "validation"
+    },
+    {
+      "task": "square",
+      "demo_id": "demo_136",
+      "steps": 137,
+      "determinism_pass": true,
+      "final_success": true,
+      "comparison": {
+        "states_pre": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "states_post": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "staged_rewards": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "success": {
+          "shape_equal": true,
+          "max_abs": 0.0,
+          "array_equal": true
+        },
+        "pass": true
+      },
+      "split": "train"
+    }
+  ]
+}

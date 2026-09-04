@@ -1,0 +1,15 @@
+{
+  "engineering": {
+    "pair_count": 40,
+    "branch_pre_state_equal_rate": 1.0,
+    "reference_exact_all_horizons_rate": 1.0,
+    "paired_clean_exact_all_horizons_rate": 1.0,
+    "finite_target_rate": 1.0
+  },
+  "metrics": {},
+  "failure_type_counts": {
+    "no_effect": 40
+  },
+  "effective_count": 0,
+  "no_effect_count": 40
+}

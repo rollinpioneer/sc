@@ -1,0 +1,87 @@
+{
+  "action_feature_dim": 23,
+  "batch_size": 64,
+  "config": {
+    "data": {
+      "clean_chunks_per_demo": 4,
+      "feature_cache_lru_size": 32,
+      "hard_negative_chunks_per_effective_pair": 4,
+      "image_key": "agentview_image",
+      "max_horizon": 40,
+      "min_horizon": 8,
+      "no_effect_chunks_per_pair": 2,
+      "positive_chunks_per_pair": 16,
+      "target_region_weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "visual_batch_size": 128,
+      "visual_dtype": "float16",
+      "visual_encoder": "facebook/dinov2-base"
+    },
+    "evaluation": {
+      "bootstrap_samples": 500,
+      "bootstrap_seed": 20260831,
+      "reference_validation_delete_count": 9616
+    },
+    "loss": {
+      "candidate_far_tolerance": 0.02,
+      "effect_loss_mode": "balanced_subtypes",
+      "effect_negative_mass": 0.5,
+      "effect_positive_mass": 0.5,
+      "lambda_effect": 4.0,
+      "lambda_localization": 1.0,
+      "lambda_rank": 0.25,
+      "negative_subtype_weights": {
+        "clean_control": 0.1,
+        "effective_hard_negative": 0.45,
+        "no_effect_control": 0.45
+      },
+      "rank_margin": 0.2
+    },
+    "model": {
+      "action_projection_dim": 64,
+      "d_model": 256,
+      "dim_feedforward": 512,
+      "dropout": 0.1,
+      "image_delta_projection_dim": 64,
+      "image_dim": 768,
+      "image_projection_dim": 96,
+      "n_heads": 4,
+      "num_layers": 3,
+      "num_tasks": 2,
+      "state_delta_projection_dim": 32,
+      "state_projection_dim": 48,
+      "task_embedding_dim": 16
+    },
+    "train": {
+      "batch_size": 64,
+      "early_stop_patience": 12,
+      "epochs": 50,
+      "gradient_clip_norm": 1.0,
+      "learning_rate": 0.0003,
+      "mixed_precision": true,
+      "num_workers": 4,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "warmup_steps": 200,
+      "weight_decay": 0.0001
+    }
+  },
+  "device": "cuda",
+  "epochs": 50,
+  "model_variant": "full",
+  "sampler": {
+    "negative_mass": 0.5,
+    "num_negative_rows": 1860,
+    "num_positive_rows": 1896,
+    "num_samples": 3756,
+    "positive_mass": 0.5000000000000001
+  },
+  "seed": 1,
+  "state_dim": 71
+}

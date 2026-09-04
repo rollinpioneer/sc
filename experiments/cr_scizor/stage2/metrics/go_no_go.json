@@ -1,0 +1,14 @@
+{
+  "canonical_method": "responsibility_seed1",
+  "decision": "ITERATE_STAGE2_ONCE",
+  "rules": {
+    "canonical_vs_action_only_requirement": true,
+    "delay_baseline": 54.69230769230769,
+    "full_iou_above_strongest_count": 3,
+    "full_top1_above_strongest_count": 3,
+    "iou_baseline": 0.011985390641535707,
+    "no_effect_far_baseline": 0.10552763819095477,
+    "recovery_baseline": 0.5412445730824892,
+    "top1_baseline": 0.038461538461538464
+  }
+}

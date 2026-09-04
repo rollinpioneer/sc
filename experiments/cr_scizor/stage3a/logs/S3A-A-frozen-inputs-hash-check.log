@@ -1,0 +1,14 @@
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/benchmark_v0.1.hdf5: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/pair_metadata.jsonl: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/transition_labels.parquet: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/split_manifest.json: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/chunk_evidence.parquet: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/selected.pt: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/selected.pt: OK
+/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage3a/configs/counterfactual_feasibility.json: OK
+/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5: OK
+/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/calibration/magnitude_config.json: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_index.parquet: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/normalizer.npz: OK
+/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/metrics/go_no_go.json: OK

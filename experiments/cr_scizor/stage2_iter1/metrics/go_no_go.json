@@ -1,0 +1,66 @@
+{
+  "baselines": {
+    "delay_baseline": 54.69230769230769,
+    "iou_baseline": 0.011985390641535707,
+    "methods": [
+      "original_scizor",
+      "uniform",
+      "future_discount"
+    ],
+    "no_effect_far_baseline": 0.10552763819095477,
+    "no_effect_far_limit": 0.13552763819095476,
+    "recovery_baseline": 0.5412445730824892,
+    "top1_baseline": 0.038461538461538464
+  },
+  "canonical_method": "responsibility_iter1_seed0",
+  "canonical_seed": 0,
+  "decision": "NO_GO_SWITCH_DIRECTION",
+  "failed_rules": [
+    "canonical_no_effect_far_within_limit",
+    "canonical_beats_action_only"
+  ],
+  "rules": {
+    "canonical_beats_action_only": {
+      "actual": {
+        "action_only_iou": 0.08100250874703853,
+        "action_only_no_effect_far": 0.7587939698492462,
+        "action_only_top1": 0.6153846153846154,
+        "canonical_iou": 0.07014578593908122,
+        "canonical_no_effect_far": 0.7537688442211056,
+        "canonical_top1": 0.5384615384615384
+      },
+      "passed": false,
+      "threshold": "any canonical advantage (FAR margin >= 0.02)"
+    },
+    "canonical_delay_below_baseline": {
+      "actual": 21.596153846153847,
+      "passed": true,
+      "threshold": 54.69230769230769
+    },
+    "canonical_no_effect_far_within_limit": {
+      "actual": 0.7537688442211056,
+      "baseline": 0.10552763819095477,
+      "passed": false,
+      "threshold": 0.13552763819095476
+    },
+    "canonical_recovery_within_tolerance": {
+      "actual": 0.45875542691751087,
+      "baseline": 0.5412445730824892,
+      "passed": true,
+      "threshold": 0.4412445730824892
+    },
+    "full_iou_count_at_least_2": {
+      "actual": 3,
+      "passed": true,
+      "strongest_baseline": 0.011985390641535707,
+      "threshold": 2
+    },
+    "full_top1_count_at_least_2": {
+      "actual": 3,
+      "passed": true,
+      "strongest_baseline": 0.038461538461538464,
+      "threshold": 2
+    }
+  },
+  "test_metrics_file": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/metrics/test_metrics.json"
+}

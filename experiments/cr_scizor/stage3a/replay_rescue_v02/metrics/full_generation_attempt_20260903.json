@@ -1,0 +1,7 @@
+{
+  "status": "REPLACED_BEFORE_AUDIT",
+  "reason": "Four 256-pair generator processes ended before HDF5 close; each HDF5 was structurally unreadable and metadata contained only 218 or 219 pairs.",
+  "preserved_path": "failed_attempt_full_shards_20260903",
+  "replacement_strategy": "eight independent 128-pair subshards with per-base-demo HDF5 and JSONL flush checkpoints",
+  "usable_for_v02": false
+}

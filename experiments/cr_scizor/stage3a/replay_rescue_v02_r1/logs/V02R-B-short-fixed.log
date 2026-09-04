@@ -1,0 +1,81 @@
+{
+  "status": "DIAGNOSTIC_ONLY_NOT_FINAL_GATE",
+  "paired_normalizer": {
+    "can": {
+      "10": {
+        "dense_scale": 0.041108003258705145,
+        "stage_scale": 0.041102451086044316
+      },
+      "20": {
+        "dense_scale": 0.022797292470932012,
+        "stage_scale": 0.023733344674110417
+      },
+      "40": {
+        "dense_scale": 0.031143248081207275,
+        "stage_scale": 0.03337821364402771
+      }
+    },
+    "square": {
+      "10": {
+        "dense_scale": 0.026663370430469513,
+        "stage_scale": 0.02654707431793213
+      },
+      "20": {
+        "dense_scale": 0.02728128433227539,
+        "stage_scale": 0.018008112907409668
+      },
+      "40": {
+        "dense_scale": 0.022509753704071045,
+        "stage_scale": 0.014305591583251953
+      }
+    }
+  },
+  "feasible_normalizer": {
+    "can": {
+      "10": {
+        "dense_scale": 0.04102014452219009,
+        "stage_scale": 0.041022185981273655
+      },
+      "20": {
+        "dense_scale": 0.021303308010101323,
+        "stage_scale": 0.02150889933109284
+      },
+      "40": {
+        "dense_scale": 0.02473472952842714,
+        "stage_scale": 0.0237918794155121
+      }
+    },
+    "square": {
+      "10": {
+        "dense_scale": 0.041354143619537355,
+        "stage_scale": 0.03970621824264527
+      },
+      "20": {
+        "dense_scale": 0.03908419609069824,
+        "stage_scale": 0.040951728820800774
+      },
+      "40": {
+        "dense_scale": 0.037586528062820417,
+        "stage_scale": 0.03445330262184143
+      }
+    }
+  },
+  "paired_validation": {
+    "metrics": {
+      "auroc": 0.6715783077624183,
+      "auprc": 0.26279631072907395,
+      "n": 256,
+      "positive": 29
+    },
+    "score_count": 256
+  },
+  "primary_feasible_validation": {
+    "metrics": {
+      "auroc": 0.6644387057572535,
+      "auprc": 0.23467770720193862,
+      "n": 256,
+      "positive": 29
+    },
+    "score_count": 256
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "iteration": 1,
+  "one_iteration_only": true,
+  "previous_decision": "ITERATE_STAGE2_ONCE",
+  "adjustment": "effect_supervision_rebalance",
+  "sampler_class_mass": {
+    "positive": 0.5,
+    "negative": 0.5
+  },
+  "effect_loss_class_mass": {
+    "positive": 0.5,
+    "negative": 0.5
+  },
+  "negative_subtype_weights": {
+    "no_effect_control": 0.45,
+    "effective_hard_negative": 0.45,
+    "clean_control": 0.1
+  },
+  "lambda_effect": 4.0,
+  "learning_rate": 0.0003,
+  "validation_delete_count": 9616,
+  "candidate_checkpoints_per_run": [
+    "best_localization",
+    "best_effect_bacc",
+    "best_gate_gap"
+  ],
+  "candidate_far_tolerance": 0.02,
+  "test_limits": {
+    "strongest_iou_baseline": 0.011985390641535707,
+    "strongest_top1_baseline": 0.038461538461538464,
+    "delay_baseline": 54.69230769230769,
+    "recovery_baseline": 0.5412445730824892,
+    "no_effect_far_baseline": 0.10552763819095477,
+    "no_effect_far_limit": 0.13552763819095476
+  },
+  "final_decisions": [
+    "GO_STAGE3",
+    "NO_GO_SWITCH_DIRECTION"
+  ]
+}

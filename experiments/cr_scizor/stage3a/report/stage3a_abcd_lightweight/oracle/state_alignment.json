@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "query_id": "can:demo_0:axis_impulse:t102:m1.00|t56",
+      "task": "can",
+      "query_t": 56,
+      "next_state_l2": 6.8102827072143555,
+      "pass": false,
+      "pre_action_state_index": null
+    },
+    {
+      "query_id": "can:demo_0:axis_impulse:t102:m1.00|t52",
+      "task": "can",
+      "query_t": 52,
+      "next_state_l2": 0.19640620052814484,
+      "pass": false,
+      "pre_action_state_index": null
+    }
+  ],
+  "median_l2": 3.50334445387125,
+  "all_pass": false,
+  "alignment_status": "failed",
+  "failure_reason": "simulator next state did not reproduce benchmark states[t+1] within 1e-4; preserve recorded index and do not claim alignment"
+}

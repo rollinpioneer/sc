@@ -1,0 +1,21 @@
+
+# conda environments:
+#
+# * -> active
+# + -> frozen
+cupid                    /home/xushijie/.conda/envs/cupid
+datamil                  /home/xushijie/.conda/envs/datamil
+gsp                      /home/xushijie/.conda/envs/gsp
+latex-perl               /home/xushijie/.conda/envs/latex-perl
+lerobot                  /home/xushijie/.conda/envs/lerobot
+lerobotpi0               /home/xushijie/.conda/envs/lerobotpi0
+lerobotpi05              /home/xushijie/.conda/envs/lerobotpi05
+lerobotpi0fast           /home/xushijie/.conda/envs/lerobotpi0fast
+mimicgen                 /home/xushijie/.conda/envs/mimicgen
+occi-boss                /home/xushijie/.conda/envs/occi-boss
+occi-boss-bcvilt         /home/xushijie/.conda/envs/occi-boss-bcvilt
+occi-boss-bcvilt-np123     /home/xushijie/.conda/envs/occi-boss-bcvilt-np123
+scizor-curation          /home/xushijie/.conda/envs/scizor-curation
+strap                    /home/xushijie/.conda/envs/strap
+base                 *   /opt/miniconda3
+

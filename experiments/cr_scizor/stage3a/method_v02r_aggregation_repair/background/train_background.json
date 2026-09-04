@@ -1,0 +1,46 @@
+{
+  "local_deficit": {
+    "coverage_rate": 1.0,
+    "formula": "clip(max covering V_c,0,1)"
+  },
+  "quantile": 0.8,
+  "schema": "stage3f_r_train_background_v1",
+  "sources": {
+    "action_top5": {
+      "can": {
+        "cf_contrast_q80": 0.005584109311379721,
+        "cf_max_q80": 0.008554959320745088,
+        "n": 1089
+      },
+      "square": {
+        "cf_contrast_q80": 0.12838041233747116,
+        "cf_max_q80": 0.38416134374632066,
+        "n": 1658
+      }
+    },
+    "full_top5": {
+      "can": {
+        "cf_contrast_q80": 0.010059129278318965,
+        "cf_max_q80": 0.02661125787937771,
+        "n": 1235
+      },
+      "square": {
+        "cf_contrast_q80": 0.10607114023084724,
+        "cf_max_q80": 0.421640718330247,
+        "n": 1541
+      }
+    },
+    "union_top5": {
+      "can": {
+        "cf_contrast_q80": 0.0065312277600271034,
+        "cf_max_q80": 0.008842091979791538,
+        "n": 1965
+      },
+      "square": {
+        "cf_contrast_q80": 0.11107403908594882,
+        "cf_max_q80": 0.39100704277817744,
+        "n": 2798
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "distance_features": [
+    "adjacent_state_l2",
+    "adjacent_action_l2"
+  ],
+  "feature_groups": 816,
+  "padding_policy": "invalid state dimensions use mean=0,std=1",
+  "split": "train",
+  "state_pad_dim": 71,
+  "transition_count": 105366
+}

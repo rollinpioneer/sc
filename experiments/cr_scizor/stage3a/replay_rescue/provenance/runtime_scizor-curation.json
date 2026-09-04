@@ -1,0 +1,47 @@
+{
+  "python": "3.11.16 (main, Aug 27 2026, 14:44:21) [GCC 14.3.0]",
+  "executable": "/home/xushijie/.conda/envs/scizor-curation/bin/python",
+  "platform": "Linux-7.1.8-1.el10.elrepo.x86_64-x86_64-with-glibc2.39",
+  "conda_prefix": "/home/xushijie/.conda/envs/scizor-curation",
+  "conda_default_env": "scizor-curation",
+  "env": {
+    "PYTHONPATH": "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic:/home/__compress_data/xushijie/work/cr_scizor/SCIZOR",
+    "LD_LIBRARY_PATH": null,
+    "MUJOCO_PY_MUJOCO_PATH": null,
+    "MUJOCO_GL": null,
+    "CUDA_VISIBLE_DEVICES": null
+  },
+  "packages": {
+    "numpy": {
+      "version": "2.4.6",
+      "file": "/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/numpy/__init__.py"
+    },
+    "h5py": {
+      "version": "3.16.0",
+      "file": "/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/h5py/__init__.py"
+    },
+    "robomimic": {
+      "version": "0.2.0",
+      "file": "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/robomimic/robomimic/__init__.py",
+      "git": {
+        "root": "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR",
+        "head": "875915ad23f27341d460d7d8d7019e57b660d792",
+        "status": "M .gitignore\n M robomimic/robomimic/envs/env_robosuite.py\n M stage1/src/export_chunk_evidence.py\n M stage1/src/export_transition_scores.py\n?? curation.egg-info/\n?? curation/suboptimal_classifier/__pycache__/\n?? curation/suboptimal_classifier/config/__pycache__/\n?? curation/suboptimal_classifier/dataset/__pycache__/\n?? curation/suboptimal_classifier/discriminator/__pycache__/\n?? curation/video_encoding/__pycache__/\n?? experiments/\n?? robomimic/robomimic/__pycache__/\n?? robomimic/robomimic/algo/__pycache__/\n?? robomimic/robomimic/config/__pycache__/\n?? robomimic/robomimic/envs/__pycache__/\n?? robomimic/robomimic/models/__pycache__/\n?? robomimic/robomimic/utils/__pycache__/\n?? stage1/benchmark/build_transition_labels.py\n?? stage1/benchmark/freeze_stage1c.py\n?? stage1/benchmark/generate_benchmark.py\n?? stage1/benchmark/intervention_times.py\n?? stage1/benchmark/make_group_split.py\n?? stage1/benchmark/outcome_labels.py\n?? stage1/benchmark/perturbations.py\n?? stage1/benchmark/render_pair_cases.py\n?? stage1/benchmark/replay_smoke.py\n?? stage1/benchmark/select_magnitudes.py\n?? stage1/benchmark/simulator_replay.py\n?? stage1/benchmark/summarize_benchmark.py\n?? stage1/benchmark/verify_stage1c.py\n?? stage1/benchmark/verify_stage1c_freeze.py\n?? stage1/evaluation/\n?? stage2/__pycache__/\n?? stage2/data/__pycache__/\n?? stage2/evaluation/__pycache__/\n?? stage2/inference/__pycache__/\n?? stage2/models/__pycache__/\n?? stage2/train/__pycache__/\n?? stage3a/__pycache__/\n?? stage3a/data/__pycache__/\n?? stage3a/evaluation/__pycache__/\n?? stage3a/library/__pycache__/\n?? stage3a/oracle/__pycache__/\n?? stage3a/proposals/__pycache__/\n?? stage3a/rescue/"
+      }
+    },
+    "robosuite": {
+      "error": "ModuleNotFoundError(\"No module named 'robosuite'\")",
+      "git": null
+    },
+    "mujoco": {
+      "error": "ModuleNotFoundError(\"No module named 'mujoco'\")"
+    },
+    "mujoco_py": {
+      "error": "ModuleNotFoundError(\"No module named 'mujoco_py'\")"
+    },
+    "mimicgen": {
+      "error": "ModuleNotFoundError(\"No module named 'mimicgen'\")",
+      "git": null
+    }
+  }
+}

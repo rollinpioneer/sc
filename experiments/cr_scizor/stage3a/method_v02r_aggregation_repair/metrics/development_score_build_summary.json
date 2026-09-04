@@ -1,0 +1,26 @@
+{
+  "split": "validation",
+  "methods": [
+    "action_raw",
+    "union_raw",
+    "full_raw",
+    "action_cf_only",
+    "action_current_fused",
+    "action_defect_gated",
+    "action_defect_contrast",
+    "union_defect_contrast"
+  ],
+  "replacement_rows": 7257,
+  "transition_rows": 9986,
+  "pair_rows": 2048,
+  "pair_counts": {
+    "action_cf_only": 256,
+    "action_current_fused": 256,
+    "action_defect_contrast": 256,
+    "action_defect_gated": 256,
+    "action_raw": 256,
+    "full_raw": 256,
+    "union_defect_contrast": 256,
+    "union_raw": 256
+  }
+}

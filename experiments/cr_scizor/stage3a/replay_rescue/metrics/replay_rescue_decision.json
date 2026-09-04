@@ -1,0 +1,35 @@
+{
+  "decision": "STOP_STAGE3A_REPLAY_RESCUE",
+  "decision_basis": "v0.1 exact replay was not established, no legacy mujoco-py runtime was available, and v0.2 oracle ceiling was not run",
+  "hdf5_lineage": "lineage/hdf5_lineage.json",
+  "stage1b_provenance": "provenance/stage1b_provenance_summary.json",
+  "legacy_runtime": "legacy_env/existing_replay_envs.txt",
+  "source_replay": {
+    "can": "replay_checks/can_stage1b_replay.json",
+    "square": "replay_checks/square_stage1b_replay.json"
+  },
+  "benchmark_v01_replay": {
+    "can": "replay_checks/can_stage1b_replay.json",
+    "square": "replay_checks/square_stage1b_replay.json"
+  },
+  "benchmark_v02": {
+    "generated": false,
+    "determinism_pass": false,
+    "pilot_probes": {
+      "can": "v02/can_demo_0_determinism_probe.json",
+      "square": "v02/square_demo_0_determinism_probe.json"
+    }
+  },
+  "oracle_ceiling": {
+    "paired_clean_auroc": null,
+    "teacher_forced_auroc": null
+  },
+  "failed_rules": [
+    "stage1b_provenance_unknown",
+    "legacy_replay_runtime_unavailable",
+    "source_exact_replay_not_established",
+    "benchmark_v01_exact_replay_not_established",
+    "v02_benchmark_not_generated",
+    "oracle_ceiling_not_run"
+  ]
+}

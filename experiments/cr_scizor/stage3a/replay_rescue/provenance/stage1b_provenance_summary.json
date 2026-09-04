@@ -1,0 +1,21 @@
+{
+  "stage1b_commit": "unknown",
+  "stage1b_conda_env": "unknown; historical logs identify mimicgen for the executed replay utilities, not the original benchmark generator",
+  "python_version": "unknown for original Stage 1B; current mimicgen runtime is Python 3.9.25",
+  "robomimic_version": "0.2.0 (SCIZOR fork at rescue base commit)",
+  "robosuite_version_or_commit": "unknown for original Stage 1B; current mimicgen runtime is robosuite 1.4.1",
+  "mujoco_backend": "unknown for original Stage 1B; current mimicgen runtime uses mujoco",
+  "mujoco_version": "unknown for original Stage 1B; current mimicgen runtime uses MuJoCo 2.3.2",
+  "model_file_used": "not confirmed; current Stage 1B-compatible diagnostic tested states-only and source-model payloads",
+  "state_storage": "post_action for benchmark v0.1 inferred from generator and replay diagnostics",
+  "float_cast": "none observed in benchmark HDF5 (float64 actions and states)",
+  "evidence_paths": [
+    "provenance/stage1b_code_history.txt",
+    "provenance/stage1b_command_search.txt",
+    "provenance/conda_env_locations.txt",
+    "provenance/runtime_mimicgen.json",
+    "lineage/hdf5_lineage.json",
+    "replay_checks/can_stage1b_replay.json",
+    "replay_checks/square_stage1b_replay.json"
+  ]
+}

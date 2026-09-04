@@ -1,0 +1,7 @@
+{
+  "rows": 21089,
+  "seed_count": 3,
+  "std_multiplier": 1.0,
+  "score_max": 0.9,
+  "formula": "clip(score_mean-score_std,0,0.9)/0.9*clip(positive_mean-positive_std,0,1)"
+}

@@ -1,0 +1,9 @@
+{
+  "canonical_method": "responsibility_iter1_seed0",
+  "canonical_run": "full_seed_0",
+  "canonical_seed": 0,
+  "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/selected.pt",
+  "checkpoint_sha256": "821b5ea2e9546d974379316110e193c3e034c2d20f9d5ed5aae23e05856c223a",
+  "selection_rule": "min FAR pool within 0.02, then IoU, top1, recovery, delay, seed",
+  "selection_split": "validation"
+}

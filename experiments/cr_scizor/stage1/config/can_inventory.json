@@ -1,0 +1,71 @@
+[
+  {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5",
+    "errors": [],
+    "num_demos": 200,
+    "has_env_args": true,
+    "num_transitions": 23207,
+    "sample_demos": [
+      {
+        "demo": "demo_0",
+        "has_model_file": true,
+        "actions_shape": [
+          118,
+          7
+        ],
+        "actions_dtype": "float64",
+        "states_shape": [
+          118,
+          71
+        ],
+        "image_shape": [
+          118,
+          84,
+          84,
+          3
+        ],
+        "image_dtype": "uint8"
+      },
+      {
+        "demo": "demo_1",
+        "has_model_file": true,
+        "actions_shape": [
+          118,
+          7
+        ],
+        "actions_dtype": "float64",
+        "states_shape": [
+          118,
+          71
+        ],
+        "image_shape": [
+          118,
+          84,
+          84,
+          3
+        ],
+        "image_dtype": "uint8"
+      },
+      {
+        "demo": "demo_2",
+        "has_model_file": true,
+        "actions_shape": [
+          113,
+          7
+        ],
+        "actions_dtype": "float64",
+        "states_shape": [
+          113,
+          71
+        ],
+        "image_shape": [
+          113,
+          84,
+          84,
+          3
+        ],
+        "image_dtype": "uint8"
+      }
+    ]
+  }
+]

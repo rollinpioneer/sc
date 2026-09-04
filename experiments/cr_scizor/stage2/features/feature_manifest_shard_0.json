@@ -1,0 +1,22 @@
+{
+  "demo_count": 340,
+  "feature_index_sha256": "b925e79c0e54b9c5fb5899467968ec57ee170b667a5e4957ba46156a28e1243d",
+  "image_embedding_dim": 768,
+  "num_shards": 4,
+  "shard_index": 0,
+  "source_split_manifest_sha256": "e8b81c36c20ac2ebefc739fa4ff1bb5167b32842b69bc8fb93f9be6a3484ab0b",
+  "source_transition_labels_sha256": "b2cbb25de15e1f804eb4498738c4218d61e1c0b3a621d59b13254a4afec0be0a",
+  "split_demo_counts": {
+    "test": 66,
+    "train": 206,
+    "validation": 68
+  },
+  "split_transition_counts": {
+    "test": 8871,
+    "train": 26577,
+    "validation": 8668
+  },
+  "state_pad_dim": 71,
+  "transition_count": 44116,
+  "visual_encoder": "facebook/dinov2-base"
+}

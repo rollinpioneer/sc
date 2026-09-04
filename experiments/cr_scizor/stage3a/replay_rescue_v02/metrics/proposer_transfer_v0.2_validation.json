@@ -1,0 +1,12 @@
+{
+  "action_only_top5_recall": null,
+  "evaluated": false,
+  "frozen_checkpoints": {
+    "action_only": "../stage2/runs/action_only_seed_0/best.pt",
+    "full": "../stage2/runs/full_seed_0/best.pt"
+  },
+  "full_top5_recall": null,
+  "protocol_gate": "oracle_ceiling_pass",
+  "protocol_gate_value": false,
+  "reason": "skipped because v0.2 oracle ceiling did not pass; v0.1 proposer scores are not v0.2 transfer evidence"
+}

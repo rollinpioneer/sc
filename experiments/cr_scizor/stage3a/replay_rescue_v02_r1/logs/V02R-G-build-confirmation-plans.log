@@ -1,0 +1,8 @@
+{
+  "pairs": 256,
+  "replacement_rows": 1024,
+  "by_split": {
+    "train": 0,
+    "validation": 0
+  }
+}

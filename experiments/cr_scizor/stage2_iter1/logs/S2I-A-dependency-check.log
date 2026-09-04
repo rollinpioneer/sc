@@ -1,0 +1,12 @@
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_index.parquet
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/normalizer.npz
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_manifest.json
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/datasets/chunk_samples.parquet
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/datasets/chunk_sample_summary.json
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/metrics/test_metrics.json
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/metrics/go_no_go.json
+ok /home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage2/configs/responsibility_mvp.json
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/transition_labels.parquet
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/chunk_evidence.parquet
+ok /home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/all_predictions.parquet
+{"positive_sample_count": 3432, "sample_count": 6547, "sample_type_counts": {"clean_control": 320, "effective_hard_negative": 697, "no_effect_control": 2098, "positive": 3432}}

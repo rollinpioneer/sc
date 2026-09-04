@@ -1,0 +1,16 @@
+{
+  "full": {
+    "run": "full_seed_0",
+    "method": "responsibility_iter1_seed0",
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/full_seed_0/selected.pt",
+    "sha256": "821b5ea2e9546d974379316110e193c3e034c2d20f9d5ed5aae23e05856c223a",
+    "size_bytes": 8169273
+  },
+  "action_only": {
+    "run": "action_only_seed_0",
+    "method": "action_only_iter1_seed0",
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2_iter1/runs/action_only_seed_0/selected.pt",
+    "sha256": "48774bec571bf82ba8fb119bfc49e5fff246c07204750d0832875075f774baf8",
+    "size_bytes": 8169181
+  }
+}

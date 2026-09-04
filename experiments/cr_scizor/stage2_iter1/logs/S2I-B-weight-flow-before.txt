@@ -1,0 +1,15 @@
+stage2/data/responsibility_dataset.py:11:from torch.utils.data import DataLoader, Dataset, WeightedRandomSampler
+stage2/data/responsibility_dataset.py:49:        sample_type = str(row["sample_type"])
+stage2/data/responsibility_dataset.py:50:        if sample_type not in EFFECT_GROUP_TO_ID:
+stage2/data/responsibility_dataset.py:51:            raise ValueError(f"unknown sample_type={sample_type}")
+stage2/data/responsibility_dataset.py:82:        if int(row.target_effect):
+stage2/data/responsibility_dataset.py:96:            "target_effect": torch.tensor(float(row.target_effect), dtype=torch.float32),
+stage2/data/responsibility_dataset.py:99:            "sample_weight": torch.tensor(float(row.pair_sample_weight), dtype=torch.float32), "sample_id": row.sample_id,
+stage2/data/responsibility_dataset.py:100:            "effect_group_id": torch.tensor(EFFECT_GROUP_TO_ID[sample_type], dtype=torch.long),
+stage2/data/responsibility_dataset.py:105:def build_pair_balanced_binary_sampler(train_df: pd.DataFrame, *, seed: int) -> tuple[WeightedRandomSampler, dict[str, float]]:
+stage2/data/responsibility_dataset.py:107:    target = train_df["target_effect"].to_numpy(dtype=np.int64)
+stage2/data/responsibility_dataset.py:108:    pair_weight = train_df["pair_sample_weight"].to_numpy(dtype=np.float64)
+stage2/data/responsibility_dataset.py:110:        raise ValueError("pair_sample_weight contains non-finite values")
+stage2/data/responsibility_dataset.py:112:        raise ValueError("pair_sample_weight must be positive")
+stage2/data/responsibility_dataset.py:125:    sampler = WeightedRandomSampler(torch.as_tensor(weights, dtype=torch.double), len(train_df), replacement=True, generator=generator)
+stage2/train/train_responsibility.py:45:            target, effect = batch["target_distribution"], batch["target_effect"] > .5

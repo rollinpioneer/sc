@@ -1,0 +1,45 @@
+ M .gitignore
+ M stage1/src/export_chunk_evidence.py
+ M stage1/src/export_transition_scores.py
+?? curation.egg-info/
+?? curation/suboptimal_classifier/__pycache__/
+?? curation/suboptimal_classifier/config/__pycache__/
+?? curation/suboptimal_classifier/dataset/__pycache__/
+?? curation/suboptimal_classifier/discriminator/__pycache__/
+?? curation/video_encoding/__pycache__/
+?? experiments/
+?? robomimic/robomimic/__pycache__/
+?? robomimic/robomimic/algo/__pycache__/
+?? robomimic/robomimic/config/__pycache__/
+?? robomimic/robomimic/envs/__pycache__/
+?? robomimic/robomimic/models/__pycache__/
+?? robomimic/robomimic/utils/__pycache__/
+?? stage1/benchmark/build_transition_labels.py
+?? stage1/benchmark/freeze_stage1c.py
+?? stage1/benchmark/generate_benchmark.py
+?? stage1/benchmark/intervention_times.py
+?? stage1/benchmark/make_group_split.py
+?? stage1/benchmark/outcome_labels.py
+?? stage1/benchmark/perturbations.py
+?? stage1/benchmark/render_pair_cases.py
+?? stage1/benchmark/replay_smoke.py
+?? stage1/benchmark/select_magnitudes.py
+?? stage1/benchmark/simulator_replay.py
+?? stage1/benchmark/summarize_benchmark.py
+?? stage1/benchmark/verify_stage1c.py
+?? stage1/benchmark/verify_stage1c_freeze.py
+?? stage1/evaluation/
+?? stage2/__pycache__/
+?? stage2/data/__pycache__/
+?? stage2/evaluation/__pycache__/
+?? stage2/inference/__pycache__/
+?? stage2/models/__pycache__/
+?? stage2/train/__pycache__/
+?? stage3a/__pycache__/
+?? stage3a/data/__pycache__/
+?? stage3a/evaluation/__pycache__/
+?? stage3a/library/__pycache__/
+?? stage3a/oracle/__pycache__/
+?? stage3a/proposals/__pycache__/
+?? stage3a/rescue/
+?? stage3a/rescue_v02/__pycache__/

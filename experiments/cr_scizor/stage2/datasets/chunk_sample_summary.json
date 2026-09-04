@@ -1,0 +1,31 @@
+{
+  "ambiguous_sample_count": 0,
+  "effective_pair_coverage": {
+    "test": {
+      "covered": 52,
+      "expected": 52
+    },
+    "train": {
+      "covered": 120,
+      "expected": 120
+    },
+    "validation": {
+      "covered": 44,
+      "expected": 44
+    }
+  },
+  "positive_sample_count": 3432,
+  "sample_count": 6547,
+  "sample_type_counts": {
+    "clean_control": 320,
+    "effective_hard_negative": 697,
+    "no_effect_control": 2098,
+    "positive": 3432
+  },
+  "seed": 20260831,
+  "split_sample_counts": {
+    "test": 1471,
+    "train": 3756,
+    "validation": 1320
+  }
+}

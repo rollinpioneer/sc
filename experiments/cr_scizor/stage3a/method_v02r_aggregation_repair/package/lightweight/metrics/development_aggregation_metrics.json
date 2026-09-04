@@ -1,0 +1,343 @@
+{
+  "schema": "stage3f_r_development_metrics_v1",
+  "methods": [
+    {
+      "method_id": "action_cf_only",
+      "source": "action_top5",
+      "pair_auroc": 0.6077776089928604,
+      "pair_auprc": 0.18194603001798637,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.14977973568281938,
+      "effective_recall": 0.3103448275862069,
+      "top1_within_1": 0.6206896551724138,
+      "region_hit": 0.6206896551724138,
+      "mean_abs_delay": 10.310344827586206,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.6841517857142857,
+      "square_auroc": 0.46555183946488293,
+      "mean_candidates": 4.140625,
+      "missing_candidate_pairs": 2,
+      "proposal_region_recall": 0.896551724137931,
+      "threshold": 0.7623428790124918,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.6841517857142857,
+          "auprc": 0.24927003080107613,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.46555183946488293,
+          "auprc": 0.1047328383730397,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "effective_recall",
+        "square_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "action_current_fused",
+      "source": "action_top5",
+      "pair_auroc": 0.6483366246392223,
+      "pair_auprc": 0.2095091651192542,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.15859030837004406,
+      "effective_recall": 0.4827586206896552,
+      "top1_within_1": 0.6551724137931034,
+      "region_hit": 0.6551724137931034,
+      "mean_abs_delay": 10.172413793103448,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.6796875,
+      "square_auroc": 0.5899665551839465,
+      "mean_candidates": 4.140625,
+      "missing_candidate_pairs": 2,
+      "proposal_region_recall": 0.896551724137931,
+      "threshold": 0.6443105692212364,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.6796875,
+          "auprc": 0.24812767481716677,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.5899665551839465,
+          "auprc": 0.1550904746527889,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "square_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "action_defect_contrast",
+      "source": "action_top5",
+      "pair_auroc": 0.5259000455719277,
+      "pair_auprc": 0.13416465540250477,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.19383259911894274,
+      "effective_recall": 0.3103448275862069,
+      "top1_within_1": 0.41379310344827586,
+      "region_hit": 0.41379310344827586,
+      "mean_abs_delay": 16.724137931034484,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.4810267857142857,
+      "square_auroc": 0.6294314381270903,
+      "mean_candidates": 4.140625,
+      "missing_candidate_pairs": 2,
+      "proposal_region_recall": 0.896551724137931,
+      "threshold": 0.005291349276844453,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.4810267857142857,
+          "auprc": 0.12127335184280602,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.6294314381270903,
+          "auprc": 0.1934537492015268,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "effective_recall",
+        "can_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "action_defect_gated",
+      "source": "action_top5",
+      "pair_auroc": 0.5506607929515418,
+      "pair_auprc": 0.19811467663695764,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.14537444933920704,
+      "effective_recall": 0.3103448275862069,
+      "top1_within_1": 0.41379310344827586,
+      "region_hit": 0.41379310344827586,
+      "mean_abs_delay": 18.103448275862068,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.6512276785714286,
+      "square_auroc": 0.37725752508361204,
+      "mean_candidates": 4.140625,
+      "missing_candidate_pairs": 2,
+      "proposal_region_recall": 0.896551724137931,
+      "threshold": 0.023838156939692594,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.6512276785714286,
+          "auprc": 0.27617795098240605,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.37725752508361204,
+          "auprc": 0.0789625822280421,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "effective_recall",
+        "square_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "action_raw",
+      "source": "action_top5",
+      "pair_auroc": 0.615069117423667,
+      "pair_auprc": 0.19103753078244493,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.18502202643171806,
+      "effective_recall": 0.3103448275862069,
+      "top1_within_1": 0.6896551724137931,
+      "region_hit": 0.6896551724137931,
+      "mean_abs_delay": 11.10344827586207,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.7751116071428571,
+      "square_auroc": 0.4214046822742475,
+      "mean_candidates": 4.140625,
+      "missing_candidate_pairs": 2,
+      "proposal_region_recall": 0.896551724137931,
+      "threshold": 0.999971299955414,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.7751116071428571,
+          "auprc": 0.30613197285603205,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.4214046822742475,
+          "auprc": 0.11929984776216644,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "effective_recall",
+        "square_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "full_raw",
+      "source": "full_top5",
+      "pair_auroc": 0.6615524836700593,
+      "pair_auprc": 0.19117305141734575,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.13215859030837004,
+      "effective_recall": 0.41379310344827586,
+      "top1_within_1": 0.3448275862068966,
+      "region_hit": 0.3448275862068966,
+      "mean_abs_delay": 34.62068965517241,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.6545758928571429,
+      "square_auroc": 0.6668896321070235,
+      "mean_candidates": 3.9765625,
+      "missing_candidate_pairs": 4,
+      "proposal_region_recall": 0.4827586206896552,
+      "threshold": 0.9928900823108995,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.6545758928571429,
+          "auprc": 0.2010194097890729,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.6668896321070235,
+          "auprc": 0.22033105378912068,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "proposal_region_recall",
+        "pair_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "union_defect_contrast",
+      "source": "union_top5",
+      "pair_auroc": 0.5301534254898982,
+      "pair_auprc": 0.12144460178440367,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.1894273127753304,
+      "effective_recall": 0.2413793103448276,
+      "top1_within_1": 0.3793103448275862,
+      "region_hit": 0.3793103448275862,
+      "mean_abs_delay": 22.896551724137932,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.5407366071428571,
+      "square_auroc": 0.5618729096989966,
+      "mean_candidates": 7.1640625,
+      "missing_candidate_pairs": 0,
+      "proposal_region_recall": 0.9310344827586207,
+      "threshold": 0.008647692062647733,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.5407366071428571,
+          "auprc": 0.13806935343551296,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.5618729096989966,
+          "auprc": 0.1271001255481581,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "effective_recall",
+        "can_auroc",
+        "square_auroc",
+        "eligible_method"
+      ]
+    },
+    {
+      "method_id": "union_raw",
+      "source": "union_top5",
+      "pair_auroc": 0.639981771228923,
+      "pair_auprc": 0.17204206318934645,
+      "prevalence": 0.11328125,
+      "no_effect_far": 0.13215859030837004,
+      "effective_recall": 0.3448275862068966,
+      "top1_within_1": 0.6551724137931034,
+      "region_hit": 0.6551724137931034,
+      "mean_abs_delay": 13.724137931034482,
+      "recovery_false_attribution": 0,
+      "can_auroc": 0.7025669642857143,
+      "square_auroc": 0.5411371237458193,
+      "mean_candidates": 7.1640625,
+      "missing_candidate_pairs": 0,
+      "proposal_region_recall": 0.9310344827586207,
+      "threshold": 0.9999996950785638,
+      "task_metrics": {
+        "can": {
+          "auroc": 0.7025669642857143,
+          "auprc": 0.20706876941300467,
+          "n": 128,
+          "positive": 16,
+          "prevalence": 0.125
+        },
+        "square": {
+          "auroc": 0.5411371237458193,
+          "auprc": 0.1301921892684324,
+          "n": 128,
+          "positive": 13,
+          "prevalence": 0.1015625
+        }
+      },
+      "eligible": false,
+      "failed_rules": [
+        "pair_auroc",
+        "effective_recall",
+        "square_auroc",
+        "eligible_method"
+      ]
+    }
+  ],
+  "eligible_methods": [],
+  "selected": null,
+  "global_failed_rules": []
+}

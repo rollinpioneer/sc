@@ -1,0 +1,958 @@
+{
+  "source": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5",
+  "demo_id": "demo_0",
+  "runtime_model_sha256": "f1a4f7840b2f16f1e5674574357db2157e4199882b5d83427fca9d964703ffc7",
+  "steps": 118,
+  "max_states_pre_abs": 0.0,
+  "max_states_post_abs": 0.0,
+  "max_reward_abs": 0.0,
+  "max_staged_abs": 0.0,
+  "success_all_equal": true,
+  "determinism_pass": true,
+  "rows": [
+    {
+      "action_t": 0,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 1,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 2,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 3,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 4,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 5,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 6,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 7,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 8,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 9,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 10,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 11,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 12,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 13,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 14,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 15,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 16,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 17,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 18,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 19,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 20,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 21,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 22,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 23,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 24,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 25,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 26,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 27,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 28,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 29,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 30,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 31,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 32,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 33,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 34,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 35,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 36,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 37,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 38,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 39,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 40,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 41,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 42,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 43,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 44,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 45,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 46,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 47,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 48,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 49,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 50,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 51,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 52,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 53,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 54,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 55,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 56,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 57,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 58,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 59,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 60,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 61,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 62,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 63,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 64,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 65,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 66,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 67,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 68,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 69,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 70,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 71,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 72,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 73,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 74,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 75,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 76,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 77,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 78,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 79,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 80,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 81,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 82,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 83,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 84,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 85,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 86,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 87,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 88,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 89,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 90,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 91,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 92,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 93,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 94,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 95,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 96,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 97,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 98,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 99,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 100,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 101,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 102,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 103,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 104,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 105,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 106,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 107,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 108,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 109,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 110,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 111,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 112,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 113,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 114,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 115,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 116,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    },
+    {
+      "action_t": 117,
+      "states_pre_max_abs": 0.0,
+      "states_post_max_abs": 0.0,
+      "reward_abs": 0.0,
+      "staged_max_abs": 0.0,
+      "success_equal": true
+    }
+  ]
+}

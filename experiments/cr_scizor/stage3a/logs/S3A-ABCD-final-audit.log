@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "stage2_decision_frozen": true,
+    "proposals_pass": true,
+    "action_library_pass": true,
+    "oracle_pass": true,
+    "alignment_pass": false,
+    "abcd_structural_pass": true
+  },
+  "zip": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage3a/report/stage3a_results_abcd_lightweight.zip",
+  "zip_sha256": "236a17831d7de0d7d58175d5ffd85e5fed2b85b5c7e3d54cdec3c17c4550a12c  stage3a_results_abcd_lightweight.zip"
+}

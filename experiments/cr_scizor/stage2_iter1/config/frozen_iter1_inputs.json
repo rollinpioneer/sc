@@ -1,0 +1,47 @@
+{
+  "chunk_samples": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/datasets/chunk_samples.parquet",
+    "size_bytes": 331967,
+    "sha256": "3bb87a3490d5d6267e0808275cf56c2c9d511c1c2e50b01e7f29ce94b9eee7d0"
+  },
+  "normalizer": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/normalizer.npz",
+    "size_bytes": 4780,
+    "sha256": "46298bcafa6ecdc072ef0f68ed7d4e14138d13ff6a7ce5ac0354dd5388f151da"
+  },
+  "feature_index": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_index.parquet",
+    "size_bytes": 60470,
+    "sha256": "523845ef25789570f7a5df87dd21419d80bee5cf0e5424063b682984e95e4ca3"
+  },
+  "feature_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/features/feature_manifest.json",
+    "size_bytes": 639,
+    "sha256": "bc56302a901bd8d68848a2a0c5a7f07e11f5174e83c99042c5963fb485edddb1"
+  },
+  "base_test_metrics": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/metrics/test_metrics.json",
+    "size_bytes": 101699,
+    "sha256": "48d542e5a732f927b520c1f7622c509c6e6ef94d882c26da4298aea5f1d4392f"
+  },
+  "base_go_no_go": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage2/metrics/go_no_go.json",
+    "size_bytes": 458,
+    "sha256": "b09ba6f2a4ec16e88fcd65a5332efb53ea11c4523d9bc76bedf753b4ce78114a"
+  },
+  "iter_config": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/SCIZOR/stage2/configs/responsibility_iter1.json",
+    "size_bytes": 1678,
+    "sha256": "119da6484f1a638b2e1e286baa58fa0b8da2c5fa3b4b9335e1b75315ea5d2735"
+  },
+  "transition_labels": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/benchmark/transition_labels.parquet",
+    "size_bytes": 311839,
+    "sha256": "b2cbb25de15e1f804eb4498738c4218d61e1c0b3a621d59b13254a4afec0be0a"
+  },
+  "chunk_evidence": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/evaluation/predictions/chunk_evidence.parquet",
+    "size_bytes": 3812715,
+    "sha256": "3617b2406b2d18d75f757c703a42680d2ed73b91ff046bcdfee5b8e0a8d95b74"
+  }
+}

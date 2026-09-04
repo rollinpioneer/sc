@@ -1,0 +1,40 @@
+[1067/1088] square_demo_136_reverse_motion_t82_m0.25
+[1068/1088] square_demo_136_zero_motion_t130_m0.50
+[1069/1088] square_demo_136_zero_motion_t57_m0.50
+[1070/1088] square_demo_136_zero_motion_t68_m0.50
+[1071/1088] square_demo_136_zero_motion_t82_m0.50
+[1072/1088] square_demo_14_axis_impulse_t104_m0.25
+[1073/1088] square_demo_14_axis_impulse_t39_m0.25
+[1074/1088] square_demo_14_axis_impulse_t57_m0.25
+[1075/1088] square_demo_14_axis_impulse_t76_m0.25
+[1076/1088] square_demo_14_clean
+[1077/1088] square_demo_14_flip_gripper_t104_m0.50
+[1078/1088] square_demo_14_flip_gripper_t39_m0.50
+[1079/1088] square_demo_14_flip_gripper_t57_m0.50
+[1080/1088] square_demo_14_flip_gripper_t76_m0.50
+[1081/1088] square_demo_14_reverse_motion_t104_m0.25
+[1082/1088] square_demo_14_reverse_motion_t39_m0.25
+[1083/1088] square_demo_14_reverse_motion_t57_m0.25
+[1084/1088] square_demo_14_reverse_motion_t76_m0.25
+[1085/1088] square_demo_14_zero_motion_t104_m0.50
+[1086/1088] square_demo_14_zero_motion_t39_m0.50
+[1087/1088] square_demo_14_zero_motion_t57_m0.50
+[1088/1088] square_demo_14_zero_motion_t76_m0.50
+{
+  "feature_index_sha256": "dd5c0d169e37d3742fb22da98cab3996c5adcf8600933d364994f42de9cb43df",
+  "group_count": 1088,
+  "image_alignment": "pre_action",
+  "image_embedding_dim": 768,
+  "labels_sha256": "453cf13163af8bc458abe9bac6626a212039ab84fc32be06a3755ac6a93b76b1",
+  "split_group_counts": {
+    "train": 816,
+    "validation": 272
+  },
+  "split_transition_counts": {
+    "train": 105366,
+    "validation": 34714
+  },
+  "state_pad_dim": 71,
+  "transition_count": 140080,
+  "visual_encoder": "facebook/dinov2-base"
+}

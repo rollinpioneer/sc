@@ -1,0 +1,24 @@
+{
+  "library": {
+    "source_split": "train",
+    "source_variant": "clean",
+    "state_key": "states_pre",
+    "state_query_neighbors": 64,
+    "replacements_per_query": 4,
+    "action_codebook_size_per_task": 64,
+    "exclude_same_base_demo": true,
+    "state_support_quantile": 0.95,
+    "action_support_quantile": 0.99,
+    "min_action_delta_l2": 0.02,
+    "action_diversity_l2": 0.1
+  },
+  "oracle": {
+    "horizons": [10, 20, 40],
+    "dense_weight": 0.4,
+    "stage_weight": 0.5,
+    "success_weight": 0.1,
+    "horizon_weights": [0.2, 0.3, 0.5],
+    "robust_scale_quantile": 0.9,
+    "validation_auroc_gate": 0.7
+  }
+}

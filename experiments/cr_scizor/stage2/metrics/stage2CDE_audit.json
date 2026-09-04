@@ -1,0 +1,82 @@
+{
+  "canonical_seed": {
+    "candidate_scores": {
+      "0": [
+        0.06818181818181818,
+        0.05190189216399433,
+        0.008074534161490683,
+        0.8608695652173913,
+        -0.8173076923076923,
+        0
+      ],
+      "1": [
+        0.4090909090909091,
+        0.053664118295087944,
+        0.008281573498964802,
+        0.7565217391304347,
+        -0.8413461538461539,
+        -1
+      ],
+      "2": [
+        0.22727272727272727,
+        0.05639132791530137,
+        0.008074534161490683,
+        0.7971014492753623,
+        -0.8317307692307693,
+        -2
+      ]
+    },
+    "canonical_method": "responsibility_seed1",
+    "canonical_seed": 1,
+    "selection_key": [
+      "top1_within_1",
+      "responsibility_region_iou",
+      "transition_f1",
+      "recovery_retention",
+      "-no_effect_false_attribution_rate",
+      "-seed"
+    ],
+    "selection_split": "validation"
+  },
+  "case_count": 19,
+  "go_no_go": {
+    "canonical_method": "responsibility_seed1",
+    "decision": "ITERATE_STAGE2_ONCE",
+    "rules": {
+      "canonical_vs_action_only_requirement": true,
+      "delay_baseline": 54.69230769230769,
+      "full_iou_above_strongest_count": 3,
+      "full_top1_above_strongest_count": 3,
+      "iou_baseline": 0.011985390641535707,
+      "no_effect_far_baseline": 0.10552763819095477,
+      "recovery_baseline": 0.5412445730824892,
+      "top1_baseline": 0.038461538461538464
+    }
+  },
+  "learned_prediction_coverage": {
+    "action_only_seed0": {
+      "test": 36516,
+      "validation": 34714
+    },
+    "responsibility_seed0": {
+      "test": 36516,
+      "validation": 34714
+    },
+    "responsibility_seed1": {
+      "test": 36516,
+      "validation": 34714
+    },
+    "responsibility_seed2": {
+      "test": 36516,
+      "validation": 34714
+    }
+  },
+  "stage": "2C+2D+2E",
+  "status": "passed",
+  "validation_delete_counts": {
+    "action_only_seed0": 9616,
+    "responsibility_seed0": 9616,
+    "responsibility_seed1": 9616,
+    "responsibility_seed2": 9616
+  }
+}

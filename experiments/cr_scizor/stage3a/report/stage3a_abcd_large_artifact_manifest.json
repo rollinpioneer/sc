@@ -1,0 +1,97 @@
+[
+  {
+    "relative_path": "action_library/action_library_index.parquet",
+    "size_bytes": 111280,
+    "sha256": "ec0dc62e9f64241400b5834c3a0c5777c29b654ecb14c1221a284022bca33eb9"
+  },
+  {
+    "relative_path": "action_library/library_can.npz",
+    "size_bytes": 1668836,
+    "sha256": "5025eb826cb905e0054ac260e1d6dc5f92fee692e7675eaf63d109c6a5246aea"
+  },
+  {
+    "relative_path": "action_library/library_square.npz",
+    "size_bytes": 2129060,
+    "sha256": "542194f5ce3d30d53ae11ee9a807594b56b09dfd2d4074997304c01f35123372"
+  },
+  {
+    "relative_path": "action_library/state_can.faiss",
+    "size_bytes": 795161,
+    "sha256": "dc03943d03582e7a454aab6f8fb5bf951281fb90c34b0cb35f89f92306102b43"
+  },
+  {
+    "relative_path": "action_library/state_square.faiss",
+    "size_bytes": 1014745,
+    "sha256": "c3cceed99b6c859a3de76abbc448ab89c81b25d717a10348749423ad7b33b668"
+  },
+  {
+    "relative_path": "oracle/datasets/train_oracle_samples.parquet",
+    "size_bytes": 5197731,
+    "sha256": "3753fecde7b6f1440e6b6c5fad6c92f1e54e67e2fd9f6740d554487e841c2c27"
+  },
+  {
+    "relative_path": "oracle/datasets/validation_oracle_samples.parquet",
+    "size_bytes": 1772274,
+    "sha256": "443093cdaa050c35b6569df2096da62537d52009c04274d63514c8f7bd857576"
+  },
+  {
+    "relative_path": "oracle/raw/train_oracle.jsonl",
+    "size_bytes": 32382496,
+    "sha256": "a6dfb2883bfb14921e999896dd5c3ad1c941a499fa14867633121d579459b7f8"
+  },
+  {
+    "relative_path": "oracle/raw/validation_oracle.jsonl",
+    "size_bytes": 11238288,
+    "sha256": "06a28dab25d6fbbf8d4474d5968b54fb03c900163168b0b02722575e145a0a44"
+  },
+  {
+    "relative_path": "proposals/proposal_candidates_train.parquet",
+    "size_bytes": 482593,
+    "sha256": "2d190a16e38b77d9943ec00bab4eb96dbf204cbee0c79f00277158b812270ac9"
+  },
+  {
+    "relative_path": "proposals/proposal_candidates_validation.parquet",
+    "size_bytes": 178285,
+    "sha256": "8c41c9a7ef6529a21e94383f447301ad99474296677614046fed4b87c47f170d"
+  },
+  {
+    "relative_path": "proposals/train/stage3a_action_proposer_chunks.parquet",
+    "size_bytes": 3149728,
+    "sha256": "fa6be5ffea3f3a2aa957734c773f3fed04a91c16f40430b0dae21e0f4fb23846"
+  },
+  {
+    "relative_path": "proposals/train/stage3a_action_proposer_transitions.parquet",
+    "size_bytes": 2888721,
+    "sha256": "e9e957e91ba6f42d6c29d5944db3fa3ab6fdf5da11480e230c9ab0ff64c42a80"
+  },
+  {
+    "relative_path": "proposals/train/stage3a_full_proposer_chunks.parquet",
+    "size_bytes": 3092726,
+    "sha256": "fa21bd751c5e4b42ce77ee1193a304d07dd4cf7a76f83d90309df4e75d97fd54"
+  },
+  {
+    "relative_path": "proposals/train/stage3a_full_proposer_transitions.parquet",
+    "size_bytes": 2317674,
+    "sha256": "60bd3b8d88526ec57ba05b8af6b43c1cd53a28b3b0999f626cef8712b40e6121"
+  },
+  {
+    "relative_path": "proposals/validation/stage3a_action_proposer_chunks.parquet",
+    "size_bytes": 1077402,
+    "sha256": "bce539f12d19714855e4036d7afc48dd9cf60f88779ea24c9c4034288f1b2834"
+  },
+  {
+    "relative_path": "proposals/validation/stage3a_action_proposer_transitions.parquet",
+    "size_bytes": 959282,
+    "sha256": "d76fca23d9c27280704e9b72b4dd7c7598c59a26a7ecc8620c4a9f66670418e2"
+  },
+  {
+    "relative_path": "proposals/validation/stage3a_full_proposer_chunks.parquet",
+    "size_bytes": 1056844,
+    "sha256": "30fb7097f4623ca088b51857a915321c2b85d7eb528a345089a82f65eae2ed15"
+  },
+  {
+    "relative_path": "proposals/validation/stage3a_full_proposer_transitions.parquet",
+    "size_bytes": 788309,
+    "sha256": "5c2f4029683bd84720946c35761f2ec23a3c99752b439a5a3a5a5c2bd35f6e08"
+  }
+]

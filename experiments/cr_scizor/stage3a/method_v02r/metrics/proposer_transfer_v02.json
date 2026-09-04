@@ -1,0 +1,192 @@
+{
+  "train": {
+    "action_top5": {
+      "by_task": {
+        "can": {
+          "effective_pair_count": 37,
+          "mean_abs_localization_delay": 2.7027027027027026,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 384,
+          "responsibility_region_recall": 0.972972972972973,
+          "top1_within_1": 0.972972972972973,
+          "top5_hit": 0.972972972972973
+        },
+        "square": {
+          "effective_pair_count": 19,
+          "mean_abs_localization_delay": 2.0,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 384,
+          "responsibility_region_recall": 0.8421052631578947,
+          "top1_within_1": 0.6842105263157895,
+          "top5_hit": 0.8421052631578947
+        }
+      },
+      "overall": {
+        "effective_pair_count": 56,
+        "mean_abs_localization_delay": 2.4642857142857144,
+        "mean_candidates_per_pair": 5.0,
+        "pair_count": 768,
+        "responsibility_region_recall": 0.9285714285714286,
+        "top1_within_1": 0.875,
+        "top5_hit": 0.9285714285714286
+      }
+    },
+    "full_top5": {
+      "by_task": {
+        "can": {
+          "effective_pair_count": 37,
+          "mean_abs_localization_delay": 2.135135135135135,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 384,
+          "responsibility_region_recall": 0.972972972972973,
+          "top1_within_1": 0.9459459459459459,
+          "top5_hit": 0.972972972972973
+        },
+        "square": {
+          "effective_pair_count": 19,
+          "mean_abs_localization_delay": 7.157894736842105,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 384,
+          "responsibility_region_recall": 0.6842105263157895,
+          "top1_within_1": 0.3157894736842105,
+          "top5_hit": 0.6842105263157895
+        }
+      },
+      "overall": {
+        "effective_pair_count": 56,
+        "mean_abs_localization_delay": 3.8392857142857144,
+        "mean_candidates_per_pair": 5.0,
+        "pair_count": 768,
+        "responsibility_region_recall": 0.875,
+        "top1_within_1": 0.7321428571428571,
+        "top5_hit": 0.875
+      }
+    },
+    "union_top5": {
+      "by_task": {
+        "can": {
+          "effective_pair_count": 37,
+          "mean_abs_localization_delay": 2.135135135135135,
+          "mean_candidates_per_pair": 8.2109375,
+          "pair_count": 384,
+          "responsibility_region_recall": 0.972972972972973,
+          "top1_within_1": 0.972972972972973,
+          "top5_hit": 0.972972972972973
+        },
+        "square": {
+          "effective_pair_count": 19,
+          "mean_abs_localization_delay": 2.0,
+          "mean_candidates_per_pair": 8.682291666666666,
+          "pair_count": 384,
+          "responsibility_region_recall": 0.8421052631578947,
+          "top1_within_1": 0.5789473684210527,
+          "top5_hit": 0.8421052631578947
+        }
+      },
+      "overall": {
+        "effective_pair_count": 56,
+        "mean_abs_localization_delay": 2.0892857142857144,
+        "mean_candidates_per_pair": 8.446614583333334,
+        "pair_count": 768,
+        "responsibility_region_recall": 0.9285714285714286,
+        "top1_within_1": 0.8392857142857143,
+        "top5_hit": 0.9285714285714286
+      }
+    }
+  },
+  "validation": {
+    "action_top5": {
+      "by_task": {
+        "can": {
+          "effective_pair_count": 16,
+          "mean_abs_localization_delay": 6.5625,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 128,
+          "responsibility_region_recall": 0.875,
+          "top1_within_1": 0.875,
+          "top5_hit": 0.875
+        },
+        "square": {
+          "effective_pair_count": 13,
+          "mean_abs_localization_delay": 2.6923076923076925,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 128,
+          "responsibility_region_recall": 0.9230769230769231,
+          "top1_within_1": 0.6923076923076923,
+          "top5_hit": 0.9230769230769231
+        }
+      },
+      "overall": {
+        "effective_pair_count": 29,
+        "mean_abs_localization_delay": 4.827586206896552,
+        "mean_candidates_per_pair": 5.0,
+        "pair_count": 256,
+        "responsibility_region_recall": 0.896551724137931,
+        "top1_within_1": 0.7931034482758621,
+        "top5_hit": 0.896551724137931
+      }
+    },
+    "full_top5": {
+      "by_task": {
+        "can": {
+          "effective_pair_count": 16,
+          "mean_abs_localization_delay": 13.0,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 128,
+          "responsibility_region_recall": 0.6875,
+          "top1_within_1": 0.625,
+          "top5_hit": 0.6875
+        },
+        "square": {
+          "effective_pair_count": 13,
+          "mean_abs_localization_delay": 31.23076923076923,
+          "mean_candidates_per_pair": 5.0,
+          "pair_count": 128,
+          "responsibility_region_recall": 0.23076923076923078,
+          "top1_within_1": 0.15384615384615385,
+          "top5_hit": 0.23076923076923078
+        }
+      },
+      "overall": {
+        "effective_pair_count": 29,
+        "mean_abs_localization_delay": 21.17241379310345,
+        "mean_candidates_per_pair": 5.0,
+        "pair_count": 256,
+        "responsibility_region_recall": 0.4827586206896552,
+        "top1_within_1": 0.41379310344827586,
+        "top5_hit": 0.4827586206896552
+      }
+    },
+    "union_top5": {
+      "by_task": {
+        "can": {
+          "effective_pair_count": 16,
+          "mean_abs_localization_delay": 5.0625,
+          "mean_candidates_per_pair": 8.515625,
+          "pair_count": 128,
+          "responsibility_region_recall": 0.9375,
+          "top1_within_1": 0.75,
+          "top5_hit": 0.9375
+        },
+        "square": {
+          "effective_pair_count": 13,
+          "mean_abs_localization_delay": 0.5384615384615384,
+          "mean_candidates_per_pair": 8.984375,
+          "pair_count": 128,
+          "responsibility_region_recall": 0.9230769230769231,
+          "top1_within_1": 0.6153846153846154,
+          "top5_hit": 0.9230769230769231
+        }
+      },
+      "overall": {
+        "effective_pair_count": 29,
+        "mean_abs_localization_delay": 3.0344827586206895,
+        "mean_candidates_per_pair": 8.75,
+        "pair_count": 256,
+        "responsibility_region_recall": 0.9310344827586207,
+        "top1_within_1": 0.6896551724137931,
+        "top5_hit": 0.9310344827586207
+      }
+    }
+  }
+}

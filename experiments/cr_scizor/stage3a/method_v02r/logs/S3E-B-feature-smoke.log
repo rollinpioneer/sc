@@ -1,0 +1,20 @@
+/home/xushijie/.conda/envs/scizor-curation/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[1/2] can_demo_0_axis_impulse_t102_m1.00
+[2/2] can_demo_0_axis_impulse_t112_m1.00
+{
+  "feature_index_sha256": "b7c96b2330e89c73b4aff6bd4a3fb8add4747688a73eb44989f9bab832fed01b",
+  "group_count": 2,
+  "image_alignment": "pre_action",
+  "image_embedding_dim": 768,
+  "labels_sha256": "453cf13163af8bc458abe9bac6626a212039ab84fc32be06a3755ac6a93b76b1",
+  "split_group_counts": {
+    "train": 2
+  },
+  "split_transition_counts": {
+    "train": 236
+  },
+  "state_pad_dim": 71,
+  "transition_count": 236,
+  "visual_encoder": "facebook/dinov2-base"
+}

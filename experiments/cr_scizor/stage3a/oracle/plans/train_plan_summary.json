@@ -1,0 +1,14 @@
+{
+  "split": "train",
+  "queries": 6637,
+  "replacement_rows": 27301,
+  "ood_queries": 0,
+  "ood_rate": 0.0,
+  "source_counts": {
+    "nn_real": 19908,
+    "codebook_medoid": 6627,
+    "paired_clean_upper_bound": 766
+  },
+  "proposal_queries": 6426,
+  "teacher_forced_queries": 762
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "failure_type": "direct_failure",
+    "pair_id": "can:demo_110:axis_impulse:t117:m1.00",
+    "video": "direct_failure__can_demo_110_axis_impulse_t117_m1_00.mp4"
+  },
+  {
+    "failure_type": "direct_failure",
+    "pair_id": "can:demo_135:axis_impulse:t117:m1.00",
+    "video": "direct_failure__can_demo_135_axis_impulse_t117_m1_00.mp4"
+  },
+  {
+    "failure_type": "direct_failure",
+    "pair_id": "can:demo_135:flip_gripper:t117:m1.00",
+    "video": "direct_failure__can_demo_135_flip_gripper_t117_m1_00.mp4"
+  },
+  {
+    "failure_type": "direct_failure",
+    "pair_id": "square:demo_130:reverse_motion:t129:m0.25",
+    "video": "direct_failure__square_demo_130_reverse_motion_t129_m0_25.mp4"
+  },
+  {
+    "failure_type": "direct_failure",
+    "pair_id": "square:demo_135:flip_gripper:t129:m0.50",
+    "video": "direct_failure__square_demo_135_flip_gripper_t129_m0_50.mp4"
+  },
+  {
+    "failure_type": "delayed_failure",
+    "pair_id": "can:demo_109:axis_impulse:t62:m1.00",
+    "video": "delayed_failure__can_demo_109_axis_impulse_t62_m1_00.mp4"
+  },
+  {
+    "failure_type": "delayed_failure",
+    "pair_id": "can:demo_109:reverse_motion:t80:m1.00",
+    "video": "delayed_failure__can_demo_109_reverse_motion_t80_m1_00.mp4"
+  },
+  {
+    "failure_type": "delayed_failure",
+    "pair_id": "can:demo_109:reverse_motion:t97:m1.00",
+    "video": "delayed_failure__can_demo_109_reverse_motion_t97_m1_00.mp4"
+  },
+  {
+    "failure_type": "delayed_failure",
+    "pair_id": "can:demo_109:zero_motion:t62:m1.00",
+    "video": "delayed_failure__can_demo_109_zero_motion_t62_m1_00.mp4"
+  },
+  {
+    "failure_type": "delayed_failure",
+    "pair_id": "can:demo_109:zero_motion:t80:m1.00",
+    "video": "delayed_failure__can_demo_109_zero_motion_t80_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_success",
+    "pair_id": "can:demo_102:reverse_motion:t67:m1.00",
+    "video": "recovery_success__can_demo_102_reverse_motion_t67_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_success",
+    "pair_id": "can:demo_103:axis_impulse:t46:m1.00",
+    "video": "recovery_success__can_demo_103_axis_impulse_t46_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_success",
+    "pair_id": "can:demo_103:reverse_motion:t46:m1.00",
+    "video": "recovery_success__can_demo_103_reverse_motion_t46_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_success",
+    "pair_id": "can:demo_107:axis_impulse:t70:m1.00",
+    "video": "recovery_success__can_demo_107_axis_impulse_t70_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_success",
+    "pair_id": "can:demo_107:reverse_motion:t70:m1.00",
+    "video": "recovery_success__can_demo_107_reverse_motion_t70_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_failure",
+    "pair_id": "can:demo_100:reverse_motion:t13:m1.00",
+    "video": "recovery_failure__can_demo_100_reverse_motion_t13_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_failure",
+    "pair_id": "can:demo_100:zero_motion:t13:m1.00",
+    "video": "recovery_failure__can_demo_100_zero_motion_t13_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_failure",
+    "pair_id": "can:demo_106:reverse_motion:t5:m1.00",
+    "video": "recovery_failure__can_demo_106_reverse_motion_t5_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_failure",
+    "pair_id": "can:demo_106:zero_motion:t5:m1.00",
+    "video": "recovery_failure__can_demo_106_zero_motion_t5_m1_00.mp4"
+  },
+  {
+    "failure_type": "recovery_failure",
+    "pair_id": "can:demo_109:axis_impulse:t80:m1.00",
+    "video": "recovery_failure__can_demo_109_axis_impulse_t80_m1_00.mp4"
+  },
+  {
+    "failure_type": "no_effect",
+    "pair_id": "can:demo_0:axis_impulse:t102:m1.00",
+    "video": "no_effect__can_demo_0_axis_impulse_t102_m1_00.mp4"
+  },
+  {
+    "failure_type": "no_effect",
+    "pair_id": "can:demo_0:axis_impulse:t112:m1.00",
+    "video": "no_effect__can_demo_0_axis_impulse_t112_m1_00.mp4"
+  },
+  {
+    "failure_type": "no_effect",
+    "pair_id": "can:demo_0:axis_impulse:t52:m1.00",
+    "video": "no_effect__can_demo_0_axis_impulse_t52_m1_00.mp4"
+  },
+  {
+    "failure_type": "no_effect",
+    "pair_id": "can:demo_0:axis_impulse:t62:m1.00",
+    "video": "no_effect__can_demo_0_axis_impulse_t62_m1_00.mp4"
+  },
+  {
+    "failure_type": "no_effect",
+    "pair_id": "can:demo_0:flip_gripper:t102:m1.00",
+    "video": "no_effect__can_demo_0_flip_gripper_t102_m1_00.mp4"
+  }
+]

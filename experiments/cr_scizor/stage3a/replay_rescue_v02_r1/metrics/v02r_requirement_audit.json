@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "protocol": "Stage 3A v0.2-R frozen confirmation",
+  "requirements": [
+    {
+      "requirement": "Original v0.2 results remain frozen and provisional",
+      "status": "PASS",
+      "evidence": [
+        "frozen_previous/replay_rescue_v02_decision.json",
+        "config/frozen_inputs.sha256"
+      ]
+    },
+    {
+      "requirement": "Short-horizon field mismatch is diagnostic only",
+      "status": "PASS",
+      "evidence": "diagnostics/short_horizon_fixed_diagnostic.json",
+      "value": "DIAGNOSTIC_ONLY_NOT_FINAL_GATE"
+    },
+    {
+      "requirement": "Score definition is frozen before confirmation",
+      "status": "PASS",
+      "evidence": "config/score_definition_freeze.sha256",
+      "value": {
+        "max_horizon": 100,
+        "persistence_window": 3,
+        "component_weights": [0.4, 0.5, 0.1],
+        "normalizer_source": "v0.2 train paired-clean only"
+      }
+    },
+    {
+      "requirement": "Pre-confirmation code and frozen score files verify",
+      "status": "PASS",
+      "evidence": "config/pre_confirmation_freeze.sha256"
+    },
+    {
+      "requirement": "Confirmation uses independent demos and a one-time benchmark",
+      "status": "PASS",
+      "evidence": [
+        "metadata/base_demos_v0.2_confirmation.json",
+        "metrics/confirmation_benchmark_audit.json"
+      ],
+      "value": {
+        "can_demos": 8,
+        "square_demos": 8,
+        "pairs": 256,
+        "benchmark_audit_pass": true
+      }
+    },
+    {
+      "requirement": "Confirmation paired-clean branch is exact",
+      "status": "PASS",
+      "evidence": "metrics/confirmation_parts/paired_part*.json",
+      "value": {
+        "pairs": 256,
+        "branch_pre_state_equal_rate": 1.0,
+        "reference_exact_rate": 1.0,
+        "paired_clean_exact_rate": 1.0,
+        "finite_target_rate": 1.0
+      }
+    },
+    {
+      "requirement": "Confirmation feasible branch is exact",
+      "status": "PASS",
+      "evidence": "metrics/confirmation_parts/feasible_part*.json",
+      "value": {
+        "pairs": 256,
+        "replacement_rows": 1024,
+        "branch_pre_state_equal_rate": 1.0,
+        "reference_exact_rate": 1.0,
+        "finite_target_rate": 1.0
+      }
+    },
+    {
+      "requirement": "Frozen primary AUROC gates are met",
+      "status": "PASS",
+      "evidence": "metrics/long_oracle_confirmation.json",
+      "value": {
+        "threshold": 0.7,
+        "paired_clean_auroc": 0.9051535087719298,
+        "primary_feasible_auroc": 0.9071115288220551,
+        "best_of_4_diagnostic_only": true
+      }
+    },
+    {
+      "requirement": "Only an allowed final decision is emitted",
+      "status": "PASS",
+      "evidence": "metrics/v02r_final_decision.json",
+      "value": "RESUME_STAGE3A_E_ON_V02R"
+    }
+  ]
+}
