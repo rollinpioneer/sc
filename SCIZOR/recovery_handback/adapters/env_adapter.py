@@ -76,6 +76,7 @@ class EnvAdapter:
         self._activate_observation_spec()
         with _seeded(seed):
             raw_obs = self.env.reset()
+        raw_obs = self._canonicalize_observation(raw_obs)
         payload = self._canonical_payload(seed)
         self._episode_payload = payload
         self._last_obs = raw_obs
@@ -85,6 +86,7 @@ class EnvAdapter:
         self._activate_observation_spec()
         with _seeded(seed):
             raw_obs = self.env.reset()
+        raw_obs = self._canonicalize_observation(raw_obs)
         live = self.env.get_state()
         expected_state = np.asarray(payload["states"], dtype=np.float64)
         live_state = np.asarray(live["states"], dtype=np.float64)
@@ -107,6 +109,7 @@ class EnvAdapter:
     def step(self, action):
         self._activate_observation_spec()
         obs_next, reward, _done, info = self.env.step(np.asarray(action, dtype=np.float32))
+        obs_next = self._canonicalize_observation(obs_next)
         success = bool(self.env.is_success().get("task", False))
         self._last_obs = obs_next
         return obs_next, float(reward), success, dict(info or {})
@@ -139,7 +142,17 @@ class EnvAdapter:
 
     def current_observation(self):
         self._activate_observation_spec()
-        return self._last_obs if self._last_obs is not None else self.env.get_observation()
+        if self._last_obs is None:
+            self._last_obs = self._canonicalize_observation(self.env.get_observation())
+        return self._last_obs
+
+    @staticmethod
+    def _canonicalize_observation(raw_obs):
+        """Expose the checkpoint's ``object`` key alongside robosuite's runtime key."""
+        if "object" not in raw_obs and "object-state" in raw_obs:
+            raw_obs = dict(raw_obs)
+            raw_obs["object"] = np.asarray(raw_obs["object-state"]).copy()
+        return raw_obs
 
     def _activate_observation_spec(self):
         ObsUtils.initialize_obs_modality_mapping_from_dict({

@@ -72,8 +72,11 @@ def main() -> None:
                 "genuine_handoff_success": result["genuine_handoff_success"],
             }, sort_keys=True), flush=True)
     write_table(results, args.output_dir / f"branch_results_shard_{args.shard_index:03d}.parquet")
+    branch_names = {branch_name for branch_name, _ in BRANCH_SPECS}
     all_rows = []
     for path in sorted((args.output_dir / "records").glob("*/*.json")):
+        if path.stem not in branch_names:
+            continue
         try:
             all_rows.append(json.loads(path.read_text(encoding="utf-8")))
         except (OSError, json.JSONDecodeError):
