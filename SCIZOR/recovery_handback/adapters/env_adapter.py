@@ -57,15 +57,10 @@ class EnvAdapter:
             "robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos",
         ])
 
-        # EnvRobosuite only knows which values are images after this mapping exists.
-        ObsUtils.initialize_obs_utils_with_obs_specs({
-            "obs": {
-                "low_dim": self.low_dim_keys,
-                "rgb": self.camera_keys,
-                "depth": [],
-                "scan": [],
-            }
-        })
+        # Robomimic stores observation modalities in process-global state. Loading
+        # another checkpoint can replace that mapping, so activate this complete
+        # environment spec again before every operation that formats observations.
+        self._activate_observation_spec()
         self.env = EnvRobosuite(
             env_name=self.env_name,
             render=False,
@@ -78,6 +73,7 @@ class EnvAdapter:
         self._episode_payload = None
 
     def new_episode(self, seed: int):
+        self._activate_observation_spec()
         with _seeded(seed):
             raw_obs = self.env.reset()
         payload = self._canonical_payload(seed)
@@ -86,6 +82,7 @@ class EnvAdapter:
         return raw_obs, deepcopy(payload)
 
     def reset_canonical(self, payload: dict, seed: int):
+        self._activate_observation_spec()
         with _seeded(seed):
             raw_obs = self.env.reset()
         live = self.env.get_state()
@@ -108,6 +105,7 @@ class EnvAdapter:
         return raw_obs
 
     def step(self, action):
+        self._activate_observation_spec()
         obs_next, reward, _done, info = self.env.step(np.asarray(action, dtype=np.float32))
         success = bool(self.env.is_success().get("task", False))
         self._last_obs = obs_next
@@ -140,7 +138,16 @@ class EnvAdapter:
         return np.asarray(low, dtype=np.float64).copy(), np.asarray(high, dtype=np.float64).copy()
 
     def current_observation(self):
+        self._activate_observation_spec()
         return self._last_obs if self._last_obs is not None else self.env.get_observation()
+
+    def _activate_observation_spec(self):
+        ObsUtils.initialize_obs_modality_mapping_from_dict({
+            "low_dim": self.low_dim_keys,
+            "rgb": self.camera_keys,
+            "depth": [],
+            "scan": [],
+        })
 
     def _canonical_payload(self, seed: int) -> dict:
         state = self.env.get_state()
