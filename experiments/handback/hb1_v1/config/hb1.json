@@ -1,0 +1,133 @@
+{
+  "anchor_times": [
+    20,
+    80,
+    160
+  ],
+  "assets_file": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/assets/assets.json",
+  "base_training": {
+    "algorithm": "bc_rnn_gmm",
+    "batch_size": 32,
+    "checkpoint_epochs": [
+      50,
+      100,
+      200
+    ],
+    "epochs": 200,
+    "learning_rate": 0.0001,
+    "seed": 0,
+    "seq_length": 10,
+    "steps_per_epoch": 250
+  },
+  "engineering": {
+    "policy_memory_max_abs": 1e-06,
+    "prefix_action_max_abs": 1e-06,
+    "prefix_state_max_abs": 1e-10,
+    "zero_residual_state_max_abs": 1e-10
+  },
+  "execution_order": [
+    "can",
+    "square"
+  ],
+  "expected_control_freq": 20,
+  "feasibility": {
+    "min_baseline_failed_roots": 10,
+    "min_control_roots": 5,
+    "min_genuine_rescued_roots": 5,
+    "min_probe_roots": 20
+  },
+  "horizon_steps": 400,
+  "include_full_repair": true,
+  "minimum_autonomous_steps": 20,
+  "minimum_remaining_steps": 100,
+  "output_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1",
+  "outputs": {
+    "max_case_videos": 8,
+    "store_all_step_images": false,
+    "store_anchor_and_handoff_history": 4,
+    "store_full_state_actions": true
+  },
+  "policy_history_protocol": "shadow_update_once_per_env_step",
+  "probe_expansion": {
+    "allowed_reason": "insufficient_valid_roots_or_natural_failures_only",
+    "block_size": 20,
+    "max_roots_per_task": 80
+  },
+  "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+  "repair_lengths": [
+    0,
+    5,
+    20,
+    80
+  ],
+  "repair_training": {
+    "algorithm": "sac_bounded_residual_adapter",
+    "batch_size": 256,
+    "buffer_size": 300000,
+    "checkpoint_steps": [
+      125000,
+      250000,
+      500000
+    ],
+    "gamma": 0.99,
+    "gradient_steps": 1,
+    "initial_reset_fraction": 0.5,
+    "learning_rate": 0.0003,
+    "learning_starts": 5000,
+    "net_arch": [
+      256,
+      256
+    ],
+    "optional_extension_total": 1000000,
+    "privileged_repairer": true,
+    "residual_scale": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      2.0
+    ],
+    "seed": 0,
+    "tau": 0.005,
+    "total_steps": 500000,
+    "train_freq": 1
+  },
+  "repeats_per_root": 1,
+  "roles": {
+    "base_val": {
+      "roots_per_task": 20,
+      "seed_start": 10000
+    },
+    "pilot": {
+      "roots_per_task": 4,
+      "seed_start": 40000
+    },
+    "probe": {
+      "roots_per_task": 40,
+      "seed_start": 50000
+    },
+    "repair_train": {
+      "roots_per_task": 100,
+      "seed_start": 20000
+    },
+    "repair_val": {
+      "roots_per_task": 24,
+      "seed_start": 30000
+    }
+  },
+  "schema": "hb1_protocol_v1",
+  "source_demo_split_seed": 20260905,
+  "source_train_fraction": 0.8,
+  "square_seed_offset": 100000,
+  "statistics": {
+    "bootstrap_groups": 1000,
+    "seed": 20260905
+  },
+  "success_consecutive_steps": 5,
+  "tasks": [
+    "can",
+    "square"
+  ]
+}

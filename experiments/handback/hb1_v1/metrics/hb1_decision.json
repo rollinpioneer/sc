@@ -1,0 +1,29 @@
+{
+  "ready_tasks": [],
+  "schema_version": "hb1_decision_v1",
+  "status": "HOLD",
+  "tasks": {
+    "can": {
+      "authoritative_anchors": 0,
+      "baseline_failed_roots": 0,
+      "complete_anchors": 0,
+      "control_roots": 0,
+      "duration_note": null,
+      "genuine_rescued_roots": 0,
+      "repair_qualification_status": "NEED_BASE_POLICY",
+      "status": "NEED_BASE_POLICY",
+      "valid_roots": 0
+    },
+    "square": {
+      "authoritative_anchors": 118,
+      "baseline_failed_roots": 0,
+      "complete_anchors": 0,
+      "control_roots": 0,
+      "duration_note": null,
+      "genuine_rescued_roots": 0,
+      "repair_qualification_status": "NEED_STRONGER_REPAIRER",
+      "status": "NEED_STRONGER_REPAIRER",
+      "valid_roots": 0
+    }
+  }
+}

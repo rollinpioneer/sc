@@ -124,7 +124,7 @@ class EnvRobosuite(EB.EnvBase):
                     # CUDA_VISIBLE_DEVICES remaps the visible device list inside the process.
                     # Use the first visible device index for single-GPU visibility.
                     kwargs["render_gpu_device_id"] = 0
-                else:
+                elif cuda_visible_device.strip():
                     # ensure that we select the correct GPU device for rendering by testing for EGL rendering
                     # NOTE: this package should be installed from this link (https://github.com/StanfordVL/egl_probe)
                     # import egl_probe
@@ -133,6 +133,8 @@ class EnvRobosuite(EB.EnvBase):
                     valid_gpu_devices = [int(d) for d in valid_gpu_devices]
                     if len(valid_gpu_devices) > 0:
                         kwargs["render_gpu_device_id"] = len(valid_gpu_devices) - 1
+                # An empty CUDA_VISIBLE_DEVICES intentionally selects CPU policy
+                # inference while MuJoCo still uses the available EGL device.
         else:
             # make sure gripper visualization is turned off (we almost always want this for learning)
             kwargs["gripper_visualization"] = False

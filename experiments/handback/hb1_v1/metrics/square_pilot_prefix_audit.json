@@ -1,0 +1,52 @@
+{
+  "anchors": 12,
+  "passed": true,
+  "results": [
+    {
+      "action_max_abs": 0.0,
+      "memory_max_abs_by_anchor": {
+        "160": 0.0,
+        "20": 0.0,
+        "80": 0.0
+      },
+      "passed": true,
+      "root_id": "square:pilot:140000",
+      "state_max_abs": 0.0
+    },
+    {
+      "action_max_abs": 0.0,
+      "memory_max_abs_by_anchor": {
+        "160": 0.0,
+        "20": 0.0,
+        "80": 0.0
+      },
+      "passed": true,
+      "root_id": "square:pilot:140001",
+      "state_max_abs": 0.0
+    },
+    {
+      "action_max_abs": 0.0,
+      "memory_max_abs_by_anchor": {
+        "160": 0.0,
+        "20": 0.0,
+        "80": 0.0
+      },
+      "passed": true,
+      "root_id": "square:pilot:140002",
+      "state_max_abs": 0.0
+    },
+    {
+      "action_max_abs": 0.0,
+      "memory_max_abs_by_anchor": {
+        "160": 0.0,
+        "20": 0.0,
+        "80": 0.0
+      },
+      "passed": true,
+      "root_id": "square:pilot:140003",
+      "state_max_abs": 0.0
+    }
+  ],
+  "roots": 4,
+  "schema_version": "hb1_prefix_audit_v1"
+}

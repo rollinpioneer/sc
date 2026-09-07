@@ -1,0 +1,13 @@
+{
+  "category_counts": {},
+  "exports": [],
+  "missing_categories": [
+    "genuine_short_handoff",
+    "helper_completed_without_genuine_handoff",
+    "autonomous_help_unnecessary_or_harmful",
+    "unresolved_or_nonmonotonic"
+  ],
+  "rendering": "trajectory_and_action_timeline_only_unless_saved_render_assets_are_available",
+  "schema_version": "hb1_selected_cases_v1",
+  "selected": 0
+}

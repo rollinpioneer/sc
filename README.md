@@ -10,3 +10,22 @@ filename, local relative path, byte size, and artifact class. The complete index
 is in `LARGE_ARTIFACT_MANIFEST.tsv`.
 
 The original local project remains authoritative for non-versioned large assets.
+
+## HB1 handback feasibility experiment
+
+The HB1 experiment is published under
+[`experiments/handback/hb1_v1/`](experiments/handback/hb1_v1/), with its
+implementation under [`SCIZOR/recovery_handback/`](SCIZOR/recovery_handback/).
+
+Final decision: **HOLD**.
+
+- Can: `NEED_BASE_POLICY`
+- Square: `NEED_STRONGER_REPAIRER`
+- Final audit: 39/39 checks passed
+- Report: [`HB1_REPORT.md`](experiments/handback/hb1_v1/report/HB1_REPORT.md)
+- Lightweight results: [`HB1_results_lightweight.zip`](experiments/handback/hb1_v1/package/HB1_results_lightweight.zip)
+
+The formal paired probe was not run because the protocol's capability stop
+conditions were reached. Checkpoints, replay buffers, trajectory payloads,
+evaluation tables, and runtime logs remain local; see the HB1 local-only
+artifact note in the result directory.

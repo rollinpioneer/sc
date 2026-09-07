@@ -1,0 +1,79 @@
+{
+  "schema": "hb1_protocol_v1",
+  "tasks": ["can", "square"],
+  "execution_order": ["can", "square"],
+  "horizon_steps": 400,
+  "expected_control_freq": 20,
+  "repair_lengths": [0, 5, 20, 80],
+  "include_full_repair": true,
+  "anchor_times": [20, 80, 160],
+  "minimum_remaining_steps": 100,
+  "success_consecutive_steps": 5,
+  "minimum_autonomous_steps": 20,
+  "policy_history_protocol": "shadow_update_once_per_env_step",
+  "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+  "repeats_per_root": 1,
+  "source_demo_split_seed": 20260905,
+  "source_train_fraction": 0.8,
+  "roles": {
+    "base_val": {"seed_start": 10000, "roots_per_task": 20},
+    "repair_train": {"seed_start": 20000, "roots_per_task": 100},
+    "repair_val": {"seed_start": 30000, "roots_per_task": 24},
+    "pilot": {"seed_start": 40000, "roots_per_task": 4},
+    "probe": {"seed_start": 50000, "roots_per_task": 40}
+  },
+  "square_seed_offset": 100000,
+  "probe_expansion": {
+    "block_size": 20,
+    "max_roots_per_task": 80,
+    "allowed_reason": "insufficient_valid_roots_or_natural_failures_only"
+  },
+  "base_training": {
+    "algorithm": "bc_rnn_gmm",
+    "seed": 0,
+    "epochs": 200,
+    "steps_per_epoch": 250,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "seq_length": 10,
+    "checkpoint_epochs": [50, 100, 200]
+  },
+  "repair_training": {
+    "algorithm": "sac_bounded_residual_adapter",
+    "seed": 0,
+    "total_steps": 500000,
+    "optional_extension_total": 1000000,
+    "learning_rate": 0.0003,
+    "buffer_size": 300000,
+    "batch_size": 256,
+    "learning_starts": 5000,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "net_arch": [256, 256],
+    "train_freq": 1,
+    "gradient_steps": 1,
+    "residual_scale": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 2.0],
+    "initial_reset_fraction": 0.5,
+    "checkpoint_steps": [125000, 250000, 500000],
+    "privileged_repairer": true
+  },
+  "statistics": {"bootstrap_groups": 1000, "seed": 20260905},
+  "engineering": {
+    "prefix_state_max_abs": 1e-10,
+    "prefix_action_max_abs": 1e-6,
+    "policy_memory_max_abs": 1e-6,
+    "zero_residual_state_max_abs": 1e-10
+  },
+  "feasibility": {
+    "min_probe_roots": 20,
+    "min_baseline_failed_roots": 10,
+    "min_genuine_rescued_roots": 5,
+    "min_control_roots": 5
+  },
+  "outputs": {
+    "store_full_state_actions": true,
+    "store_all_step_images": false,
+    "store_anchor_and_handoff_history": 4,
+    "max_case_videos": 8
+  }
+}

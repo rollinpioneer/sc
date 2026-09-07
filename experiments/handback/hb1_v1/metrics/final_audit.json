@@ -1,0 +1,215 @@
+{
+  "checks": [
+    {
+      "detail": "config/hb1.json",
+      "name": "exists:config/hb1.json",
+      "passed": true
+    },
+    {
+      "detail": "config/runtime.txt",
+      "name": "exists:config/runtime.txt",
+      "passed": true
+    },
+    {
+      "detail": "config/source_commit.txt",
+      "name": "exists:config/source_commit.txt",
+      "passed": true
+    },
+    {
+      "detail": "assets/assets.json",
+      "name": "exists:assets/assets.json",
+      "passed": true
+    },
+    {
+      "detail": "metrics/metric_fixture.json",
+      "name": "exists:metrics/metric_fixture.json",
+      "passed": true
+    },
+    {
+      "detail": true,
+      "name": "metric_fixture_passed",
+      "passed": true
+    },
+    {
+      "detail": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/can/base_policy.json",
+      "name": "can:base_policy",
+      "passed": true
+    },
+    {
+      "detail": 3,
+      "name": "can:base_candidates_evaluated",
+      "passed": true
+    },
+    {
+      "detail": [
+        20,
+        20,
+        20
+      ],
+      "name": "can:base_val_20_each",
+      "passed": true
+    },
+    {
+      "detail": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/assets/policy_pair_can.json",
+      "name": "can:policy_pair",
+      "passed": true
+    },
+    {
+      "detail": "NEED_BASE_POLICY",
+      "name": "can:capability_stop",
+      "passed": true
+    },
+    {
+      "detail": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/base_policy.json",
+      "name": "square:base_policy",
+      "passed": true
+    },
+    {
+      "detail": 3,
+      "name": "square:base_candidates_evaluated",
+      "passed": true
+    },
+    {
+      "detail": [
+        20,
+        20,
+        20
+      ],
+      "name": "square:base_val_20_each",
+      "passed": true
+    },
+    {
+      "detail": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/assets/policy_pair_square.json",
+      "name": "square:policy_pair",
+      "passed": true
+    },
+    {
+      "detail": 125000,
+      "name": "square:sac_125000",
+      "passed": true
+    },
+    {
+      "detail": 125000,
+      "name": "square:normalizer_125000",
+      "passed": true
+    },
+    {
+      "detail": 250000,
+      "name": "square:sac_250000",
+      "passed": true
+    },
+    {
+      "detail": 250000,
+      "name": "square:normalizer_250000",
+      "passed": true
+    },
+    {
+      "detail": 500000,
+      "name": "square:sac_500000",
+      "passed": true
+    },
+    {
+      "detail": 500000,
+      "name": "square:normalizer_500000",
+      "passed": true
+    },
+    {
+      "detail": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/training_summary.json",
+      "name": "square:training_summary",
+      "passed": true
+    },
+    {
+      "detail": 500000,
+      "name": "square:fixed_training_budget",
+      "passed": true
+    },
+    {
+      "detail": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/qualification/summary.json",
+      "name": "square:qualification",
+      "passed": true
+    },
+    {
+      "detail": "NEED_STRONGER_REPAIRER",
+      "name": "square:qualification_terminal",
+      "passed": true
+    },
+    {
+      "detail": "metrics/coverage.json",
+      "name": "exists:metrics/coverage.json",
+      "passed": true
+    },
+    {
+      "detail": "metrics/curves_by_task.csv",
+      "name": "exists:metrics/curves_by_task.csv",
+      "passed": true
+    },
+    {
+      "detail": "metrics/curves_by_anchor_time.csv",
+      "name": "exists:metrics/curves_by_anchor_time.csv",
+      "passed": true
+    },
+    {
+      "detail": "metrics/hb1_decision.json",
+      "name": "exists:metrics/hb1_decision.json",
+      "passed": true
+    },
+    {
+      "detail": "metrics/paired_results.parquet",
+      "name": "exists:metrics/paired_results.parquet",
+      "passed": true
+    },
+    {
+      "detail": "metrics/handoff_opportunities.parquet",
+      "name": "exists:metrics/handoff_opportunities.parquet",
+      "passed": true
+    },
+    {
+      "detail": "metrics/handoff_curve_dataset.parquet",
+      "name": "exists:metrics/handoff_curve_dataset.parquet",
+      "passed": true
+    },
+    {
+      "detail": "metrics/selected_examples.csv",
+      "name": "exists:metrics/selected_examples.csv",
+      "passed": true
+    },
+    {
+      "detail": "report/HB1_REPORT.md",
+      "name": "exists:report/HB1_REPORT.md",
+      "passed": true
+    },
+    {
+      "detail": "package/HB1_results_lightweight.zip",
+      "name": "exists:package/HB1_results_lightweight.zip",
+      "passed": true
+    },
+    {
+      "detail": "package/HB1_results_lightweight.zip.sha256",
+      "name": "exists:package/HB1_results_lightweight.zip.sha256",
+      "passed": true
+    },
+    {
+      "detail": [
+        "01_system_success_by_help_length.png",
+        "02_genuine_handoff_rescue.png",
+        "03_success_vs_helper_cost.png",
+        "04_shortest_effective_length.png"
+      ],
+      "name": "four_figures",
+      "passed": true
+    },
+    {
+      "detail": 0,
+      "name": "at_most_eight_cases",
+      "passed": true
+    },
+    {
+      "detail": 0.0,
+      "name": "qualified_branch_coverage_complete",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "qualified_tasks": [],
+  "schema_version": "hb1_completion_audit_v1"
+}

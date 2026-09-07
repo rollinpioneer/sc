@@ -1,0 +1,85 @@
+{
+  "base": {
+    "action_bounds": [
+      [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "action_dim": 7,
+    "algorithm": "bc_rnn_gmm",
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/can/runs/handback_base_can/20260906084519_seed0/models/model_epoch_50.pth",
+    "checkpoint_sha256": "73df842484ac3ef858a242004a46617aad3c1f1b424718500c6ec6affdefd30f",
+    "frozen": true,
+    "observation_protocol": "raw_rgb_uint8_hwc_plus_proprio",
+    "observation_shapes": {
+      "agentview_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_eef_pos": [
+        3
+      ],
+      "robot0_eef_quat": [
+        4
+      ],
+      "robot0_eye_in_hand_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_gripper_qpos": [
+        2
+      ]
+    },
+    "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+    "schema_version": "hb1_base_policy_v1",
+    "selected_training_epoch": 50,
+    "selection_evaluations": [
+      {
+        "name": "epoch_050",
+        "success_rate": 0.0,
+        "training_epoch": 50
+      },
+      {
+        "name": "epoch_100",
+        "success_rate": 0.0,
+        "training_epoch": 100
+      },
+      {
+        "name": "epoch_200",
+        "success_rate": 0.0,
+        "training_epoch": 200
+      }
+    ],
+    "selection_success_rate": 0.0,
+    "state_history_protocol": "shadow_update_once_per_env_step",
+    "task": "can",
+    "uses_privileged_input": false
+  },
+  "frozen": true,
+  "qualification": {
+    "reason": "all frozen base-policy candidates lacked demonstrated task capability on base_val",
+    "status": "NEED_BASE_POLICY"
+  },
+  "repair": null,
+  "runtime_semantics_version": "hb1_runtime_v2_no_extra_observation",
+  "schema_version": "hb1_policy_pair_status_v1",
+  "status": "NEED_BASE_POLICY",
+  "task": "can"
+}

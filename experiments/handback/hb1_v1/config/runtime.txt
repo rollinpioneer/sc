@@ -1,0 +1,16 @@
+python /home/xushijie/.conda/envs/mimicgen/bin/python
+torch 2.8.0+cu126 /home/xushijie/.local/lib/python3.9/site-packages/torch/__init__.py
+robosuite 1.4.1 /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/__init__.py
+robomimic 0.2.0 /home/__compress_data/xushijie/work/cr_scizor/worktrees/handback-hb1-v1/robomimic/robomimic/__init__.py
+mujoco 2.3.2 /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/mujoco/__init__.py
+h5py 3.14.0 /home/xushijie/.local/lib/python3.9/site-packages/h5py/__init__.py
+numpy 1.26.4 /home/xushijie/.local/lib/python3.9/site-packages/numpy/__init__.py
+pandas 2.3.3 /home/xushijie/.local/lib/python3.9/site-packages/pandas/__init__.py
+
+unified_runtime_verified_2026-09-06
+python /home/xushijie/.conda/envs/handback-hb1/bin/python
+stable-baselines3 2.4.1
+gymnasium 1.0.0
+pyarrow 17.0.0
+simulation_smoke can control_freq=20 action_dim=7 state_dim=71 images=agentview_image:84x84x3:uint8,robot0_eye_in_hand_image:84x84x3:uint8
+bc_training_runtime /home/xushijie/.conda/envs/mimicgen/bin/python

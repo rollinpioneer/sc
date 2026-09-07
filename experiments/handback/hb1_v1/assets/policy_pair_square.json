@@ -1,0 +1,296 @@
+{
+  "base": {
+    "action_bounds": [
+      [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "action_dim": 7,
+    "algorithm": "bc_rnn_gmm",
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/runs/handback_base_square/20260906084525_seed0/models/model_epoch_200.pth",
+    "checkpoint_sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+    "frozen": true,
+    "observation_protocol": "raw_rgb_uint8_hwc_plus_proprio",
+    "observation_shapes": {
+      "agentview_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_eef_pos": [
+        3
+      ],
+      "robot0_eef_quat": [
+        4
+      ],
+      "robot0_eye_in_hand_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_gripper_qpos": [
+        2
+      ]
+    },
+    "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+    "schema_version": "hb1_base_policy_v1",
+    "selected_training_epoch": 200,
+    "selection_evaluations": [
+      {
+        "name": "epoch_200",
+        "success_rate": 0.15,
+        "training_epoch": 200
+      },
+      {
+        "name": "epoch_050",
+        "success_rate": 0.0,
+        "training_epoch": 50
+      },
+      {
+        "name": "epoch_100",
+        "success_rate": 0.0,
+        "training_epoch": 100
+      }
+    ],
+    "selection_success_rate": 0.15,
+    "state_history_protocol": "shadow_update_once_per_env_step",
+    "task": "square",
+    "uses_privileged_input": false
+  },
+  "frozen": true,
+  "qualification": {
+    "anchors": 72,
+    "candidates": [
+      {
+        "anchors": 72,
+        "base_failed_repair_succeeded_roots": 2,
+        "base_succeeded_repair_failed_roots": 0,
+        "baseline_engineering_complete": 72,
+        "baseline_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 0,
+          "wall_seconds": 5278.838575124741
+        },
+        "baseline_success_rate": 0.0,
+        "baseline_successes": 0,
+        "candidate_index": 1,
+        "engineering_complete": 72,
+        "harmed_root_ids": [],
+        "paired_success_rate_difference": 0.041666666666666664,
+        "repair": {
+          "action_mode": "residual",
+          "algorithm": "sac_bounded_residual_adapter",
+          "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/sac_250000.zip",
+          "checkpoint_sha256": "340a376970559855779533bfb656814706d76960dbfb6d3e1ef310093021de29",
+          "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/vecnormalize_250000.pkl",
+          "normalizer_sha256": "4c0f731010e4f0f7c4d1079e75df41358f229e95364da3f6f9f77cb7523ee17f",
+          "observation_shape": [
+            1639
+          ],
+          "training_steps": 250000,
+          "uses_privileged_input": true
+        },
+        "repair_evaluation_cost": {
+          "base_policy_calls": 28339,
+          "branches": 72,
+          "continuation_env_steps": 22099,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 22099,
+          "wall_seconds": 5356.531812667847
+        },
+        "repair_success_rate": 0.041666666666666664,
+        "repair_successes": 3,
+        "rescued_root_ids": [
+          "square:repair_val:130006",
+          "square:repair_val:130021"
+        ]
+      },
+      {
+        "anchors": 72,
+        "base_failed_repair_succeeded_roots": 0,
+        "base_succeeded_repair_failed_roots": 0,
+        "baseline_engineering_complete": 72,
+        "baseline_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 0,
+          "wall_seconds": 5278.838575124741
+        },
+        "baseline_success_rate": 0.0,
+        "baseline_successes": 0,
+        "candidate_index": 0,
+        "engineering_complete": 72,
+        "harmed_root_ids": [],
+        "paired_success_rate_difference": 0.0,
+        "repair": {
+          "action_mode": "residual",
+          "algorithm": "sac_bounded_residual_adapter",
+          "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/sac_125000.zip",
+          "checkpoint_sha256": "b64135858911ef11fc54853ef5592e857f4f7c94bce9dcf26aec1a30be2b0003",
+          "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/vecnormalize_125000.pkl",
+          "normalizer_sha256": "527ecc099bf5391b7720f1c3c93ed16a9cf541711bfd70e9f344c8c25cdf6472",
+          "observation_shape": [
+            1639
+          ],
+          "training_steps": 125000,
+          "uses_privileged_input": true
+        },
+        "repair_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 22560,
+          "wall_seconds": 5077.340236186981
+        },
+        "repair_success_rate": 0.0,
+        "repair_successes": 0,
+        "rescued_root_ids": []
+      },
+      {
+        "anchors": 72,
+        "base_failed_repair_succeeded_roots": 0,
+        "base_succeeded_repair_failed_roots": 0,
+        "baseline_engineering_complete": 72,
+        "baseline_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 0,
+          "wall_seconds": 5278.838575124741
+        },
+        "baseline_success_rate": 0.0,
+        "baseline_successes": 0,
+        "candidate_index": 2,
+        "engineering_complete": 72,
+        "harmed_root_ids": [],
+        "paired_success_rate_difference": 0.0,
+        "repair": {
+          "action_mode": "residual",
+          "algorithm": "sac_bounded_residual_adapter",
+          "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/sac_500000.zip",
+          "checkpoint_sha256": "b12fd3c728652b3e60223da04b180d2506feaa3932b958f122477c502e31b71c",
+          "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/vecnormalize_500000.pkl",
+          "normalizer_sha256": "8a88f50c62c5146dcc782b6ddf745af3c746f5a8fbb004a68f957fec14f43730",
+          "observation_shape": [
+            1639
+          ],
+          "training_steps": 500000,
+          "uses_privileged_input": true
+        },
+        "repair_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 22560,
+          "wall_seconds": 4997.851739645004
+        },
+        "repair_success_rate": 0.0,
+        "repair_successes": 0,
+        "rescued_root_ids": []
+      }
+    ],
+    "independent_roots": 24,
+    "schema_version": "hb1_repair_qualification_v1",
+    "selected_repair": {
+      "action_mode": "residual",
+      "algorithm": "sac_bounded_residual_adapter",
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/sac_250000.zip",
+      "checkpoint_sha256": "340a376970559855779533bfb656814706d76960dbfb6d3e1ef310093021de29",
+      "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/vecnormalize_250000.pkl",
+      "normalizer_sha256": "4c0f731010e4f0f7c4d1079e75df41358f229e95364da3f6f9f77cb7523ee17f",
+      "observation_shape": [
+        1639
+      ],
+      "training_steps": 250000,
+      "uses_privileged_input": true
+    },
+    "selection": {
+      "anchors": 72,
+      "base_failed_repair_succeeded_roots": 2,
+      "base_succeeded_repair_failed_roots": 0,
+      "baseline_engineering_complete": 72,
+      "baseline_evaluation_cost": {
+        "base_policy_calls": 28800,
+        "branches": 72,
+        "continuation_env_steps": 22560,
+        "prefix_env_steps": 6240,
+        "repair_policy_calls": 0,
+        "wall_seconds": 5278.838575124741
+      },
+      "baseline_success_rate": 0.0,
+      "baseline_successes": 0,
+      "candidate_index": 1,
+      "engineering_complete": 72,
+      "harmed_root_ids": [],
+      "paired_success_rate_difference": 0.041666666666666664,
+      "repair": {
+        "action_mode": "residual",
+        "algorithm": "sac_bounded_residual_adapter",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/sac_250000.zip",
+        "checkpoint_sha256": "340a376970559855779533bfb656814706d76960dbfb6d3e1ef310093021de29",
+        "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/vecnormalize_250000.pkl",
+        "normalizer_sha256": "4c0f731010e4f0f7c4d1079e75df41358f229e95364da3f6f9f77cb7523ee17f",
+        "observation_shape": [
+          1639
+        ],
+        "training_steps": 250000,
+        "uses_privileged_input": true
+      },
+      "repair_evaluation_cost": {
+        "base_policy_calls": 28339,
+        "branches": 72,
+        "continuation_env_steps": 22099,
+        "prefix_env_steps": 6240,
+        "repair_policy_calls": 22099,
+        "wall_seconds": 5356.531812667847
+      },
+      "repair_success_rate": 0.041666666666666664,
+      "repair_successes": 3,
+      "rescued_root_ids": [
+        "square:repair_val:130006",
+        "square:repair_val:130021"
+      ]
+    },
+    "status": "NEED_STRONGER_REPAIRER",
+    "task": "square"
+  },
+  "repair": {
+    "action_mode": "residual",
+    "algorithm": "sac_bounded_residual_adapter",
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/sac_250000.zip",
+    "checkpoint_sha256": "340a376970559855779533bfb656814706d76960dbfb6d3e1ef310093021de29",
+    "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/repair/square/train/vecnormalize_250000.pkl",
+    "normalizer_sha256": "4c0f731010e4f0f7c4d1079e75df41358f229e95364da3f6f9f77cb7523ee17f",
+    "observation_shape": [
+      1639
+    ],
+    "training_steps": 250000,
+    "uses_privileged_input": true
+  },
+  "runtime_semantics_version": "hb1_runtime_v2_no_extra_observation",
+  "schema_version": "hb1_policy_pair_v1",
+  "task": "square"
+}
