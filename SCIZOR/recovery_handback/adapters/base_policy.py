@@ -24,6 +24,10 @@ def _policy_random_tape(seed: int):
     random.seed(seed)
     np.random.seed(seed % (2**32 - 1))
     torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        # Explicitly reset every CUDA generator.  This keeps per-step GMM
+        # sampling independent of the process' ambient CUDA RNG state.
+        torch.cuda.manual_seed_all(seed)
     try:
         yield
     finally:

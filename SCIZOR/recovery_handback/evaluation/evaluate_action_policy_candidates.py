@@ -18,6 +18,7 @@ def main() -> None:
     parser.add_argument("--candidate-metadata", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--capability-key")
     args = parser.parse_args()
 
     config = json.loads(args.config.read_text(encoding="utf-8"))
@@ -64,11 +65,13 @@ def main() -> None:
         int(row["candidate"].get("training_steps", 0)),
     ))
     selected = rows[0]
-    minimum = int(
-        config["capability_repair"][
-            "can_diagnostic" if args.task == "can" else "square_teacher"
-        ].get("minimum_successes_on_base_val", 0)
+    capability_key = args.capability_key or (
+        "can_diagnostic" if args.task == "can" else "square_teacher"
     )
+    settings = config["capability_repair"].get(capability_key)
+    if not isinstance(settings, dict):
+        raise KeyError(f"unknown capability repair settings: {capability_key}")
+    minimum = int(settings.get("minimum_successes_on_base_val", 0))
     status = (
         "QUALIFIED"
         if selected["eligible"] and selected["successes"] >= minimum
@@ -78,6 +81,7 @@ def main() -> None:
         "schema_version": "hb1_action_policy_candidate_evaluation_v1",
         "task": args.task,
         "role": args.role,
+        "capability_key": capability_key,
         "status": status,
         "minimum_successes": minimum,
         "selected_candidate": selected["candidate"],

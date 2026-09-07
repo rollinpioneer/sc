@@ -12,7 +12,13 @@ from recovery_handback.common import atomic_json_dump, sha256_file
 EPOCH_PATTERN = re.compile(r"epoch[_-]?(\d+)", re.IGNORECASE)
 
 
-def discover(runs: Path, epochs: list[int]) -> list[dict]:
+def discover(
+    runs: Path,
+    epochs: list[int],
+    *,
+    algorithm: str = "robomimic_bc_gmm_direct",
+    uses_privileged_input: bool = True,
+) -> list[dict]:
     targets = set(epochs)
     matches: dict[int, list[Path]] = {}
     for checkpoint in runs.rglob("*.pth"):
@@ -28,9 +34,9 @@ def discover(runs: Path, epochs: list[int]) -> list[dict]:
         candidates.append({
             "checkpoint": str(checkpoint.resolve()),
             "checkpoint_sha256": sha256_file(checkpoint),
-            "algorithm": "robomimic_bc_gmm_direct",
+            "algorithm": algorithm,
             "action_mode": "direct",
-            "uses_privileged_input": True,
+            "uses_privileged_input": uses_privileged_input,
             "training_steps": epoch,
             "training_unit": "epoch",
             "normalizer": None,
@@ -43,11 +49,18 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--runs", type=Path, required=True)
     parser.add_argument("--epochs", type=int, nargs="+", required=True)
+    parser.add_argument("--algorithm", default="robomimic_bc_gmm_direct")
+    parser.add_argument("--non-privileged", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     payload = {
         "schema_version": "hb1_direct_repair_candidates_v1",
-        "candidates": discover(args.runs, args.epochs),
+        "candidates": discover(
+            args.runs,
+            args.epochs,
+            algorithm=args.algorithm,
+            uses_privileged_input=not args.non_privileged,
+        ),
     }
     atomic_json_dump(payload, args.output)
     print(json.dumps(payload, indent=2))
