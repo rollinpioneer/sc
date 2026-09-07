@@ -97,28 +97,23 @@ def real_checks(config: dict, pair: dict, anchors: list[dict], output: Path, dev
     config_hash = sha256_json(config)
     pair_hash = sha256_json(pair)
     for index, anchor in enumerate(anchors):
+        observation_tape = {}
         prefix = work / f"anchor_{index:02d}"
-        branch_kwargs = {"device": device, "base_device": base_device, "repair_device": repair_device}
+        branch_kwargs = {
+            "device": device, "base_device": base_device,
+            "repair_device": repair_device, "observation_tape": observation_tape,
+        }
         baseline_a_path = prefix / "none_a.json"
         baseline_b_path = prefix / "none_b.json"
         real_path = prefix / "real_l5.json"
-        baseline_a = (
-            _reusable_branch(baseline_a_path, config_hash, pair_hash) if resume else None
-        ) or run_branch(config, anchor, pair, 0, baseline_a_path, **branch_kwargs)
-        baseline_b = (
-            _reusable_branch(baseline_b_path, config_hash, pair_hash) if resume else None
-        ) or run_branch(config, anchor, pair, 0, baseline_b_path, **branch_kwargs)
-        # EGL observations can differ slightly across processes, so a resumed
-        # zero-residual check needs a fresh baseline from this same process.
-        zero_reference = (
-            run_branch(config, anchor, pair, 0, prefix / "zero_reference.json", **branch_kwargs)
-            if resume else baseline_a
-        )
+        # These branches share an observation tape for exactly repeated physical
+        # states, so always rebuild the reference set in one process.
+        baseline_a = run_branch(config, anchor, pair, 0, baseline_a_path, **branch_kwargs)
+        baseline_b = run_branch(config, anchor, pair, 0, baseline_b_path, **branch_kwargs)
+        zero_reference = baseline_a
         # Always rerun the zero-residual branch because it is the behavior under test.
         zero = run_branch(config, anchor, pair, 20, prefix / "zero_l20.json", repair_override=ZeroRepair(), **branch_kwargs)
-        real = (
-            _reusable_branch(real_path, config_hash, pair_hash) if resume else None
-        ) or run_branch(config, anchor, pair, 5, real_path, **branch_kwargs)
+        real = run_branch(config, anchor, pair, 5, real_path, **branch_kwargs)
         repeat_diff = _trajectory_diff(Path(baseline_a["trajectory_path"]), Path(baseline_b["trajectory_path"]))
         zero_diff = _trajectory_diff(Path(zero_reference["trajectory_path"]), Path(zero["trajectory_path"]))
         limits = config["engineering"]

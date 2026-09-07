@@ -55,15 +55,26 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     results = []
     for anchor in anchors:
+        observation_tape = {}
         anchor_dir = args.output_dir / "records" / _slug(anchor["anchor_id"])
+        branch_paths = {
+            name: anchor_dir / f"{name}.json" for name, _ in BRANCH_SPECS
+        }
+        needs_run = not args.resume or any(
+            not _complete(path, config_hash, pair_hash)
+            for path in branch_paths.values()
+        )
         for branch_name, length in BRANCH_SPECS:
-            output = anchor_dir / f"{branch_name}.json"
-            if args.resume and _complete(output, config_hash, pair_hash):
+            output = branch_paths[branch_name]
+            if args.resume and _complete(output, config_hash, pair_hash) and not (
+                branch_name == "none" and needs_run
+            ):
                 result = json.loads(output.read_text(encoding="utf-8"))
             else:
                 result = run_branch(
                     config, anchor, pair, length, output, device=args.device,
                     base_device=args.base_device, repair_device=args.repair_device,
+                    observation_tape=observation_tape,
                 )
             results.append(result)
             print(json.dumps({

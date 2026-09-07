@@ -29,6 +29,38 @@ def _load_payload(path: Path) -> dict:
     }
 
 
+def _load_observation_tape(rollout, states_pre: np.ndarray) -> dict:
+    """Load root-time camera inputs keyed by the exact pre-action state."""
+    image_keys = sorted(
+        key.removeprefix("policy_obs__")
+        for key in rollout.files
+        if key.startswith("policy_obs__")
+    )
+    if not image_keys:
+        raise RuntimeError("root rollout has no persistent policy observation tape")
+    images = {
+        key: np.asarray(rollout[f"policy_obs__{key}"])
+        for key in image_keys
+    }
+    expected = len(states_pre)
+    mismatched = {
+        key: int(value.shape[0])
+        for key, value in images.items()
+        if value.ndim < 1 or value.shape[0] != expected
+    }
+    if mismatched:
+        raise RuntimeError(
+            f"policy observation tape length mismatch: expected={expected}, actual={mismatched}"
+        )
+    tape = {}
+    for index, state in enumerate(states_pre):
+        state_key = np.asarray(state, dtype=np.float64).tobytes(order="C")
+        tape.setdefault(state_key, {
+            key: value[index].copy() for key, value in images.items()
+        })
+    return tape
+
+
 def _base_record(policy_pair: dict) -> dict:
     base = policy_pair.get("base", policy_pair)
     if "checkpoint" not in base:
@@ -116,7 +148,8 @@ def build_repair_adapter(policy_pair: dict, device: str = "cuda"):
 
 def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int | str,
                output_path: str | Path, *, repair_override=None, device: str = "cuda",
-               base_device: str | None = None, repair_device: str | None = None) -> dict:
+               base_device: str | None = None, repair_device: str | None = None,
+               observation_tape: dict | None = None) -> dict:
     """Run one 0/5/20/80/full branch and atomically save its result."""
     started = time.time()
     output_path = Path(output_path)
@@ -131,7 +164,19 @@ def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int
     assets = json.loads(Path(config["assets_file"]).read_text(encoding="utf-8"))
     source = Path(assets["tasks"][anchor["task"]]["source_hdf5"])
     base_record = _base_record(policy_pair)
-    env = EnvAdapter(source, **load_observation_spec(source))
+    rollout_path = Path(anchor["rollout_path"])
+    with np.load(rollout_path, allow_pickle=False) as rollout:
+        saved_actions = np.asarray(rollout["actions"], dtype=np.float32)
+        saved_suggestions = np.asarray(rollout["suggestions"], dtype=np.float32)
+        saved_states_pre = np.asarray(rollout["states_pre"], dtype=np.float64)
+        persisted_tape = _load_observation_tape(rollout, saved_states_pre)
+    if observation_tape is None:
+        observation_tape = {}
+    for state_key, images in persisted_tape.items():
+        observation_tape.setdefault(state_key, images)
+    env = EnvAdapter(
+        source, **load_observation_spec(source), observation_tape=observation_tape
+    )
     base = BasePolicyAdapter(base_record["checkpoint"], device=base_device)
     repair = repair_override
     if repair is None and repair_length not in (0, "0"):
@@ -149,6 +194,10 @@ def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int
         "repair_length": repair_length, "horizon_steps": horizon,
         "control_freq": int(config.get("expected_control_freq", env.control_freq)),
         "base_device": base_device, "repair_device": repair_device,
+        "observation_tape_enabled": True,
+        "observation_tape_source": "rollout_policy_obs_by_exact_state_v1",
+        "observation_tape_persisted_states": len(persisted_tape),
+        "observation_tape_hits": 0, "observation_tape_misses": 0,
         "policy_pair_hash": sha256_json(policy_pair), "config_hash": sha256_json(config),
         "engineering_ok": False, "exception_reason": None,
         "prefix_env_steps": 0, "continuation_env_steps": 0,
@@ -177,11 +226,6 @@ def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int
     recent = deque(maxlen=int(config["outputs"]["store_anchor_and_handoff_history"]))
     stable = deque(maxlen=int(config["success_consecutive_steps"]))
     try:
-        rollout_path = Path(anchor["rollout_path"])
-        with np.load(rollout_path, allow_pickle=False) as rollout:
-            saved_actions = np.asarray(rollout["actions"], dtype=np.float32)
-            saved_suggestions = np.asarray(rollout["suggestions"], dtype=np.float32)
-            saved_states_pre = np.asarray(rollout["states_pre"], dtype=np.float64)
         payload = _load_payload(Path(anchor["canonical_payload_path"]))
         obs = env.reset_canonical(payload, payload["seed"])
         base.start_episode()
@@ -289,6 +333,8 @@ def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int
         result["exception_reason"] = f"{type(exc).__name__}: {exc}"
         result["base_policy_calls"] = base._calls
     finally:
+        result["observation_tape_hits"] = env.observation_tape_hits
+        result["observation_tape_misses"] = env.observation_tape_misses
         env.close()
     result["wall_seconds"] = time.time() - started
     apply_success_labels(result, int(config["minimum_autonomous_steps"]))

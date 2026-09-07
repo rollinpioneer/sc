@@ -45,7 +45,8 @@ def _jsonable(value: Any) -> Any:
 class EnvAdapter:
     """Small, explicit wrapper around the locked Robomimic Robosuite runtime."""
 
-    def __init__(self, source_hdf5: str | Path, *, camera_keys=None, low_dim_keys=None):
+    def __init__(self, source_hdf5: str | Path, *, camera_keys=None, low_dim_keys=None,
+                 observation_tape: dict | None = None):
         self.source_hdf5 = Path(source_hdf5).expanduser().resolve()
         self.env_meta = get_env_metadata_from_dataset(str(self.source_hdf5))
         kwargs = deepcopy(self.env_meta["env_kwargs"])
@@ -56,6 +57,9 @@ class EnvAdapter:
         self.low_dim_keys = list(low_dim_keys or [
             "robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos",
         ])
+        self.observation_tape = observation_tape
+        self.observation_tape_hits = 0
+        self.observation_tape_misses = 0
 
         # Robomimic stores observation modalities in process-global state. Loading
         # another checkpoint can replace that mapping, so activate this complete
@@ -76,7 +80,7 @@ class EnvAdapter:
         self._activate_observation_spec()
         with _seeded(seed):
             raw_obs = self.env.reset()
-        raw_obs = self._canonicalize_observation(raw_obs)
+        raw_obs = self._apply_observation_tape(self._canonicalize_observation(raw_obs))
         payload = self._canonical_payload(seed)
         self._episode_payload = payload
         self._last_obs = raw_obs
@@ -86,7 +90,7 @@ class EnvAdapter:
         self._activate_observation_spec()
         with _seeded(seed):
             raw_obs = self.env.reset()
-        raw_obs = self._canonicalize_observation(raw_obs)
+        raw_obs = self._apply_observation_tape(self._canonicalize_observation(raw_obs))
         live = self.env.get_state()
         expected_state = np.asarray(payload["states"], dtype=np.float64)
         live_state = np.asarray(live["states"], dtype=np.float64)
@@ -109,7 +113,7 @@ class EnvAdapter:
     def step(self, action):
         self._activate_observation_spec()
         obs_next, reward, _done, info = self.env.step(np.asarray(action, dtype=np.float32))
-        obs_next = self._canonicalize_observation(obs_next)
+        obs_next = self._apply_observation_tape(self._canonicalize_observation(obs_next))
         success = bool(self.env.is_success().get("task", False))
         self._last_obs = obs_next
         return obs_next, float(reward), success, dict(info or {})
@@ -145,6 +149,26 @@ class EnvAdapter:
         if self._last_obs is None:
             self._last_obs = self._canonicalize_observation(self.env.get_observation())
         return self._last_obs
+
+    def _apply_observation_tape(self, raw_obs: dict) -> dict:
+        """Reuse the first rendering for an exactly repeated physical state."""
+        if self.observation_tape is None:
+            return raw_obs
+        state_key = self.physical_state().tobytes(order="C")
+        saved = self.observation_tape.get(state_key)
+        if saved is None:
+            self.observation_tape[state_key] = {
+                key: np.asarray(value).copy()
+                for key, value in raw_obs.items()
+                if key.endswith("_image")
+            }
+            self.observation_tape_misses += 1
+            return raw_obs
+        output = dict(raw_obs)
+        for key, value in saved.items():
+            output[key] = value.copy()
+        self.observation_tape_hits += 1
+        return output
 
     @staticmethod
     def _canonicalize_observation(raw_obs):

@@ -50,20 +50,62 @@ def _select_base(evaluations: Path):
     }
 
 
+def _select_action_policy(summary_path: Path, task: str):
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    if summary.get("status") != "QUALIFIED":
+        raise RuntimeError(
+            f"cannot freeze unqualified action policy: {summary.get('status')}"
+        )
+    selected = summary.get("selected_candidate") or {}
+    selection = summary.get("selection") or {}
+    checkpoint = Path(selected["checkpoint"]).expanduser().resolve()
+    return {
+        "schema_version": "hb1_base_policy_v1",
+        "task": task,
+        "checkpoint": str(checkpoint),
+        "checkpoint_sha256": selected.get("checkpoint_sha256") or sha256_file(checkpoint),
+        "algorithm": "bc_rnn_gmm_visual_distilled",
+        "observation_protocol": "raw_rgb_uint8_hwc_plus_proprio",
+        "action_dim": int(selection.get("action_dim", 7)),
+        "uses_privileged_input": False,
+        "selection_success_rate": float(selection.get("success_rate", 0.0)),
+        "selected_training_epoch": selected.get("training_steps"),
+        "training_sources": [
+            "source_success_demonstrations",
+            "runtime_privileged_teacher_successes",
+        ],
+        "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+        "state_history_protocol": "shadow_update_once_per_env_step",
+        "frozen": True,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--task", choices=("can", "square"), required=True)
     parser.add_argument("--base-only", action="store_true")
     parser.add_argument("--base-evaluations", type=Path)
+    parser.add_argument("--action-policy-evaluation", type=Path)
     parser.add_argument("--base-policy-json", type=Path)
     parser.add_argument("--qualification", type=Path)
     parser.add_argument("--base-status", choices=("NEED_BASE_POLICY",))
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.base_only:
+        if args.action_policy_evaluation is not None:
+            payload = _select_action_policy(args.action_policy_evaluation, args.task)
+            atomic_json_dump(payload, args.output)
+            print(json.dumps({
+                "task": args.task,
+                "checkpoint": payload["checkpoint"],
+                "success_rate": payload["selection_success_rate"],
+            }, indent=2))
+            return
         if args.base_evaluations is None:
-            raise SystemExit("--base-evaluations is required with --base-only")
+            raise SystemExit(
+                "--base-evaluations or --action-policy-evaluation is required with --base-only"
+            )
         payload = _select_base(args.base_evaluations)
         payload["schema_version"] = "hb1_base_policy_v1"
         atomic_json_dump(payload, args.output)

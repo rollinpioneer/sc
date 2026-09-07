@@ -11,6 +11,7 @@ import torch
 
 from robomimic.utils import obs_utils as ObsUtils
 from robomimic.utils import file_utils as FileUtils
+from robomimic.utils import tensor_utils as TensorUtils
 
 from recovery_handback.common import sha256_file, stable_seed
 
@@ -58,6 +59,25 @@ def _contiguous_observation(value: Any):
     return value
 
 
+def _sample_gmm(dist, seed: int) -> np.ndarray:
+    """Sample a Robomimic GMM from an explicit, device-independent tape."""
+    mixture = getattr(dist, "mixture_distribution", None)
+    component = getattr(dist, "component_distribution", None)
+    base = getattr(component, "base_dist", None)
+    if mixture is None or base is None or not hasattr(base, "loc"):
+        raise TypeError(f"unsupported GMM distribution: {type(dist).__name__}")
+    probs = mixture.probs.detach().cpu().numpy()
+    means = base.loc.detach().cpu().numpy()
+    scales = base.scale.detach().cpu().numpy()
+    if probs.shape[0] != 1 or means.shape[0] != 1 or scales.shape[0] != 1:
+        raise ValueError("HB1 action sampling expects a single observation batch")
+    probs = np.asarray(probs[0], dtype=np.float64)
+    probs /= probs.sum()
+    rng = np.random.default_rng(seed)
+    mode = int(rng.choice(len(probs), p=probs))
+    return rng.normal(means[0, mode], scales[0, mode]).astype(np.float32)
+
+
 class BasePolicyAdapter:
     """One action suggestion per environment time, with isolated policy history."""
 
@@ -84,11 +104,39 @@ class BasePolicyAdapter:
         seed = stable_seed(root_key, int(absolute_t), "base")
         observation = self._prepare_observation(raw_obs)
         with _policy_random_tape(seed), torch.no_grad():
-            action = self.policy(observation)
+            action = self._suggest_with_frozen_gmm_tape(observation, seed)
+            if action is None:
+                action = self.policy(observation)
         action = np.asarray(action, dtype=np.float32).reshape(-1).copy()
         self._calls += 1
         self._total_calls += 1
         return action
+
+    def _suggest_with_frozen_gmm_tape(self, observation: dict, seed: int):
+        """Preserve Robomimic policy state while making GMM sampling explicit."""
+        algo = getattr(self.policy, "policy", None)
+        algo_name = type(algo).__name__
+        if algo_name not in {"BC_GMM", "BC_RNN_GMM"}:
+            return None
+        prepared = self.policy._prepare_observation(observation, batched=False)
+        network = algo.nets["policy"]
+        if algo_name == "BC_GMM":
+            dist = network.forward_train(obs_dict=prepared, goal_dict=None)
+            return _sample_gmm(dist, seed)
+
+        if algo._rnn_hidden_state is None or algo._rnn_counter % algo._rnn_horizon == 0:
+            batch_size = list(prepared.values())[0].shape[0]
+            algo._rnn_hidden_state = network.get_rnn_init_state(
+                batch_size=batch_size, device=algo.device
+            )
+            if algo._rnn_is_open_loop:
+                algo._open_loop_obs = TensorUtils.clone(TensorUtils.detach(prepared))
+        obs_to_use = algo._open_loop_obs if algo._rnn_is_open_loop else prepared
+        algo._rnn_counter += 1
+        dist, algo._rnn_hidden_state = network.forward_train_step(
+            obs_to_use, goal_dict=None, rnn_state=algo._rnn_hidden_state
+        )
+        return _sample_gmm(dist, seed)
 
     def _prepare_observation(self, raw_obs: dict) -> dict:
         """Convert the runtime HWC/uint8 observation to the policy input layout."""
@@ -124,4 +172,5 @@ class BasePolicyAdapter:
             "calls": self._calls,
             "total_calls": self._total_calls,
             "device": str(self.device),
+            "gmm_random_tape": "numpy_categorical_gaussian_v1",
         }

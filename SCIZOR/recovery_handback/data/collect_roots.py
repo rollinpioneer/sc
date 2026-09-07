@@ -43,6 +43,7 @@ def collect(config, assets, task, role, base_policy_json, output_dir, *, start_i
             obs, payload = env.new_episode(seed)
             policy.start_episode()
             states_pre, states_post, actions, rewards, successes, suggestions = [], [], [], [], [], []
+            policy_observations = {}
             anchor_history = {}
             anchor_memory = {}
             history = []
@@ -52,6 +53,11 @@ def collect(config, assets, task, role, base_policy_json, output_dir, *, start_i
             try:
                 for t in range(int(config["horizon_steps"])):
                     states_pre.append(env.physical_state())
+                    for key, value in obs.items():
+                        if key.endswith("_image"):
+                            policy_observations.setdefault(key, []).append(
+                                np.asarray(value).copy()
+                            )
                     if t in set(int(x) for x in config["anchor_times"]):
                         current = {
                             "obs": {key: np.asarray(value).copy() for key, value in obs.items()
@@ -106,6 +112,10 @@ def collect(config, assets, task, role, base_policy_json, output_dir, *, start_i
                 states=state_sequence,
                 rewards=np.asarray(rewards, np.float32),
                 success=np.asarray(successes, np.bool_),
+                **{
+                    f"policy_obs__{key}": np.asarray(values)
+                    for key, values in policy_observations.items()
+                },
             )
             history_path = output_dir / f"anchor_history_{stem}.npz"
             history_arrays = {}
@@ -142,6 +152,7 @@ def collect(config, assets, task, role, base_policy_json, output_dir, *, start_i
                 "payload_path": str(payload_path.resolve()),
                 "canonical_payload_path": str(payload_path.resolve()),
                 "rollout_path": str(rollout_path.resolve()),
+                "policy_observation_tape": "rollout_policy_obs_by_exact_state_v1",
                 "anchor_history_path": str(history_path.resolve()),
                 "policy_memory_path": str(memory_path.resolve()),
                 "policy_checkpoint_sha256": sha256_file(checkpoint),
