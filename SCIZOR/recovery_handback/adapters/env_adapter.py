@@ -129,6 +129,12 @@ class EnvAdapter:
             if key.startswith("object")
         }
 
+    def staged_rewards(self):
+        fn = getattr(self.env.env, "staged_rewards", None)
+        if not callable(fn):
+            return np.zeros(0, dtype=np.float32)
+        return np.asarray(fn(), dtype=np.float32).reshape(-1)
+
     def action_bounds(self):
         low, high = self.env.env.action_spec
         return np.asarray(low, dtype=np.float64).copy(), np.asarray(high, dtype=np.float64).copy()
@@ -162,5 +168,14 @@ def load_observation_spec(source_hdf5: str | Path) -> dict:
         demo_id = sorted(handle["data"].keys())[0]
         keys = sorted(handle[f"data/{demo_id}/obs"].keys())
     rgb = [key for key in keys if key.endswith("_image")]
-    low_dim = [key for key in ("robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos") if key in keys]
+    preferred = (
+        "robot0_eef_pos",
+        "robot0_eef_quat",
+        "robot0_gripper_qpos",
+    )
+    low_dim = [key for key in preferred if key in keys]
+    low_dim.extend(
+        key for key in keys
+        if "object" in key.lower() and key not in low_dim
+    )
     return {"camera_keys": rgb, "low_dim_keys": low_dim}

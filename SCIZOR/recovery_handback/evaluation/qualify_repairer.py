@@ -155,6 +155,28 @@ def _metadata(checkpoint: Path, normalizer: Path) -> dict:
 
 
 def _candidates(args, config: dict) -> list[dict]:
+    if args.repair_metadata:
+        payload = json.loads(args.repair_metadata.read_text(encoding="utf-8"))
+        items = payload.get("candidates")
+        if not isinstance(items, list) or not items:
+            raise RuntimeError(f"repair metadata has no candidates: {args.repair_metadata}")
+        candidates = []
+        for item in items:
+            candidate = dict(item)
+            checkpoint = Path(candidate["checkpoint"]).expanduser().resolve()
+            if not checkpoint.is_file():
+                raise FileNotFoundError(checkpoint)
+            candidate["checkpoint"] = str(checkpoint)
+            candidate["checkpoint_sha256"] = sha256_file(checkpoint)
+            normalizer = candidate.get("normalizer")
+            if normalizer:
+                normalizer_path = Path(normalizer).expanduser().resolve()
+                if not normalizer_path.is_file():
+                    raise FileNotFoundError(normalizer_path)
+                candidate["normalizer"] = str(normalizer_path)
+                candidate["normalizer_sha256"] = sha256_file(normalizer_path)
+            candidates.append(candidate)
+        return candidates
     if args.repair_checkpoint:
         if not args.repair_normalizer:
             raise SystemExit("--repair-normalizer is required with --repair-checkpoint")
@@ -185,6 +207,7 @@ def main() -> None:
     parser.add_argument("--repair-runs", type=Path)
     parser.add_argument("--repair-checkpoint", type=Path)
     parser.add_argument("--repair-normalizer", type=Path)
+    parser.add_argument("--repair-metadata", type=Path)
     parser.add_argument("--validation-roots", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--device", default="cuda")
@@ -267,7 +290,9 @@ def main() -> None:
             row["engineering_complete"] == len(anchors)
             and row["baseline_engineering_complete"] == len(anchors)
         ),
+        -row["base_failed_repair_succeeded_roots"],
         -row["repair_success_rate"],
+        row["base_succeeded_repair_failed_roots"],
         row["repair"]["training_steps"],
     ))
     selected = summaries[0]
@@ -277,7 +302,14 @@ def main() -> None:
     ):
         status = "HOLD_ENGINEERING_FIX"
     else:
-        status = "QUALIFIED" if selected["base_failed_repair_succeeded_roots"] >= 3 else "NEED_STRONGER_REPAIRER"
+        required = int(
+            config["capability_repair"]["square_teacher"]["minimum_rescued_roots"]
+        )
+        status = (
+            "QUALIFIED"
+            if selected["base_failed_repair_succeeded_roots"] >= required
+            else "NEED_STRONGER_REPAIRER"
+        )
     payload = {
         "schema_version": "hb1_repair_qualification_v1", "task": args.task,
         "status": status, "anchors": len(anchors), "independent_roots": len({row["root_id"] for row in anchors}),

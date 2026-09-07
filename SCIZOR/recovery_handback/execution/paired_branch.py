@@ -11,7 +11,7 @@ import numpy as np
 
 from recovery_handback.adapters.base_policy import BasePolicyAdapter
 from recovery_handback.adapters.env_adapter import EnvAdapter, load_observation_spec
-from recovery_handback.adapters.repair_policy import RepairPolicyAdapter
+from recovery_handback.adapters.repair_policy import build_repair_policy
 from recovery_handback.common import atomic_json_dump, flatten_numeric, sha256_json
 from recovery_handback.execution.label_reference import apply_success_labels, helper_active
 
@@ -109,12 +109,9 @@ class ZeroRepair:
         return None
 
 
-def build_repair_adapter(policy_pair: dict, device: str = "cuda") -> RepairPolicyAdapter:
+def build_repair_adapter(policy_pair: dict, device: str = "cuda"):
     repair = _repair_record(policy_pair)
-    return RepairPolicyAdapter(
-        repair["checkpoint"], repair["normalizer"], repair["observation_shape"],
-        device=device, action_mode=repair.get("action_mode", "residual"),
-    )
+    return build_repair_policy(repair, device=device)
 
 
 def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int | str,
@@ -223,8 +220,11 @@ def run_branch(config: dict, anchor: dict, policy_pair: dict, repair_length: int
             if active:
                 if repair is None:
                     raise RuntimeError("helper branch requested without a repair policy")
+                privileged_state = env.privileged_features()
+                if getattr(repair, "requires_stage_rewards", False):
+                    privileged_state["__stage_rewards__"] = env.staged_rewards()
                 proposal = repair.residual(
-                    obs, env.privileged_features(), base_action, base_memory,
+                    obs, privileged_state, base_action, base_memory,
                     horizon - t, root_key, t,
                 )
                 result["repair_policy_calls"] += 1

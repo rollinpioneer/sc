@@ -1,5 +1,27 @@
 .DS_Store
 safe_commit.sh
 
+# Python runtime caches
+__pycache__/
+*.py[cod]
+
+# Recovery-handback experiment artifacts stay outside source control.
+recovery_handback/**/runs/
+recovery_handback/**/checkpoints/
+recovery_handback/**/*.hdf5
+recovery_handback/**/*.h5
+recovery_handback/**/*.npz
+recovery_handback/**/*.parquet
+recovery_handback/**/*.pt
+recovery_handback/**/*.pth
+recovery_handback/**/*.ckpt
+recovery_handback/**/*.zip
+recovery_handback/**/*.mp4
+recovery_handback/**/*.avi
+recovery_handback/**/*.mkv
+recovery_handback/**/*.log
+recovery_handback/**/.env
+recovery_handback/**/*.env
+
 # Large, reproducible stage-1 artifacts (checkpoints, rollout videos, logs).
 /outputs/stage1/
