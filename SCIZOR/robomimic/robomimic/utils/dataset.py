@@ -375,9 +375,19 @@ class SequenceDataset(torch.utils.data.Dataset):
         else:
             self.demos = list(self.hdf5_file["data"].keys())
 
-        # sort demo keys
-        inds = np.argsort([int(elem[5:]) for elem in self.demos])
-        self.demos = [self.demos[i] for i in inds]
+        # Keep the historical numeric ordering for demo_<n>, but also allow
+        # deterministic names such as runtime_teacher_<n> in external-link
+        # training views used by HB1-R.
+        def _demo_sort_key(elem):
+            if elem.startswith("demo_"):
+                suffix = elem[5:]
+                try:
+                    return (0, int(suffix), elem)
+                except ValueError:
+                    pass
+            return (1, elem)
+
+        self.demos = sorted(self.demos, key=_demo_sort_key)
 
         self.n_demos = len(self.demos)
 

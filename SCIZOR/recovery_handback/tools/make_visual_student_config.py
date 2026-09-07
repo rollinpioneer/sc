@@ -43,7 +43,10 @@ def main() -> None:
         cfg.train.num_epochs = settings["epochs"]
         cfg.train.batch_size = settings["batch_size"]
         cfg.train.num_data_workers = 2
-        cfg.train.hdf5_cache_mode = "low_dim"
+        # Cache the joint low-dimensional and RGB view once. The distilled
+        # view is intentionally external-linked, so per-batch image reads
+        # otherwise dominate this fixed visual training run.
+        cfg.train.hdf5_cache_mode = "all"
         cfg.train.seq_length = settings["seq_length"]
         cfg.train.dataset_keys = ["actions"]
         cfg.train.seed = settings["seed"]
