@@ -1,0 +1,13 @@
+comparison,outcome,both_success,left_only,right_only,both_failure
+M1_GRID_minus_S_STAR,system_success,14,6,6,54
+M1_GRID_minus_S_STAR,autonomous_completion,13,6,6,55
+M1_GRID_minus_NONE,system_success,2,18,1,59
+M1_GRID_minus_NONE,autonomous_completion,2,17,1,60
+M1_GRID_minus_M0_GRID,system_success,14,6,6,54
+M1_GRID_minus_M0_GRID,autonomous_completion,13,6,6,55
+M4_GRID_minus_S_STAR,system_success,13,2,7,58
+M4_GRID_minus_S_STAR,autonomous_completion,12,2,7,59
+M4_GRID_minus_M1_GRID,system_success,12,3,8,57
+M4_GRID_minus_M1_GRID,autonomous_completion,11,3,8,58
+S_STAR_minus_NONE,system_success,2,18,1,59
+S_STAR_minus_NONE,autonomous_completion,2,17,1,60

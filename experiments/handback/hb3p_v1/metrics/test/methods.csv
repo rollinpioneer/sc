@@ -1,0 +1,7 @@
+method_id,valid_roots,system_success_count,system_success_rate,autonomous_completion_count,autonomous_completion_rate,primary_utility_U_lambda_0p25,genuine_rescued_roots,retained_baseline_success_roots,interference_roots,mean_helper_steps_actual,mean_changed_action_steps,mean_takeover_count,mean_query_count,repair_calls_after_handoff_total
+M0_GRID,80,20,0.25,19,0.2375,0.1875,17,2,1,80.0,80.0,1.0,0.0,0
+M1_GRID,80,20,0.25,19,0.2375,0.20203125000000002,17,2,1,56.75,56.75,0.775,1.5875,0
+M4_GRID,80,15,0.1875,14,0.175,0.13499999999999998,12,2,1,64.0,64.0,0.8,1.4375,0
+NONE,80,3,0.0375,3,0.0375,0.0375,0,3,0,0.0,0.0,0.0,0.0,0
+RISK_GRID,80,20,0.25,19,0.2375,0.1875,17,2,1,80.0,80.0,1.0,0.0,0
+S_STAR,80,20,0.25,19,0.2375,0.1875,17,2,1,80.0,80.0,1.0,0.0,0

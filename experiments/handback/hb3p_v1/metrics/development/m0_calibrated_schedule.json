@@ -1,0 +1,9 @@
+{
+  "schedule": {
+    "160": 0,
+    "20": 80,
+    "80": 20
+  },
+  "schema_version": "hb3p_m0_compiled_schedule_v1",
+  "temperature": 0.65
+}

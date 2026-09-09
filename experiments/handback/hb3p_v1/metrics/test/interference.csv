@@ -1,0 +1,7 @@
+method_id,count,all_baseline_success_roots,all_baseline_success_rate,helped_baseline_success_roots,helped_baseline_success_rate,small_sample
+M0_GRID,1,3,0.3333333333333333,3,0.3333333333333333,True
+M1_GRID,1,3,0.3333333333333333,3,0.3333333333333333,True
+M4_GRID,1,3,0.3333333333333333,3,0.3333333333333333,True
+NONE,0,3,0.0,0,,True
+RISK_GRID,1,3,0.3333333333333333,3,0.3333333333333333,True
+S_STAR,1,3,0.3333333333333333,3,0.3333333333333333,True

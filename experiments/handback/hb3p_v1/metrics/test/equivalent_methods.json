@@ -1,0 +1,14 @@
+{
+  "aliases": [
+    {
+      "alias": "M0_GRID",
+      "canonical_execution": "S_STAR",
+      "reason": "same_complete_validation_execution_under_frozen_rules"
+    },
+    {
+      "alias": "RISK_GRID",
+      "canonical_execution": "S_STAR",
+      "reason": "same_complete_validation_execution_under_frozen_rules"
+    }
+  ]
+}

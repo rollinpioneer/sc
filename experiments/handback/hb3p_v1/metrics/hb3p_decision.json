@@ -1,0 +1,157 @@
+{
+  "analysis_code_commit": "d243a96b4639c0713ff3d818a1485d1d01f18d57",
+  "arbitrary_query_times_tested": false,
+  "baseline_preservation_evidence": "small_sample",
+  "hb2_status_preserved": "HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN",
+  "hb3p_status": "STATE_ENTRY_SIGNAL_ONLY",
+  "learned_exit_enabled": false,
+  "methods": {
+    "M0_GRID": {
+      "autonomous_completion_count": 19,
+      "autonomous_completion_rate": 0.2375,
+      "genuine_rescued_roots": 17,
+      "interference_roots": 1,
+      "mean_changed_action_steps": 80.0,
+      "mean_helper_steps_actual": 80.0,
+      "mean_query_count": 0.0,
+      "mean_takeover_count": 1.0,
+      "method_id": "M0_GRID",
+      "primary_utility_U_lambda_0p25": 0.1875,
+      "repair_calls_after_handoff_total": 0,
+      "retained_baseline_success_roots": 2,
+      "system_success_count": 20,
+      "system_success_rate": 0.25,
+      "valid_roots": 80
+    },
+    "M1_GRID": {
+      "autonomous_completion_count": 19,
+      "autonomous_completion_rate": 0.2375,
+      "genuine_rescued_roots": 17,
+      "interference_roots": 1,
+      "mean_changed_action_steps": 56.75,
+      "mean_helper_steps_actual": 56.75,
+      "mean_query_count": 1.5875,
+      "mean_takeover_count": 0.775,
+      "method_id": "M1_GRID",
+      "primary_utility_U_lambda_0p25": 0.20203125000000002,
+      "repair_calls_after_handoff_total": 0,
+      "retained_baseline_success_roots": 2,
+      "system_success_count": 20,
+      "system_success_rate": 0.25,
+      "valid_roots": 80
+    },
+    "M4_GRID": {
+      "autonomous_completion_count": 14,
+      "autonomous_completion_rate": 0.175,
+      "genuine_rescued_roots": 12,
+      "interference_roots": 1,
+      "mean_changed_action_steps": 64.0,
+      "mean_helper_steps_actual": 64.0,
+      "mean_query_count": 1.4375,
+      "mean_takeover_count": 0.8,
+      "method_id": "M4_GRID",
+      "primary_utility_U_lambda_0p25": 0.13499999999999998,
+      "repair_calls_after_handoff_total": 0,
+      "retained_baseline_success_roots": 2,
+      "system_success_count": 15,
+      "system_success_rate": 0.1875,
+      "valid_roots": 80
+    },
+    "NONE": {
+      "autonomous_completion_count": 3,
+      "autonomous_completion_rate": 0.0375,
+      "genuine_rescued_roots": 0,
+      "interference_roots": 0,
+      "mean_changed_action_steps": 0.0,
+      "mean_helper_steps_actual": 0.0,
+      "mean_query_count": 0.0,
+      "mean_takeover_count": 0.0,
+      "method_id": "NONE",
+      "primary_utility_U_lambda_0p25": 0.0375,
+      "repair_calls_after_handoff_total": 0,
+      "retained_baseline_success_roots": 3,
+      "system_success_count": 3,
+      "system_success_rate": 0.0375,
+      "valid_roots": 80
+    },
+    "RISK_GRID": {
+      "autonomous_completion_count": 19,
+      "autonomous_completion_rate": 0.2375,
+      "genuine_rescued_roots": 17,
+      "interference_roots": 1,
+      "mean_changed_action_steps": 80.0,
+      "mean_helper_steps_actual": 80.0,
+      "mean_query_count": 0.0,
+      "mean_takeover_count": 1.0,
+      "method_id": "RISK_GRID",
+      "primary_utility_U_lambda_0p25": 0.1875,
+      "repair_calls_after_handoff_total": 0,
+      "retained_baseline_success_roots": 2,
+      "system_success_count": 20,
+      "system_success_rate": 0.25,
+      "valid_roots": 80
+    },
+    "S_STAR": {
+      "autonomous_completion_count": 19,
+      "autonomous_completion_rate": 0.2375,
+      "genuine_rescued_roots": 17,
+      "interference_roots": 1,
+      "mean_changed_action_steps": 80.0,
+      "mean_helper_steps_actual": 80.0,
+      "mean_query_count": 0.0,
+      "mean_takeover_count": 1.0,
+      "method_id": "S_STAR",
+      "primary_utility_U_lambda_0p25": 0.1875,
+      "repair_calls_after_handoff_total": 0,
+      "retained_baseline_success_roots": 2,
+      "system_success_count": 20,
+      "system_success_rate": 0.25,
+      "valid_roots": 80
+    }
+  },
+  "primary_comparator": "S_STAR",
+  "primary_comparison": {
+    "ci95_percentile": [
+      -0.06845703124999998,
+      0.09352343749999953
+    ],
+    "point_difference": 0.014531250000000018,
+    "repeats": 2000,
+    "root_count": 80,
+    "seed": 20260909,
+    "unit": "stat_group_id"
+  },
+  "primary_method": "M1_GRID",
+  "repeated_takeover_tested": false,
+  "schema_version": "hb3p_decision_v1",
+  "scope": "fixed_candidate_times_single_takeover_fixed_exit",
+  "stage": "HB3-P",
+  "state_entry_gain": "directional",
+  "task": "square",
+  "time_schedule_gain": "supported",
+  "visual_increment": "unproven",
+  "visual_secondary_comparisons": {
+    "M4_minus_M1": {
+      "ci95_percentile": [
+        -0.14470703125,
+        0.010171874999999915
+      ],
+      "point_difference": -0.06703125,
+      "repeats": 2000,
+      "root_count": 80,
+      "seed": 20260909,
+      "unit": "stat_group_id"
+    },
+    "M4_minus_S_STAR": {
+      "ci95_percentile": [
+        -0.12624999999999997,
+        0.01251562499999993
+      ],
+      "point_difference": -0.05249999999999999,
+      "repeats": 2000,
+      "root_count": 80,
+      "seed": 20260909,
+      "unit": "stat_group_id"
+    }
+  }
+}

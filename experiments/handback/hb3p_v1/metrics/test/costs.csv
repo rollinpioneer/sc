@@ -1,0 +1,7 @@
+method_id,mean_helper_steps_actual,mean_changed_action_steps,mean_takeover_count,mean_query_count,mean_inference_wall_seconds,mean_backbone_wall_seconds,mean_prediction_head_wall_seconds,mean_ipc_roundtrip_wall_seconds,mean_simulation_wall_seconds,mean_episode_wall_seconds,repair_calls_after_handoff_total
+M0_GRID,80.0,80.0,1.0,0.0,0.0,0.0,0.0,0.0,11.780837043853534,12.999582606554032,0
+M1_GRID,56.75,56.75,0.775,1.5875,0.0028951487998710944,0.0,0.0015922813850920647,0.0,11.624031597038265,12.817452728748322,0
+M4_GRID,64.0,64.0,0.8,1.4375,0.32399691573373274,0.02602271504874807,0.003350816409511026,0.17514090588520048,11.980437881404942,13.501329931616784,0
+NONE,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,0
+RISK_GRID,80.0,80.0,1.0,0.0,0.0,0.0,0.0,0.0,11.780837043853534,12.999582606554032,0
+S_STAR,80.0,80.0,1.0,0.0,0.0,0.0,0.0,0.0,11.780837043853534,12.999582606554032,0

@@ -1,0 +1,25 @@
+{
+  "actual_unique_rollouts": 320,
+  "canonical_online_methods": [
+    "M1_GRID",
+    "M4_GRID",
+    "S_STAR"
+  ],
+  "complete": true,
+  "complete_logical_records": 480,
+  "engineering_failures": [],
+  "expected_logical_records": 480,
+  "logical_methods": [
+    "M0_GRID",
+    "M1_GRID",
+    "M4_GRID",
+    "NONE",
+    "RISK_GRID",
+    "S_STAR"
+  ],
+  "missing_records": [],
+  "preregistered_roots": 80,
+  "protocol_hash": "07ed1213f636ea1db2500798b4468add685249faa7626d6bf39628f0fb5cccc3",
+  "schema_version": "hb3p_test_coverage_v1",
+  "total_env_steps_actual": 117135
+}

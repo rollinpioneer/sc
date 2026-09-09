@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "M1_length": 80,
+      "M1_takeover_t": 20,
+      "category": "effective_help",
+      "root_id": "square:hb3p_test:500008",
+      "stat_group_id": "square:hb3p_test:500008"
+    },
+    {
+      "M1_length": 20,
+      "M1_takeover_t": 80,
+      "category": "baseline_interference",
+      "root_id": "square:hb3p_test:500047",
+      "stat_group_id": "square:hb3p_test:500047"
+    },
+    {
+      "M1_length": 0,
+      "M1_takeover_t": null,
+      "category": "state_time_choice_difference",
+      "root_id": "square:hb3p_test:500000",
+      "stat_group_id": "square:hb3p_test:500000"
+    },
+    {
+      "M1_length": 20,
+      "M1_takeover_t": 80,
+      "category": "waited_to_later_candidate",
+      "root_id": "square:hb3p_test:500001",
+      "stat_group_id": "square:hb3p_test:500001"
+    }
+  ],
+  "schema_version": "hb3p_report_cases_v1"
+}

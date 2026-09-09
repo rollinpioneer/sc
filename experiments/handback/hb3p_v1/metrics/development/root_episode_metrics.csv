@@ -1,0 +1,7 @@
+method_id,roots,root_mean_utility,system_success_rate,autonomous_completion_rate,mean_actual_helper_steps,takeover_rate,mean_query_count
+NONE,40,0.025,0.025,0.025,0.0,0.0,0.0
+S_STAR,40,0.1750000000000001,0.225,0.225,80.0,1.0,0.0
+M0_GRID,40,0.1750000000000001,0.225,0.225,80.0,1.0,1.0
+RISK_GRID,40,0.1750000000000001,0.225,0.225,80.0,1.0,1.0
+M1_GRID,40,0.1359375000000001,0.175,0.175,62.5,0.8,1.5
+M4_GRID,40,0.18125000000000008,0.225,0.225,70.0,0.875,1.25

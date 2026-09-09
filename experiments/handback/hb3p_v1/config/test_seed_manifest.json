@@ -1,0 +1,730 @@
+{
+  "adaptive_expansion_allowed": false,
+  "code_commit": "bb2d3b044dfddcb2b0aa65f0c32798d1738a1509",
+  "count": 80,
+  "prior_manifest_seed_overlap": [],
+  "rows": [
+    {
+      "index": 0,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500000",
+      "seed": 500000,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 1,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500001",
+      "seed": 500001,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 2,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500002",
+      "seed": 500002,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 3,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500003",
+      "seed": 500003,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 4,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500004",
+      "seed": 500004,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 5,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500005",
+      "seed": 500005,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 6,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500006",
+      "seed": 500006,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 7,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500007",
+      "seed": 500007,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 8,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500008",
+      "seed": 500008,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 9,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500009",
+      "seed": 500009,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 10,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500010",
+      "seed": 500010,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 11,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500011",
+      "seed": 500011,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 12,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500012",
+      "seed": 500012,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 13,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500013",
+      "seed": 500013,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 14,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500014",
+      "seed": 500014,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 15,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500015",
+      "seed": 500015,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 16,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500016",
+      "seed": 500016,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 17,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500017",
+      "seed": 500017,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 18,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500018",
+      "seed": 500018,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 19,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500019",
+      "seed": 500019,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 20,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500020",
+      "seed": 500020,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 21,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500021",
+      "seed": 500021,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 22,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500022",
+      "seed": 500022,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 23,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500023",
+      "seed": 500023,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 24,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500024",
+      "seed": 500024,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 25,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500025",
+      "seed": 500025,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 26,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500026",
+      "seed": 500026,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 27,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500027",
+      "seed": 500027,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 28,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500028",
+      "seed": 500028,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 29,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500029",
+      "seed": 500029,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 30,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500030",
+      "seed": 500030,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 31,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500031",
+      "seed": 500031,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 32,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500032",
+      "seed": 500032,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 33,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500033",
+      "seed": 500033,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 34,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500034",
+      "seed": 500034,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 35,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500035",
+      "seed": 500035,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 36,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500036",
+      "seed": 500036,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 37,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500037",
+      "seed": 500037,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 38,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500038",
+      "seed": 500038,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 39,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500039",
+      "seed": 500039,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 40,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500040",
+      "seed": 500040,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 41,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500041",
+      "seed": 500041,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 42,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500042",
+      "seed": 500042,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 43,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500043",
+      "seed": 500043,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 44,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500044",
+      "seed": 500044,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 45,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500045",
+      "seed": 500045,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 46,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500046",
+      "seed": 500046,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 47,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500047",
+      "seed": 500047,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 48,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500048",
+      "seed": 500048,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 49,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500049",
+      "seed": 500049,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 50,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500050",
+      "seed": 500050,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 51,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500051",
+      "seed": 500051,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 52,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500052",
+      "seed": 500052,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 53,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500053",
+      "seed": 500053,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 54,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500054",
+      "seed": 500054,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 55,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500055",
+      "seed": 500055,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 56,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500056",
+      "seed": 500056,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 57,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500057",
+      "seed": 500057,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 58,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500058",
+      "seed": 500058,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 59,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500059",
+      "seed": 500059,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 60,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500060",
+      "seed": 500060,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 61,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500061",
+      "seed": 500061,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 62,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500062",
+      "seed": 500062,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 63,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500063",
+      "seed": 500063,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 64,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500064",
+      "seed": 500064,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 65,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500065",
+      "seed": 500065,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 66,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500066",
+      "seed": 500066,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 67,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500067",
+      "seed": 500067,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 68,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500068",
+      "seed": 500068,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 69,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500069",
+      "seed": 500069,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 70,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500070",
+      "seed": 500070,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 71,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500071",
+      "seed": 500071,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 72,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500072",
+      "seed": 500072,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 73,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500073",
+      "seed": 500073,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 74,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500074",
+      "seed": 500074,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 75,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500075",
+      "seed": 500075,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 76,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500076",
+      "seed": 500076,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 77,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500077",
+      "seed": 500077,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 78,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500078",
+      "seed": 500078,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 79,
+      "initial_state_hash": null,
+      "role": "hb3p_test",
+      "root_id": "square:hb3p_test:500079",
+      "seed": 500079,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    }
+  ],
+  "schema_version": "hb3p_test_seed_manifest_v1",
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8"
+}
