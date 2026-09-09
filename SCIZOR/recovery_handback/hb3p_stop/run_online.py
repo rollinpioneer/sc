@@ -7,7 +7,7 @@ from pathlib import Path
 
 from recovery_handback.common import atomic_json_dump, sha256_file
 from recovery_handback.hb3p_stop.io import read_jsonl
-from recovery_handback.hb3p_stop.online import OnlineRunner
+from recovery_handback.hb3p_stop.online import OnlineRunner, _observation_tape
 
 
 METHODS = ("NONE", "FIXED_L60", "FIXED_L80", "LEARNED_STOP_CONTINUE")
@@ -52,6 +52,10 @@ def main() -> None:
     records = []
     protocol_hash = sha256_file(args.protocol)
     for root in roots:
+        # All methods for one root must see identical rendered observations
+        # whenever their physical states are identical. The first method fills
+        # this tape for newly encountered states; later branches reuse it.
+        observation_tape = _observation_tape(Path(root["rollout_path"]))
         for method in methods:
             path = args.output_dir / method / f"{_safe(root['root_id'])}.json"
             if args.resume and path.is_file():
@@ -59,7 +63,7 @@ def main() -> None:
                 if old.get("engineering_ok") and old.get("protocol_hash") == protocol_hash and Path(old.get("trajectory_path", "")).is_file():
                     records.append(old)
                     continue
-            result = runner.run(root, method, path)
+            result = runner.run(root, method, path, observation_tape=observation_tape)
             records.append(result)
             print(json.dumps({"root_id": root["root_id"], "method": method, "engineering_ok": result["engineering_ok"], "system_success": result["system_success"], "decision": result.get("stop_continue_decision")}), flush=True)
             if not result["engineering_ok"]:

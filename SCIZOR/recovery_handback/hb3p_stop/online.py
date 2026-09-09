@@ -111,7 +111,8 @@ class OnlineRunner:
         predictor_device = device if device == "cuda" else "cpu"
         self.predict_stop_continue = load_predictor(Path(model["checkpoint"]), Path(model["normalizer"]), device=predictor_device)
 
-    def run(self, root: dict, method: str, output_path: Path) -> dict:
+    def run(self, root: dict, method: str, output_path: Path,
+            observation_tape: dict | None = None) -> dict:
         started = time.time()
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -123,7 +124,9 @@ class OnlineRunner:
         source = Path(self.config["assets_file"])
         assets = json.loads(source.read_text(encoding="utf-8"))
         source_hdf5 = Path(assets["tasks"]["square"]["source_hdf5"])
-        env = EnvAdapter(source_hdf5, **load_observation_spec(source_hdf5), observation_tape=_observation_tape(Path(root["rollout_path"])))
+        if observation_tape is None:
+            observation_tape = _observation_tape(Path(root["rollout_path"]))
+        env = EnvAdapter(source_hdf5, **load_observation_spec(source_hdf5), observation_tape=observation_tape)
         result = {
             "schema_version": "hb3p_stop_continue_online_episode_v1",
             "task": "square", "role": str(root.get("role", self.config["role"])), "root_id": root_id,
