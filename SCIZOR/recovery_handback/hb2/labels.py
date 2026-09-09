@@ -123,6 +123,12 @@ def build_example_tables(
             for name in BRANCH_NAMES:
                 base[f"helper_steps_{name}"] = int(by_name[name].get("helper_steps_actual") or 0)
                 base[f"system_success_{name}"] = int(bool(by_name[name].get("system_success")))
+                base[f"helper_completed_{name}"] = int(bool(by_name[name].get("helper_completed_task")))
+                base[f"changed_action_steps_{name}"] = int(by_name[name].get("changed_action_steps") or 0)
+                base[f"repair_calls_after_handoff_{name}"] = int(
+                    by_name[name].get("repair_calls_after_handoff") or 0
+                )
+                base[f"handoff_executed_{name}"] = int(bool(by_name[name].get("handoff_executed")))
             base["diagnostic_shortest"] = diagnostic_shortest(by_name)
         anchor_examples.append(base)
 
@@ -200,4 +206,3 @@ def rescue_root_counts(rows: Iterable[dict]) -> dict[str, int]:
                        for row in group) for group in grouped.values())
     return {"valid_roots": len(grouped), "rescue_positive_roots": positive,
             "rescue_negative_roots": len(grouped) - positive}
-

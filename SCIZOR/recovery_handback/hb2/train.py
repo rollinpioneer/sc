@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import random
+from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -27,7 +28,8 @@ def _device() -> torch.device:
 
 
 def _inputs(batch: dict, device: torch.device) -> dict[str, torch.Tensor]:
-    return {key: value.to(device) for key, value in batch.items() if key in ("global", "local", "proprio", "base_actions", "time")}
+    names = ("global", "local", "proprio", "base_actions", "time", "helper_elapsed")
+    return {key: value.to(device) for key, value in batch.items() if key in names}
 
 
 def _outcome_loss(logits: torch.Tensor, batch: dict) -> tuple[torch.Tensor, dict]:
@@ -36,18 +38,24 @@ def _outcome_loss(logits: torch.Tensor, batch: dict) -> tuple[torch.Tensor, dict
     yfull = batch["yfull"].to(device=device, dtype=logits.dtype)
     categories = batch["categories"].to(device=device)
     delta = batch["delta"].to(device=device, dtype=logits.dtype)
-    losses = [F.binary_cross_entropy_with_logits(logits[:, 0], y0),
-              F.cross_entropy(logits[:, 1:5], categories[:, 0]),
-              F.cross_entropy(logits[:, 5:9], categories[:, 1]),
-              F.cross_entropy(logits[:, 9:13], categories[:, 2]),
-              F.binary_cross_entropy_with_logits(logits[:, 13], yfull)]
-    outcome = torch.stack(losses).mean()
+    losses = [F.binary_cross_entropy_with_logits(logits[:, 0], y0, reduction="none"),
+              F.cross_entropy(logits[:, 1:5], categories[:, 0], reduction="none"),
+              F.cross_entropy(logits[:, 5:9], categories[:, 1], reduction="none"),
+              F.cross_entropy(logits[:, 9:13], categories[:, 2], reduction="none"),
+              F.binary_cross_entropy_with_logits(logits[:, 13], yfull, reduction="none")]
+    outcome_per_example = torch.stack(losses, dim=1).mean(dim=1)
     probs = [torch.sigmoid(logits[:, 0])]
     for start in (1, 5, 9):
-        probs.append(1 - logits[:, start:start + 4].softmax(-1)[:, 0])
+        probs.append(logits[:, start:start + 4].softmax(-1)[:, 3])
     p0 = probs[0]
-    pair = torch.stack([F.smooth_l1_loss(probs[index + 1] - p0, delta[:, index]) for index in range(3)]).mean()
-    return outcome, {"outcome": outcome, "pair": pair, "total": outcome}
+    pair_per_example = torch.stack([
+        F.smooth_l1_loss(probs[index + 1] - p0, delta[:, index], reduction="none")
+        for index in range(3)
+    ], dim=1).mean(dim=1)
+    outcome = outcome_per_example.mean()
+    pair = pair_per_example.mean()
+    return outcome, {"outcome": outcome, "pair": pair, "outcome_per_example": outcome_per_example,
+                     "pair_per_example": pair_per_example}
 
 
 def _m0_fit(rows: list[dict], output_dir: Path) -> None:
@@ -55,35 +63,55 @@ def _m0_fit(rows: list[dict], output_dir: Path) -> None:
     for row in rows:
         key = int(row["anchor_t"])
         groups.setdefault(key, []).append(row)
-    total = len(rows)
-    payload = {"kind": "M0_time", "alpha": 1.0, "overall": {
-        "p0": (sum(int(row["y0"]) for row in rows) + 1) / (total + 2),
-        "pfull": (sum(int(row["y_full"]) for row in rows) + 1) / (total + 2),
-    }, "by_time": {str(key): {
-        "p0": (sum(int(row["y0"]) for row in values) + 1) / (len(values) + 2),
-        "pfull": (sum(int(row["y_full"]) for row in values) + 1) / (len(values) + 2),
-        "categories": [[(sum(int(row[f"category_l{length}"]) == category for row in values) + 1) /
-                        (len(values) + 4) for category in range(4)] for length in (5, 20, 80)],
-    } for key, values in groups.items()}}
+
+    def frequencies(values: list[dict]) -> dict:
+        root_counts = defaultdict(int)
+        for row in values:
+            root_counts[str(row["stat_group_id"])] += 1
+        weights = [1.0 / root_counts[str(row["stat_group_id"])] for row in values]
+        total = float(sum(weights))
+        return {
+            "effective_root_weight": total,
+            "p0": (sum(weight * int(row["y0"]) for weight, row in zip(weights, values)) + 1) / (total + 2),
+            "pfull": (sum(weight * int(row["y_full"]) for weight, row in zip(weights, values)) + 1) / (total + 2),
+            "categories": [[
+                (sum(weight * (int(row[f"category_l{length}"]) == category)
+                     for weight, row in zip(weights, values)) + 1) / (total + 4)
+                for category in range(4)
+            ] for length in (5, 20, 80)],
+        }
+
+    payload = {
+        "kind": "M0_time",
+        "alpha": 1.0,
+        "weighting": "root_equal_then_anchor",
+        "overall": frequencies(rows),
+        "by_time": {str(key): frequencies(values) for key, values in groups.items()},
+    }
     output_dir.mkdir(parents=True, exist_ok=True)
     torch.save(payload, output_dir / "best.pt")
     torch.save(payload, output_dir / "last.pt")
     atomic_json_dump({"kind": "M0_time", "training_rows": len(rows), "stopped_epoch": 0}, output_dir / "training_summary.json")
 
 
-def _evaluate(model, loader, device, *, pair_weight: float, include_pair: bool) -> dict:
-    model.eval(); rows = []
+def _root_equal_mean(values: list[float], roots: list[str]) -> tuple[float, int]:
+    grouped: dict[str, list[float]] = defaultdict(list)
+    for root, value in zip(roots, values):
+        grouped[str(root)].append(float(value))
+    result = float(np.mean([np.mean(group) for group in grouped.values()])) if grouped else float("inf")
+    return result, len(grouped)
+
+
+def _evaluate(model, loader, device) -> dict:
+    model.eval(); values: list[float] = []; roots: list[str] = []
     with torch.no_grad():
         for batch in loader:
             logits = model(_inputs(batch, device))
-            outcome, pieces = _outcome_loss(logits, batch)
-            roots = batch["root_id"]
-            rows.extend([(str(root), float(outcome.detach().cpu())) for root in roots])
-    by_root = {}
-    for root, value in rows:
-        by_root.setdefault(root, []).append(value)
-    nll = float(np.mean([np.mean(values) for values in by_root.values()])) if by_root else float("inf")
-    return {"root_equal_outcome_nll": nll, "roots": len(by_root), "rows": len(rows)}
+            _, pieces = _outcome_loss(logits, batch)
+            values.extend(pieces["outcome_per_example"].detach().cpu().numpy().tolist())
+            roots.extend(str(root) for root in batch["root_id"])
+    nll, root_count = _root_equal_mean(values, roots)
+    return {"root_equal_outcome_nll": nll, "roots": root_count, "rows": len(values)}
 
 
 def _train_anchor(args, config: dict, rows: list[dict], output_dir: Path) -> None:
@@ -97,38 +125,49 @@ def _train_anchor(args, config: dict, rows: list[dict], output_dir: Path) -> Non
     train_sampler = RootBalancedBatchSampler(train_ds, int(config["hb2"]["training"]["batch_size"]), seed)
     loader = DataLoader(train_ds, batch_sampler=train_sampler, num_workers=0)
     val_loader = DataLoader(val_ds, batch_size=int(config["hb2"]["training"]["batch_size"]), shuffle=False, num_workers=0)
-    model = build_model(args.model, hidden_size=128, dropout=0.1).to(_device())
-    optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4)
+    training = config["hb2"]["training"]
+    device = _device()
+    model = build_model(args.model, hidden_size=int(training["hidden_size"]),
+                        dropout=float(training["dropout"])).to(device)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=float(training["learning_rate"]),
+                                  weight_decay=float(training["weight_decay"]))
     max_epochs = 1 if args.smoke_batches else int(config["hb2"]["training"]["max_epochs"])
     best = float("inf"); no_improve = 0; history = []
     for epoch in range(max_epochs):
-        model.train(); train_seen = 0
+        model.train(); train_seen = 0; train_losses = []
         train_sampler.set_epoch(epoch)
         for batch_index, batch in enumerate(loader):
             optimizer.zero_grad(set_to_none=True)
-            logits = model(_inputs(batch, _device()))
+            logits = model(_inputs(batch, device))
             outcome, pieces = _outcome_loss(logits, batch)
-            total = outcome + (0.25 * pieces["pair"] if args.model in ("M4_paired", "M5_single") else 0.0)
-            total.backward(); clip_grad_norm_(model.parameters(), 1.0); optimizer.step()
+            total = outcome + (float(training["pair_loss_weight"]) * pieces["pair"] if args.model in ("M4_paired", "M5_single") else 0.0)
+            total.backward(); clip_grad_norm_(model.parameters(), float(training["gradient_clip_norm"])); optimizer.step()
             train_seen += len(batch["y0"])
+            train_losses.append(float(total.detach().cpu()))
             if args.smoke_batches and batch_index + 1 >= args.smoke_batches:
                 break
-        val = _evaluate(model, val_loader, _device(), pair_weight=0.25, include_pair=False)
-        record = {"epoch": epoch + 1, "train_rows": train_seen, **val}
+        torch.save({"model_id": args.model, "seed": seed, "state_dict": model.state_dict(), "epoch": epoch + 1}, output_dir / "last.pt")
+        should_validate = bool(args.smoke_batches) or (epoch + 1) % int(training["validate_every"]) == 0 or epoch + 1 == max_epochs
+        if not should_validate:
+            continue
+        val = _evaluate(model, val_loader, device)
+        record = {"epoch": epoch + 1, "train_rows": train_seen,
+                  "train_total_loss": float(np.mean(train_losses)) if train_losses else None, **val}
         history.append(record)
         if val["root_equal_outcome_nll"] < best:
             best = val["root_equal_outcome_nll"]; no_improve = 0
-            torch.save({"model_id": args.model, "seed": seed, "state_dict": model.state_dict(), "epoch": epoch + 1}, output_dir / "best.pt")
+            torch.save({"model_id": args.model, "seed": seed, "state_dict": model.state_dict(),
+                        "epoch": epoch + 1, "validation": val}, output_dir / "best.pt")
         else:
             no_improve += 1
-        torch.save({"model_id": args.model, "seed": seed, "state_dict": model.state_dict(), "epoch": epoch + 1}, output_dir / "last.pt")
-        if args.smoke_batches or (epoch + 1) % int(config["hb2"]["training"]["validate_every"]) == 0 and no_improve >= int(config["hb2"]["training"]["early_stop_validation_checks"]):
-            if args.smoke_batches or no_improve >= int(config["hb2"]["training"]["early_stop_validation_checks"]):
-                break
-    output_dir.mkdir(parents=True, exist_ok=True)
+        if args.smoke_batches or no_improve >= int(training["early_stop_validation_checks"]):
+            break
     atomic_json_dump({"model": args.model, "seed": seed, "history": history,
-                      "best_validation_nll": best, "stopped_epoch": len(history),
-                      "parameters": sum(parameter.numel() for parameter in model.parameters())}, output_dir / "training_summary.json")
+                      "best_validation_nll": best,
+                      "stopped_epoch": history[-1]["epoch"] if history else 0,
+                      "parameters": sum(parameter.numel() for parameter in model.parameters() if parameter.requires_grad),
+                      "history_length": model.history_length,
+                      "checkpoint_criterion": training["checkpoint_criterion"]}, output_dir / "training_summary.json")
 
 
 def _train_handoff(args, config: dict, rows: list[dict], output_dir: Path) -> None:
@@ -140,30 +179,56 @@ def _train_handoff(args, config: dict, rows: list[dict], output_dir: Path) -> No
     sampler = RootBalancedBatchSampler(train_ds, 32, int(args.seed))
     loader = DataLoader(train_ds, batch_sampler=sampler, num_workers=0)
     val_loader = DataLoader(val_ds, batch_size=32, shuffle=False, num_workers=0)
-    model = build_model(args.model, head="handoff").to(_device())
-    optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4)
+    training = config["hb2"]["training"]
+    resolved_model = args.model
+    selected_f_model = None
+    if args.model == "selected_visual":
+        if not args.protocol or not args.protocol.is_file():
+            raise ValueError("selected_visual handoff model requires --protocol")
+        protocol = json.loads(args.protocol.read_text(encoding="utf-8"))
+        selected_f_model = str(protocol["selected_visual_model"])
+        resolved_model = "selected_visual_local" if selected_f_model in ("M3_local", "M4_paired", "M5_single") else "selected_visual_global"
+    device = _device()
+    model = build_model(resolved_model, head="handoff", hidden_size=int(training["hidden_size"]),
+                        dropout=float(training["dropout"])).to(device)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=float(training["learning_rate"]),
+                                  weight_decay=float(training["weight_decay"]))
     best = float("inf"); no_improve = 0; history = []
-    for epoch in range(int(config["hb2"]["training"]["max_epochs"])):
+    max_epochs = int(training["max_epochs"])
+    for epoch in range(max_epochs):
         model.train(); sampler.set_epoch(epoch)
         for batch in loader:
             optimizer.zero_grad(set_to_none=True)
-            loss = F.cross_entropy(model(_inputs(batch, _device())), batch["target"].to(_device()))
-            loss.backward(); clip_grad_norm_(model.parameters(), 1.0); optimizer.step()
-        model.eval(); values = []
+            loss = F.cross_entropy(model(_inputs(batch, device)), batch["target"].to(device))
+            loss.backward(); clip_grad_norm_(model.parameters(), float(training["gradient_clip_norm"])); optimizer.step()
+        torch.save({"head": "handoff", "model_id": args.model, "architecture": resolved_model,
+                    "selected_f_model": selected_f_model, "seed": int(args.seed),
+                    "state_dict": model.state_dict(), "epoch": epoch + 1}, output_dir / "last.pt")
+        should_validate = (epoch + 1) % int(training["validate_every"]) == 0 or epoch + 1 == max_epochs
+        if not should_validate:
+            continue
+        model.eval(); values = []; roots = []
         with torch.no_grad():
             for batch in val_loader:
-                logits = model(_inputs(batch, _device()))
-                values.extend(F.cross_entropy(logits, batch["target"].to(_device()), reduction="none").cpu().numpy().tolist())
-        nll = float(np.mean(values)) if values else float("inf")
-        history.append({"epoch": epoch + 1, "nll": nll})
+                logits = model(_inputs(batch, device))
+                values.extend(F.cross_entropy(logits, batch["target"].to(device), reduction="none").cpu().numpy().tolist())
+                roots.extend(str(root) for root in batch["root_id"])
+        nll, root_count = _root_equal_mean(values, roots)
+        history.append({"epoch": epoch + 1, "root_equal_nll": nll, "roots": root_count, "rows": len(values)})
         if nll < best:
             best = nll; no_improve = 0
-            torch.save({"head": "handoff", "model_id": args.model, "seed": int(args.seed), "state_dict": model.state_dict(), "epoch": epoch + 1}, output_dir / "best.pt")
+            torch.save({"head": "handoff", "model_id": args.model, "architecture": resolved_model,
+                        "selected_f_model": selected_f_model, "seed": int(args.seed),
+                        "state_dict": model.state_dict(), "epoch": epoch + 1,
+                        "validation": {"root_equal_nll": nll, "roots": root_count}}, output_dir / "best.pt")
         else: no_improve += 1
-        if no_improve >= 4: break
-    output_dir.mkdir(parents=True, exist_ok=True)
+        if no_improve >= int(training["early_stop_validation_checks"]): break
     atomic_json_dump({"head": "handoff", "model": args.model, "seed": int(args.seed), "history": history,
-                      "best_validation_nll": best, "stopped_epoch": len(history)}, output_dir / "training_summary.json")
+                      "architecture": resolved_model, "selected_f_model": selected_f_model,
+                      "best_validation_nll": best,
+                      "stopped_epoch": history[-1]["epoch"] if history else 0,
+                      "parameters": sum(parameter.numel() for parameter in model.parameters() if parameter.requires_grad),
+                      "checkpoint_criterion": "root_equal_handoff_three_class_nll"}, output_dir / "training_summary.json")
 
 
 def main() -> None:

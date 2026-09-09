@@ -31,6 +31,14 @@ def root_mean(rows: Iterable[dict], value_key: str) -> float | None:
     return float(np.mean([np.mean(values) for values in grouped.values()])) if grouped else None
 
 
+def root_equal_mean(values: Iterable[float], group_ids: Iterable[str]) -> float | None:
+    grouped = defaultdict(list)
+    for group_id, value in zip(group_ids, values):
+        if math.isfinite(float(value)):
+            grouped[str(group_id)].append(float(value))
+    return float(np.mean([np.mean(group) for group in grouped.values()])) if grouped else None
+
+
 def choose_length(probabilities: dict[str, float], lambda_value: float, costs: dict[int, float] | None = None,
                   denominator: float = 400.0, tolerance: float = 1e-8) -> int:
     costs = costs or {0: 0.0, 5: 5.0, 20: 20.0, 80: 80.0}
@@ -66,6 +74,22 @@ def root_probability_metrics(rows: list[dict], truth_key: str, probability_key: 
     p_all = np.asarray([pair[1] for pairs in groups.values() for pair in pairs])
     result["positive_anchors"] = int(y_all.sum())
     result["positive_roots"] = int(sum(any(pair[0] for pair in pairs) for pairs in groups.values()))
+    result["negative_anchors"] = int(len(y_all) - y_all.sum())
+    result["negative_roots"] = int(sum(any(not bool(pair[0]) for pair in pairs) for pairs in groups.values()))
+    result["prevalence_anchor"] = float(y_all.mean()) if len(y_all) else None
+    edges = np.linspace(0.0, 1.0, 11)
+    bins = []
+    for index in range(10):
+        lower, upper = float(edges[index]), float(edges[index + 1])
+        mask = (p_all >= lower) & ((p_all < upper) if index < 9 else (p_all <= upper))
+        bins.append({
+            "lower": lower,
+            "upper": upper,
+            "count": int(mask.sum()),
+            "mean_probability": float(p_all[mask].mean()) if mask.any() else None,
+            "observed_rate": float(y_all[mask].mean()) if mask.any() else None,
+        })
+    result["reliability_bins"] = bins
     if len(np.unique(y_all)) < 2:
         result["auroc"] = None; result["average_precision"] = None; result["ranking_not_estimable"] = True
     else:
@@ -77,4 +101,3 @@ def root_probability_metrics(rows: list[dict], truth_key: str, probability_key: 
         except ImportError:
             result["auroc"] = None; result["average_precision"] = None; result["ranking_not_estimable"] = "sklearn_unavailable"
     return result
-

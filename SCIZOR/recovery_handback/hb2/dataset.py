@@ -30,9 +30,10 @@ def _normalizer(path: Path | None) -> tuple[np.ndarray, np.ndarray, np.ndarray, 
 
 class AnchorDataset(Dataset):
     def __init__(self, rows: list[dict], feature_dir: Path, *, split: str,
-                 normalizer_path: Path | None = None):
+                 normalizer_path: Path | None = None, inference: bool = False):
         self.rows = [row for row in rows if row.get("split") == split and bool(row.get("complete_pair"))]
         self.cache = _Cache(feature_dir, "anchor")
+        self.inference = bool(inference)
         self.pm, self.ps, self.am, self.ase = _normalizer(normalizer_path)
         self.root_to_indices: dict[str, list[int]] = defaultdict(list)
         for index, row in enumerate(self.rows):
@@ -53,21 +54,29 @@ class AnchorDataset(Dataset):
             "proprio": (self.cache.arrays["proprio"][item] - self.pm) / self.ps,
             "base_actions": (self.cache.arrays["base_actions"][item] - self.am) / self.ase,
             "time": self.cache.arrays["time"][item].astype(np.float32),
-            "y0": np.asarray(row["y0"], np.float32),
-            "yfull": np.asarray(row["y_full"], np.float32),
-            "categories": np.asarray([row[f"category_l{length}"] for length in (5, 20, 80)], np.int64),
-            "delta": np.asarray([row[f"gain_autonomy_l{length}"] for length in (5, 20, 80)], np.float32),
             "root_id": str(row["stat_group_id"]),
             "example_id": str(row["example_id"]),
         }
+        if not self.inference:
+            tensors.update({
+                "y0": np.asarray(row["y0"], np.float32),
+                "yfull": np.asarray(row["y_full"], np.float32),
+                "categories": np.asarray(
+                    [row[f"category_l{length}"] for length in (5, 20, 80)], np.int64
+                ),
+                "delta": np.asarray(
+                    [row[f"gain_autonomy_l{length}"] for length in (5, 20, 80)], np.float32
+                ),
+            })
         return {key: torch.from_numpy(value) if isinstance(value, np.ndarray) else value for key, value in tensors.items()}
 
 
 class HandoffDataset(Dataset):
     def __init__(self, rows: list[dict], feature_dir: Path, *, split: str,
-                 normalizer_path: Path | None = None):
+                 normalizer_path: Path | None = None, inference: bool = False):
         self.rows = [row for row in rows if row.get("split") == split and bool(row.get("eligible"))]
         self.cache = _Cache(feature_dir, "handoff")
+        self.inference = bool(inference)
         self.pm, self.ps, self.am, self.ase = _normalizer(normalizer_path)
         self.root_to_indices: dict[str, list[int]] = defaultdict(list)
         for index, row in enumerate(self.rows):
@@ -88,10 +97,12 @@ class HandoffDataset(Dataset):
             "proprio": (self.cache.arrays["proprio"][item] - self.pm) / self.ps,
             "base_actions": (self.cache.arrays["base_actions"][item] - self.am) / self.ase,
             "time": self.cache.arrays["time"][item].astype(np.float32),
-            "target": np.asarray(row["handoff_category"], np.int64),
+            "helper_elapsed": self.cache.arrays["helper_elapsed"][item].astype(np.float32),
             "root_id": str(row["stat_group_id"]),
             "example_id": str(row["example_id"]),
         }
+        if not self.inference:
+            values["target"] = np.asarray(row["handoff_category"], np.int64)
         return {key: torch.from_numpy(value) if isinstance(value, np.ndarray) else value for key, value in values.items()}
 
 
@@ -124,4 +135,3 @@ class RootBalancedBatchSampler:
 
     def __len__(self) -> int:
         return max(1, int(np.ceil(len(self.dataset) / self.batch_size)))
-

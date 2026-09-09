@@ -32,8 +32,33 @@ def main() -> None:
         row["stat_group_id"] = groups[str(row["root_id"])].get("group", row.get("stat_group_id"))
         row["split"] = "test"
         row["data_role"] = "hb2_test"
+    split_manifest = json.loads(
+        (args.frozen_dataset / "split_manifest.json").read_text(encoding="utf-8")
+    )
+    development_groups = set(split_manifest["train_stat_group_ids"]) | set(
+        split_manifest["validation_stat_group_ids"]
+    )
+    test_groups = {row["stat_group_id"] for row in anchors}
+    overlap = sorted(development_groups & test_groups)
+    if overlap:
+        raise ValueError(f"test/development stat_group_id overlap: {overlap}")
     write_table(anchors, args.output_dir / "anchor_examples.parquet")
     write_table(handoffs, args.output_dir / "handoff_examples.parquet")
+    anchor_prediction_fields = (
+        "example_id", "stat_group_id", "root_id", "anchor_t", "split", "complete_pair"
+    )
+    handoff_prediction_fields = (
+        "example_id", "stat_group_id", "root_id", "handoff_t", "helper_length",
+        "split", "eligible",
+    )
+    write_table(
+        [{key: row.get(key) for key in anchor_prediction_fields} for row in anchors],
+        args.output_dir / "prediction_anchor_metadata.parquet",
+    )
+    write_table(
+        [{key: row.get(key) for key in handoff_prediction_fields} for row in handoffs],
+        args.output_dir / "prediction_handoff_metadata.parquet",
+    )
     manifest = {
         "schema_version": "hb2_test_attached_v1",
         "source_test_data": str(args.test_data.resolve()),
@@ -41,8 +66,10 @@ def main() -> None:
         "semantic_pair_id": config["hb2"]["semantic_pair_id"],
         "anchors": len(anchors),
         "handoff_examples": len(handoffs),
-        "test_roots": len({row["stat_group_id"] for row in anchors}),
+        "test_roots": len(test_groups),
+        "development_group_overlap": overlap,
         "frozen_train_validation_unchanged": True,
+        "prediction_metadata_contains_labels": False,
     }
     atomic_json_dump(manifest, args.output_dir / "test_attach_manifest.json")
     print(json.dumps(manifest, indent=2))
@@ -50,4 +77,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

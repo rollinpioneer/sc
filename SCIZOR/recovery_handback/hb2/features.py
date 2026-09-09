@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import subprocess
 import time
 from pathlib import Path
 from typing import Any
@@ -57,18 +59,18 @@ def _anchor_history(row: dict, horizon: int) -> tuple[list[dict], np.ndarray, np
     if not frame_ids:
         raise ValueError(f"empty anchor history: {row['anchor_history_path']}")
     frame_ids = frame_ids[-4:]
-    padding = len(frame_ids) < 4
-    frame_ids = [frame_ids[0]] * (4 - len(frame_ids)) + frame_ids
+    original_count = len(frame_ids)
+    original_times = list(range(anchor_t - original_count + 1, anchor_t + 1))
+    pad_count = 4 - original_count
+    frame_ids = [frame_ids[0]] * pad_count + frame_ids
+    absolute_times = [original_times[0]] * pad_count + original_times
     rollout, _ = _load_npz(row["rollout_path"])
     suggestions = np.asarray(rollout["suggestions"], dtype=np.float32)
     frames = []
     for frame_id in frame_ids:
         obs = {key: arrays[f"{anchor_t}_{frame_id}_{key}"] for key in CAMERA_KEYS + PROPRIO_KEYS}
-        absolute_t = anchor_t - (len(frame_ids) - 1 - frame_ids[-1])  # overwritten below
         frames.append(obs)
-    # The persisted history is a fixed-length tail; its original time is recoverable from t.
-    start_t = anchor_t - (len({int(key.split('_')[1]) for key in arrays if key.startswith(f'{anchor_t}_')}) - 1)
-    times = np.asarray([max(0, start_t + index) for index in range(4)], dtype=np.float32)
+    times = np.asarray([max(0, value) for value in absolute_times], dtype=np.float32)
     actions = np.stack([suggestions[min(int(t), len(suggestions) - 1)] for t in times], axis=0)
     for index, obs in enumerate(frames):
         if not all(np.isfinite(np.asarray(obs[key])).all() for key in PROPRIO_KEYS):
@@ -115,6 +117,19 @@ class ObservationFeaturizer:
         for parameter in self.encoder.parameters():
             parameter.requires_grad_(False)
         self.encoder_source = repo or "facebookresearch/dinov2"
+        source_candidates = [Path(repo)] if repo else [
+            Path(torch.hub.get_dir()) / "facebookresearch_dinov2_main"
+        ]
+        self.encoder_commit = None
+        for source_path in source_candidates:
+            if source_path and (source_path / ".git").exists():
+                try:
+                    self.encoder_commit = subprocess.check_output(
+                        ["git", "-C", str(source_path), "rev-parse", "HEAD"],
+                        text=True,
+                    ).strip()
+                except (OSError, subprocess.CalledProcessError):
+                    pass
 
     @torch.inference_mode()
     def encode_images(self, images: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -135,7 +150,8 @@ class ObservationFeaturizer:
         return global_feature, local_feature
 
     def featurize_rows(self, rows: list[dict], *, head: str = "anchor", batch_size: int = 64) -> dict[str, Any]:
-        globals_, locals_, proprio, actions, times, sample_ids, metadata = [], [], [], [], [], [], []
+        globals_, locals_, proprio, actions, times, helper_elapsed = [], [], [], [], [], []
+        sample_ids, image_hashes, metadata = [], [], []
         for row in rows:
             if head == "anchor":
                 frames, frame_actions, frame_times = _anchor_history(row, int(self.config["horizon_steps"]))
@@ -148,6 +164,7 @@ class ObservationFeaturizer:
             ], dtype=np.uint8)
             # [T, cameras, H, W, C] -> [T, cameras, C, H, W] and flatten cameras as batch.
             image_array = np.transpose(image_array, (0, 1, 4, 2, 3))
+            image_hashes.append(hashlib.sha256(image_array.tobytes()).hexdigest())
             flat = image_array.reshape(1, image_array.shape[0] * image_array.shape[1], 3,
                                        image_array.shape[3], image_array.shape[4])
             global_flat, local_flat = self.encode_images(flat)
@@ -156,9 +173,19 @@ class ObservationFeaturizer:
             proprio.append(np.stack([_proprio(frame) for frame in frames]))
             actions.append(frame_actions.astype(np.float32))
             times.append(frame_times.reshape(4, 1))
+            elapsed = float(row.get("helper_length", 0)) / float(self.config["horizon_steps"])
+            helper_elapsed.append([elapsed])
             sample_ids.append(str(row["example_id"]))
-            metadata.append({"example_id": str(row["example_id"]), "root_id": row.get("root_id"),
-                             "stat_group_id": row.get("stat_group_id"), "absolute_t": frame_times.tolist()})
+            metadata.append({
+                "example_id": str(row["example_id"]),
+                "root_id": row.get("root_id"),
+                "stat_group_id": row.get("stat_group_id"),
+                "normalized_time": frame_times.tolist(),
+                "absolute_t": np.rint(
+                    frame_times * float(self.config["horizon_steps"])
+                ).astype(int).tolist(),
+                "padding_applied": len(set(frame_times.tolist())) < 4,
+            })
         if not sample_ids:
             raise ValueError(f"no feature rows for head={head}")
         return {
@@ -167,7 +194,9 @@ class ObservationFeaturizer:
             "proprio": np.asarray(proprio, dtype=np.float32),
             "base_actions": np.asarray(actions, dtype=np.float32),
             "time": np.asarray(times, dtype=np.float32),
+            "helper_elapsed": np.asarray(helper_elapsed, dtype=np.float32),
             "sample_ids": sample_ids,
+            "sample_image_hashes": image_hashes,
             "metadata": metadata,
         }
 
@@ -176,7 +205,9 @@ def _save_cache(cache: dict[str, Any], output_dir: Path, name: str, manifest: di
     output_dir.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(output_dir / f"{name}.npz", **{key: value for key, value in cache.items()
                                                         if isinstance(value, np.ndarray)})
-    atomic_json_dump({"sample_ids": cache["sample_ids"], "metadata": cache["metadata"]},
+    atomic_json_dump({"sample_ids": cache["sample_ids"],
+                      "sample_image_hashes": cache["sample_image_hashes"],
+                      "metadata": cache["metadata"]},
                      output_dir / f"{name}.samples.json")
     atomic_json_dump(manifest, output_dir / f"{name}.manifest.json")
 
@@ -215,6 +246,7 @@ def build_features(config: dict, dataset_dir: Path, roles: list[str], output_dir
         weights_hash = sha256_file(weight_path)
     encoder_record = config["hb2"]["encoder"] | {
         "source": featurizer.encoder_source,
+        "code_commit": featurizer.encoder_commit,
         "weights_sha256": weights_hash,
         "torch_version": torch.__version__,
     }
@@ -226,15 +258,32 @@ def build_features(config: dict, dataset_dir: Path, roles: list[str], output_dir
         "encoder": encoder_record,
         "encoder_hash": sha256_json(encoder_record),
         "transform": {"input": "uint8_hwc_rgb", "resize": "224 bicubic antialias", "mean": config["hb2"]["encoder"]["mean"], "std": config["hb2"]["encoder"]["std"]},
+        "sample_image_set_hash": sha256_json(cache["sample_image_hashes"]),
         "shapes": {key: list(value.shape) for key, value in cache.items() if isinstance(value, np.ndarray)},
     }
     _save_cache(cache, output_dir, "anchor" if head == "anchor" else "handoff", manifest)
+    atomic_json_dump(manifest, output_dir / "feature_manifest.json")
     schema = {
         "schema_version": "hb2_input_schema_v1", "head": head, "cameras": list(CAMERA_KEYS),
         "history_frames": 4, "proprio": list(PROPRIO_KEYS), "base_action_source": "suggestions[t]" if head == "anchor" else "handoff_history.base_action",
+        "helper_elapsed": "helper_length / horizon" if head == "handoff" else "not_used",
         "forbidden": ["object", "reward", "success", "future", "root_id", "role", "repair_action"],
     }
     atomic_json_dump(schema, output_dir / "input_schema.json")
+    atomic_json_dump({
+        "schema_version": "hb2_time_alignment_example_v1",
+        "head": head,
+        "sample": cache["metadata"][0],
+        "sample_image_sha256": cache["sample_image_hashes"][0],
+        "tensor_shapes": {
+            key: list(value[0].shape) for key, value in cache.items()
+            if isinstance(value, np.ndarray)
+        },
+        "all_inputs_finite": all(
+            np.isfinite(value).all() for key, value in cache.items()
+            if isinstance(value, np.ndarray)
+        ),
+    }, output_dir / "time_alignment_example.json")
     print(json.dumps({"head": head, "samples": len(cache["sample_ids"]), "output_dir": str(output_dir)}, indent=2))
 
 
