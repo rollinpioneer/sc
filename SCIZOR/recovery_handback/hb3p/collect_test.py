@@ -1,4 +1,4 @@
-"""Collect the fixed 80 HB3-P baseline roots and a label-free runtime manifest."""
+"""Collect frozen HB3-P roots and a label-free runtime manifest."""
 from __future__ import annotations
 
 import argparse
@@ -20,20 +20,20 @@ RUNTIME_FIELDS = (
 )
 
 
-def _prior_roots(handback_root: Path) -> list[dict]:
+def _prior_roots(handback_root: Path, current_root: Path) -> list[dict]:
     rows = []
-    for pattern in (
-        "hb1_v1/roots/**/roots.jsonl",
-        "hb1_repair_v1/roots/**/roots.jsonl",
-        "hb2_v1/roots/**/roots.jsonl",
-    ):
-        for path in sorted(handback_root.glob(pattern)):
-            rows.extend(read_table(path))
+    for path in sorted(handback_root.glob("*/roots/**/roots.jsonl")):
+        if current_root in path.parents:
+            continue
+        rows.extend(read_table(path))
     return rows
 
 
 def _expected(protocol: dict, start_index: int, count: int) -> list[int]:
-    seeds = [int(value) for value in protocol["test_seeds"]]
+    seeds = [int(value) for value in protocol.get("test_seeds", [])]
+    if not seeds:
+        start = int(protocol["test_seed_start"])
+        seeds = list(range(start, start + int(protocol["new_test_roots"])))
     return seeds[start_index:start_index + count]
 
 
@@ -54,8 +54,9 @@ def main() -> None:
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)
     parser.add_argument("--start-index", type=int, default=0)
-    parser.add_argument("--count", type=int, default=80)
+    parser.add_argument("--count", type=int)
     parser.add_argument("--chunk-size", type=int, default=10)
+    parser.add_argument("--role", default="hb3p_test")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
@@ -63,24 +64,26 @@ def main() -> None:
     protocol = json.loads(args.protocol.read_text(encoding="utf-8"))
     if not protocol.get("frozen") or not protocol.get("test_locked"):
         raise RuntimeError("test roots may only be collected after final protocol freeze")
-    if args.start_index != 0 or args.count != 80:
-        raise ValueError("the frozen HB3-P test collection is exactly indices 0..79")
-    expected = _expected(protocol, args.start_index, args.count)
-    if expected != list(range(500000, 500080)):
-        raise RuntimeError("frozen test seeds are not 500000..500079")
+    expected_count = int(protocol["new_test_roots"])
+    count = expected_count if args.count is None else int(args.count)
+    if args.start_index != 0 or count != expected_count:
+        raise ValueError(f"the frozen test collection is exactly indices 0..{expected_count - 1}")
+    expected = _expected(protocol, args.start_index, count)
+    if expected != list(range(int(protocol["test_seed_start"]), int(protocol["test_seed_start"]) + expected_count)):
+        raise RuntimeError("frozen test seeds do not match the protocol")
     assets = json.loads(Path(config["assets_file"]).read_text(encoding="utf-8"))
     pair_path = Path(config["hb2"]["selected_policy_pair_path"])
     args.output_dir.mkdir(parents=True, exist_ok=True)
     all_rows = []
-    for first in range(args.start_index, args.start_index + args.count, args.chunk_size):
-        size = min(args.chunk_size, args.start_index + args.count - first)
+    for first in range(args.start_index, args.start_index + count, args.chunk_size):
+        size = min(args.chunk_size, args.start_index + count - first)
         seeds = expected[first:first + size]
         shard = args.output_dir / "shards" / f"{first:03d}_{first + size - 1:03d}"
         if not (args.resume and _valid_shard(shard, seeds)):
             if shard.exists() and any(shard.iterdir()):
                 raise RuntimeError(f"incomplete collection shard requires inspection: {shard}")
             collect(
-                config, assets, "square", "hb3p_test", pair_path, shard,
+                config, assets, "square", args.role, pair_path, shard,
                 start_index=first, count=size,
             )
         rows = read_table(shard / "roots.jsonl")
@@ -92,16 +95,16 @@ def main() -> None:
         raise RuntimeError("merged test root seed coverage mismatch")
     write_table(all_rows, args.output_dir / "roots.parquet")
     write_table(all_rows, args.output_dir / "roots.jsonl")
-    select(config, "square", "hb3p_test", args.output_dir / "roots.parquet", args.output_dir / "anchors.parquet")
+    select(config, "square", args.role, args.output_dir / "roots.parquet", args.output_dir / "anchors.parquet")
     anchors = read_table(args.output_dir / "anchors.parquet")
     roots_by_id = {str(row["root_id"]): row for row in all_rows}
     for row in anchors:
-        row["data_role"] = "hb3p_test"
+        row["data_role"] = args.role
         row["model_hash"] = roots_by_id[str(row["root_id"])]["model_hash"]
     write_table(anchors, args.output_dir / "anchors.parquet")
     write_table(anchors, args.output_dir / "anchors.jsonl")
 
-    prior = _prior_roots(Path(config["output_root"]).parent)
+    prior = _prior_roots(Path(config["output_root"]).parent, Path(config["output_root"]))
     prior_hashes = {str(row["initial_state_hash"]) for row in prior if row.get("initial_state_hash")}
     new_hashes = [str(row["initial_state_hash"]) for row in all_rows]
     hash_overlap = sorted(prior_hashes.intersection(new_hashes))
@@ -140,7 +143,7 @@ def main() -> None:
     }, args.output_dir / "summary.json")
     if engineering_failures or hash_overlap or duplicate_hashes:
         raise RuntimeError("HB3-P root collection failed engineering or independence checks")
-    mark(Path(config["output_root"]), "hb3p-E-roots.done", "80 frozen test roots collected")
+    mark(Path(config["output_root"]), "hb3p-E-roots.done", f"{len(all_rows)} frozen test roots collected")
     print(json.dumps({"roots": len(all_rows), "anchors": len(anchors), "baseline_successes": sum(bool(row["baseline_success"]) for row in all_rows)}, indent=2))
 
 

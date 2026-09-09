@@ -29,7 +29,7 @@ def _trace_costs(row: dict) -> dict:
 def _baseline(root: dict, protocol_hash: str, semantic_pair_id: str) -> dict:
     return {
         "schema_version": "hb3p_aggregate_episode_v1",
-        "task": "square", "role": "hb3p_test", "root_id": root["root_id"],
+        "task": "square", "role": str(root.get("role", root.get("exposure_role", "hb3p_test"))), "root_id": root["root_id"],
         "stat_group_id": root["stat_group_id"], "method_id": "NONE",
         "canonical_execution": "NONE", "protocol_hash": protocol_hash,
         "semantic_pair_id": semantic_pair_id, "engineering_ok": root.get("exception_reason") is None,
@@ -66,10 +66,11 @@ def main() -> None:
     protocol = json.loads(args.protocol.read_text(encoding="utf-8"))
     protocol_hash = sha256_file(args.protocol)
     roots = read_table(args.roots)
-    if len(roots) != 80:
-        raise RuntimeError(f"expected 80 test roots, got {len(roots)}")
+    expected_roots = int(protocol["new_test_roots"])
+    if len(roots) != expected_roots:
+        raise RuntimeError(f"expected {expected_roots} test roots, got {len(roots)}")
     roots_by_id = {str(row["root_id"]): row for row in roots}
-    if len(roots_by_id) != 80:
+    if len(roots_by_id) != expected_roots:
         raise RuntimeError("test root IDs are not unique")
     aliases = {row["alias"]: row["canonical_execution"] for row in protocol.get("method_aliases", [])}
     canonical_methods = sorted({
@@ -136,12 +137,12 @@ def main() -> None:
     coverage = {
         "schema_version": "hb3p_test_coverage_v1",
         "protocol_hash": protocol_hash,
-        "preregistered_roots": 80,
+        "preregistered_roots": expected_roots,
         "logical_methods": logical_methods,
         "canonical_online_methods": canonical_methods,
-        "expected_logical_records": 80 * len(logical_methods),
+        "expected_logical_records": expected_roots * len(logical_methods),
         "complete_logical_records": len(rows),
-        "actual_unique_rollouts": 80 + len(canonical),
+        "actual_unique_rollouts": expected_roots + len(canonical),
         "total_env_steps_actual": sum(
             int(row["actual_steps"]) for row in roots
         ) + sum(
@@ -149,7 +150,7 @@ def main() -> None:
         ),
         "missing_records": missing,
         "engineering_failures": failures,
-        "complete": not missing and not failures and len(rows) == 80 * len(logical_methods),
+        "complete": not missing and not failures and len(rows) == expected_roots * len(logical_methods),
     }
     args.output_dir.mkdir(parents=True, exist_ok=True)
     atomic_json_dump(coverage, args.output_dir / "coverage.json")

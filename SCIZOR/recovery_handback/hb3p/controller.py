@@ -8,7 +8,7 @@ from typing import Optional
 from recovery_handback.hb2.metrics import choose_length
 
 TIMES = (20, 80, 160)
-LENGTHS = (0, 5, 20, 80)
+LENGTHS = (0, 5, 20, 40, 60, 80)
 
 
 @dataclass(frozen=True)

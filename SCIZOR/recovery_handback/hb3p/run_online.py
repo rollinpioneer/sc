@@ -35,10 +35,12 @@ def main() -> None:
     all_roots = read_jsonl(args.roots)
     root_ids = [str(row["root_id"]) for row in all_roots]
     seeds = [int(row["seed"]) for row in all_roots]
-    if len(all_roots) != 80 or len(set(root_ids)) != 80:
-        raise RuntimeError("formal online execution requires 80 unique preregistered roots")
-    if sorted(seeds) != list(range(500000, 500080)):
-        raise RuntimeError("formal online root seeds do not match the frozen 500000..500079 manifest")
+    expected_count = int(protocol["new_test_roots"])
+    expected_seeds = list(range(int(protocol["test_seed_start"]), int(protocol["test_seed_start"]) + expected_count))
+    if len(all_roots) != expected_count or len(set(root_ids)) != expected_count:
+        raise RuntimeError(f"formal online execution requires {expected_count} unique preregistered roots")
+    if sorted(seeds) != expected_seeds:
+        raise RuntimeError("formal online root seeds do not match the frozen protocol")
     roots = all_roots
     roots = [row for index, row in enumerate(roots) if index % args.num_shards == args.shard_index]
     alias_map = {row["alias"]: row["canonical_execution"] for row in protocol.get("method_aliases", [])}

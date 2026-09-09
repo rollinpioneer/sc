@@ -48,6 +48,10 @@ class References(unittest.TestCase):
         controller = SingleIntervention(Rule("scheduled", scheduled_t=20, scheduled_length=5))
         owners = [controller.owner_before_action(t)[0] for t in range(40)]
         self.assertEqual(owners.count("repair"), 5)
+        for length in (40, 60):
+            controller = SingleIntervention(Rule("scheduled", scheduled_t=20, scheduled_length=length))
+            owners = [controller.owner_before_action(t)[0] for t in range(120)]
+            self.assertEqual(owners.count("repair"), length)
         missing = SingleIntervention(Rule("model"))
         for t in range(20):
             missing.owner_before_action(t)
