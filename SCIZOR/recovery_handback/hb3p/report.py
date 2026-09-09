@@ -23,6 +23,15 @@ def _fmt(value, digits: int = 4) -> str:
         return "NA"
     if isinstance(value, bool):
         return str(value)
+
+
+def _optional_int(value) -> int | None:
+    if value is None:
+        return None
+    numeric = float(value)
+    if numeric != numeric:
+        return None
+    return int(numeric)
     try:
         return f"{float(value):.{digits}f}"
     except (TypeError, ValueError):
@@ -54,7 +63,8 @@ def _cases(episodes_path: Path) -> list[dict]:
             if predicate(none, m1, scheduled):
                 output.append({
                     "category": category, "stat_group_id": root,
-                    "root_id": m1["root_id"], "M1_takeover_t": m1["takeover_t"],
+                    "root_id": m1["root_id"],
+                    "M1_takeover_t": _optional_int(m1.get("takeover_t")),
                     "M1_length": m1["selected_length"],
                 })
                 used.add(root)
@@ -106,7 +116,8 @@ def main() -> None:
         "- Verification Status: VERIFIED",
         "- Experiment: HB3-P-v1 Square",
         f"- Source commit: `{protocol['source_ref']}`",
-        f"- Frozen code commit: `{protocol['code_commit']}`",
+        f"- Frozen execution code commit: `{protocol['code_commit']}`",
+        f"- Result analysis code commit: `{decision['analysis_code_commit']}`",
         f"- Result status: **{decision['hb3p_status']}**",
         f"- Frozen protocol SHA256: `{sha256_file(root / 'config/frozen_protocol.json')}`",
         "",
@@ -118,6 +129,7 @@ def main() -> None:
         "- Scope: fixed candidate times 20/80/160, at most one takeover, fixed 5/20/80-step exit, permanent handback.",
         "- Preserved HB2 status: `HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN`.",
         "- No action policy, teacher, DINO backbone, F model, or H model was retrained.",
+        "- After collection, an analysis-only correction normalized missing numeric values in decision-count, latency, and case-display outputs. It did not change trajectories, frozen decision rules, method metrics, confidence intervals, or the research status.",
         "",
         "## Episode-Level Change From HB2",
         "",
@@ -222,7 +234,10 @@ def main() -> None:
     ])
     if cases:
         for case in cases:
-            lines.append(f"- `{case['category']}`: `{case['root_id']}`, M1 t={case['M1_takeover_t']}, L={case['M1_length']}.")
+            lines.append(
+                f"- `{case['category']}`: `{case['root_id']}`, "
+                f"M1 t={_fmt(case['M1_takeover_t'], 0)}, L={case['M1_length']}."
+            )
     else:
         lines.append("- No case matched the four predeclared descriptive categories; no extra roots were collected.")
     args.output.parent.mkdir(parents=True, exist_ok=True)

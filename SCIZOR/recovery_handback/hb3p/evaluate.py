@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -24,8 +25,35 @@ PAIRS = (
 
 
 def _mean(rows: list[dict], key: str) -> float | None:
-    values = [float(row[key]) for row in rows if row.get(key) is not None]
+    values = []
+    for row in rows:
+        value = row.get(key)
+        if value is None:
+            continue
+        numeric = float(value)
+        if np.isfinite(numeric):
+            values.append(numeric)
     return float(np.mean(values)) if values else None
+
+
+def _optional_int(value) -> int | None:
+    if value is None:
+        return None
+    numeric = float(value)
+    return int(numeric) if np.isfinite(numeric) else None
+
+
+def _analysis_code_commit() -> str:
+    repo = Path(__file__).resolve().parents[3]
+    dirty = subprocess.check_output(
+        ["git", "-C", str(repo), "status", "--porcelain", "--", "SCIZOR/recovery_handback/hb3p"],
+        text=True,
+    ).strip()
+    if dirty:
+        raise RuntimeError("commit HB3-P analysis code before generating the final decision")
+    return subprocess.check_output(
+        ["git", "-C", str(repo), "rev-parse", "HEAD"], text=True
+    ).strip()
 
 
 def _root_map(rows: list[dict], key: str) -> dict[str, float]:
@@ -170,7 +198,10 @@ def main() -> None:
 
     decision_rows = []
     for method, values in grouped.items():
-        takeover_counts = Counter((row.get("takeover_t"), int(row["selected_length"])) for row in values)
+        takeover_counts = Counter(
+            (_optional_int(row.get("takeover_t")), int(row["selected_length"]))
+            for row in values
+        )
         for (absolute_t, length), count in sorted(takeover_counts.items(), key=lambda item: (item[0][0] is None, item[0][0] or -1, item[0][1])):
             decision_rows.append({
                 "method_id": method, "event": "takeover_choice",
@@ -211,6 +242,7 @@ def main() -> None:
     m4_vs_s = comparisons["M4_GRID_minus_S_STAR"]["utility"]
     decision = {
         "schema_version": "hb3p_decision_v1",
+        "analysis_code_commit": _analysis_code_commit(),
         "hb3p_status": status,
         "hb2_status_preserved": "HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN",
         "stage": "HB3-P", "task": "square",

@@ -83,9 +83,13 @@ def main() -> None:
     for path in sorted(code_root.iterdir()):
         if path.is_file() and path.suffix in {".py", ".json", ".sh"}:
             files.append((path, f"code/{path.name}"))
+    protocol = json.loads((root / "config/frozen_protocol.json").read_text())
+    decision = json.loads((root / "metrics/hb3p_decision.json").read_text())
     manifest = {
         "schema_version": "hb3p_lightweight_package_v1",
-        "source_ref": json.loads((root / "config/frozen_protocol.json").read_text())["source_ref"],
+        "source_ref": protocol["source_ref"],
+        "frozen_execution_code_commit": protocol["code_commit"],
+        "result_analysis_code_commit": decision["analysis_code_commit"],
         "included_files": [name for _, name in files],
         "exclusions": [
             "model weights", "DINO caches", "HDF5", "NPZ trajectories", "Parquet",
