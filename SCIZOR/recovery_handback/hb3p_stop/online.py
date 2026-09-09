@@ -94,14 +94,18 @@ def _validate(result: dict, helper_mask: list[bool]) -> None:
 
 
 class OnlineRunner:
-    def __init__(self, config_path: Path, protocol_path: Path, *, device: str = "cuda"):
+    def __init__(self, config_path: Path, protocol_path: Path, *, device: str = "cuda",
+                 base_device: str | None = None):
         self.config_path = Path(config_path)
         self.protocol_path = Path(protocol_path)
         self.config = json.loads(self.config_path.read_text(encoding="utf-8"))
         self.protocol = json.loads(self.protocol_path.read_text(encoding="utf-8"))
         self.protocol_hash = sha256_file(self.protocol_path)
         self.pair = json.loads(Path(self.config["policy_pair_path"]).read_text(encoding="utf-8"))
-        self.base = BasePolicyAdapter(self.pair["base"]["checkpoint"], device=device)
+        self.base = BasePolicyAdapter(
+            self.pair["base"]["checkpoint"],
+            device=base_device or device,
+        )
         self.repair = build_repair_adapter(self.pair, device=device)
         model = self.protocol["model"]
         predictor_device = device if device == "cuda" else "cpu"

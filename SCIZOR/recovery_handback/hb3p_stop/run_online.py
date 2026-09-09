@@ -26,6 +26,7 @@ def main() -> None:
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--base-device")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--methods", nargs="*")
     args = parser.parse_args()
@@ -42,7 +43,12 @@ def main() -> None:
     methods = list(args.methods) if args.methods is not None else ["FIXED_L60", "FIXED_L80", "LEARNED_STOP_CONTINUE"]
     if any(method not in METHODS for method in methods):
         raise ValueError(f"methods must be among {METHODS}")
-    runner = OnlineRunner(args.config, args.protocol, device=args.device)
+    runner = OnlineRunner(
+        args.config,
+        args.protocol,
+        device=args.device,
+        base_device=args.base_device,
+    )
     records = []
     protocol_hash = sha256_file(args.protocol)
     for root in roots:
@@ -68,4 +74,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
