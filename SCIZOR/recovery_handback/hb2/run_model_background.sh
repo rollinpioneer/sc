@@ -4,6 +4,7 @@ set -Eeuo pipefail
 HB2_ROOT="${HB2_ROOT:-/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1}"
 CODE_ROOT="${CODE_ROOT:-/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb2-square-v1/SCIZOR}"
 PY_FEAT="${PY_FEAT:-/home/xushijie/.conda/envs/lerobot/bin/python}"
+PY_SIM="${PY_SIM:-/home/xushijie/.conda/envs/handback-hb1/bin/python}"
 CONFIG="$HB2_ROOT/config/hb2.json"
 STATUS="$HB2_ROOT/status"
 LOGS="$HB2_ROOT/logs"
@@ -96,12 +97,12 @@ mark handoff-models.done "H protocol locked"
 run_gpu 6 "$PY_FEAT" -m recovery_handback.hb2.runtime_probe --config "$CONFIG" --protocol "$HB2_ROOT/config/frozen_protocol.json" --pilot-roots "$HB2_ROOT/roots/hb2_pilot" --output-dir "$HB2_ROOT/metrics/runtime_probe" > "$LOGS/runtime_probe.log" 2>&1
 
 mark test-collect.running "new test roots after protocol freeze"
-run_gpu 6 "$PY_FEAT" -m recovery_handback.hb2.collect --config "$CONFIG" --role hb2_test --start-index 0 --count 40 --output-dir "$HB2_ROOT/roots/hb2_test" > "$LOGS/collect_hb2_test.log" 2>&1
+run_gpu 6 "$PY_SIM" -m recovery_handback.hb2.collect --config "$CONFIG" --role hb2_test --start-index 0 --count 40 --output-dir "$HB2_ROOT/roots/hb2_test" > "$LOGS/collect_hb2_test.log" 2>&1
 mark test-roots.done "test roots and anchors complete"
-run_gpu 1 "$PY_FEAT" -m recovery_handback.execution.run_branches --config "$CONFIG" --policy-pair "$HB2_ROOT/assets/policy_pair_square.json" --anchors "$HB2_ROOT/roots/hb2_test/anchors.parquet" --role hb2_test --output-dir "$HB2_ROOT/branches/hb2_test/shard_000" --num-shards 2 --shard-index 0 --resume --base-device cuda --repair-device cuda > "$LOGS/branches_hb2_test_000.log" 2>&1 & pt0=$!
-run_gpu 2 "$PY_FEAT" -m recovery_handback.execution.run_branches --config "$CONFIG" --policy-pair "$HB2_ROOT/assets/policy_pair_square.json" --anchors "$HB2_ROOT/roots/hb2_test/anchors.parquet" --role hb2_test --output-dir "$HB2_ROOT/branches/hb2_test/shard_001" --num-shards 2 --shard-index 1 --resume --base-device cuda --repair-device cuda > "$LOGS/branches_hb2_test_001.log" 2>&1 & pt1=$!
+run_gpu 1 "$PY_SIM" -m recovery_handback.execution.run_branches --config "$CONFIG" --policy-pair "$HB2_ROOT/assets/policy_pair_square.json" --anchors "$HB2_ROOT/roots/hb2_test/anchors.parquet" --role hb2_test --output-dir "$HB2_ROOT/branches/hb2_test/shard_000" --num-shards 2 --shard-index 0 --resume --base-device cuda --repair-device cuda > "$LOGS/branches_hb2_test_000.log" 2>&1 & pt0=$!
+run_gpu 2 "$PY_SIM" -m recovery_handback.execution.run_branches --config "$CONFIG" --policy-pair "$HB2_ROOT/assets/policy_pair_square.json" --anchors "$HB2_ROOT/roots/hb2_test/anchors.parquet" --role hb2_test --output-dir "$HB2_ROOT/branches/hb2_test/shard_001" --num-shards 2 --shard-index 1 --resume --base-device cuda --repair-device cuda > "$LOGS/branches_hb2_test_001.log" 2>&1 & pt1=$!
 printf '%s\n' "$pt0" "$pt1" > "$LOGS/hb2-current-workers.pid"; wait "$pt0"; wait "$pt1"
-"$PY_FEAT" -m recovery_handback.hb2.aggregate --config "$CONFIG" --role hb2_test --anchors "$HB2_ROOT/roots/hb2_test/anchors.parquet" --branches-root "$HB2_ROOT/branches/hb2_test" --output-dir "$HB2_ROOT/data/hb2_test" > "$LOGS/aggregate_hb2_test.log" 2>&1
+"$PY_SIM" -m recovery_handback.hb2.aggregate --config "$CONFIG" --role hb2_test --anchors "$HB2_ROOT/roots/hb2_test/anchors.parquet" --branches-root "$HB2_ROOT/branches/hb2_test" --output-dir "$HB2_ROOT/data/hb2_test" > "$LOGS/aggregate_hb2_test.log" 2>&1
 "$PY_FEAT" -m recovery_handback.hb2.attach_test --config "$CONFIG" --frozen-dataset "$HB2_ROOT/data/frozen" --test-data "$HB2_ROOT/data/hb2_test" --output-dir "$HB2_ROOT/data/test_attached" > "$LOGS/attach_test.log" 2>&1
 mark test-collect.done "test branches and labels complete"
 
