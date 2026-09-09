@@ -94,14 +94,28 @@ def train(dataset_dir: Path, output_dir: Path, *, seed: int = 20260909, epochs: 
     for fold in sorted(set(folds.tolist())):
         train_idx = np.flatnonzero(folds != fold)
         test_idx = np.flatnonzero(folds == fold)
-        model, mean, std = _fit(features, labels, train_idx, seed + fold, epochs, device)
+        model, mean, std = _fit(
+            features,
+            labels,
+            train_idx,
+            seed=seed + fold,
+            epochs=epochs,
+            device=device,
+        )
         oof[test_idx] = _scores(model, features, test_idx, mean, std, device)
         fold_rows.append({"fold": fold, "train_roots": int(len(train_idx)), "holdout_roots": int(len(test_idx))})
     if not np.isfinite(oof).all():
         raise RuntimeError("OOF prediction coverage is incomplete")
     threshold, selection = _threshold(oof, rows)
     final_indices = np.arange(len(rows))
-    model, mean, std = _fit(features, labels, final_indices, seed, epochs, device)
+    model, mean, std = _fit(
+        features,
+        labels,
+        final_indices,
+        seed=seed,
+        epochs=epochs,
+        device=device,
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
     checkpoint = output_dir / "stop_continue.pt"
     torch.save({
