@@ -38,7 +38,7 @@ def _observation_tape(rollout_path: Path) -> dict:
 
 
 def _obs_frame(obs: dict) -> dict:
-    allowed = ("agentview_image", "robot0_eye_in_hand_image", "robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos")
+    allowed = ("robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos")
     return {key: np.asarray(obs[key]).copy() for key in allowed}
 
 

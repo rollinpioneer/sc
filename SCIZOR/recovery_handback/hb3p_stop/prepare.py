@@ -82,6 +82,7 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
         "noninferiority_comparator": "FIXED_L80",
         "short_exit_comparator": "FIXED_L60",
         "pilot": True,
+        "formal_claim_allowed": False,
         "pilot_reason": "40 roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
         "input_schema": {
             "allowed": ["robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos", "base_action_history", "absolute_time"],

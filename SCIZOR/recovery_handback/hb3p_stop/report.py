@@ -53,6 +53,7 @@ def write_report(config_path: Path, protocol_path: Path, dataset_summary_path: P
         f"- Complete logical records: `{coverage['complete_records']}/{coverage['expected_records']}`.",
         f"- Unique rollouts including baseline: `{coverage['unique_rollouts']}`.",
         f"- Prefix checks: `{coverage['prefix_verified_roots']}/{coverage['expected_roots']}`.",
+        f"- Learned-to-selected-fixed full trajectory parity: `{coverage['branch_parity_verified_roots']}/{coverage['expected_roots']}`.",
         f"- Missing records / engineering failures: `{len(coverage['missing_records'])}/{len(coverage['engineering_failures'])}`.",
         "- Required online invariants: one base-policy call per executed step, at most one takeover, no repair call after handback.",
         "",

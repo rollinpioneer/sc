@@ -27,6 +27,21 @@ def _prefix_key(path: Path) -> tuple[str, str]:
     return sha256_array(states[:21]), sha256_array(actions[:20])
 
 
+def _predecision_key(path: Path) -> tuple[int, str, int, str]:
+    with np.load(path, allow_pickle=False) as archive:
+        states = np.asarray(archive["states"], dtype=np.float64)
+        base_actions = np.asarray(archive["base_actions"], dtype=np.float32)
+    state_count = min(81, len(states))
+    action_count = min(81, len(base_actions))
+    return state_count, sha256_array(states[:state_count]), action_count, sha256_array(base_actions[:action_count])
+
+
+def _trajectory_key(path: Path) -> tuple:
+    with np.load(path, allow_pickle=False) as archive:
+        names = ("states", "actions", "base_actions", "helper_mask", "success")
+        return tuple((name, tuple(archive[name].shape), sha256_array(np.asarray(archive[name]))) for name in names)
+
+
 def aggregate(roots_path: Path, episodes_root: Path, output_dir: Path, protocol: dict) -> dict:
     roots = read_jsonl(Path(roots_path))
     expected = list(map(int, protocol["test_seeds"]))
@@ -84,7 +99,7 @@ def aggregate(roots_path: Path, episodes_root: Path, output_dir: Path, protocol:
             row["utility"] = episode_value(row, float(protocol["lambda"]), float(protocol["horizon_steps"]))
             row["root_id"] = root_id
             rows.append(row)
-    prefix_rows, prefix_failures = [], []
+    prefix_rows, prefix_failures, parity_rows, parity_failures = [], [], [], []
     for root_id, root in roots_by_id.items():
         with np.load(root["rollout_path"], allow_pickle=False) as archive:
             baseline_states = np.asarray(archive["states"], dtype=np.float64)
@@ -94,25 +109,53 @@ def aggregate(roots_path: Path, episodes_root: Path, output_dir: Path, protocol:
             source = records.get((root_id, method))
             if source is not None:
                 keys[method] = _prefix_key(Path(source["trajectory_path"]))
-        verified = len(keys) == 4 and len(set(keys.values())) == 1
-        prefix_rows.append({"root_id": root_id, "prefix_verified": verified, "state_hash": keys["NONE"][0], "action_hash": keys["NONE"][1]})
-        if not verified:
+        shared_t20 = len(keys) == 4 and len(set(keys.values())) == 1
+        helper_predecision = {
+            method: _predecision_key(Path(records[(root_id, method)]["trajectory_path"]))
+            for method in METHODS[1:] if (root_id, method) in records
+        }
+        shared_t80 = len(helper_predecision) == 3 and len(set(helper_predecision.values())) == 1
+        prefix_rows.append({
+            "root_id": root_id, "shared_t20_verified": shared_t20,
+            "helper_predecision_t80_verified": shared_t80,
+            "state_hash_t20": keys["NONE"][0], "action_hash_t20": keys["NONE"][1],
+        })
+        if not shared_t20 or not shared_t80:
             prefix_failures.append({"root_id": root_id, "keys": keys})
+        learned = records.get((root_id, "LEARNED_STOP_CONTINUE"))
+        comparator = None
+        parity = False
+        if learned is not None:
+            comparator = "FIXED_L60" if int(learned["selected_length"]) == 60 else "FIXED_L80"
+            fixed = records.get((root_id, comparator))
+            parity = fixed is not None and _trajectory_key(Path(learned["trajectory_path"])) == _trajectory_key(Path(fixed["trajectory_path"]))
+        parity_rows.append({
+            "root_id": root_id, "learned_decision": learned.get("stop_continue_decision") if learned else None,
+            "selected_length": learned.get("selected_length") if learned else None,
+            "matched_fixed_method": comparator, "full_trajectory_parity": parity,
+        })
+        if not parity:
+            parity_failures.append({"root_id": root_id, "matched_fixed_method": comparator})
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     write_jsonl(rows, output_dir / "episodes.jsonl")
     write_csv(prefix_rows, output_dir / "prefix_checks.csv")
+    write_csv(parity_rows, output_dir / "branch_parity.csv")
     atomic_json_dump({
         "schema_version": "hb3p_stop_continue_coverage_v1",
         "protocol_sha256": protocol["protocol_sha256"], "expected_roots": len(roots),
         "methods": list(METHODS), "expected_records": len(roots) * len(METHODS), "complete_records": len(rows),
         "unique_rollouts": len(roots) + len(records), "missing_records": missing, "engineering_failures": failures,
-        "prefix_verified_roots": sum(bool(row["prefix_verified"]) for row in prefix_rows), "prefix_failures": prefix_failures,
-        "complete": not missing and not failures and not prefix_failures and len(rows) == len(roots) * len(METHODS),
+        "shared_t20_verified_roots": sum(bool(row["shared_t20_verified"]) for row in prefix_rows),
+        "helper_predecision_t80_verified_roots": sum(bool(row["helper_predecision_t80_verified"]) for row in prefix_rows),
+        "prefix_verified_roots": sum(bool(row["shared_t20_verified"] and row["helper_predecision_t80_verified"]) for row in prefix_rows),
+        "branch_parity_verified_roots": sum(bool(row["full_trajectory_parity"]) for row in parity_rows),
+        "prefix_failures": prefix_failures, "branch_parity_failures": parity_failures,
+        "complete": not missing and not failures and not prefix_failures and not parity_failures and len(rows) == len(roots) * len(METHODS),
     }, output_dir / "coverage.json")
-    if missing or failures or prefix_failures:
+    if missing or failures or prefix_failures or parity_failures:
         raise RuntimeError("stop/continue aggregation failed coverage or prefix checks")
-    return {"records": len(rows), "unique_rollouts": len(roots) + len(records), "prefix_verified_roots": len(roots)}
+    return {"records": len(rows), "unique_rollouts": len(roots) + len(records), "prefix_verified_roots": len(roots), "branch_parity_verified_roots": len(roots)}
 
 
 def main() -> None:
