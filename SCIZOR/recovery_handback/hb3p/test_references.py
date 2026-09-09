@@ -7,7 +7,9 @@ from recovery_handback.hb3p.controller import (
     SingleIntervention,
     select_episode_from_cached_predictions,
 )
+from recovery_handback.hb3p.evaluate import _mean, _optional_int
 from recovery_handback.hb3p.metrics import binary_ranking, episode_value, paired_bootstrap
+from recovery_handback.hb3p.report import _fmt
 
 NO = {"p0": 0.9, "p_genuine_5": 0.01, "p_genuine_20": 0.02, "p_genuine_80": 0.03}
 YES = {"p0": 0.01, "p_genuine_5": 0.02, "p_genuine_20": 0.9, "p_genuine_80": 0.1}
@@ -89,6 +91,18 @@ class References(unittest.TestCase):
         self.assertEqual(paired_bootstrap(values, values)["ci95_percentile"], [0.0, 0.0])
         with self.assertRaises(ValueError):
             paired_bootstrap(values, {"a": 0.2})
+
+    def test_missing_numeric_values_are_normalized(self):
+        self.assertIsNone(_optional_int(None))
+        self.assertIsNone(_optional_int(float("nan")))
+        self.assertEqual(_optional_int(20.0), 20)
+        self.assertIsNone(_mean([{"value": None}, {"value": float("nan")}], "value"))
+        self.assertEqual(_mean([{"value": float("nan")}, {"value": 0.25}], "value"), 0.25)
+
+    def test_report_number_formatting(self):
+        self.assertEqual(_fmt(None), "NA")
+        self.assertEqual(_fmt(0.25), "0.2500")
+        self.assertEqual(_fmt(-0.068457, 6), "-0.068457")
 
 
 if __name__ == "__main__":

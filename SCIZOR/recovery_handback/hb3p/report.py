@@ -23,6 +23,10 @@ def _fmt(value, digits: int = 4) -> str:
         return "NA"
     if isinstance(value, bool):
         return str(value)
+    try:
+        return f"{float(value):.{digits}f}"
+    except (TypeError, ValueError):
+        return str(value)
 
 
 def _optional_int(value) -> int | None:
@@ -32,10 +36,6 @@ def _optional_int(value) -> int | None:
     if numeric != numeric:
         return None
     return int(numeric)
-    try:
-        return f"{float(value):.{digits}f}"
-    except (TypeError, ValueError):
-        return str(value)
 
 
 def _cases(episodes_path: Path) -> list[dict]:
