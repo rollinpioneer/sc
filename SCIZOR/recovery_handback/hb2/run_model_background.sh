@@ -19,6 +19,9 @@ fail() { code=$?; printf '%s failed line=%s exit=%s\n' "$(stamp)" "$1" "$code" >
 trap 'fail $LINENO' ERR
 run_gpu() { local gpu="$1"; shift; CUDA_VISIBLE_DEVICES="$gpu" MUJOCO_EGL_DEVICE_ID="$gpu" "$@"; }
 
+rm -f "$STATUS/hb2-model.failed"
+mark hb2-model.running "pid=$$ waiting for frozen data"
+
 while [[ ! -f "$STATUS/hb2-data.done" ]]; do
   if ! kill -0 "$(cat "$LOGS/hb2-data-supervisor.pid" 2>/dev/null || echo 0)" 2>/dev/null; then
     [[ -f "$STATUS/hb2-data.failed" ]] && sleep 20 || true

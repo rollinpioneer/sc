@@ -31,17 +31,22 @@ def _inputs(batch: dict, device: torch.device) -> dict[str, torch.Tensor]:
 
 
 def _outcome_loss(logits: torch.Tensor, batch: dict) -> tuple[torch.Tensor, dict]:
-    losses = [F.binary_cross_entropy_with_logits(logits[:, 0], batch["y0"].float()),
-              F.cross_entropy(logits[:, 1:5], batch["categories"][:, 0]),
-              F.cross_entropy(logits[:, 5:9], batch["categories"][:, 1]),
-              F.cross_entropy(logits[:, 9:13], batch["categories"][:, 2]),
-              F.binary_cross_entropy_with_logits(logits[:, 13], batch["yfull"].float())]
+    device = logits.device
+    y0 = batch["y0"].to(device=device, dtype=logits.dtype)
+    yfull = batch["yfull"].to(device=device, dtype=logits.dtype)
+    categories = batch["categories"].to(device=device)
+    delta = batch["delta"].to(device=device, dtype=logits.dtype)
+    losses = [F.binary_cross_entropy_with_logits(logits[:, 0], y0),
+              F.cross_entropy(logits[:, 1:5], categories[:, 0]),
+              F.cross_entropy(logits[:, 5:9], categories[:, 1]),
+              F.cross_entropy(logits[:, 9:13], categories[:, 2]),
+              F.binary_cross_entropy_with_logits(logits[:, 13], yfull)]
     outcome = torch.stack(losses).mean()
     probs = [torch.sigmoid(logits[:, 0])]
     for start in (1, 5, 9):
         probs.append(1 - logits[:, start:start + 4].softmax(-1)[:, 0])
     p0 = probs[0]
-    pair = torch.stack([F.smooth_l1_loss(probs[index + 1] - p0, batch["delta"][:, index]) for index in range(3)]).mean()
+    pair = torch.stack([F.smooth_l1_loss(probs[index + 1] - p0, delta[:, index]) for index in range(3)]).mean()
     return outcome, {"outcome": outcome, "pair": pair, "total": outcome}
 
 
