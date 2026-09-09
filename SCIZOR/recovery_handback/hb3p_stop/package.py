@@ -11,8 +11,9 @@ from recovery_handback.common import sha256_file
 
 ALLOWLIST = (
     "config/stop_continue.json", "config/protocol.draft.json", "config/frozen_protocol.json", "config/frozen.sha256",
-    "config/source_commit.txt", "dataset/dataset_manifest.json", "model/training_summary.json", "model/oof_predictions.jsonl",
-    "metrics/coverage.json", "metrics/summary.json", "metrics/decision.json", "metrics/methods.csv", "metrics/prefix_checks.csv", "metrics/branch_parity.csv",
+    "config/source_commit.txt", "dataset/dataset_manifest.json", "dataset/paired_dataset.npz", "dataset/paired_labels.jsonl",
+    "model/training_summary.json", "model/oof_predictions.jsonl", "metrics/episodes.jsonl", "metrics/coverage.json",
+    "metrics/summary.json", "metrics/decision.json", "metrics/methods.csv", "metrics/prefix_checks.csv", "metrics/branch_parity.csv",
     "report/HB3P_STOP_CONTINUE.md", "report/LOCAL_ONLY_ARTIFACTS.md",
 )
 

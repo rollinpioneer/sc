@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
-from recovery_handback.common import sha256_file
+from recovery_handback.common import sha256_array, sha256_file
 from recovery_handback.hb3p.metrics import episode_value
 from recovery_handback.hb3p_stop.features import audit_input_schema, feature_from_history
 from recovery_handback.hb3p_stop.io import atomic_json_dump, write_jsonl
@@ -85,7 +85,9 @@ def build(probe_root: Path, output_dir: Path, *, horizon: int = 400, lambda_: fl
         "utility": {"lambda": lambda_, "denominator": horizon},
         "input_schema": audit_input_schema(),
         "feature_shape": list(features_array.shape),
-        "feature_matrix_sha256": sha256_file(output_dir / "paired_dataset.npz"),
+        "feature_array_sha256": sha256_array(features_array),
+        "label_array_sha256": sha256_array(labels_array),
+        "dataset_file_sha256": sha256_file(output_dir / "paired_dataset.npz"),
     }, output_dir / "dataset_manifest.json")
     return {
         "output_dir": str(output_dir.resolve()),
@@ -107,4 +109,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
