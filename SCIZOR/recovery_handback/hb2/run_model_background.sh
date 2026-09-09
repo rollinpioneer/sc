@@ -32,6 +32,32 @@ while [[ ! -f "$STATUS/hb2-data.done" ]]; do
   fi
   sleep 30
 done
+
+# Rebuild role tables from persisted branch records so schema/label changes are
+# applied before any feature cache or model reads the frozen dataset.
+mark data-label-refresh.running "rebuild labels and frozen tables"
+run_gpu 6 "$PY_SIM" -m recovery_handback.hb2.build_labels \
+  --config "$CONFIG" --inputs "$HB2_ROOT/assets/resolved_inputs.json" \
+  --role legacy_train --output-dir "$HB2_ROOT/data/legacy_train" \
+  > "$LOGS/build_labels_legacy_refresh.log" 2>&1
+run_gpu 6 "$PY_SIM" -m recovery_handback.hb2.aggregate \
+  --config "$CONFIG" --role hb2_train \
+  --anchors "$HB2_ROOT/roots/hb2_train/anchors.parquet" \
+  --branches-root "$HB2_ROOT/branches/hb2_train" \
+  --output-dir "$HB2_ROOT/data/hb2_train" \
+  > "$LOGS/aggregate_hb2_train_refresh.log" 2>&1
+run_gpu 6 "$PY_SIM" -m recovery_handback.hb2.aggregate \
+  --config "$CONFIG" --role hb2_val \
+  --anchors "$HB2_ROOT/roots/hb2_val/anchors.parquet" \
+  --branches-root "$HB2_ROOT/branches/hb2_val" \
+  --output-dir "$HB2_ROOT/data/hb2_val" \
+  > "$LOGS/aggregate_hb2_val_refresh.log" 2>&1
+run_gpu 6 "$PY_SIM" -m recovery_handback.hb2.freeze_dataset \
+  --config "$CONFIG" --legacy "$HB2_ROOT/data/legacy_train" \
+  --train "$HB2_ROOT/data/hb2_train" --validation "$HB2_ROOT/data/hb2_val" \
+  --output-dir "$HB2_ROOT/data/frozen" \
+  > "$LOGS/freeze_dataset_refresh.log" 2>&1
+mark data-label-refresh.done "labels and frozen tables refreshed"
 data_status="$($PY_FEAT -c 'import json,sys; print(json.load(open(sys.argv[1]))["status"])' "$HB2_ROOT/data/frozen/data_sufficiency.json")"
 if [[ "$data_status" == "HOLD_HB2_DATA" ]]; then
   mark hb2-model.done "stopped because data gate status=HOLD_HB2_DATA"
