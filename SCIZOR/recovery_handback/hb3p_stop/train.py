@@ -37,9 +37,14 @@ def _fit(features: np.ndarray, labels: np.ndarray, train_indices: np.ndarray, *,
     x = torch.from_numpy(((features[train_indices] - mean) / std).astype(np.float32)).to(device)
     y = torch.from_numpy(labels[train_indices].astype(np.float32)).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)
+    positives = float(y.sum().item())
+    negatives = float(len(y) - positives)
+    if positives <= 0 or negatives <= 0:
+        raise ValueError("every training fold must contain STOP and CONTINUE labels")
+    positive_weight = torch.tensor(negatives / positives, dtype=torch.float32, device=device)
     for _ in range(int(epochs)):
         optimizer.zero_grad(set_to_none=True)
-        loss = F.binary_cross_entropy_with_logits(model(x), y)
+        loss = F.binary_cross_entropy_with_logits(model(x), y, pos_weight=positive_weight)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()

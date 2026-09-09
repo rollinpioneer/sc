@@ -24,7 +24,13 @@ printf '%s\n' "$$" > "$STATUS/stop-continue-supervisor.pid"
 
 stamp() { date '+%F %T %Z'; }
 mark() { printf '%s %s\n' "$(stamp)" "$2" > "$STATUS/$1"; }
+online_pids=()
+cleanup() {
+  for pid in "${online_pids[@]}"; do kill "$pid" 2>/dev/null || true; done
+  for pid in "${online_pids[@]}"; do wait "$pid" 2>/dev/null || true; done
+}
 fail() { code=$?; rm -f "$STATUS/stop-continue.running"; printf '%s failed line=%s exit=%s\n' "$(stamp)" "$1" "$code" > "$STATUS/stop-continue.failed"; exit "$code"; }
+trap cleanup EXIT
 trap 'fail $LINENO' ERR
 
 rm -f "$STATUS/stop-continue.failed" "$STATUS/stop-continue.done"
@@ -33,15 +39,17 @@ mark stop-continue.running "pid=$$ train_gpu=$GPU_SIM0 sim_gpus=$GPU_SIM0,$GPU_S
 "$PY_SIM" -m compileall -q "$CODE/recovery_handback/hb3p_stop"
 git -C "$WT" diff --check -- SCIZOR/recovery_handback/hb3p_stop
 
-mark prepare.done "prepare frozen pilot directories"
+mark prepare.running "prepare frozen pilot directories"
 "$PY_SIM" -m recovery_handback.hb3p_stop.prepare \
   --probe-root "$PROBE" --output-root "$OUT" --code-root "$CODE" \
   > "$LOGS/prepare.log" 2>&1
+mark prepare.done "pilot directories prepared"
 
-mark dataset.done "build paired L60/L80 labels"
+mark dataset.running "build paired L60/L80 labels"
 "$PY_SIM" -m recovery_handback.hb3p_stop.dataset \
   --probe-root "$PROBE" --output-dir "$OUT/dataset" \
   > "$LOGS/dataset.log" 2>&1
+mark dataset.done "paired L60/L80 labels built"
 
 mark train.running "train OOF/final stop-continue MLP"
 CUDA_VISIBLE_DEVICES="${GPU_TRAIN:-$GPU_SIM0}" \
@@ -70,15 +78,18 @@ CUDA_VISIBLE_DEVICES="$GPU_SIM0" MUJOCO_EGL_DEVICE_ID="$GPU_SIM0" \
   --num-shards 2 --shard-index 0 --output-dir "$OUT/episodes/shard0" --device "$DEVICE" --resume \
   > "$LOGS/online0.log" 2>&1 &
 pid0=$!
+online_pids+=("$pid0")
 CUDA_VISIBLE_DEVICES="$GPU_SIM1" MUJOCO_EGL_DEVICE_ID="$GPU_SIM1" \
   "$PY_SIM" -m recovery_handback.hb3p_stop.run_online \
   --config "$CONFIG" --protocol "$PROTOCOL" --roots "$OUT/roots/runtime_root_manifest.jsonl" \
   --num-shards 2 --shard-index 1 --output-dir "$OUT/episodes/shard1" --device "$DEVICE" --resume \
   > "$LOGS/online1.log" 2>&1 &
 pid1=$!
+online_pids+=("$pid1")
 printf '%s\n' "$pid0" "$pid1" > "$STATUS/online-workers.pid"
 wait "$pid0"
 wait "$pid1"
+online_pids=()
 mark online.done "all stop-continue episodes complete"
 
 "$PY_SIM" -m recovery_handback.hb3p_stop.aggregate \

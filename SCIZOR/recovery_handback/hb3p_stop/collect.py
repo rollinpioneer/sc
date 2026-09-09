@@ -37,7 +37,13 @@ def collect_test(config_path: Path, protocol_path: Path, output_dir: Path, *, re
     anchor_rows = read_table(anchors)
     if len(anchor_rows) != len(rows):
         raise RuntimeError(f"expected one t=20 anchor per test root, got {len(anchor_rows)}")
-    write_jsonl([{key: row.get(key) for key in ("schema_version", "task", "role", "root_id", "stat_group_id", "seed", "canonical_payload_path", "rollout_path", "anchor_history_path", "policy_memory_path", "initial_state_hash", "model_hash", "policy_checkpoint_sha256", "horizon_steps", "control_freq", "exception_reason")} for row in rows], roots_dir / "runtime_root_manifest.jsonl")
+    write_jsonl([{key: row.get(key) for key in (
+        "schema_version", "task", "role", "root_id", "stat_group_id", "seed",
+        "canonical_payload_path", "rollout_path", "anchor_history_path", "policy_memory_path",
+        "initial_state_hash", "model_hash", "policy_checkpoint_sha256", "horizon_steps",
+        "control_freq", "actual_steps", "baseline_success", "first_raw_success_state",
+        "stable_success_state", "exception_reason",
+    )} for row in rows], roots_dir / "runtime_root_manifest.jsonl")
     atomic_json_dump({
         "schema_version": "hb3p_stop_continue_test_roots_v1",
         "protocol_sha256": sha256_file(protocol_path),
