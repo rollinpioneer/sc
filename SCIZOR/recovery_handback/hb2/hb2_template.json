@@ -1,0 +1,92 @@
+{
+  "schema": "hb2_plan_template_v1",
+  "merge_into_hb1_config": true,
+  "source_ref": "b130fac48125757fcd3c573061fd51eb740c3626",
+  "tasks": ["square"],
+  "anchor_times": [20, 80, 160],
+  "repair_lengths": [0, 5, 20, 80],
+  "include_full_repair": true,
+  "horizon_steps": 400,
+  "expected_control_freq": 20,
+  "success_consecutive_steps": 5,
+  "minimum_autonomous_steps": 20,
+  "minimum_remaining_steps": 100,
+  "square_seed_offset": 100000,
+  "repeats_per_root": 1,
+  "policy_history_protocol": "shadow_update_once_per_env_step",
+  "roles": {
+    "hb2_train": {"roots_per_task": 40, "seed_start": 200000},
+    "hb2_val": {"roots_per_task": 40, "seed_start": 201000},
+    "hb2_test": {"roots_per_task": 40, "seed_start": 202000},
+    "hb2_pilot": {"roots_per_task": 4, "seed_start": 203000},
+    "hb2_train_extra": {"roots_per_task": 40, "seed_start": 204000},
+    "hb2_val_extra": {"roots_per_task": 20, "seed_start": 205000}
+  },
+  "hb2": {
+    "legacy_probe_role": "legacy_train",
+    "feature_history": 4,
+    "encoder": {
+      "name": "dinov2_vits14",
+      "frozen": true,
+      "input_size": 224,
+      "cache_dtype": "float16",
+      "local_pool_grid": [4, 4],
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225],
+      "resize": "bicubic",
+      "antialias": true
+    },
+    "models": ["M0_time", "M1_proprio", "M2_global", "M3_local", "M4_paired", "M5_single"],
+    "training": {
+      "initial_seed": 0,
+      "selected_model_additional_seeds": [1, 2],
+      "canonical_seed": 0,
+      "batch_size": 32,
+      "max_epochs": 150,
+      "validate_every": 5,
+      "early_stop_validation_checks": 4,
+      "learning_rate": 0.0003,
+      "weight_decay": 0.0001,
+      "gradient_clip_norm": 1.0,
+      "dropout": 0.1,
+      "hidden_size": 128,
+      "pair_loss_weight": 0.25,
+      "sampler": "uniform_root_then_uniform_anchor",
+      "class_weights": false,
+      "checkpoint_criterion": "root_equal_mean_five_head_outcome_nll"
+    },
+    "handoff": {
+      "seed": 0,
+      "models": ["proprio", "selected_visual"],
+      "classes": 3,
+      "exclude_success_seen_under_helper": true,
+      "minimum_remaining_steps": 20
+    },
+    "calibration": {"method": "shared_temperature", "min": 0.5, "max": 5.0, "fit_role": "validation"},
+    "decision": {
+      "lengths": [0, 5, 20, 80],
+      "objective": "autonomous_completion",
+      "primary_lambda": 0.25,
+      "lambda_curve": [0, 0.25, 0.5, 1, 2],
+      "cost_denominator": 400,
+      "tie_tolerance": 1e-8,
+      "tie_break": "shorter",
+      "include_full_in_selector": false,
+      "risk_thresholds": [0, 0.25, 0.5, 0.75, 1]
+    },
+    "statistics": {"unit": "global_stat_group_id", "bootstrap_repeats": 2000, "seed": 20260908},
+    "data_gate": {
+      "train_rescue_positive_roots": 10,
+      "train_rescue_negative_roots": 10,
+      "validation_rescue_positive_roots": 5,
+      "validation_rescue_negative_roots": 5,
+      "single_train_val_expansion_allowed": true,
+      "result_driven_test_expansion_allowed": false,
+      "test_valid_roots_minimum": 30,
+      "test_oracle_rescuable_roots_minimum": 5,
+      "selected_test_rescue_roots_minimum": 3,
+      "baseline_preservation_roots_descriptive_below": 5
+    }
+  }
+}
+
