@@ -20,7 +20,8 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
     for name in ("assets.json", "policy_pair_square.json"):
         shutil.copy2(probe_root / "assets" / name, output_root / "assets" / name)
     parent_protocol = json.loads((probe_root / "config/frozen_protocol.json").read_text(encoding="utf-8"))
-    config = {
+    config = json.loads((probe_root / "config/exit_probe.json").read_text(encoding="utf-8"))
+    config.update({
         "schema_version": "hb3p_stop_continue_config_v1",
         "assets_file": str((output_root / "assets/assets.json").resolve()),
         "output_root": str(output_root.resolve()),
@@ -47,7 +48,9 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
             "source": "FIXED_L60 handoff history at t=80",
         },
         "training": {"seed": 20260909, "epochs": 300, "device": "cuda"},
-    }
+    })
+    config["hb2"] = dict(config.get("hb2", {}))
+    config["hb2"]["selected_policy_pair_path"] = config["policy_pair_path"]
     atomic_json_dump(config, output_root / "config/stop_continue.json")
     draft = {
         "schema_version": "hb3p_stop_continue_protocol_draft_v1",
