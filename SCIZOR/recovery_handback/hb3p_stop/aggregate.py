@@ -17,7 +17,12 @@ METHODS = ("NONE", "FIXED_L60", "FIXED_L80", "LEARNED_STOP_CONTINUE")
 
 
 def _online_files(root: Path, method: str) -> list[Path]:
-    return sorted(path for path in Path(root).glob(f"**/{method}/*.json") if not path.name.endswith("_decision_trace.json"))
+    return sorted(
+        path
+        for path in Path(root).glob(f"**/{method}/*.json")
+        if not path.name.endswith("_decision_trace.json")
+        and not path.name.endswith("_handoff.json")
+    )
 
 
 def _prefix_key(path: Path) -> tuple[str, str]:
