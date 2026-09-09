@@ -46,3 +46,21 @@ Final status: **HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN**.
 - Test metrics: [`summary.json`](experiments/handback/hb2_v1/metrics/test/summary.json)
 - Final decision: [`hb2_decision.json`](experiments/handback/hb2_v1/metrics/hb2_decision.json)
 - Lightweight results: [`HB2_results_lightweight.zip`](experiments/handback/hb2_v1/package/HB2_results_lightweight.zip)
+
+## HB3-P episode-level handback experiment
+
+The HB3-P Square experiment is published under
+[`experiments/handback/hb3p_v1/`](experiments/handback/hb3p_v1/), with its
+implementation under [`SCIZOR/recovery_handback/hb3p/`](SCIZOR/recovery_handback/hb3p/).
+
+Final status: **STATE_ENTRY_SIGNAL_ONLY**.
+
+- Coverage: 80 roots, 480 complete logical records, 320 unique rollouts
+- Primary M1 versus S_STAR utility delta: `0.014531`
+- Root-cluster bootstrap 95% CI: `[-0.068457, 0.093523]`
+- Exit diagnosis: [`HB3P_EXIT_DIAGNOSIS.md`](experiments/handback/hb3p_v1/metrics/diagnosis/HB3P_EXIT_DIAGNOSIS.md)
+- Route decision: [`exit_diagnosis_decision.json`](experiments/handback/hb3p_v1/metrics/diagnosis/exit_diagnosis_decision.json)
+- Lightweight results: [`HB3P_results_lightweight.zip`](experiments/handback/hb3p_v1/package/HB3P_results_lightweight.zip)
+
+The diagnosis is read-only and does not train a stopping model. Its bounded
+follow-up probe is specified separately and uses new roots.

@@ -8,6 +8,7 @@ from recovery_handback.hb3p.controller import (
     select_episode_from_cached_predictions,
 )
 from recovery_handback.hb3p.evaluate import _mean, _optional_int
+from recovery_handback.hb3p.exit_diagnosis import _oracle_component, _pair_case
 from recovery_handback.hb3p.metrics import binary_ranking, episode_value, paired_bootstrap
 from recovery_handback.hb3p.report import _fmt
 
@@ -98,6 +99,23 @@ class References(unittest.TestCase):
         self.assertEqual(_optional_int(20.0), 20)
         self.assertIsNone(_mean([{"value": None}, {"value": float("nan")}], "value"))
         self.assertEqual(_mean([{"value": float("nan")}, {"value": 0.25}], "value"), 0.25)
+
+    def test_stop_continue_pair_cases(self):
+        self.assertEqual(_pair_case(False, True), "stop_failure_continue_success")
+        self.assertEqual(_pair_case(True, False), "stop_success_continue_failure")
+        self.assertEqual(_pair_case(True, True), "stop_success_continue_success")
+        self.assertEqual(_pair_case(False, False), "both_failure")
+
+    def test_oracle_component_decomposes_success_and_cost(self):
+        fixed = {"utility": 0.8, "autonomous_completion": True}
+        self.assertEqual(
+            _oracle_component({"utility": 0.9, "autonomous_completion": True}, fixed),
+            "success_with_lower_cost",
+        )
+        self.assertEqual(
+            _oracle_component({"utility": 0.1, "autonomous_completion": False}, {"utility": 0.0, "autonomous_completion": False}),
+            "both_failed_cost_only",
+        )
 
     def test_report_number_formatting(self):
         self.assertEqual(_fmt(None), "NA")

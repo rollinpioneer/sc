@@ -41,6 +41,8 @@ def main() -> None:
         "- [Decision](metrics/hb3p_decision.json)\n"
         "- [Method metrics](metrics/test/methods.csv)\n"
         "- [Paired comparisons](metrics/test/paired_comparisons.json)\n"
+        "- [Exit diagnosis](metrics/diagnosis/HB3P_EXIT_DIAGNOSIS.md)\n"
+        "- [Exit route decision](metrics/diagnosis/exit_diagnosis_decision.json)\n"
         "- [Lightweight results ZIP](package/HB3P_results_lightweight.zip)\n"
         "- [ZIP SHA256](package/HB3P_results_lightweight.zip.sha256)\n\n"
         "Large trajectories, model weights, feature caches, Parquet files, and logs remain local.\n",

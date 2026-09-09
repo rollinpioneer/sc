@@ -1,0 +1,97 @@
+{
+  "decision": "RUN_BOUNDED_INTERMEDIATE_EXIT_PROBE",
+  "fixed_entry_summary": {
+    "anchor_t": 20,
+    "branches": {
+      "l20": {
+        "autonomous_completion_count": 1.0,
+        "mean_helper_steps_actual": 20.0,
+        "mean_utility": 0.012500000000000006,
+        "roots": 40.0,
+        "system_success_count": 1.0
+      },
+      "l5": {
+        "autonomous_completion_count": 2.0,
+        "mean_helper_steps_actual": 5.0,
+        "mean_utility": 0.046874999999999986,
+        "roots": 40.0,
+        "system_success_count": 2.0
+      },
+      "l80": {
+        "autonomous_completion_count": 9.0,
+        "mean_helper_steps_actual": 80.0,
+        "mean_utility": 0.175,
+        "roots": 40.0,
+        "system_success_count": 9.0
+      },
+      "none": {
+        "autonomous_completion_count": 1.0,
+        "mean_helper_steps_actual": 0.0,
+        "mean_utility": 0.025,
+        "roots": 40.0,
+        "system_success_count": 1.0
+      }
+    },
+    "l80_mean_utility": 0.175,
+    "oracle_both_failed_cost_only_roots": 31,
+    "oracle_components": {
+      "both_failed_cost_only": 31,
+      "no_gain": 7,
+      "success_with_lower_cost": 2
+    },
+    "oracle_mean_delta_vs_l80": 0.038671875,
+    "oracle_mean_utility": 0.213671875,
+    "oracle_success_with_lower_cost_roots": 2,
+    "pair_counts": {
+      "l20_vs_l80_auto::both_failure": 31,
+      "l20_vs_l80_auto::stop_failure_continue_success": 8,
+      "l20_vs_l80_auto::stop_success_continue_success": 1,
+      "l20_vs_l80_system::both_failure": 31,
+      "l20_vs_l80_system::stop_failure_continue_success": 8,
+      "l20_vs_l80_system::stop_success_continue_success": 1,
+      "l5_vs_l80_auto::both_failure": 31,
+      "l5_vs_l80_auto::stop_failure_continue_success": 7,
+      "l5_vs_l80_auto::stop_success_continue_success": 2,
+      "l5_vs_l80_system::both_failure": 31,
+      "l5_vs_l80_system::stop_failure_continue_success": 7,
+      "l5_vs_l80_system::stop_success_continue_success": 2
+    },
+    "prefix_failures": [],
+    "prefix_verified_roots": 40,
+    "role": "hb2_val",
+    "roots": 40,
+    "schema_version": "hb3p_fixed_entry_exit_diagnosis_v1"
+  },
+  "hb3p_status_preserved": "STATE_ENTRY_SIGNAL_ONLY",
+  "hb3p_summary": {
+    "logical_records": 480,
+    "m1_genuine_rescue_roots": 17,
+    "m1_interference_roots": 1,
+    "m1_no_takeover_roots": 18,
+    "m1_vs_s_star_outcome_difference_roots": 12,
+    "query_trace_rows": 160,
+    "roots": 80,
+    "schema_version": "hb3p_per_root_diagnosis_v1"
+  },
+  "new_rollout_performed": false,
+  "next_probe": {
+    "entry_t": 20,
+    "maximum_complete_method_records": 160,
+    "maximum_environment_steps": 64000,
+    "methods": [
+      "NONE",
+      "FIXED_L40",
+      "FIXED_L60",
+      "FIXED_L80"
+    ],
+    "planned_exit_lengths": [
+      40,
+      60,
+      80
+    ],
+    "roots": 40,
+    "separate_interface_pilot": false
+  },
+  "schema_version": "hb3p_exit_route_decision_v1",
+  "training_allowed": false
+}

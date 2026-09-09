@@ -1,0 +1,10 @@
+{
+  "logical_records": 480,
+  "m1_genuine_rescue_roots": 17,
+  "m1_interference_roots": 1,
+  "m1_no_takeover_roots": 18,
+  "m1_vs_s_star_outcome_difference_roots": 12,
+  "query_trace_rows": 160,
+  "roots": 80,
+  "schema_version": "hb3p_per_root_diagnosis_v1"
+}

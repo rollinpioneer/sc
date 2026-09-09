@@ -5,6 +5,8 @@
 - [Decision](metrics/hb3p_decision.json)
 - [Method metrics](metrics/test/methods.csv)
 - [Paired comparisons](metrics/test/paired_comparisons.json)
+- [Exit diagnosis](metrics/diagnosis/HB3P_EXIT_DIAGNOSIS.md)
+- [Exit route decision](metrics/diagnosis/exit_diagnosis_decision.json)
 - [Lightweight results ZIP](package/HB3P_results_lightweight.zip)
 - [ZIP SHA256](package/HB3P_results_lightweight.zip.sha256)
 
