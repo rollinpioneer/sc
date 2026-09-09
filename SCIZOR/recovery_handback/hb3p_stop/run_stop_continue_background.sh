@@ -67,7 +67,7 @@ mark code-freeze.required "commit hb3p_stop code before running freeze.py"
 mark collect.running "collect independent label-free test roots"
 CUDA_VISIBLE_DEVICES="$GPU_SIM0" MUJOCO_EGL_DEVICE_ID="$GPU_SIM0" \
   "$PY_SIM" -m recovery_handback.hb3p_stop.collect \
-  --config "$CONFIG" --protocol "$PROTOCOL" --output-dir "$OUT/roots" --resume \
+  --config "$CONFIG" --protocol "$PROTOCOL" --output-dir "$OUT/roots" --base-device cpu --resume \
   > "$LOGS/collect.log" 2>&1
 mark collect.done "40 test roots collected"
 

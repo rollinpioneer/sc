@@ -19,7 +19,8 @@ def _stable(history, value, required=5):
     return len(history) == required and all(history)
 
 
-def collect(config, assets, task, role, base_policy_json, output_dir, *, start_index=0, count=None):
+def collect(config, assets, task, role, base_policy_json, output_dir, *, start_index=0, count=None,
+            base_device=None):
     pair = json.loads(base_policy_json.read_text(encoding="utf-8"))
     checkpoint = Path(pair["base"]["checkpoint"] if "base" in pair else pair["checkpoint"])
     role_cfg = config["roles"][role]
@@ -33,7 +34,7 @@ def collect(config, assets, task, role, base_policy_json, output_dir, *, start_i
     seed_start = int(role_cfg["seed_start"]) + (int(config.get("square_seed_offset", 0)) if task == "square" else 0)
     source = Path(assets["tasks"][task]["source_hdf5"])
     env = EnvAdapter(source, **load_observation_spec(source))
-    policy = BasePolicyAdapter(checkpoint)
+    policy = BasePolicyAdapter(checkpoint, device=base_device or config.get("base_device", "cuda"))
     output_dir.mkdir(parents=True, exist_ok=True)
     rows = []
     try:
@@ -195,10 +196,12 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--start-index", type=int, default=0)
     parser.add_argument("--count", type=int)
+    parser.add_argument("--base-device")
     args = parser.parse_args()
     collect(
         json.loads(args.config.read_text()), json.loads(args.assets.read_text()), args.task, args.role,
         args.base_policy_json, args.output_dir, start_index=args.start_index, count=args.count,
+        base_device=args.base_device,
     )
 
 

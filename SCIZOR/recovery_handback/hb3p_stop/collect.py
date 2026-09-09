@@ -11,7 +11,8 @@ from recovery_handback.data.select_anchors import select
 from recovery_handback.hb3p_stop.io import write_jsonl
 
 
-def collect_test(config_path: Path, protocol_path: Path, output_dir: Path, *, resume: bool = False) -> dict:
+def collect_test(config_path: Path, protocol_path: Path, output_dir: Path, *, resume: bool = False,
+                 base_device: str | None = None) -> dict:
     config = json.loads(Path(config_path).read_text(encoding="utf-8"))
     protocol = json.loads(Path(protocol_path).read_text(encoding="utf-8"))
     if not protocol.get("frozen") or not protocol.get("test_locked"):
@@ -27,7 +28,15 @@ def collect_test(config_path: Path, protocol_path: Path, output_dir: Path, *, re
         collect_config["roles"] = {config["role"]: {"seed_start": int(config["test_seed_start"]), "roots_per_task": int(config["new_test_roots"])} }
         collect_config["anchor_times"] = [int(config["anchor_t"])]
         collect_config["square_seed_offset"] = 0
-        collect(collect_config, assets, "square", config["role"], Path(config["policy_pair_path"]), roots_dir)
+        collect(
+            collect_config,
+            assets,
+            "square",
+            config["role"],
+            Path(config["policy_pair_path"]),
+            roots_dir,
+            base_device=base_device,
+        )
     rows = read_table(root_table)
     if [int(row["seed"]) for row in rows] != expected_seeds:
         raise RuntimeError("test root seed coverage does not match frozen protocol")
@@ -62,12 +71,14 @@ def main() -> None:
     parser.add_argument("--protocol", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--base-device")
     args = parser.parse_args()
     print(json.dumps(collect_test(
         config_path=args.config,
         protocol_path=args.protocol,
         output_dir=args.output_dir,
         resume=args.resume,
+        base_device=args.base_device,
     ), indent=2))
 
 
