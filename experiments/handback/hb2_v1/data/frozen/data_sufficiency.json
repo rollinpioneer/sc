@@ -1,0 +1,18 @@
+{
+  "expansion_required": false,
+  "failed_gates": [],
+  "schema_version": "hb2_data_sufficiency_v1",
+  "single_allowed_expansion_used": false,
+  "status": "READY_FEATURES",
+  "sufficient": true,
+  "train": {
+    "rescue_negative_roots": 54,
+    "rescue_positive_roots": 26,
+    "valid_roots": 80
+  },
+  "validation": {
+    "rescue_negative_roots": 30,
+    "rescue_positive_roots": 10,
+    "valid_roots": 40
+  }
+}

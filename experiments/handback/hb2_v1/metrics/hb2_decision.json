@@ -1,0 +1,72 @@
+{
+  "b_star": "model_M0_time",
+  "baseline_preservation_evidence": "small_sample",
+  "canonical_comparisons": {
+    "best_fixed": {
+      "bootstrap_mean_difference": 0.007531770833333354,
+      "ci95_percentile": [
+        -0.042526041666666646,
+        0.057093749999999985
+      ],
+      "point_difference": 0.007916666666666697,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "best_nonvisual": {
+      "bootstrap_mean_difference": -0.03797721354166668,
+      "ci95_percentile": [
+        -0.08661588541666669,
+        0.003126302083333329
+      ],
+      "point_difference": -0.037395833333333336,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "risk": {
+      "bootstrap_mean_difference": 0.007531770833333354,
+      "ci95_percentile": [
+        -0.042526041666666646,
+        0.057093749999999985
+      ],
+      "point_difference": 0.007916666666666697,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    }
+  },
+  "canonical_seed": 0,
+  "counterfactual_start_prediction_signal": "supported",
+  "exit_model_evidence": {
+    "beats_proprio_and_prior": false,
+    "counts_ok": true,
+    "frozen_train_prior_mean_brier": 0.07541599196753354,
+    "proprio_mean_brier": 0.048933218836639716,
+    "rule": {
+      "criterion": "selected_visual_mean_brier_below_proprio_and_frozen_train_prior",
+      "minimum_negative_roots_per_output": 5,
+      "minimum_positive_roots_per_output": 5,
+      "minimum_test_roots": 20
+    },
+    "selected_visual_mean_brier": 0.058369936979013354
+  },
+  "exit_model_ready": false,
+  "history_gain": "supported",
+  "local_feature_gain": "supported",
+  "online_adaptive_switching_tested": false,
+  "overall_status": "HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN",
+  "paired_supervision_gain": "supported",
+  "root_cluster_ci_vs_b_star": [
+    -0.08661588541666669,
+    0.003126302083333329
+  ],
+  "runtime_probe_status": "runtime_probe_complete",
+  "scope": "fixed_pair_fixed_anchor_single_intervention",
+  "selected_visual_model": "M4_paired",
+  "selected_visual_rescued_roots": 7,
+  "single_allowed_data_expansion_used": false,
+  "task": "square",
+  "test_full_branch_coverage": true,
+  "test_oracle_rescuable_roots": 16,
+  "test_valid_anchors": 118,
+  "test_valid_roots": 40,
+  "visual_gain": "unproven"
+}

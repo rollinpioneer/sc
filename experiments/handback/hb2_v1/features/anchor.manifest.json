@@ -1,0 +1,85 @@
+{
+  "encoder": {
+    "antialias": true,
+    "cache_dtype": "float16",
+    "code_commit": null,
+    "frozen": true,
+    "input_size": 224,
+    "local_pool_grid": [
+      4,
+      4
+    ],
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "name": "dinov2_vits14",
+    "resize": "bicubic",
+    "source": "facebookresearch/dinov2",
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "torch_version": "2.7.1+cu126",
+    "weights_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+  },
+  "encoder_hash": "f05a161a7bad5c3fa8edb0875a816907e9d14578fc75f201cf99d6bc62d16c81",
+  "head": "anchor",
+  "roles": [
+    "train",
+    "validation"
+  ],
+  "sample_count": 357,
+  "sample_image_set_hash": "b5b0d9f0ecfadf9bb772baed2809c958efb7cf68f20d7f484f2d641eb4fa1f76",
+  "schema_version": "hb2_feature_manifest_v1",
+  "shapes": {
+    "base_actions": [
+      357,
+      4,
+      7
+    ],
+    "global": [
+      357,
+      4,
+      2,
+      384
+    ],
+    "helper_elapsed": [
+      357,
+      1
+    ],
+    "local": [
+      357,
+      4,
+      2,
+      16,
+      384
+    ],
+    "proprio": [
+      357,
+      4,
+      9
+    ],
+    "time": [
+      357,
+      4,
+      1
+    ]
+  },
+  "transform": {
+    "input": "uint8_hwc_rgb",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "resize": "224 bicubic antialias",
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  }
+}

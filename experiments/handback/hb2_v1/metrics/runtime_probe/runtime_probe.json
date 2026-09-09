@@ -1,0 +1,204 @@
+{
+  "action_source": "persisted rollout suggestions at exact absolute times",
+  "camera_order": [
+    "agentview_image",
+    "robot0_eye_in_hand_image"
+  ],
+  "checks": [
+    {
+      "anchor_id": "square:hb2_pilot:303000:20",
+      "anchor_t": 20,
+      "backbone_seconds": 0.013581796083599329,
+      "feature_max_abs_difference": {
+        "base_actions": 0.0,
+        "global": 0.0,
+        "helper_elapsed": 0.0,
+        "local": 0.0,
+        "proprio": 0.0,
+        "time": 0.0
+      },
+      "finite_inputs": true,
+      "inference_seconds": 0.01540497806854546,
+      "offline_selected_length": 80,
+      "online_selected_length": 80,
+      "parity_passed": true,
+      "prediction_head_seconds": 0.0009338620584458113,
+      "probability_max_abs_difference": 0.0,
+      "root_id": "square:hb2_pilot:303000",
+      "selected_length_equal": true
+    },
+    {
+      "anchor_id": "square:hb2_pilot:303001:20",
+      "anchor_t": 20,
+      "backbone_seconds": 0.012787236948497593,
+      "feature_max_abs_difference": {
+        "base_actions": 0.0,
+        "global": 0.0,
+        "helper_elapsed": 0.0,
+        "local": 0.0,
+        "proprio": 0.0,
+        "time": 0.0
+      },
+      "finite_inputs": true,
+      "inference_seconds": 0.014385275077074766,
+      "offline_selected_length": 80,
+      "online_selected_length": 80,
+      "parity_passed": true,
+      "prediction_head_seconds": 0.000808351906016469,
+      "probability_max_abs_difference": 0.0,
+      "root_id": "square:hb2_pilot:303001",
+      "selected_length_equal": true
+    },
+    {
+      "anchor_id": "square:hb2_pilot:303002:20",
+      "anchor_t": 20,
+      "backbone_seconds": 0.012801004922948778,
+      "feature_max_abs_difference": {
+        "base_actions": 0.0,
+        "global": 0.0,
+        "helper_elapsed": 0.0,
+        "local": 0.0,
+        "proprio": 0.0,
+        "time": 0.0
+      },
+      "finite_inputs": true,
+      "inference_seconds": 0.014322598930448294,
+      "offline_selected_length": 80,
+      "online_selected_length": 80,
+      "parity_passed": true,
+      "prediction_head_seconds": 0.0007747309282422066,
+      "probability_max_abs_difference": 0.0,
+      "root_id": "square:hb2_pilot:303002",
+      "selected_length_equal": true
+    },
+    {
+      "anchor_id": "square:hb2_pilot:303003:20",
+      "anchor_t": 20,
+      "backbone_seconds": 0.012748823966830969,
+      "feature_max_abs_difference": {
+        "base_actions": 0.0,
+        "global": 0.0,
+        "helper_elapsed": 0.0,
+        "local": 0.0,
+        "proprio": 0.0,
+        "time": 0.0
+      },
+      "finite_inputs": true,
+      "inference_seconds": 0.014265879057347775,
+      "offline_selected_length": 80,
+      "online_selected_length": 80,
+      "parity_passed": true,
+      "prediction_head_seconds": 0.0007829860551282763,
+      "probability_max_abs_difference": 0.0,
+      "root_id": "square:hb2_pilot:303003",
+      "selected_length_equal": true
+    }
+  ],
+  "control_execution": {
+    "all_engineering_ok": true,
+    "pilot_roots": 4,
+    "prefix_replay_steps_total": 80,
+    "records": [
+      {
+        "anchor_id": "square:hb2_pilot:303000:20",
+        "base_policy_calls": 400,
+        "changed_action_steps": 80,
+        "continuation_env_steps": 380,
+        "engineering_ok": true,
+        "exception_reason": null,
+        "genuine_handoff_success": false,
+        "helper_steps_actual": 80,
+        "prefix_env_steps": 20,
+        "repair_calls_after_handoff": 0,
+        "repair_policy_calls": 80,
+        "root_id": "square:hb2_pilot:303000",
+        "selected_length": 80,
+        "system_success": false,
+        "wall_seconds": 16.162479877471924
+      },
+      {
+        "anchor_id": "square:hb2_pilot:303001:20",
+        "base_policy_calls": 140,
+        "changed_action_steps": 80,
+        "continuation_env_steps": 120,
+        "engineering_ok": true,
+        "exception_reason": null,
+        "genuine_handoff_success": true,
+        "helper_steps_actual": 80,
+        "prefix_env_steps": 20,
+        "repair_calls_after_handoff": 0,
+        "repair_policy_calls": 80,
+        "root_id": "square:hb2_pilot:303001",
+        "selected_length": 80,
+        "system_success": true,
+        "wall_seconds": 7.328603982925415
+      },
+      {
+        "anchor_id": "square:hb2_pilot:303002:20",
+        "base_policy_calls": 133,
+        "changed_action_steps": 80,
+        "continuation_env_steps": 113,
+        "engineering_ok": true,
+        "exception_reason": null,
+        "genuine_handoff_success": true,
+        "helper_steps_actual": 80,
+        "prefix_env_steps": 20,
+        "repair_calls_after_handoff": 0,
+        "repair_policy_calls": 80,
+        "root_id": "square:hb2_pilot:303002",
+        "selected_length": 80,
+        "system_success": true,
+        "wall_seconds": 7.3529274463653564
+      },
+      {
+        "anchor_id": "square:hb2_pilot:303003:20",
+        "base_policy_calls": 400,
+        "changed_action_steps": 80,
+        "continuation_env_steps": 380,
+        "engineering_ok": true,
+        "exception_reason": null,
+        "genuine_handoff_success": false,
+        "helper_steps_actual": 80,
+        "prefix_env_steps": 20,
+        "repair_calls_after_handoff": 0,
+        "repair_policy_calls": 80,
+        "root_id": "square:hb2_pilot:303003",
+        "selected_length": 80,
+        "system_success": false,
+        "wall_seconds": 16.181438207626343
+      }
+    ],
+    "repair_calls_after_handoff_total": 0,
+    "schema_version": "hb2_runtime_probe_execution_v1",
+    "single_intervention_only": true
+  },
+  "handoff_interface": {
+    "elapsed_helper_steps": 5,
+    "example_id": "H:square:hb2_pilot:303000:20:l5",
+    "handoff_t": 25,
+    "prediction": {
+      "absolute_t": 25,
+      "backbone_seconds": 0.01319577603135258,
+      "elapsed_helper_steps": 5,
+      "inference_seconds": 0.014989201095886528,
+      "input_support": {
+        "arbitrary_online_exit_validated": false,
+        "distribution": "observed_fixed_length_handoffs",
+        "helper_lengths": [
+          5,
+          20,
+          80
+        ]
+      },
+      "prediction_head_seconds": 0.0011113900691270828,
+      "q_complete": 0.010219084098935127,
+      "q_strict": 0.009458278305828571
+    },
+    "status": "ready"
+  },
+  "online_adaptive_switching_tested": false,
+  "pilot_roots": 4,
+  "schema_version": "hb2_runtime_probe_v2",
+  "single_query_per_task": true,
+  "status": "runtime_probe_complete"
+}

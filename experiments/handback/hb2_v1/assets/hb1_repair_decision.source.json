@@ -1,0 +1,58 @@
+{
+  "coverage": {
+    "authoritative_anchors": 120,
+    "complete_anchors": 120,
+    "coverage_fraction": 1.0,
+    "engineering_ok_branches": 600,
+    "expected_branches": 600,
+    "missing_keys": [],
+    "present_branches": 600,
+    "schema_version": "hb1_coverage_v1"
+  },
+  "formal_hb1_status": "READY_HB2_SINGLE_TASK",
+  "ready_tasks": [
+    "square"
+  ],
+  "schema_version": "hb1_capability_repair_decision_v1",
+  "status": "READY_HB2_SINGLE_TASK",
+  "tasks": {
+    "can": {
+      "base_policy_frozen": true,
+      "formal_probe": {
+        "authoritative_anchors": 0,
+        "baseline_failed_roots": 0,
+        "complete_anchors": 0,
+        "control_roots": 0,
+        "duration_note": null,
+        "genuine_rescued_roots": 0,
+        "repair_qualification_status": null,
+        "status": "HOLD_ENGINEERING_FIX",
+        "valid_roots": 0
+      },
+      "lowdim_base_val_successes": 20,
+      "lowdim_status": "QUALIFIED",
+      "status": "READY",
+      "visual_base_val_successes": 20,
+      "visual_status": "QUALIFIED"
+    },
+    "square": {
+      "direct_teacher_rescued_roots": 14,
+      "direct_teacher_status": "QUALIFIED",
+      "formal_probe": {
+        "authoritative_anchors": 120,
+        "baseline_failed_roots": 38,
+        "complete_anchors": 120,
+        "control_roots": 37,
+        "duration_note": null,
+        "genuine_rescued_roots": 17,
+        "repair_qualification_status": "QUALIFIED",
+        "status": "READY_HB2",
+        "valid_roots": 40
+      },
+      "policy_pair_frozen": true,
+      "status": "READY",
+      "teacher_residual_rescued_roots": 0,
+      "teacher_residual_status": "NOT_RUN"
+    }
+  }
+}

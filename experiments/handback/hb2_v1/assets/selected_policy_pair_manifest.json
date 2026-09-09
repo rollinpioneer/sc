@@ -1,0 +1,30 @@
+{
+  "base_checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+  "base_checkpoint_sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+  "repair_checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_teacher_epoch_100.pth",
+  "repair_checkpoint_sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+  "resolved_policy_pair_hash": "a387545caca9faa67c63a4d392c0b96ac1f11019911c1a56b2acac6fe170c125",
+  "schema_version": "hb2_selected_policy_pair_manifest_v1",
+  "semantic_components": {
+    "action_dim": 7,
+    "adapter_source_sha256": {
+      "SCIZOR/recovery_handback/adapters/base_policy.py": "117502661dbcda426f8f0872a665885a8529740874b3f921318a3451df7faff6",
+      "SCIZOR/recovery_handback/adapters/env_adapter.py": "3efc6e0f32316409b54f2f271890b3403c8330840035332089be01bcb2c4d3bb",
+      "SCIZOR/recovery_handback/adapters/repair_policy.py": "c5e99dad5deb05f57e852b2dde8270d14a8f39fbbe7f288f8c448c431f522f63",
+      "SCIZOR/recovery_handback/execution/label_reference.py": "05db6b411316c48e341b30fd8ad34aa92f409d06455de81cb1099a295c929dae",
+      "SCIZOR/recovery_handback/execution/paired_branch.py": "dd41fec5d8f9ee76fc26671a5725a7741bf2bd8de01a504f01f79fd15c8e135a"
+    },
+    "base_algorithm": "bc_rnn_gmm",
+    "base_checkpoint_sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+    "base_observation_protocol": "raw_rgb_uint8_hwc_plus_proprio",
+    "minimum_autonomous_steps": 20,
+    "policy_history_protocol": "shadow_update_once_per_env_step",
+    "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+    "repair_algorithm": "robomimic_bc_gmm_direct",
+    "repair_checkpoint_sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+    "success_consecutive_steps": 5
+  },
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "source_policy_pair_hash": "e465f728fb077f9078251ac488612b10bbf44bbdf859c7900d74800cd4418776",
+  "task": "square"
+}

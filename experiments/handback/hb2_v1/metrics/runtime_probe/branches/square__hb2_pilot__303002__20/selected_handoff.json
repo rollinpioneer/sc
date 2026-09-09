@@ -1,0 +1,50 @@
+[
+  {
+    "absolute_t": 97,
+    "helper_active": true,
+    "keys": [
+      "agentview_image",
+      "robot0_eye_in_hand_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ],
+    "memory_capture_phase": "after_suggest"
+  },
+  {
+    "absolute_t": 98,
+    "helper_active": true,
+    "keys": [
+      "agentview_image",
+      "robot0_eye_in_hand_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ],
+    "memory_capture_phase": "after_suggest"
+  },
+  {
+    "absolute_t": 99,
+    "helper_active": true,
+    "keys": [
+      "agentview_image",
+      "robot0_eye_in_hand_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ],
+    "memory_capture_phase": "after_suggest"
+  },
+  {
+    "absolute_t": 100,
+    "helper_active": false,
+    "keys": [
+      "agentview_image",
+      "robot0_eye_in_hand_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ],
+    "memory_capture_phase": "after_suggest"
+  }
+]

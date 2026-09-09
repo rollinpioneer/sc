@@ -1,0 +1,576 @@
+{
+  "authoritative_anchors": 118,
+  "baseline_success_roots": 2,
+  "bootstrap": {
+    "fixed_l20_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.063008984375,
+      "ci95_percentile": [
+        -0.11562499999999996,
+        -0.01614583333333333
+      ],
+      "point_difference": -0.061979166666666655,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "fixed_l5_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.09510481770833334,
+      "ci95_percentile": [
+        -0.15234375,
+        -0.04062500000000001
+      ],
+      "point_difference": -0.09427083333333333,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "fixed_l80_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.045508984375000026,
+      "ci95_percentile": [
+        -0.10261718750000007,
+        0.00859374999999997
+      ],
+      "point_difference": -0.04531250000000003,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "fixed_none_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.07596106770833333,
+      "ci95_percentile": [
+        -0.13723958333333333,
+        -0.01952473958333337
+      ],
+      "point_difference": -0.07447916666666667,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "model_M1_proprio_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.019719322916666674,
+      "ci95_percentile": [
+        -0.06771354166666667,
+        0.015523437499999982
+      ],
+      "point_difference": -0.019375000000000003,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "model_M4_paired_seed1_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.06896479166666666,
+      "ci95_percentile": [
+        -0.13,
+        -0.013122395833333347
+      ],
+      "point_difference": -0.06739583333333332,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "model_M4_paired_seed2_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.02883130208333334,
+      "ci95_percentile": [
+        -0.07750520833333334,
+        0.010835937499999986
+      ],
+      "point_difference": -0.028645833333333343,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "model_M4_paired_system_objective_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.055780026041666673,
+      "ci95_percentile": [
+        -0.11684114583333334,
+        0.0006809895833332932
+      ],
+      "point_difference": -0.05572916666666666,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "model_M4_paired_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.03797721354166668,
+      "ci95_percentile": [
+        -0.08661588541666669,
+        0.003126302083333329
+      ],
+      "point_difference": -0.037395833333333336,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "observed_finite_oracle_vs_model_M0_time": {
+      "bootstrap_mean_difference": 0.06921205729166667,
+      "ci95_percentile": [
+        0.03306901041666665,
+        0.11109570312499999
+      ],
+      "point_difference": 0.06997395833333334,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "risk_fixed_vs_model_M0_time": {
+      "bootstrap_mean_difference": -0.045508984375000026,
+      "ci95_percentile": [
+        -0.10261718750000007,
+        0.00859374999999997
+      ],
+      "point_difference": -0.04531250000000003,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    }
+  },
+  "bootstrap_reference": "model_M0_time",
+  "bootstrap_reference_spec": {
+    "category": "nonvisual",
+    "method": "model_M0_time",
+    "model": "M0_time",
+    "validation_utility": 0.08307291666666668
+  },
+  "canonical_comparisons": {
+    "best_fixed": {
+      "bootstrap_mean_difference": 0.007531770833333354,
+      "ci95_percentile": [
+        -0.042526041666666646,
+        0.057093749999999985
+      ],
+      "point_difference": 0.007916666666666697,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "best_nonvisual": {
+      "bootstrap_mean_difference": -0.03797721354166668,
+      "ci95_percentile": [
+        -0.08661588541666669,
+        0.003126302083333329
+      ],
+      "point_difference": -0.037395833333333336,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    },
+    "risk": {
+      "bootstrap_mean_difference": 0.007531770833333354,
+      "ci95_percentile": [
+        -0.042526041666666646,
+        0.057093749999999985
+      ],
+      "point_difference": 0.007916666666666697,
+      "repeats": 2000,
+      "unit": "stat_group_id"
+    }
+  },
+  "canonical_seed": "seed0",
+  "full_branch_coverage": true,
+  "full_reference": {
+    "mean_changed_action_steps": 278.3583333333333,
+    "mean_helper_steps_actual": 278.3583333333333,
+    "root_mean_system_success": 0.20833333333333334,
+    "selector_candidate": false,
+    "system_success_rate_anchor": 0.2033898305084746,
+    "unique_success_roots": 19
+  },
+  "handoff_probability_metrics_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/metrics/test/handoff_probability_metrics.json",
+  "handoff_readiness_rule": {
+    "criterion": "selected_visual_mean_brier_below_proprio_and_frozen_train_prior",
+    "minimum_negative_roots_per_output": 5,
+    "minimum_positive_roots_per_output": 5,
+    "minimum_test_roots": 20
+  },
+  "method_specs": {
+    "fixed_l20": {
+      "kind": "fixed",
+      "length": 20
+    },
+    "fixed_l5": {
+      "kind": "fixed",
+      "length": 5
+    },
+    "fixed_l80": {
+      "kind": "fixed",
+      "length": 80
+    },
+    "fixed_none": {
+      "kind": "fixed",
+      "length": 0
+    },
+    "model_M0_time": {
+      "kind": "model",
+      "model": "M0_time",
+      "seed": "seed0"
+    },
+    "model_M1_proprio": {
+      "kind": "model",
+      "model": "M1_proprio",
+      "seed": "seed0"
+    },
+    "model_M4_paired": {
+      "kind": "model",
+      "model": "M4_paired",
+      "seed": "seed0"
+    },
+    "model_M4_paired_seed1": {
+      "kind": "model",
+      "model": "M4_paired",
+      "seed": "seed1"
+    },
+    "model_M4_paired_seed2": {
+      "kind": "model",
+      "model": "M4_paired",
+      "seed": "seed2"
+    },
+    "model_M4_paired_system_objective": {
+      "kind": "model",
+      "model": "M4_paired",
+      "seed": "seed0",
+      "system_objective": true
+    },
+    "observed_finite_oracle": {
+      "kind": "oracle"
+    },
+    "risk_fixed": {
+      "kind": "risk",
+      "length": 80,
+      "method": "risk_fixed",
+      "mode": "threshold",
+      "p0_model": "M0_time",
+      "threshold": 0.0,
+      "validation_utility": 0.05037760416666663
+    }
+  },
+  "methods": {
+    "fixed_l20": {
+      "autonomous_completion_rate": 0.075,
+      "genuine_rescue_anchors": 6,
+      "genuine_rescue_unique_roots": 6,
+      "helped_fraction": 1.0,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 2,
+        "denominator": 4,
+        "rate": 0.5
+      },
+      "mean_changed_action_steps": 20.0,
+      "mean_helper_steps_actual": 20.0,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 22,
+        "selected_finite_failure_with_longer_finite_genuine": 13
+      },
+      "primary_utility_U_lambda_0p25": 0.06250000000000001,
+      "regret_to_observed_finite_oracle": 0.13195312499999998,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.075,
+      "system_success_rate_anchor": 0.06779661016949153,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "fixed_l5": {
+      "autonomous_completion_rate": 0.03333333333333333,
+      "genuine_rescue_anchors": 1,
+      "genuine_rescue_unique_roots": 1,
+      "helped_fraction": 1.0,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 2,
+        "denominator": 4,
+        "rate": 0.5
+      },
+      "mean_changed_action_steps": 5.0,
+      "mean_helper_steps_actual": 5.0,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 24,
+        "selected_finite_failure_with_longer_finite_genuine": 18
+      },
+      "primary_utility_U_lambda_0p25": 0.03020833333333333,
+      "regret_to_observed_finite_oracle": 0.16424479166666667,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.03333333333333333,
+      "system_success_rate_anchor": 0.025423728813559324,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "fixed_l80": {
+      "autonomous_completion_rate": 0.12916666666666665,
+      "genuine_rescue_anchors": 14,
+      "genuine_rescue_unique_roots": 13,
+      "helped_fraction": 1.0,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 3,
+        "denominator": 4,
+        "rate": 0.75
+      },
+      "mean_changed_action_steps": 80.0,
+      "mean_helper_steps_actual": 80.0,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 9,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.07916666666666664,
+      "regret_to_observed_finite_oracle": 0.11528645833333333,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.14583333333333331,
+      "system_success_rate_anchor": 0.1440677966101695,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "fixed_none": {
+      "autonomous_completion_rate": 0.05,
+      "genuine_rescue_anchors": 0,
+      "genuine_rescue_unique_roots": 0,
+      "helped_fraction": 0.0,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "mean_changed_action_steps": 0.0,
+      "mean_helper_steps_actual": 0.0,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 0,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.05,
+      "regret_to_observed_finite_oracle": 0.144453125,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.05,
+      "system_success_rate_anchor": 0.03389830508474576,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "model_M0_time": {
+      "autonomous_completion_rate": 0.14583333333333331,
+      "genuine_rescue_anchors": 13,
+      "genuine_rescue_unique_roots": 12,
+      "helped_fraction": 0.6833333333333333,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 1,
+        "denominator": 4,
+        "rate": 0.25
+      },
+      "mean_changed_action_steps": 34.16666666666667,
+      "mean_helper_steps_actual": 34.16666666666667,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 12,
+        "selected_finite_failure_with_longer_finite_genuine": 3
+      },
+      "primary_utility_U_lambda_0p25": 0.12447916666666667,
+      "regret_to_observed_finite_oracle": 0.06997395833333334,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.15416666666666665,
+      "system_success_rate_anchor": 0.1440677966101695,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "model_M1_proprio": {
+      "autonomous_completion_rate": 0.12083333333333332,
+      "genuine_rescue_anchors": 10,
+      "genuine_rescue_unique_roots": 9,
+      "helped_fraction": 0.3583333333333333,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 1,
+        "denominator": 4,
+        "rate": 0.25
+      },
+      "mean_changed_action_steps": 25.166666666666668,
+      "mean_helper_steps_actual": 25.166666666666668,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 5,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.10510416666666667,
+      "regret_to_observed_finite_oracle": 0.08934895833333333,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.1375,
+      "system_success_rate_anchor": 0.1271186440677966,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "model_M4_paired": {
+      "autonomous_completion_rate": 0.10416666666666666,
+      "genuine_rescue_anchors": 8,
+      "genuine_rescue_unique_roots": 7,
+      "helped_fraction": 0.3416666666666666,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 1,
+        "denominator": 2,
+        "rate": 0.5
+      },
+      "mean_changed_action_steps": 27.333333333333336,
+      "mean_helper_steps_actual": 27.333333333333336,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 6,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.08708333333333333,
+      "regret_to_observed_finite_oracle": 0.10736979166666667,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.1125,
+      "system_success_rate_anchor": 0.1016949152542373,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "model_M4_paired_seed1": {
+      "autonomous_completion_rate": 0.05833333333333333,
+      "genuine_rescue_anchors": 1,
+      "genuine_rescue_unique_roots": 1,
+      "helped_fraction": 0.1,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 0,
+        "denominator": 2,
+        "rate": 0.0
+      },
+      "mean_changed_action_steps": 2.0,
+      "mean_helper_steps_actual": 2.0,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 0,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.05708333333333334,
+      "regret_to_observed_finite_oracle": 0.13736979166666666,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.05833333333333333,
+      "system_success_rate_anchor": 0.0423728813559322,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "model_M4_paired_seed2": {
+      "autonomous_completion_rate": 0.1125,
+      "genuine_rescue_anchors": 9,
+      "genuine_rescue_unique_roots": 8,
+      "helped_fraction": 0.3583333333333333,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 1,
+        "denominator": 4,
+        "rate": 0.25
+      },
+      "mean_changed_action_steps": 26.666666666666668,
+      "mean_helper_steps_actual": 26.666666666666668,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 7,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.09583333333333333,
+      "regret_to_observed_finite_oracle": 0.09861979166666668,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.12083333333333332,
+      "system_success_rate_anchor": 0.11016949152542373,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "model_M4_paired_system_objective": {
+      "autonomous_completion_rate": 0.09583333333333333,
+      "genuine_rescue_anchors": 10,
+      "genuine_rescue_unique_roots": 9,
+      "helped_fraction": 0.5416666666666666,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 3,
+        "denominator": 4,
+        "rate": 0.75
+      },
+      "mean_changed_action_steps": 43.333333333333336,
+      "mean_helper_steps_actual": 43.333333333333336,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 8,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.06875,
+      "regret_to_observed_finite_oracle": 0.125703125,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.1125,
+      "system_success_rate_anchor": 0.11016949152542373,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "observed_finite_oracle": {
+      "autonomous_completion_rate": 0.2,
+      "genuine_rescue_anchors": 18,
+      "genuine_rescue_unique_roots": 16,
+      "helped_fraction": 0.15,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "mean_changed_action_steps": 8.875,
+      "mean_helper_steps_actual": 8.875,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 0,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.194453125,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.2,
+      "system_success_rate_anchor": 0.1864406779661017,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    },
+    "risk_fixed": {
+      "autonomous_completion_rate": 0.12916666666666665,
+      "genuine_rescue_anchors": 14,
+      "genuine_rescue_unique_roots": 13,
+      "helped_fraction": 1.0,
+      "helper_completed_anchors": 0,
+      "interference_among_baseline_success": {
+        "count": 3,
+        "denominator": 4,
+        "rate": 0.75
+      },
+      "mean_changed_action_steps": 80.0,
+      "mean_helper_steps_actual": 80.0,
+      "premature_return_diagnostic": {
+        "selected_finite_failure_with_full_success": 9,
+        "selected_finite_failure_with_longer_finite_genuine": 0
+      },
+      "primary_utility_U_lambda_0p25": 0.07916666666666664,
+      "regret_to_observed_finite_oracle": 0.11528645833333333,
+      "repair_calls_after_handoff": {
+        "root_mean": 0.0,
+        "total": 0
+      },
+      "root_mean_system_success": 0.14583333333333331,
+      "system_success_rate_anchor": 0.1440677966101695,
+      "valid_anchors": 118,
+      "valid_roots": 40
+    }
+  },
+  "oracle_rescuable_roots": 16,
+  "probability_metrics_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/metrics/test/probability_metrics.json",
+  "schema_version": "hb2_test_metrics_v2",
+  "selected_visual_model": "M4_paired",
+  "valid_anchors": 118,
+  "valid_roots": 40
+}

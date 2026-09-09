@@ -1,0 +1,25 @@
+{
+  "base_action_source": "suggestions[t]",
+  "cameras": [
+    "agentview_image",
+    "robot0_eye_in_hand_image"
+  ],
+  "forbidden": [
+    "object",
+    "reward",
+    "success",
+    "future",
+    "root_id",
+    "role",
+    "repair_action"
+  ],
+  "head": "anchor",
+  "helper_elapsed": "not_used",
+  "history_frames": 4,
+  "proprio": [
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos"
+  ],
+  "schema_version": "hb2_input_schema_v1"
+}

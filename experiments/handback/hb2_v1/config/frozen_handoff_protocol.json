@@ -1,0 +1,77 @@
+{
+  "artifacts": {
+    "f_protocol": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/config/frozen_protocol.json",
+      "sha256": "4f49914b78e998956d1c0c96ba446f28f623f9f8cb66b9d56a979c3290b44b74"
+    },
+    "feature_manifest": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/handoff/handoff.manifest.json",
+      "sha256": "29dfbaa7c63db9c02b750a532323660db762dca3e7b3ec6781bac598fcc98afd"
+    },
+    "input_schema": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/handoff/input_schema.json",
+      "sha256": "1357bf09f655745c720d2591041f345ebbdfe44c485eb48409c2165adabbe0b5"
+    },
+    "normalizer": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/handoff/normalizer.json",
+      "sha256": "02a24d395ae0bc8893768aeb685d7ab52dbb96309c6eb55ecc06941dd55ac4e1"
+    },
+    "validation_summary": {
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/metrics/handoff_validation/summary.json",
+      "sha256": "c7e2c2d4a4471913f3683ead97ad7dc584240cc1e639ddcef84a8fc4f7e9a6d6"
+    }
+  },
+  "canonical_seed": 0,
+  "code_commit": "564c33e6a79e519c3ae7584762fb323cb53518e1",
+  "input_schema": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/handoff/input_schema.json",
+  "input_support": {
+    "arbitrary_online_exit_validated": false,
+    "distribution": "observed_fixed_length_handoffs",
+    "helper_lengths": [
+      5,
+      20,
+      80
+    ]
+  },
+  "models": {
+    "proprio": {
+      "seed0": {
+        "architecture": "proprio",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/handoff/proprio/seed0/best.pt",
+        "checkpoint_sha256": "cb468bc8297ad5c6afb1f01d323b391b97969d6e6ae1852d2b491c8fac8b2d6a",
+        "selected_f_model": null,
+        "temperature": 1.15,
+        "validation_root_equal_nll_calibrated": 0.16331391260534625,
+        "validation_root_equal_nll_uncalibrated": 0.16537606049441456
+      }
+    },
+    "selected_visual": {
+      "seed0": {
+        "architecture": "selected_visual_local",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/handoff/selected_visual/seed0/best.pt",
+        "checkpoint_sha256": "ef9592cb390e4287dff3e0ffa223da7bc724284f920178ef9bc8afe358f8e10f",
+        "selected_f_model": "M4_paired",
+        "temperature": 1.3,
+        "validation_root_equal_nll_calibrated": 0.15330577397270947,
+        "validation_root_equal_nll_uncalibrated": 0.16442234302332048
+      }
+    }
+  },
+  "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/handoff/normalizer.json",
+  "primary_visual_model": "selected_visual",
+  "readiness_rule": {
+    "criterion": "selected_visual_mean_brier_below_proprio_and_frozen_train_prior",
+    "minimum_negative_roots_per_output": 5,
+    "minimum_positive_roots_per_output": 5,
+    "minimum_test_roots": 20
+  },
+  "schema_version": "hb2_frozen_handoff_protocol_v2",
+  "selected_f_model": "M4_paired",
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "task": "square",
+  "training_root_equal_priors": {
+    "q_complete": 0.09893849206349206,
+    "q_strict": 0.09281249999999999
+  },
+  "validation_locked": true
+}

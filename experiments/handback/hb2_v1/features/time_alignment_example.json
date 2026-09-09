@@ -1,0 +1,52 @@
+{
+  "all_inputs_finite": true,
+  "head": "anchor",
+  "sample": {
+    "absolute_t": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "example_id": "F:square:probe:161000:20",
+    "normalized_time": [
+      0.042500000447034836,
+      0.04500000178813934,
+      0.04749999940395355,
+      0.05000000074505806
+    ],
+    "padding_applied": false,
+    "root_id": "square:probe:161000",
+    "stat_group_id": "stat:6003674e322f5d6d7b08"
+  },
+  "sample_image_sha256": "0a12780f99cea4a9bacb4f2f6353d7bf3705fb06bf64a15fb7e24090c9301698",
+  "schema_version": "hb2_time_alignment_example_v1",
+  "tensor_shapes": {
+    "base_actions": [
+      4,
+      7
+    ],
+    "global": [
+      4,
+      2,
+      384
+    ],
+    "helper_elapsed": [
+      1
+    ],
+    "local": [
+      4,
+      2,
+      16,
+      384
+    ],
+    "proprio": [
+      4,
+      9
+    ],
+    "time": [
+      4,
+      1
+    ]
+  }
+}

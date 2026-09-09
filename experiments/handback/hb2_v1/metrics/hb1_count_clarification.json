@@ -1,0 +1,16 @@
+{
+  "details": {
+    "anchor_rate": 0.25,
+    "anchors": 120,
+    "helper_completed_anchors": 30,
+    "mean_within_root_rate": 0.25000000000000006,
+    "roots": 40,
+    "unique_helper_completed_roots": 18
+  },
+  "mean_within_root_success_rate": 0.25000000000000006,
+  "note": "The three quantities use different denominators and are not interchangeable.",
+  "role": "legacy_train",
+  "schema_version": "hb2_hb1_count_clarification_v1",
+  "success_anchor_rate": 0.25,
+  "unique_success_roots": 18
+}

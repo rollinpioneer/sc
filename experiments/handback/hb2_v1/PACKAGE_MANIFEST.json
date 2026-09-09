@@ -1,0 +1,905 @@
+{
+  "exclusions": [
+    "model weights",
+    "feature NPZ caches",
+    "raw roots and branch trajectories",
+    "prediction payloads",
+    "images and videos",
+    "complete logs"
+  ],
+  "experiment_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1",
+  "included_file_count": 92,
+  "local_large_assets": [
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/anchor.npz",
+      "relative_path": "features/anchor.npz",
+      "sha256": "b5e8a298e5eb12936bfaf435769a8d4c5e98b718830db2bcea592228cd706406",
+      "size_bytes": 34392536
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/handoff/handoff.npz",
+      "relative_path": "features/handoff/handoff.npz",
+      "sha256": "dd54a5a2a8f39a0eab47125ae8cd621790b5a4cb05de63f9db5bedf137b1732a",
+      "size_bytes": 101144452
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/test/anchor.npz",
+      "relative_path": "features/test/anchor.npz",
+      "sha256": "849971f83816402f4863f674e0c6ecef23931b1e06e3d7b81277bfbf87ddd6e3",
+      "size_bytes": 11220112
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/test/handoff/handoff.npz",
+      "relative_path": "features/test/handoff/handoff.npz",
+      "sha256": "4de5918e196f8f8dc03c206e9a286b6acb2aee63861fdb66c53e51eec58db5a9",
+      "size_bytes": 33613786
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_pilot/rollout_000.npz",
+      "relative_path": "roots/hb2_pilot/rollout_000.npz",
+      "sha256": "2b733e471915fb91aeb4ccfd47772bdd9939418b69b55b758832749ddb47bfb0",
+      "size_bytes": 2601000
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_pilot/rollout_001.npz",
+      "relative_path": "roots/hb2_pilot/rollout_001.npz",
+      "sha256": "7fcda84c096fd1f9ab7c8b92efdbb29be2570a4894ffd5d83026f555d1c638ab",
+      "size_bytes": 3104767
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_pilot/rollout_002.npz",
+      "relative_path": "roots/hb2_pilot/rollout_002.npz",
+      "sha256": "b0a1f42a7ce575ba380da51ed7a4dc12a470bf0fabd9f55a640de6e0959e3f77",
+      "size_bytes": 3664376
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_pilot/rollout_003.npz",
+      "relative_path": "roots/hb2_pilot/rollout_003.npz",
+      "sha256": "4b48d1fbbab61c2b5e18835eca727a4d33ca6711c2fecfcfc7eebc11dcadeb61",
+      "size_bytes": 2422794
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_000.npz",
+      "relative_path": "roots/hb2_test/rollout_000.npz",
+      "sha256": "6333108c9c31c98487ded3d9f1851149b3fe496f97114407a4c81915d4d38eeb",
+      "size_bytes": 3653801
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_001.npz",
+      "relative_path": "roots/hb2_test/rollout_001.npz",
+      "sha256": "8dfa8e5a1d862bf9ea7cb84d254391873b0710d7a2918e8b5d8c1ff90ff2f48e",
+      "size_bytes": 2285162
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_002.npz",
+      "relative_path": "roots/hb2_test/rollout_002.npz",
+      "sha256": "40d9db6ee38ca102f3c4505b63229c8ce6123b21579126feb3eccfe6ac6c5e11",
+      "size_bytes": 3218230
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_003.npz",
+      "relative_path": "roots/hb2_test/rollout_003.npz",
+      "sha256": "ab1cce5b761dde25f8d39133eec1ebe96151db04f9c1eddd849928351faa0c4b",
+      "size_bytes": 3630917
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_004.npz",
+      "relative_path": "roots/hb2_test/rollout_004.npz",
+      "sha256": "9c83996d86740be68f28c7ff6fb1f382fdfa9dbc43826e9135e6d7f6343ac6dd",
+      "size_bytes": 2839704
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_005.npz",
+      "relative_path": "roots/hb2_test/rollout_005.npz",
+      "sha256": "fb7f72cbe56309e5a493a2889de4e24026d1e0e50e980ee5f1127fd329d0db4f",
+      "size_bytes": 3191569
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_006.npz",
+      "relative_path": "roots/hb2_test/rollout_006.npz",
+      "sha256": "4cd80a1b2fef90ea07339b5efe8d2dc512065e06fb5daca3b536cbf561e9ceb2",
+      "size_bytes": 2711841
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_007.npz",
+      "relative_path": "roots/hb2_test/rollout_007.npz",
+      "sha256": "5475f38f9905153ea7ae1c97d15e72da3f630496a19828ee9470d463489a6171",
+      "size_bytes": 2396319
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_008.npz",
+      "relative_path": "roots/hb2_test/rollout_008.npz",
+      "sha256": "4f65f9f520b75bc0e2fd8a3015f2972657686b9213edb29ce45d9f469861221d",
+      "size_bytes": 3975745
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_009.npz",
+      "relative_path": "roots/hb2_test/rollout_009.npz",
+      "sha256": "f3c2d258d473b5c1c37164241307cd23b5a299fc5e98fc25940cd0c6d56d9481",
+      "size_bytes": 2634063
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_010.npz",
+      "relative_path": "roots/hb2_test/rollout_010.npz",
+      "sha256": "cbd091b302bfe539de21d56e4582eff4bae28e42c4f3ce42d4265383d86740f4",
+      "size_bytes": 3754323
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_011.npz",
+      "relative_path": "roots/hb2_test/rollout_011.npz",
+      "sha256": "55eb01e8a7caf03aa7c7d792b1a988e6872ae7bb7a04855927d867d6b40318f1",
+      "size_bytes": 2461223
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_012.npz",
+      "relative_path": "roots/hb2_test/rollout_012.npz",
+      "sha256": "a7aee912dc19db9067bbb29895e03bd0e51eda06ccef02316c7ecd0b73c9f4bd",
+      "size_bytes": 2788476
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_013.npz",
+      "relative_path": "roots/hb2_test/rollout_013.npz",
+      "sha256": "7a283a02f58119e87afde8581e5844889156bfe24523f4afd4fbd4d95c8fdac8",
+      "size_bytes": 3153067
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_014.npz",
+      "relative_path": "roots/hb2_test/rollout_014.npz",
+      "sha256": "0a9f6a3d697ce429787cf4a2abef93ce95f78de085ebb03799dbbc16029768a2",
+      "size_bytes": 2011045
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_015.npz",
+      "relative_path": "roots/hb2_test/rollout_015.npz",
+      "sha256": "0e2214ca8124a055295694791bb6e71de6137915b1f1715e2f320d7e42628a08",
+      "size_bytes": 2792237
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_016.npz",
+      "relative_path": "roots/hb2_test/rollout_016.npz",
+      "sha256": "667cc2cd33e5271c71945eded83c22696781f3bb50d36d345f4ca1a8d860c4ac",
+      "size_bytes": 3524624
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_017.npz",
+      "relative_path": "roots/hb2_test/rollout_017.npz",
+      "sha256": "4edbfe1db4dbb9cc7280d00ff000df723525db6d1b31e866d738e69cefc9a3c5",
+      "size_bytes": 2785711
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_018.npz",
+      "relative_path": "roots/hb2_test/rollout_018.npz",
+      "sha256": "8e7ad3a66f6e00962a05ad3895628fda2f24c8e8ca3265e9c654230692e53ace",
+      "size_bytes": 2613718
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_019.npz",
+      "relative_path": "roots/hb2_test/rollout_019.npz",
+      "sha256": "c7e400a1f4eb77d35004876b4d943d17c8aea9fca5e5502c0eadaf1bb4d1caf2",
+      "size_bytes": 3036929
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_020.npz",
+      "relative_path": "roots/hb2_test/rollout_020.npz",
+      "sha256": "79866a759c939ffb81bb6b99b62f8f4944928960c01798ee3af671f0a9df5286",
+      "size_bytes": 1092689
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_021.npz",
+      "relative_path": "roots/hb2_test/rollout_021.npz",
+      "sha256": "4256faabc8ecd26596bca9560d5eef6b74855b77c651718aafa9bb962ad4a905",
+      "size_bytes": 2514000
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_022.npz",
+      "relative_path": "roots/hb2_test/rollout_022.npz",
+      "sha256": "42d6c4f3e797e58930b61fff1bc65f6e7bb587d8cf5fb00a787b4365a160a07f",
+      "size_bytes": 2910815
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_023.npz",
+      "relative_path": "roots/hb2_test/rollout_023.npz",
+      "sha256": "93d76bfd61a3e1ae20b8c7d45cf2207a1e8b49be62efd6904bfa05d1a30ba4ce",
+      "size_bytes": 2513929
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_024.npz",
+      "relative_path": "roots/hb2_test/rollout_024.npz",
+      "sha256": "8afef33198d06a6f917b630888a39188f4b42dcb852123485b46b8ed15e3951c",
+      "size_bytes": 3789267
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_025.npz",
+      "relative_path": "roots/hb2_test/rollout_025.npz",
+      "sha256": "268719288fb37444a3c2001cac1d771db3f6f09dc78e7a146026539e61be7dc7",
+      "size_bytes": 3401157
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_026.npz",
+      "relative_path": "roots/hb2_test/rollout_026.npz",
+      "sha256": "13a2b9f69342228cf8c152baa5640e0baba64a4da9f93ff358e48972579d2f83",
+      "size_bytes": 2584643
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_027.npz",
+      "relative_path": "roots/hb2_test/rollout_027.npz",
+      "sha256": "4d990ead0e64e499e6cb2ebb47c82c6af14f5da34026f93390bdbb4e9ec1841c",
+      "size_bytes": 3185742
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_028.npz",
+      "relative_path": "roots/hb2_test/rollout_028.npz",
+      "sha256": "34e30fe06b0d32ebd30ec4a6460edaccd99efcef9683730db8aa1e525f558688",
+      "size_bytes": 2516180
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_029.npz",
+      "relative_path": "roots/hb2_test/rollout_029.npz",
+      "sha256": "f49d098d6121ed2409b4907c01daf50636c5f098f49c6fed9724d7ef1a9d5527",
+      "size_bytes": 3965680
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_030.npz",
+      "relative_path": "roots/hb2_test/rollout_030.npz",
+      "sha256": "ff697acc753fd76f53307816af710fee75e259dcabffbbcbf98e19cd2d9b6c81",
+      "size_bytes": 1052732
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_031.npz",
+      "relative_path": "roots/hb2_test/rollout_031.npz",
+      "sha256": "8cdaac6cfd3049bc2bdeb995b4184ce01ca2574fbc2da592f1d140c521e25a6e",
+      "size_bytes": 3075515
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_032.npz",
+      "relative_path": "roots/hb2_test/rollout_032.npz",
+      "sha256": "5b7151666d6cce620b299b35aa9e666e5383abcc205b352545a9172f0498f7fb",
+      "size_bytes": 2955688
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_033.npz",
+      "relative_path": "roots/hb2_test/rollout_033.npz",
+      "sha256": "02a0d50a072199429f3696d474d9472f0e4bde9b6c51d513cda1ef8febc1a0a6",
+      "size_bytes": 2283917
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_034.npz",
+      "relative_path": "roots/hb2_test/rollout_034.npz",
+      "sha256": "c3eab29e9e4306d7b5a4e97bcf7bffa8a09cd910fd55d6fc52cea662ef1b1e80",
+      "size_bytes": 3600437
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_035.npz",
+      "relative_path": "roots/hb2_test/rollout_035.npz",
+      "sha256": "bc457759433ebc2cae5e312a67b56c77ddef2e36546a95a2c501d156a06962f2",
+      "size_bytes": 3192160
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_036.npz",
+      "relative_path": "roots/hb2_test/rollout_036.npz",
+      "sha256": "04971b91578357d8c644a4b87ab2ca261886dbaaab23869a9afa6161c892a3b4",
+      "size_bytes": 3819738
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_037.npz",
+      "relative_path": "roots/hb2_test/rollout_037.npz",
+      "sha256": "66028006dca18adcdedce15bdeddf18db8e3f9b94b029a40ca12bf64f119473b",
+      "size_bytes": 2819941
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_038.npz",
+      "relative_path": "roots/hb2_test/rollout_038.npz",
+      "sha256": "fa84522dfce4153eec24e3b2052b3d6d9ff007bd9985b84c92e6c792afe5993d",
+      "size_bytes": 2375932
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_test/rollout_039.npz",
+      "relative_path": "roots/hb2_test/rollout_039.npz",
+      "sha256": "a13bc4ff3bc5014492da5863a3a896b8581aca19bbafb0683f724fdbfe3f23e8",
+      "size_bytes": 3588324
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_000.npz",
+      "relative_path": "roots/hb2_train/rollout_000.npz",
+      "sha256": "03a4276260fb7cae98f9758ffaa4956b22daa96dc7a0677f54689a12a580dca1",
+      "size_bytes": 2043737
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_001.npz",
+      "relative_path": "roots/hb2_train/rollout_001.npz",
+      "sha256": "5464ed25aaddfb87af68647506832faa06732a4a4152c67432398263d2e98deb",
+      "size_bytes": 2993763
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_002.npz",
+      "relative_path": "roots/hb2_train/rollout_002.npz",
+      "sha256": "dd75f680d8cf9c1da9e79ae0fee5a267894ea177121d531ee0c6758ea4c43f7a",
+      "size_bytes": 3009834
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_003.npz",
+      "relative_path": "roots/hb2_train/rollout_003.npz",
+      "sha256": "f890d8e9b7f0138b695891d06dafc16d59f37ebb3b6d517d63a75d89b00b39c5",
+      "size_bytes": 3030088
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_004.npz",
+      "relative_path": "roots/hb2_train/rollout_004.npz",
+      "sha256": "9b7921d90d8a5193b215be1a1ee9754cfc27cdf8f8dba338ebb3adb3c537c075",
+      "size_bytes": 3232600
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_005.npz",
+      "relative_path": "roots/hb2_train/rollout_005.npz",
+      "sha256": "2ac8fce0c8549f8a4c783f91aecabee08a1c3b16c7780c57307309f7332f50dd",
+      "size_bytes": 2974408
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_006.npz",
+      "relative_path": "roots/hb2_train/rollout_006.npz",
+      "sha256": "208623a44e3002a0c41f49dae02783080878d3424c4e9c42805739541b366903",
+      "size_bytes": 2826159
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_007.npz",
+      "relative_path": "roots/hb2_train/rollout_007.npz",
+      "sha256": "b26503970ea1d390fb4a24f44176a944c81909ca4549d42e6f87a71b89715f10",
+      "size_bytes": 1786910
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_008.npz",
+      "relative_path": "roots/hb2_train/rollout_008.npz",
+      "sha256": "d17450f95d07c8ff5460ecf974a1898bd4bc272883be1926935b2ea6cd3d0ac4",
+      "size_bytes": 1105202
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_009.npz",
+      "relative_path": "roots/hb2_train/rollout_009.npz",
+      "sha256": "2323d3c1e04d1c7a9cd9f82e409824d02e158cd183bf6acd149e0562a0c955ba",
+      "size_bytes": 3202284
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_010.npz",
+      "relative_path": "roots/hb2_train/rollout_010.npz",
+      "sha256": "1a47b43c9f25d26e0996a9f169d63bacd76be4936fdf50bd5f9a344387bcda53",
+      "size_bytes": 3597203
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_011.npz",
+      "relative_path": "roots/hb2_train/rollout_011.npz",
+      "sha256": "63a19171e194905c573a307e3c91ee6b1f6546917e2fe7e93e06f18fc9358646",
+      "size_bytes": 3000816
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_012.npz",
+      "relative_path": "roots/hb2_train/rollout_012.npz",
+      "sha256": "772216e6b6610b6c260617bf31ab9a71db7b5d8cab1436c8d1346c003a302a35",
+      "size_bytes": 3371081
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_013.npz",
+      "relative_path": "roots/hb2_train/rollout_013.npz",
+      "sha256": "652b65b761d8c78732f069a166c6cf1a7e00bed8c8cc79247d64060adcd79760",
+      "size_bytes": 1969424
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_014.npz",
+      "relative_path": "roots/hb2_train/rollout_014.npz",
+      "sha256": "e3353c7eeac79e8e03013ba17ad66ea7b3a1d1827a0020786239961cc415f58f",
+      "size_bytes": 1299493
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_015.npz",
+      "relative_path": "roots/hb2_train/rollout_015.npz",
+      "sha256": "534a08d6238cff80d41a763459877db5a96ace60ade709f2bd5b3743e350403d",
+      "size_bytes": 3320306
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_016.npz",
+      "relative_path": "roots/hb2_train/rollout_016.npz",
+      "sha256": "849a3e2998a404f9fc635a4c8da29a443125c67f68d752298a555363d9bc918c",
+      "size_bytes": 4205475
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_017.npz",
+      "relative_path": "roots/hb2_train/rollout_017.npz",
+      "sha256": "d4d02527606aabf2a5ad74a2e59c7d83937b3dfa5558d76804a78523e6d833e5",
+      "size_bytes": 1634891
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_018.npz",
+      "relative_path": "roots/hb2_train/rollout_018.npz",
+      "sha256": "c15167c24f3bdd554524a8fe92ba11006d803dfdf0f9f60cef6a8a65c0d7edc9",
+      "size_bytes": 1354025
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_019.npz",
+      "relative_path": "roots/hb2_train/rollout_019.npz",
+      "sha256": "2eb5d9e3f5c299f0f2ed35d915e75ef94a273a1cb30b3652c4a872e22fcda790",
+      "size_bytes": 2753219
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_020.npz",
+      "relative_path": "roots/hb2_train/rollout_020.npz",
+      "sha256": "6be4d161885f720beb9636930d2ed1f2d78cdd23e3c3cd6b784477d52f427fdc",
+      "size_bytes": 2513527
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_021.npz",
+      "relative_path": "roots/hb2_train/rollout_021.npz",
+      "sha256": "93a73e5a5bcfd20b79ccb80fe4c29ee55e177902fc2a3eeda251af57ba023e1b",
+      "size_bytes": 3106804
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_022.npz",
+      "relative_path": "roots/hb2_train/rollout_022.npz",
+      "sha256": "bcec1c7a38df14a064500c829fee7ee87390da80d3f122e738ddfc63e899a22e",
+      "size_bytes": 3234397
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_023.npz",
+      "relative_path": "roots/hb2_train/rollout_023.npz",
+      "sha256": "bf4dfee19295f9de8466864dc297e9e87c5ffe181908e058c21bb483c7c1e3b5",
+      "size_bytes": 1398119
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_024.npz",
+      "relative_path": "roots/hb2_train/rollout_024.npz",
+      "sha256": "5d15fb54cf5930287fc3dae83bd85308db610d44affdede14a6afd03614a6193",
+      "size_bytes": 2051668
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_025.npz",
+      "relative_path": "roots/hb2_train/rollout_025.npz",
+      "sha256": "c4652bd9d50885c8101396cc856aa86db7ec0ceb74f6a591635700265521c9ea",
+      "size_bytes": 3101763
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_026.npz",
+      "relative_path": "roots/hb2_train/rollout_026.npz",
+      "sha256": "d322c3da62127931872877a0175c76994b7034e2104f7e8f96ef6b3baaf352e4",
+      "size_bytes": 3911211
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_027.npz",
+      "relative_path": "roots/hb2_train/rollout_027.npz",
+      "sha256": "3bf4f83c30d8b59ff754ea9613c0a44b5ebd040fd3e6061a82c4c910c47dfae8",
+      "size_bytes": 2957819
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_028.npz",
+      "relative_path": "roots/hb2_train/rollout_028.npz",
+      "sha256": "b46a9f2d319082c564ca53bf2993b4db972fd834897f09175fda8d4df39ba25c",
+      "size_bytes": 3886478
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_029.npz",
+      "relative_path": "roots/hb2_train/rollout_029.npz",
+      "sha256": "d1abfa9f19ef80d4debdc544c4d8285a289010bdf9c1590e0d98cfe3fbda694d",
+      "size_bytes": 2436346
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_030.npz",
+      "relative_path": "roots/hb2_train/rollout_030.npz",
+      "sha256": "95e00d943abb504524f62e792eb21f9d2dc727ec3dbc1c48c7de14a978ade689",
+      "size_bytes": 2373193
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_031.npz",
+      "relative_path": "roots/hb2_train/rollout_031.npz",
+      "sha256": "3d64b8ba385faf7d0a97aebc8709206e2a764c3fdc9af0ba53a09fa18fdd921b",
+      "size_bytes": 3957750
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_032.npz",
+      "relative_path": "roots/hb2_train/rollout_032.npz",
+      "sha256": "03a75d05c6c556d8b0b4a6599fd2542affd78b44c93bf972f4d2f5440cfbe6d6",
+      "size_bytes": 2579955
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_033.npz",
+      "relative_path": "roots/hb2_train/rollout_033.npz",
+      "sha256": "f4b489ef0825138c6731a9b6d19e694c1aa51b5ca7513c4f1b1a67cf6464712b",
+      "size_bytes": 2079005
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_034.npz",
+      "relative_path": "roots/hb2_train/rollout_034.npz",
+      "sha256": "8087c0c0b84fa4f1a6b72f5bec0c9502ce4d34054e7f6e2ffc58024d2480f5e2",
+      "size_bytes": 2652070
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_035.npz",
+      "relative_path": "roots/hb2_train/rollout_035.npz",
+      "sha256": "eaa8356db058cf70aacff5bdc59578e27f94abb9818b68a3ea7246af44d21edb",
+      "size_bytes": 3229841
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_036.npz",
+      "relative_path": "roots/hb2_train/rollout_036.npz",
+      "sha256": "05c055b613d63e9a0e471eb6c0c9fd19ba4e5360a048b474e0f6679677e677b8",
+      "size_bytes": 2022634
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_037.npz",
+      "relative_path": "roots/hb2_train/rollout_037.npz",
+      "sha256": "936f61f1a0f8c19357fc9091826f13772d6014cbb85af7375bcd2b004a23e489",
+      "size_bytes": 2945680
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_038.npz",
+      "relative_path": "roots/hb2_train/rollout_038.npz",
+      "sha256": "270bb6d215275bfce38963863429d2339be41acfe8edde863ff2d2c67eb176eb",
+      "size_bytes": 2876611
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_train/rollout_039.npz",
+      "relative_path": "roots/hb2_train/rollout_039.npz",
+      "sha256": "07e4c0d36dc47172cbc092854bc53d7210b40a1d2ed196ade2f01bada766e68d",
+      "size_bytes": 2787038
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_000.npz",
+      "relative_path": "roots/hb2_val/rollout_000.npz",
+      "sha256": "666356bb6e2d46afe8a18f725ac79eb63c2c56ce405c670434d42026f79caffd",
+      "size_bytes": 2372876
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_001.npz",
+      "relative_path": "roots/hb2_val/rollout_001.npz",
+      "sha256": "56ed003d3821739cdb4ae60d771823a718f36dfd66e1d2bd3780b9c4be183d3b",
+      "size_bytes": 3828033
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_002.npz",
+      "relative_path": "roots/hb2_val/rollout_002.npz",
+      "sha256": "93b62551966924c81d22cee555c36ded43042f7611e367c074b09bee65e0bbd2",
+      "size_bytes": 2887209
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_003.npz",
+      "relative_path": "roots/hb2_val/rollout_003.npz",
+      "sha256": "ce99ee1b8367192e13e6e0bb53b5a31e842ccd8c6f49eba7b0c74fb685c97457",
+      "size_bytes": 3196306
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_004.npz",
+      "relative_path": "roots/hb2_val/rollout_004.npz",
+      "sha256": "977e549f167fd25c1f6744b1c9fed9b435c45082f0d5eeb4719491198a1bb3fb",
+      "size_bytes": 3072609
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_005.npz",
+      "relative_path": "roots/hb2_val/rollout_005.npz",
+      "sha256": "51cf3d160ef7d1c005b3cfb80afd8d3e862a86471de14dabeb63539723b7f4e6",
+      "size_bytes": 3805000
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_007.npz",
+      "relative_path": "roots/hb2_val/rollout_007.npz",
+      "sha256": "ea0150d740ed1839b22e5d0e08cadd7d5bcc714518b47a8ee59773e1acd05b9c",
+      "size_bytes": 3767690
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_008.npz",
+      "relative_path": "roots/hb2_val/rollout_008.npz",
+      "sha256": "1a876b8fd24b52ba62eebe54de1151499320812c1a7aeba8067992040e174a4c",
+      "size_bytes": 2819586
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_009.npz",
+      "relative_path": "roots/hb2_val/rollout_009.npz",
+      "sha256": "e908a605f78a7ccbdad6c4b0ce8378258e235550bfb3276e9f34ef3a3376245a",
+      "size_bytes": 3684861
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_010.npz",
+      "relative_path": "roots/hb2_val/rollout_010.npz",
+      "sha256": "a4e1452cc9dde36bccf4438ebd8aa11f24f2f9d13a5b5176c3b8e985aa6b5a15",
+      "size_bytes": 2415151
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_011.npz",
+      "relative_path": "roots/hb2_val/rollout_011.npz",
+      "sha256": "a4fe736ab0ce939be8183328b2ba4e4957d34e3f109c3204806e88f77c77f48f",
+      "size_bytes": 3091260
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_012.npz",
+      "relative_path": "roots/hb2_val/rollout_012.npz",
+      "sha256": "6726f81d8dd19abf02fb3559cfe90a3a63c088ed015031c0ed72a601058c2e03",
+      "size_bytes": 3195247
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_013.npz",
+      "relative_path": "roots/hb2_val/rollout_013.npz",
+      "sha256": "25403bc5532315f4e6f69dd7692702dad246aa20a2352e37880959a7934b8bfb",
+      "size_bytes": 2492545
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_014.npz",
+      "relative_path": "roots/hb2_val/rollout_014.npz",
+      "sha256": "38cc96380e4d9628b2878ce1aa4a5f8ed54330d69a55dda234ecadd37d33c82b",
+      "size_bytes": 3735007
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_015.npz",
+      "relative_path": "roots/hb2_val/rollout_015.npz",
+      "sha256": "52e0d28654799c3f313a773b2d20eba24c38f404a7527f414b4a9f36b43f1df3",
+      "size_bytes": 2797084
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_016.npz",
+      "relative_path": "roots/hb2_val/rollout_016.npz",
+      "sha256": "5cf00201ebc69f2feae3abb4bfe6503632f5544a4f2640ae580d79ecd4bb78d9",
+      "size_bytes": 3243694
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_017.npz",
+      "relative_path": "roots/hb2_val/rollout_017.npz",
+      "sha256": "1a56815c8fabf66e13c8fed8a12e9c7086aec8e740fe63ac0410f087dc25d00f",
+      "size_bytes": 3316201
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_018.npz",
+      "relative_path": "roots/hb2_val/rollout_018.npz",
+      "sha256": "b53acab4011390360dc47f116c51352fdc81db3cca98b84ef57a15eaa3262b72",
+      "size_bytes": 3204938
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_019.npz",
+      "relative_path": "roots/hb2_val/rollout_019.npz",
+      "sha256": "59cb8d43e984ea2105f814f1a79fd3d1010fae8f7c6a092b8eb12ce67c571001",
+      "size_bytes": 2805757
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_020.npz",
+      "relative_path": "roots/hb2_val/rollout_020.npz",
+      "sha256": "30424b523dccaf4e4ebb85d3588beab76b64d3a531c4cfa046cc1f6e7265b4c5",
+      "size_bytes": 2937707
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_021.npz",
+      "relative_path": "roots/hb2_val/rollout_021.npz",
+      "sha256": "51188812444387ae56fc6f3d8b8b139502228c1326413727020f5102766a8fa1",
+      "size_bytes": 2639965
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_022.npz",
+      "relative_path": "roots/hb2_val/rollout_022.npz",
+      "sha256": "c7c6a162dabbada188530100f83fe811b961ca4d69c5d96bc880bedb25285fee",
+      "size_bytes": 2623120
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_023.npz",
+      "relative_path": "roots/hb2_val/rollout_023.npz",
+      "sha256": "f7a05a4e5be1098489bd02c66bd7f676b4bf463ba9cd65415adce08d430b417e",
+      "size_bytes": 3801345
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_024.npz",
+      "relative_path": "roots/hb2_val/rollout_024.npz",
+      "sha256": "16474f86981ff1d4bd80592bcaf9bcf90a248c18d7d53e9eff50297d0bbfaca5",
+      "size_bytes": 3237965
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_025.npz",
+      "relative_path": "roots/hb2_val/rollout_025.npz",
+      "sha256": "e8dd095911532e66d2f2d1fc3f36309c96a07d239e836d1458ea1b126e986989",
+      "size_bytes": 2850942
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_026.npz",
+      "relative_path": "roots/hb2_val/rollout_026.npz",
+      "sha256": "00390935e731f943c953eadf7a7f129f04f110625affb0348386b473fb660667",
+      "size_bytes": 3888859
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_027.npz",
+      "relative_path": "roots/hb2_val/rollout_027.npz",
+      "sha256": "042b3208577a962eb79bcddeeefd1d175f7a01237503724993735733a81db84f",
+      "size_bytes": 3305693
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_028.npz",
+      "relative_path": "roots/hb2_val/rollout_028.npz",
+      "sha256": "7838cc89e54e93a099e580a599da622f399bb6c52b02eb10c77edfb582a3d26a",
+      "size_bytes": 2793956
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_029.npz",
+      "relative_path": "roots/hb2_val/rollout_029.npz",
+      "sha256": "c9c412d117a23fc471496685e0558231036c435155cb538506ee02ae4de9d363",
+      "size_bytes": 3089669
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_030.npz",
+      "relative_path": "roots/hb2_val/rollout_030.npz",
+      "sha256": "2ea5d429f55f1c7d34f1692077be1d71597c64fd3fe6a51f6906b248c1e18e6c",
+      "size_bytes": 3577369
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_031.npz",
+      "relative_path": "roots/hb2_val/rollout_031.npz",
+      "sha256": "9497900cba1e634f02d1e2e0bb3dea85bc4010b3da0b62039cb7fd2dc57e6231",
+      "size_bytes": 2928378
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_032.npz",
+      "relative_path": "roots/hb2_val/rollout_032.npz",
+      "sha256": "c793eae90483c717b896dd32d0c9f36718b5249cf4154538ac0fd8898df4ccbe",
+      "size_bytes": 3473208
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_033.npz",
+      "relative_path": "roots/hb2_val/rollout_033.npz",
+      "sha256": "a9e59c5f60eb0e955b921cc9c040cd9279b755d86f337d88f2bf328b85ef35fb",
+      "size_bytes": 2778559
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_034.npz",
+      "relative_path": "roots/hb2_val/rollout_034.npz",
+      "sha256": "384aa9a4831870e1234835d8d7e9e68f50636840e7da66302868018949601abe",
+      "size_bytes": 2574395
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_035.npz",
+      "relative_path": "roots/hb2_val/rollout_035.npz",
+      "sha256": "0171185d47ca02972f5a7fb942c92788554e09aaf548d9e97cd4644f5c3f7df7",
+      "size_bytes": 2641230
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_036.npz",
+      "relative_path": "roots/hb2_val/rollout_036.npz",
+      "sha256": "7b289324faed2663a2f4ff69ca39a2b5ca9909aa4ec42d2ce1ec2d2d1ad3ae73",
+      "size_bytes": 2485512
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_037.npz",
+      "relative_path": "roots/hb2_val/rollout_037.npz",
+      "sha256": "d838a26ebb5bf1e75b4d4d4144702d490a55e95a9a81e96465cf51bc0bff8d53",
+      "size_bytes": 2897803
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_038.npz",
+      "relative_path": "roots/hb2_val/rollout_038.npz",
+      "sha256": "d80a046b19f6356bd9ddc9129e139005babd22306fa94b1ea206db7858a12c55",
+      "size_bytes": 3695508
+    },
+    {
+      "included_in_lightweight_zip": false,
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/roots/hb2_val/rollout_039.npz",
+      "relative_path": "roots/hb2_val/rollout_039.npz",
+      "sha256": "3835701d133bd547be2b2e8f27a95eac282b692b87b4df4fd1bf5b08dd124711",
+      "size_bytes": 3064693
+    }
+  ],
+  "schema_version": "hb2_lightweight_package_v2",
+  "source_ref": "b130fac48125757fcd3c573061fd51eb740c3626"
+}

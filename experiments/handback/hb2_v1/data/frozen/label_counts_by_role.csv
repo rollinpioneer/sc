@@ -1,0 +1,4 @@
+data_role,valid_roots,complete_anchors,eligible_handoff_examples,genuine_handoff_examples,rescue_positive_roots,rescue_negative_roots
+hb2_train,40,118,344,29,9,31
+hb2_val,40,119,355,20,10,30
+legacy_train,40,120,356,29,17,23

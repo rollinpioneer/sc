@@ -1,0 +1,50 @@
+{
+  "inputs": {
+    "anchors": {
+      "basis": "complete runtime Square probe",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/roots/square/probe/anchors.parquet",
+      "source_path": "/tmp/hb1_runtime/hb1_repair_v1/roots/square/probe/anchors.parquet"
+    },
+    "base_checkpoint": {
+      "basis": "fixed SHA-256",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+      "sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+      "source_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth"
+    },
+    "branch_records": {
+      "basis": "branch JSON and handoff histories",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/branches/square",
+      "source_path": "/tmp/hb1_runtime/hb1_repair_v1/branches/square/records"
+    },
+    "branch_results": {
+      "basis": "complete runtime Square probe",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/branches/square/branch_results.parquet",
+      "source_path": "/tmp/hb1_runtime/hb1_repair_v1/branches/square/branch_results.parquet"
+    },
+    "decision": {
+      "basis": "source_root fixed path",
+      "resolved_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/metrics/hb1_repair_decision.json",
+      "source_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/metrics/hb1_repair_decision.json"
+    },
+    "repair_checkpoint": {
+      "basis": "fixed SHA-256",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_teacher_epoch_100.pth",
+      "sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+      "source_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_teacher_epoch_100.pth"
+    },
+    "roots": {
+      "basis": "complete runtime Square probe",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/roots/square/probe/roots.parquet",
+      "source_path": "/tmp/hb1_runtime/hb1_repair_v1/roots/square/probe/roots.parquet"
+    }
+  },
+  "resolution_scope": [
+    "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1",
+    "/tmp/hb1_runtime/hb1_repair_v1",
+    "/tmp/hb1_runtime/hb1_repair_v1/checkpoints"
+  ],
+  "schema_version": "hb2_resolved_inputs_v1",
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "source_policy_pair_hash": "e465f728fb077f9078251ac488612b10bbf44bbdf859c7900d74800cd4418776",
+  "task": "square"
+}

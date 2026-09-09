@@ -1,0 +1,30 @@
+{
+  "role": "hb2_pilot",
+  "schema_version": "hb2_runtime_probe_selections_v1",
+  "selections": [
+    {
+      "anchor_id": "square:hb2_pilot:303000:20",
+      "anchor_t": 20,
+      "root_id": "square:hb2_pilot:303000",
+      "selected_length": 80
+    },
+    {
+      "anchor_id": "square:hb2_pilot:303001:20",
+      "anchor_t": 20,
+      "root_id": "square:hb2_pilot:303001",
+      "selected_length": 80
+    },
+    {
+      "anchor_id": "square:hb2_pilot:303002:20",
+      "anchor_t": 20,
+      "root_id": "square:hb2_pilot:303002",
+      "selected_length": 80
+    },
+    {
+      "anchor_id": "square:hb2_pilot:303003:20",
+      "anchor_t": 20,
+      "root_id": "square:hb2_pilot:303003",
+      "selected_length": 80
+    }
+  ]
+}
