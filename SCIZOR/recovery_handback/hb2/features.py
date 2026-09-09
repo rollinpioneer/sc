@@ -175,9 +175,10 @@ class ObservationFeaturizer:
             times.append(frame_times.reshape(4, 1))
             elapsed = float(row.get("helper_length", 0)) / float(self.config["horizon_steps"])
             helper_elapsed.append([elapsed])
-            sample_ids.append(str(row["example_id"]))
+            sample_id = str(row.get("example_id") or f"F:{row['anchor_id']}")
+            sample_ids.append(sample_id)
             metadata.append({
-                "example_id": str(row["example_id"]),
+                "example_id": sample_id,
                 "root_id": row.get("root_id"),
                 "stat_group_id": row.get("stat_group_id"),
                 "normalized_time": frame_times.tolist(),
