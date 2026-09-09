@@ -80,6 +80,7 @@ def _write_model_validation(model_id: str, model_dir: Path, rows: list[dict], fe
         record = {"example_id": row["example_id"], "stat_group_id": row["stat_group_id"], "root_id": row["root_id"],
                   "anchor_t": row["anchor_t"], "y0": row["y0"], "y_full": row["y_full"],
                   "category_l5": row["category_l5"], "category_l20": row["category_l20"], "category_l80": row["category_l80"],
+                  "helper_steps_l5": row["helper_steps_l5"], "helper_steps_l20": row["helper_steps_l20"], "helper_steps_l80": row["helper_steps_l80"],
                   "temperature": temperature}
         record.update({key: float(value[index]) for key, value in probs.items()})
         for length in (5, 20, 80): record[f"y_genuine_{length}"] = row[f"y_genuine_l{length}"]
@@ -136,4 +137,3 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
-

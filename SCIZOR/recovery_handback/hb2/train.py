@@ -83,6 +83,7 @@ def _evaluate(model, loader, device, *, pair_weight: float, include_pair: bool) 
 
 def _train_anchor(args, config: dict, rows: list[dict], output_dir: Path) -> None:
     seed = int(args.seed); _seed(seed)
+    output_dir.mkdir(parents=True, exist_ok=True)
     normalizer = Path(args.features) / "normalizer.json"
     train_ds = AnchorDataset(rows, Path(args.features), split="train", normalizer_path=normalizer)
     val_ds = AnchorDataset(rows, Path(args.features), split="validation", normalizer_path=normalizer)
@@ -127,6 +128,7 @@ def _train_anchor(args, config: dict, rows: list[dict], output_dir: Path) -> Non
 
 def _train_handoff(args, config: dict, rows: list[dict], output_dir: Path) -> None:
     _seed(int(args.seed))
+    output_dir.mkdir(parents=True, exist_ok=True)
     normalizer = Path(args.features) / "normalizer.json"
     train_ds = HandoffDataset(rows, Path(args.features), split="train", normalizer_path=normalizer)
     val_ds = HandoffDataset(rows, Path(args.features), split="validation", normalizer_path=normalizer)
@@ -180,4 +182,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
