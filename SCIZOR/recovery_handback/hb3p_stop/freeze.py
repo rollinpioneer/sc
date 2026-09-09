@@ -104,7 +104,13 @@ def main() -> None:
     parser.add_argument("--code-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    print(json.dumps(freeze(**vars(args)), indent=2))
+    print(json.dumps(freeze(
+        config_path=args.config,
+        draft_path=args.draft,
+        training_summary_path=args.training_summary,
+        code_root=args.code_root,
+        output=args.output,
+    ), indent=2))
 
 
 if __name__ == "__main__":
