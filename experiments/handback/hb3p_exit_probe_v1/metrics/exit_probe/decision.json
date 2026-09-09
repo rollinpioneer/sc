@@ -1,0 +1,26 @@
+{
+  "continue_to_l80_autonomous_success_cases": {
+    "FIXED_L40": 7,
+    "FIXED_L60": 5
+  },
+  "decision": "INTERMEDIATE_EXIT_OPPORTUNITY_CONFIRMED",
+  "new_rollout_count": 120,
+  "oracle_components": {
+    "both_failed_cost_only": 24,
+    "no_gain": 4,
+    "success_improvement": 5,
+    "success_with_lower_cost": 7
+  },
+  "oracle_mean_delta_vs_fixed_l80": 0.1453125,
+  "prefix_failures": [],
+  "prefix_verified_roots": 40,
+  "protocol_hash": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "schema_version": "hb3p_exit_probe_decision_v1",
+  "scope": "fixed_entry_t20_exit_lengths_40_60_80",
+  "short_exit_autonomous_success_counts": {
+    "FIXED_L40": 5,
+    "FIXED_L60": 10
+  },
+  "training_allowed": true,
+  "training_performed": false
+}

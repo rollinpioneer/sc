@@ -63,4 +63,21 @@ Final status: **STATE_ENTRY_SIGNAL_ONLY**.
 - Lightweight results: [`HB3P_results_lightweight.zip`](experiments/handback/hb3p_v1/package/HB3P_results_lightweight.zip)
 
 The diagnosis is read-only and does not train a stopping model. Its bounded
-follow-up probe is specified separately and uses new roots.
+follow-up probe uses new roots and confirmed an intermediate-exit opportunity:
+[`HB3P_EXIT_PROBE.md`](experiments/handback/hb3p_exit_probe_v1/report/HB3P_EXIT_PROBE.md).
+
+## HB3-P intermediate exit probe
+
+The bounded follow-up uses a fixed entry at t=20 and fixed 40/60/80-step exits
+on 40 new Square roots.
+
+- Coverage: 40 roots, 160 complete logical records, 160 unique rollouts
+- Total environment steps: `57990` of the `64000` protocol limit
+- Autonomous completion: `5/40` at L40, `10/40` at L60, `11/40` at L80
+- Prefix verification: `40/40`
+- Decision: **INTERMEDIATE_EXIT_OPPORTUNITY_CONFIRMED**
+- Report: [`HB3P_EXIT_PROBE.md`](experiments/handback/hb3p_exit_probe_v1/report/HB3P_EXIT_PROBE.md)
+- Decision JSON: [`decision.json`](experiments/handback/hb3p_exit_probe_v1/metrics/exit_probe/decision.json)
+- Lightweight results: [`HB3P_exit_probe_lightweight.zip`](experiments/handback/hb3p_exit_probe_v1/package/HB3P_exit_probe_lightweight.zip)
+
+No stopping/continuation model was trained; any training requires a new frozen protocol.

@@ -1,0 +1,370 @@
+{
+  "adaptive_expansion_allowed": false,
+  "code_commit": "c18d151ccdbd4824fc01f27f14e0d0700eb621d5",
+  "count": 40,
+  "prior_manifest_seed_overlap": [],
+  "rows": [
+    {
+      "index": 0,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600000",
+      "seed": 600000,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 1,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600001",
+      "seed": 600001,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 2,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600002",
+      "seed": 600002,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 3,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600003",
+      "seed": 600003,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 4,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600004",
+      "seed": 600004,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 5,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600005",
+      "seed": 600005,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 6,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600006",
+      "seed": 600006,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 7,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600007",
+      "seed": 600007,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 8,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600008",
+      "seed": 600008,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 9,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600009",
+      "seed": 600009,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 10,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600010",
+      "seed": 600010,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 11,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600011",
+      "seed": 600011,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 12,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600012",
+      "seed": 600012,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 13,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600013",
+      "seed": 600013,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 14,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600014",
+      "seed": 600014,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 15,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600015",
+      "seed": 600015,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 16,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600016",
+      "seed": 600016,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 17,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600017",
+      "seed": 600017,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 18,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600018",
+      "seed": 600018,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 19,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600019",
+      "seed": 600019,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 20,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600020",
+      "seed": 600020,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 21,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600021",
+      "seed": 600021,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 22,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600022",
+      "seed": 600022,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 23,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600023",
+      "seed": 600023,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 24,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600024",
+      "seed": 600024,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 25,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600025",
+      "seed": 600025,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 26,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600026",
+      "seed": 600026,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 27,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600027",
+      "seed": 600027,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 28,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600028",
+      "seed": 600028,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 29,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600029",
+      "seed": 600029,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 30,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600030",
+      "seed": 600030,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 31,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600031",
+      "seed": 600031,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 32,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600032",
+      "seed": 600032,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 33,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600033",
+      "seed": 600033,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 34,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600034",
+      "seed": 600034,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 35,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600035",
+      "seed": 600035,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 36,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600036",
+      "seed": 600036,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 37,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600037",
+      "seed": 600037,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 38,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600038",
+      "seed": 600038,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    },
+    {
+      "index": 39,
+      "initial_state_hash": null,
+      "role": "hb3p_exit_probe",
+      "root_id": "square:hb3p_exit_probe:600039",
+      "seed": 600039,
+      "status": "preregistered_before_collection",
+      "task": "square"
+    }
+  ],
+  "schema_version": "hb3p_exit_probe_seed_manifest_v1",
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8"
+}

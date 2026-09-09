@@ -1,0 +1,44 @@
+{
+  "checkpoints": [
+    {
+      "bytes": 98543053,
+      "original_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+      "role": "square_base",
+      "sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6"
+    },
+    {
+      "bytes": 4618949,
+      "original_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_teacher_epoch_100.pth",
+      "resolved_path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_teacher_epoch_100.pth",
+      "role": "square_repair",
+      "sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62"
+    },
+    {
+      "bytes": 2075,
+      "original_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M0_time/seed0/best.pt",
+      "resolved_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M0_time/seed0/best.pt",
+      "role": "M0_time_seed0",
+      "sha256": "8c33c1903eab53fe36a2180109e877750698a8bd85204bbaa3a4ac729f54128e"
+    },
+    {
+      "bytes": 446876,
+      "original_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M1_proprio/seed0/best.pt",
+      "resolved_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M1_proprio/seed0/best.pt",
+      "role": "M1_proprio_seed0",
+      "sha256": "8358f8be97c7b22d275f469a1ebfa6dac0f6ff6ba7081ef568775ee6ba2f2e23"
+    },
+    {
+      "bytes": 663159,
+      "original_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M4_paired/seed0/best.pt",
+      "resolved_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M4_paired/seed0/best.pt",
+      "role": "M4_paired_seed0",
+      "sha256": "1fc1f89c3820c2b4d98f31ad33acc1c8d84605d8e4665c6f8f8f2af4c1b415d3"
+    }
+  ],
+  "parent_experiment": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1",
+  "parent_protocol_sha256": "07ed1213f636ea1db2500798b4468add685249faa7626d6bf39628f0fb5cccc3",
+  "schema_version": "hb3p_exit_probe_resolved_inputs_v1",
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "source_code_parent_commit": "bb2d3b044dfddcb2b0aa65f0c32798d1738a1509"
+}

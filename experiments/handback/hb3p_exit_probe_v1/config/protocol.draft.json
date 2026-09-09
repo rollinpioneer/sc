@@ -1,0 +1,221 @@
+{
+  "adaptive_test_expansion_allowed": false,
+  "allow_retakeover": false,
+  "candidate_times": [
+    20
+  ],
+  "code_commit": "bb2d3b044dfddcb2b0aa65f0c32798d1738a1509",
+  "code_manifest": {
+    "files": {
+      "__init__.py": "f575336d4db35e7cd5526fb7a67bd1cd1dd99177245cc5576f4a00e9a824786c",
+      "aggregate.py": "a85c25c14314c73ec188f69bd61c06aa0420b2f23beff22d75085dd6bcd92835",
+      "clarify_hb2.py": "015f03152e4dc4e39e09da21067d8b0608285029a180c54eaf87c4d71cc7083e",
+      "collect_test.py": "e36dc3ec8aaf65cd327ffd93ac1bc6e7a02e7becc1da5c9faa6227ab5a808aa2",
+      "controller.py": "7eb45f70072aa1dfa7251ca1e10dc4df4b5b23aa3c256ac3dbe8805e46b033a0",
+      "evaluate.py": "490b237f07aa1a2c005258b07a1a935be6f18c2504869340b63f4e53357b8060",
+      "export_lightweight.py": "bd8dd81981be5f6255e39fef950af0b54eaa7005345459e403aaf08f9206f825",
+      "freeze.py": "d5465afb89285a1251ec3cd9e49cac256929cfbc16b402b0e0f436805192eed2",
+      "hb3p_template.json": "fbf5d2f150ecbedf38ba2fafed26635722996fb4f45d1cba9a08e8d769652e1d",
+      "init.py": "ba769f9e34708e65f60e5743743a65ebf6945c52af5f9198bd5923d8485442f1",
+      "io.py": "94ed26df251eb00fba9e25a52d761267f812830e6b3a4107c55cd69e72ed74d9",
+      "metrics.py": "2ce06a54648c344e64df0bd936f3e156b74d773dae98ff8a11980becd34e364b",
+      "online_episode.py": "6553a93c967f66a0b0adad142292cd4073ec936ab011782588b9aa8c3367e2ec",
+      "package.py": "2951867d44dbb9768407484d0a2e1842956703718a567e564977d9d97fcf1fc5",
+      "pilot.py": "f4401cad6273f86bf873fc73a77902323ae64bcac4fffd0907944aed298d4eaf",
+      "predictors.py": "f176b8f0e66eeaa596a21a79f966eebeb05b007ad25cb1d7f256d5c482b9ee83",
+      "prepare_development.py": "5da87538ccf6e5c8c128bc4e3f7acac5e845c7cdbbdbd24503a21e47294792c1",
+      "report.py": "5ba2750add03b5d3302fff0f5d0ebe95bcb71ee13aaab67db0dd07a9af7dfeac",
+      "rpc_client.py": "28a70ac4fec4be578742166274c4e4a40691128f39080f1b67af31ef480e8069",
+      "run_final_background.sh": "6e1297024e187944e6fac061324ef786197fcfd00e9170f56654ff34ed011c6d",
+      "run_online.py": "5218c38a95ced5a9b0999f0f7cd3ae1337914c5ed58f90f241636d7f09122c4f",
+      "run_pilot_background.sh": "8222f59b6dcee684bba855df8e1ac576cf2a529f11631128f8352b39d7fee9b3",
+      "select_schedule.py": "b31b010cbaded9c934c6b7b0d90f87f8640c37ad2c62b363fef41f952a00f069",
+      "serve.py": "a6155067a08220b05a0f9c8a31854da34325e1980a57c7bf7865f3ada44ffafb",
+      "test_references.py": "9b452ba3042f61bed267b410e7f70f5ca25a7f68104c4cc67b16c7e9a6b272fc"
+    },
+    "tree_sha256": "63a2fbf18943883970442e62f13c3d7c057c6235d263334bae6671ed9e03531d"
+  },
+  "config": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1/config/hb3p.json",
+    "sha256": "832711878083e8fdb483861e86c1763bf07e71809905d3580be944b253797757"
+  },
+  "decision": {
+    "cost_denominator": 400,
+    "primary_lambda": 0.25,
+    "rule": "first_nonzero_on_frozen_candidate_grid",
+    "tie_tolerance": 1e-08
+  },
+  "draft": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1/config/protocol.pre_freeze.json",
+    "sha256": "a6a4d651f7bfe512d79ed2eb5a039cac8ef989d2de8df7cdafd6acdadcccbe58"
+  },
+  "frozen": false,
+  "hb2_f_protocol": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/config/frozen_protocol.json",
+  "hb2_f_protocol_sha256": "4f49914b78e998956d1c0c96ba446f28f623f9f8cb66b9d56a979c3290b44b74",
+  "hb2_status_preserved": "HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN",
+  "helper_lengths": [
+    40,
+    60,
+    80
+  ],
+  "horizon_steps": 400,
+  "input_schema": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/input_schema.json",
+  "learned_exit_enabled": false,
+  "m0_compiled_schedule": {
+    "160": 0,
+    "20": 80,
+    "80": 20
+  },
+  "max_takeovers": 1,
+  "method_aliases": [],
+  "methods": {
+    "FIXED_L40": {
+      "kind": "scheduled",
+      "length": 40,
+      "scheduled_t": 20
+    },
+    "FIXED_L60": {
+      "kind": "scheduled",
+      "length": 60,
+      "scheduled_t": 20
+    },
+    "FIXED_L80": {
+      "kind": "scheduled",
+      "length": 80,
+      "scheduled_t": 20
+    },
+    "NONE": {
+      "kind": "none"
+    }
+  },
+  "minimum_autonomous_steps": 20,
+  "models": {
+    "M0_time": {
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M0_time/seed0/best.pt",
+      "checkpoint_sha256": "8c33c1903eab53fe36a2180109e877750698a8bd85204bbaa3a4ac729f54128e",
+      "history_length": 4,
+      "parameters": null,
+      "temperature": 0.65,
+      "validation_artifact": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/metrics/validation/M0_time.json",
+      "validation_artifact_sha256": "c9b055e9f10015a6ed4cf06dffd8eb1a9f13647c2c244aeec26cf3506b85ecc3",
+      "validation_root_equal_nll_calibrated": 0.2344959101869959,
+      "validation_root_equal_nll_uncalibrated": 0.2731799254891557
+    },
+    "M1_proprio": {
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M1_proprio/seed0/best.pt",
+      "checkpoint_sha256": "8358f8be97c7b22d275f469a1ebfa6dac0f6ff6ba7081ef568775ee6ba2f2e23",
+      "history_length": 4,
+      "parameters": 110734,
+      "temperature": 0.8,
+      "validation_artifact": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/metrics/validation/M1_proprio.json",
+      "validation_artifact_sha256": "1ce18ddbec3c1c19cac8d253b1e05b3fc9767422dc68cd89375fbea983cd0fcc",
+      "validation_root_equal_nll_calibrated": 0.24761851115450834,
+      "validation_root_equal_nll_uncalibrated": 0.2549239287696057
+    },
+    "M4_paired": {
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/models/M4_paired/seed0/best.pt",
+      "checkpoint_sha256": "1fc1f89c3820c2b4d98f31ad33acc1c8d84605d8e4665c6f8f8f2af4c1b415d3",
+      "history_length": 4,
+      "parameters": 162190,
+      "temperature": 0.75,
+      "validation_artifact": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/metrics/validation/M4_paired.json",
+      "validation_artifact_sha256": "676ad8ce552e032aeea430563d6d7988ba0dc91d6bc3983ea71e46bb6e8f32cd",
+      "validation_root_equal_nll_calibrated": 0.2488618615575983,
+      "validation_root_equal_nll_uncalibrated": 0.2627806992851263
+    }
+  },
+  "new_test_roots": 40,
+  "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/features/normalizer.json",
+  "online_constraints": {
+    "arbitrary_query_times_tested": false,
+    "candidate_times_only": true,
+    "fixed_entry_t": 20,
+    "fixed_exit": true,
+    "fixed_exit_lengths": [
+      40,
+      60,
+      80
+    ],
+    "learned_exit_enabled": false,
+    "max_takeovers": 1,
+    "repeated_takeover_tested": false
+  },
+  "pilot": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1/metrics/pilot/summary.json",
+    "sha256": "f43214afc6281a82c6405b68a516bfb483cfab4b6221220d88207ee7ce3dc440"
+  },
+  "primary_comparator": "FIXED_L80",
+  "primary_method": "FIXED_L40",
+  "risk_rule": {
+    "length": 80,
+    "p0_model": "M0_time",
+    "threshold": 0.0
+  },
+  "schema_version": "hb3p_exit_probe_protocol_draft_v1",
+  "scope": "fixed_entry_t20_exit_lengths_40_60_80",
+  "selected_fixed_schedule": {
+    "candidate_id": "S_20_80",
+    "length": 80,
+    "scheduled_t": 20,
+    "selection_split": "hb2_validation_only",
+    "validation_root_mean_utility": 0.1750000000000001
+  },
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "source_experiment": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1",
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8",
+  "statistics": {
+    "bootstrap_repeats": 2000,
+    "seed": 20260909,
+    "unit": "one_complete_episode_per_stat_group_id"
+  },
+  "success_consecutive_steps": 5,
+  "task": "square",
+  "test_locked": false,
+  "test_seed_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1/config/test_seed_manifest.json",
+    "sha256": "d1091396789826774c92576896adcdadd5f65e9c07899ea1789a1971b4bafcb6"
+  },
+  "test_seed_start": 600000,
+  "test_seeds": [
+    600000,
+    600001,
+    600002,
+    600003,
+    600004,
+    600005,
+    600006,
+    600007,
+    600008,
+    600009,
+    600010,
+    600011,
+    600012,
+    600013,
+    600014,
+    600015,
+    600016,
+    600017,
+    600018,
+    600019,
+    600020,
+    600021,
+    600022,
+    600023,
+    600024,
+    600025,
+    600026,
+    600027,
+    600028,
+    600029,
+    600030,
+    600031,
+    600032,
+    600033,
+    600034,
+    600035,
+    600036,
+    600037,
+    600038,
+    600039
+  ]
+}

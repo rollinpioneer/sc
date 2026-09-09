@@ -1,0 +1,10 @@
+{
+  "anchors": 40,
+  "baseline_successes": 1,
+  "duplicate_initial_state_hashes": [],
+  "engineering_failures": [],
+  "initial_state_hash_overlap": [],
+  "protocol_hash": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "roots": 40,
+  "schema_version": "hb3p_test_roots_summary_v1"
+}

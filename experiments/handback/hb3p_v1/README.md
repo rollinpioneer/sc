@@ -7,6 +7,7 @@
 - [Paired comparisons](metrics/test/paired_comparisons.json)
 - [Exit diagnosis](metrics/diagnosis/HB3P_EXIT_DIAGNOSIS.md)
 - [Exit route decision](metrics/diagnosis/exit_diagnosis_decision.json)
+- [Bounded intermediate exit probe](../hb3p_exit_probe_v1/report/HB3P_EXIT_PROBE.md)
 - [Lightweight results ZIP](package/HB3P_results_lightweight.zip)
 - [ZIP SHA256](package/HB3P_results_lightweight.zip.sha256)
 

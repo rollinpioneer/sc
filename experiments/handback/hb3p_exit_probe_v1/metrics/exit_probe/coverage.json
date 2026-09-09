@@ -1,0 +1,23 @@
+{
+  "actual_unique_rollouts": 160,
+  "canonical_online_methods": [
+    "FIXED_L40",
+    "FIXED_L60",
+    "FIXED_L80"
+  ],
+  "complete": true,
+  "complete_logical_records": 160,
+  "engineering_failures": [],
+  "expected_logical_records": 160,
+  "logical_methods": [
+    "FIXED_L40",
+    "FIXED_L60",
+    "FIXED_L80",
+    "NONE"
+  ],
+  "missing_records": [],
+  "preregistered_roots": 40,
+  "protocol_hash": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "schema_version": "hb3p_test_coverage_v1",
+  "total_env_steps_actual": 57990
+}
