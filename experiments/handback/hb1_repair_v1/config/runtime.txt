@@ -1,0 +1,23 @@
+runtime simulation_and_sb3
+python /home/xushijie/.conda/envs/handback-hb1/bin/python
+cuda_available True
+cuda_count 8
+torch 2.8.0+cu126 /home/xushijie/.local/lib/python3.9/site-packages/torch/__init__.py
+robosuite 1.4.1 /home/xushijie/.conda/envs/handback-hb1/lib/python3.9/site-packages/robosuite/__init__.py
+robomimic 0.2.0 /home/__compress_data/xushijie/work/cr_scizor/worktrees/handback-hb1-capability-repair-v1/robomimic/robomimic/__init__.py
+mujoco 2.3.2 /home/xushijie/.conda/envs/handback-hb1/lib/python3.9/site-packages/mujoco/__init__.py
+stable_baselines3 2.4.1 /home/xushijie/.conda/envs/handback-hb1/lib/python3.9/site-packages/stable_baselines3/__init__.py
+h5py 3.14.0 /home/xushijie/.local/lib/python3.9/site-packages/h5py/__init__.py
+numpy 1.26.4 /home/xushijie/.local/lib/python3.9/site-packages/numpy/__init__.py
+pandas 2.3.3 /home/xushijie/.local/lib/python3.9/site-packages/pandas/__init__.py
+runtime robomimic_bc_training
+python /home/xushijie/.conda/envs/mimicgen/bin/python
+cuda_available True
+cuda_count 8
+torch 2.8.0+cu126 /home/xushijie/.local/lib/python3.9/site-packages/torch/__init__.py
+robosuite 1.4.1 /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/robosuite/__init__.py
+robomimic 0.2.0 /home/__compress_data/xushijie/work/cr_scizor/worktrees/handback-hb1-capability-repair-v1/robomimic/robomimic/__init__.py
+mujoco 2.3.2 /home/xushijie/.conda/envs/mimicgen/lib/python3.9/site-packages/mujoco/__init__.py
+h5py 3.14.0 /home/xushijie/.local/lib/python3.9/site-packages/h5py/__init__.py
+numpy 1.26.4 /home/xushijie/.local/lib/python3.9/site-packages/numpy/__init__.py
+pandas 2.3.3 /home/xushijie/.local/lib/python3.9/site-packages/pandas/__init__.py

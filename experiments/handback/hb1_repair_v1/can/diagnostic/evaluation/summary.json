@@ -1,0 +1,104 @@
+{
+  "candidates": [
+    {
+      "action_dim": 7,
+      "candidate": {
+        "action_mode": "direct",
+        "algorithm": "robomimic_bc_gmm_direct",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_200.pth",
+        "checkpoint_sha256": "7123d9f87512c840c6d095e0cd60ea5f618ee168c9c9b6e137735a48cc21aa29",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 200,
+        "training_unit": "epoch",
+        "uses_privileged_input": true
+      },
+      "candidate_index": 1,
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_200.pth",
+      "eligible": true,
+      "engineering_failures": 0,
+      "roots": 20,
+      "success_rate": 1.0,
+      "successes": 20
+    },
+    {
+      "action_dim": 7,
+      "candidate": {
+        "action_mode": "direct",
+        "algorithm": "robomimic_bc_gmm_direct",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_100.pth",
+        "checkpoint_sha256": "915211230d5f540229ee6c19db8c73e77a13a1f1360625be035ac8fdf63ee1da",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 100,
+        "training_unit": "epoch",
+        "uses_privileged_input": true
+      },
+      "candidate_index": 0,
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_100.pth",
+      "eligible": true,
+      "engineering_failures": 0,
+      "roots": 20,
+      "success_rate": 0.9,
+      "successes": 18
+    },
+    {
+      "action_dim": 7,
+      "candidate": {
+        "action_mode": "direct",
+        "algorithm": "robomimic_bc_gmm_direct",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_400.pth",
+        "checkpoint_sha256": "de105e7925cc4f81ac2c0a042ffbb6b9454be2b7682a606ba2b8476f933e1c38",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 400,
+        "training_unit": "epoch",
+        "uses_privileged_input": true
+      },
+      "candidate_index": 2,
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_400.pth",
+      "eligible": true,
+      "engineering_failures": 0,
+      "roots": 20,
+      "success_rate": 0.75,
+      "successes": 15
+    }
+  ],
+  "minimum_successes": 3,
+  "role": "base_val",
+  "schema_version": "hb1_action_policy_candidate_evaluation_v1",
+  "selected_candidate": {
+    "action_mode": "direct",
+    "algorithm": "robomimic_bc_gmm_direct",
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_200.pth",
+    "checkpoint_sha256": "7123d9f87512c840c6d095e0cd60ea5f618ee168c9c9b6e137735a48cc21aa29",
+    "normalizer": null,
+    "observation_shape": null,
+    "training_steps": 200,
+    "training_unit": "epoch",
+    "uses_privileged_input": true
+  },
+  "selection": {
+    "action_dim": 7,
+    "candidate": {
+      "action_mode": "direct",
+      "algorithm": "robomimic_bc_gmm_direct",
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_200.pth",
+      "checkpoint_sha256": "7123d9f87512c840c6d095e0cd60ea5f618ee168c9c9b6e137735a48cc21aa29",
+      "normalizer": null,
+      "observation_shape": null,
+      "training_steps": 200,
+      "training_unit": "epoch",
+      "uses_privileged_input": true
+    },
+    "candidate_index": 1,
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_200.pth",
+    "eligible": true,
+    "engineering_failures": 0,
+    "roots": 20,
+    "success_rate": 1.0,
+    "successes": 20
+  },
+  "status": "QUALIFIED",
+  "task": "can"
+}

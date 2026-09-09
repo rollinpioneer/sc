@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "case": "A",
+      "diagnostic_shortest": 0,
+      "expected_genuine": true,
+      "expected_rescue": false,
+      "expected_shortest": 0,
+      "genuine_handoff_success": true,
+      "handoff_success_raw": true,
+      "passed": true,
+      "rescue": false
+    },
+    {
+      "case": "B",
+      "diagnostic_shortest": 20,
+      "expected_genuine": true,
+      "expected_rescue": true,
+      "expected_shortest": 20,
+      "genuine_handoff_success": true,
+      "handoff_success_raw": true,
+      "passed": true,
+      "rescue": true
+    },
+    {
+      "case": "C",
+      "diagnostic_shortest": "helper_only",
+      "expected_genuine": false,
+      "expected_rescue": false,
+      "expected_shortest": "helper_only",
+      "genuine_handoff_success": false,
+      "handoff_success_raw": false,
+      "passed": true,
+      "rescue": false
+    },
+    {
+      "case": "D",
+      "diagnostic_shortest": "unresolved_by_this_pair_and_grid",
+      "expected_genuine": false,
+      "expected_rescue": false,
+      "expected_shortest": "unresolved_by_this_pair_and_grid",
+      "genuine_handoff_success": false,
+      "handoff_success_raw": true,
+      "passed": true,
+      "rescue": false
+    },
+    {
+      "case": "E",
+      "diagnostic_shortest": 20,
+      "expected_genuine": true,
+      "expected_rescue": true,
+      "expected_shortest": 20,
+      "genuine_handoff_success": true,
+      "handoff_success_raw": true,
+      "passed": true,
+      "rescue": true
+    },
+    {
+      "case": "F",
+      "diagnostic_shortest": "helper_only",
+      "expected_genuine": false,
+      "expected_rescue": false,
+      "expected_shortest": "helper_only",
+      "genuine_handoff_success": false,
+      "handoff_success_raw": false,
+      "passed": true,
+      "rescue": false
+    }
+  ],
+  "missing_branch_remains_in_denominator": true,
+  "passed": true,
+  "schema_version": "hb1_metric_fixture_v1"
+}

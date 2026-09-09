@@ -65,11 +65,11 @@ class SequenceDataset(torch.utils.data.Dataset):
 
             goal_mode (str): either "last" or None. Defaults to None, which is to not fetch goals
 
-            hdf5_cache_mode (str): one of ["all", "low_dim", or None]. Set to "all" to cache entire hdf5 
-                in memory - this is by far the fastest for data loading. Set to "low_dim" to cache all 
-                non-image data. Set to None to use no caching - in this case, every batch sample is 
-                retrieved via file i/o. You should almost never set this to None, even for large 
-                image datasets.
+            hdf5_cache_mode (str): one of ["all", "all_raw", "low_dim", or None]. Set to "all"
+                to cache every sequence returned by getitem. Set to "all_raw" to cache complete
+                trajectory arrays without duplicating overlapping sequences. Set to "low_dim" to
+                cache all non-image data. Set to None to use no caching - in this case, every batch
+                sample is retrieved via file i/o.
 
             hdf5_use_swmr (bool): whether to use swmr feature when opening the hdf5 file. This ensures
                 that multiple Dataset instances can all access the same hdf5 file without problems.
@@ -91,7 +91,7 @@ class SequenceDataset(torch.utils.data.Dataset):
         self.hdf5_normalize_obs = hdf5_normalize_obs
         self._hdf5_file = None
 
-        assert hdf5_cache_mode in ["all", "low_dim", None]
+        assert hdf5_cache_mode in ["all", "all_raw", "low_dim", None]
         self.hdf5_cache_mode = hdf5_cache_mode
 
         self.load_next_obs = load_next_obs
@@ -125,7 +125,7 @@ class SequenceDataset(torch.utils.data.Dataset):
             self.obs_normalization_stats = self.normalize_obs()
 
         # maybe store dataset in memory for fast access
-        if self.hdf5_cache_mode in ["all", "low_dim"]:
+        if self.hdf5_cache_mode in ["all", "all_raw", "low_dim"]:
             obs_keys_in_memory = self.obs_keys
             if self.hdf5_cache_mode == "low_dim":
                 # only store low-dim observations
@@ -631,7 +631,7 @@ class SequenceDataset(torch.utils.data.Dataset):
         """
 
         # check if this key should be in memory
-        key_should_be_in_memory = (self.hdf5_cache_mode in ["all", "low_dim"])
+        key_should_be_in_memory = (self.hdf5_cache_mode in ["all", "all_raw", "low_dim"])
         if key_should_be_in_memory:
             # if key is an observation, it may not be in memory
             if '/' in key:

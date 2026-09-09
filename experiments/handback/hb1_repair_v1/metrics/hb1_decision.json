@@ -1,0 +1,31 @@
+{
+  "ready_tasks": [
+    "square"
+  ],
+  "schema_version": "hb1_decision_v1",
+  "status": "READY_HB2_SINGLE_TASK",
+  "tasks": {
+    "can": {
+      "authoritative_anchors": 0,
+      "baseline_failed_roots": 0,
+      "complete_anchors": 0,
+      "control_roots": 0,
+      "duration_note": null,
+      "genuine_rescued_roots": 0,
+      "repair_qualification_status": null,
+      "status": "HOLD_ENGINEERING_FIX",
+      "valid_roots": 0
+    },
+    "square": {
+      "authoritative_anchors": 120,
+      "baseline_failed_roots": 38,
+      "complete_anchors": 120,
+      "control_roots": 37,
+      "duration_note": null,
+      "genuine_rescued_roots": 17,
+      "repair_qualification_status": "QUALIFIED",
+      "status": "READY_HB2",
+      "valid_roots": 40
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "action_mode": "direct",
+  "config": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/config/teacher_bc.json",
+  "excluded_inputs": [
+    "images",
+    "future_reward",
+    "success_label",
+    "failure_label"
+  ],
+  "low_dim_keys": [
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos",
+    "object"
+  ],
+  "run_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs",
+  "task": "square",
+  "training_view": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/data/source_train.hdf5",
+  "uses_privileged_input": true
+}

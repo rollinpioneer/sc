@@ -8,7 +8,7 @@ from pathlib import Path
 import h5py
 
 from recovery_handback.common import atomic_json_dump
-from recovery_handback.data.collect_teacher_rollouts import STUDENT_OBS_KEYS
+from recovery_handback.data.student_schema import STUDENT_OBS_KEYS
 
 
 def _transition_count(handle: h5py.File, demo_ids: list[str]) -> int:

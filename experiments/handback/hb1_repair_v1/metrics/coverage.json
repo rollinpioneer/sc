@@ -1,0 +1,10 @@
+{
+  "authoritative_anchors": 120,
+  "complete_anchors": 120,
+  "coverage_fraction": 1.0,
+  "engineering_ok_branches": 600,
+  "expected_branches": 600,
+  "missing_keys": [],
+  "present_branches": 600,
+  "schema_version": "hb1_coverage_v1"
+}

@@ -1,0 +1,272 @@
+{
+  "known_model_candidates": [
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/frozen/model_10000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_0/model_10000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_0/model_2000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_0/model_4000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_0/model_6000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_0/model_8000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_1/model_10000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_1/model_2000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_1/model_4000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_1/model_6000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_1/model_8000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    },
+    {
+      "classification": "known_non_action_model",
+      "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/cr_scizor/stage1/baseline/seed_2/model_10000.pth",
+      "reason": "known SCIZOR score/responsibility artifact; not loaded as action policy"
+    }
+  ],
+  "missing": [
+    "can.base_checkpoint",
+    "can.repair_checkpoint",
+    "square.base_checkpoint",
+    "square.repair_checkpoint"
+  ],
+  "notes": [
+    "Missing action models trigger HB1-B/C construction; they are not a scientific failure.",
+    "Placeholder files and old SCIZOR score/responsibility models are not action policies."
+  ],
+  "project_root": "/home/__compress_data/xushijie/work/cr_scizor",
+  "schema": "hb1_assets_v1",
+  "tasks": {
+    "can": {
+      "base_checkpoint": null,
+      "repair_checkpoint": null,
+      "source_hdf5": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/can/ph/image.hdf5",
+      "source_metadata": {
+        "action_shape_sample": [
+          118,
+          7
+        ],
+        "bytes": 2010694944,
+        "camera_names": [
+          "agentview",
+          "robot0_eye_in_hand"
+        ],
+        "control_freq": 20,
+        "env_args": {
+          "env_kwargs": {
+            "camera_depths": false,
+            "camera_heights": 84,
+            "camera_names": [
+              "agentview",
+              "robot0_eye_in_hand"
+            ],
+            "camera_widths": 84,
+            "control_freq": 20,
+            "controller_configs": {
+              "control_delta": true,
+              "damping": 1,
+              "damping_limits": [
+                0,
+                10
+              ],
+              "impedance_mode": "fixed",
+              "input_max": 1,
+              "input_min": -1,
+              "interpolation": null,
+              "kp": 150,
+              "kp_limits": [
+                0,
+                300
+              ],
+              "orientation_limits": null,
+              "output_max": [
+                0.05,
+                0.05,
+                0.05,
+                0.5,
+                0.5,
+                0.5
+              ],
+              "output_min": [
+                -0.05,
+                -0.05,
+                -0.05,
+                -0.5,
+                -0.5,
+                -0.5
+              ],
+              "position_limits": null,
+              "ramp_ratio": 0.2,
+              "type": "OSC_POSE",
+              "uncouple_pos_ori": true
+            },
+            "has_offscreen_renderer": true,
+            "has_renderer": false,
+            "ignore_done": true,
+            "render_gpu_device_id": 0,
+            "reward_shaping": false,
+            "robots": [
+              "Panda"
+            ],
+            "use_camera_obs": true,
+            "use_object_obs": true
+          },
+          "env_name": "PickPlaceCan",
+          "type": 1
+        },
+        "env_name": "PickPlaceCan",
+        "exists": true,
+        "num_demos": 200,
+        "observation_keys_sample": [
+          "agentview_image",
+          "object",
+          "robot0_eef_pos",
+          "robot0_eef_quat",
+          "robot0_eef_vel_ang",
+          "robot0_eef_vel_lin",
+          "robot0_eye_in_hand_image",
+          "robot0_gripper_qpos",
+          "robot0_gripper_qvel",
+          "robot0_joint_pos",
+          "robot0_joint_pos_cos",
+          "robot0_joint_pos_sin",
+          "robot0_joint_vel"
+        ]
+      }
+    },
+    "square": {
+      "base_checkpoint": null,
+      "repair_checkpoint": null,
+      "source_hdf5": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5",
+      "source_metadata": {
+        "action_shape_sample": [
+          127,
+          7
+        ],
+        "bytes": 2603429840,
+        "camera_names": [
+          "agentview",
+          "robot0_eye_in_hand"
+        ],
+        "control_freq": 20,
+        "env_args": {
+          "env_kwargs": {
+            "camera_depths": false,
+            "camera_heights": 84,
+            "camera_names": [
+              "agentview",
+              "robot0_eye_in_hand"
+            ],
+            "camera_widths": 84,
+            "control_freq": 20,
+            "controller_configs": {
+              "control_delta": true,
+              "damping": 1,
+              "damping_limits": [
+                0,
+                10
+              ],
+              "impedance_mode": "fixed",
+              "input_max": 1,
+              "input_min": -1,
+              "interpolation": null,
+              "kp": 150,
+              "kp_limits": [
+                0,
+                300
+              ],
+              "orientation_limits": null,
+              "output_max": [
+                0.05,
+                0.05,
+                0.05,
+                0.5,
+                0.5,
+                0.5
+              ],
+              "output_min": [
+                -0.05,
+                -0.05,
+                -0.05,
+                -0.5,
+                -0.5,
+                -0.5
+              ],
+              "position_limits": null,
+              "ramp_ratio": 0.2,
+              "type": "OSC_POSE",
+              "uncouple_pos_ori": true
+            },
+            "has_offscreen_renderer": true,
+            "has_renderer": false,
+            "ignore_done": true,
+            "render_gpu_device_id": 0,
+            "reward_shaping": false,
+            "robots": [
+              "Panda"
+            ],
+            "use_camera_obs": true,
+            "use_object_obs": true
+          },
+          "env_name": "NutAssemblySquare",
+          "type": 1
+        },
+        "env_name": "NutAssemblySquare",
+        "exists": true,
+        "num_demos": 200,
+        "observation_keys_sample": [
+          "agentview_image",
+          "object",
+          "robot0_eef_pos",
+          "robot0_eef_quat",
+          "robot0_eef_vel_ang",
+          "robot0_eef_vel_lin",
+          "robot0_eye_in_hand_image",
+          "robot0_gripper_qpos",
+          "robot0_gripper_qvel",
+          "robot0_joint_pos",
+          "robot0_joint_pos_cos",
+          "robot0_joint_pos_sin",
+          "robot0_joint_vel"
+        ]
+      }
+    }
+  }
+}

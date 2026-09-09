@@ -46,6 +46,7 @@ def _collect(root: Path) -> list[Path]:
         "square/teacher/**/*manifest*.json",
         "can/diagnostic/**/*.json",
         "can/distill/**/*manifest*.json",
+        "can/distill/rollouts/summary.json",
         "can/visual/evaluation/*summary*.json",
         "metrics/*.json",
         "metrics/*.csv",
@@ -54,6 +55,37 @@ def _collect(root: Path) -> list[Path]:
     for pattern in patterns:
         paths.update(path for path in root.glob(pattern) if _eligible(path))
     return sorted(paths, key=lambda path: str(path.relative_to(root)))
+
+
+def _archive_entries(root: Path) -> list[tuple[Path, str]]:
+    entries = [(path, str(path.relative_to(root))) for path in _collect(root)]
+    remapped = {
+        "config/hb1_repair.json": (
+            root / "config/hb1_repair.source.json",
+            "config/hb1_repair.runtime.json",
+        ),
+        "assets/assets.json": (
+            root / "assets/assets.source.json",
+            "assets/assets.runtime.json",
+        ),
+        "can/distill/data/student_manifest.json": (
+            root / "can/distill/data/student_manifest.source.json",
+            "can/distill/data/student_manifest.runtime.json",
+        ),
+    }
+    by_name = {name: source for source, name in entries}
+    for canonical_name, (source_version, runtime_name) in remapped.items():
+        runtime_version = by_name.get(canonical_name)
+        if not _eligible(source_version) or runtime_version is None:
+            continue
+        entries = [(source, name) for source, name in entries if name != canonical_name]
+        entries.extend(
+            [
+                (source_version, canonical_name),
+                (runtime_version, runtime_name),
+            ]
+        )
+    return sorted(entries, key=lambda item: item[1])
 
 
 def main() -> None:
@@ -91,8 +123,8 @@ def main() -> None:
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             archive.write(readme, "README.md")
             archive.write(manifest, "excluded_large_artifacts.tsv")
-            for source in _collect(root):
-                archive.write(source, str(source.relative_to(root)))
+            for source, archive_name in _archive_entries(root):
+                archive.write(source, archive_name)
             for source in sorted(code_root.rglob("*.py")):
                 archive.write(
                     source,

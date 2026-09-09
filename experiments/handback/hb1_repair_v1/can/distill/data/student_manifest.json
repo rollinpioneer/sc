@@ -1,0 +1,34 @@
+{
+  "camera_keys": [
+    "agentview_image",
+    "robot0_eye_in_hand_image"
+  ],
+  "excluded_student_inputs": [
+    "object",
+    "future_reward",
+    "success_label",
+    "failure_label"
+  ],
+  "failed_teacher_rollouts_in_supervision": 0,
+  "proprio_keys": [
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos"
+  ],
+  "runtime_teacher_trajectories": 170,
+  "runtime_teacher_transitions": 20459,
+  "schema_version": "hb1_distilled_training_view_v1",
+  "source_trajectories": 160,
+  "source_transitions": 18467,
+  "source_view": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/data/source_train.hdf5",
+  "student_observation_keys": [
+    "agentview_image",
+    "robot0_eye_in_hand_image",
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos"
+  ],
+  "task": "can",
+  "teacher_rollouts": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/distill/rollouts/successful_rollouts.hdf5",
+  "training_view": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/distill/data/student_train.hdf5"
+}

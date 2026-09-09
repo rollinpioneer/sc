@@ -1,0 +1,11 @@
+{
+  "action_mode": "direct",
+  "algorithm": "robomimic_bc_gmm_direct",
+  "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/can/diagnostic/runs/handback_privileged_teacher_can/20260907151544_seed21/models/model_epoch_200.pth",
+  "checkpoint_sha256": "7123d9f87512c840c6d095e0cd60ea5f618ee168c9c9b6e137735a48cc21aa29",
+  "normalizer": null,
+  "observation_shape": null,
+  "training_steps": 200,
+  "training_unit": "epoch",
+  "uses_privileged_input": true
+}

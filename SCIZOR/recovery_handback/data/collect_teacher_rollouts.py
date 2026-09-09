@@ -11,15 +11,7 @@ import numpy as np
 from recovery_handback.adapters.base_policy import BasePolicyAdapter
 from recovery_handback.adapters.env_adapter import EnvAdapter, load_observation_spec
 from recovery_handback.common import atomic_json_dump, write_table
-
-
-STUDENT_OBS_KEYS = (
-    "agentview_image",
-    "robot0_eye_in_hand_image",
-    "robot0_eef_pos",
-    "robot0_eef_quat",
-    "robot0_gripper_qpos",
-)
+from recovery_handback.data.student_schema import STUDENT_OBS_KEYS
 
 
 def _write_dataset(group, name, value):

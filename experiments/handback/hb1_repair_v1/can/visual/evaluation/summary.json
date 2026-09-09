@@ -1,0 +1,105 @@
+{
+  "candidates": [
+    {
+      "action_dim": 7,
+      "candidate": {
+        "action_mode": "direct",
+        "algorithm": "bc_rnn_gmm_visual_distilled",
+        "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_100.pth",
+        "checkpoint_sha256": "8365b5142bd397929147588748e2cf65a9061660bebd8fe0ef815ce58070fcdc",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 100,
+        "training_unit": "epoch",
+        "uses_privileged_input": false
+      },
+      "candidate_index": 0,
+      "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_100.pth",
+      "eligible": true,
+      "engineering_failures": 0,
+      "roots": 20,
+      "success_rate": 1.0,
+      "successes": 20
+    },
+    {
+      "action_dim": 7,
+      "candidate": {
+        "action_mode": "direct",
+        "algorithm": "bc_rnn_gmm_visual_distilled",
+        "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_200.pth",
+        "checkpoint_sha256": "8bd637f80ce045c8a57e61b263408450bddc60efd659d42681ea19b2fe5bb77a",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 200,
+        "training_unit": "epoch",
+        "uses_privileged_input": false
+      },
+      "candidate_index": 1,
+      "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_200.pth",
+      "eligible": true,
+      "engineering_failures": 0,
+      "roots": 20,
+      "success_rate": 0.95,
+      "successes": 19
+    },
+    {
+      "action_dim": 7,
+      "candidate": {
+        "action_mode": "direct",
+        "algorithm": "bc_rnn_gmm_visual_distilled",
+        "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_400.pth",
+        "checkpoint_sha256": "08151da529a7add0376a8b1b890855f867494dc892e2e838340d139d0ef03176",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 400,
+        "training_unit": "epoch",
+        "uses_privileged_input": false
+      },
+      "candidate_index": 2,
+      "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_400.pth",
+      "eligible": true,
+      "engineering_failures": 0,
+      "roots": 20,
+      "success_rate": 0.9,
+      "successes": 18
+    }
+  ],
+  "capability_key": "can_visual",
+  "minimum_successes": 3,
+  "role": "base_val",
+  "schema_version": "hb1_action_policy_candidate_evaluation_v1",
+  "selected_candidate": {
+    "action_mode": "direct",
+    "algorithm": "bc_rnn_gmm_visual_distilled",
+    "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_100.pth",
+    "checkpoint_sha256": "8365b5142bd397929147588748e2cf65a9061660bebd8fe0ef815ce58070fcdc",
+    "normalizer": null,
+    "observation_shape": null,
+    "training_steps": 100,
+    "training_unit": "epoch",
+    "uses_privileged_input": false
+  },
+  "selection": {
+    "action_dim": 7,
+    "candidate": {
+      "action_mode": "direct",
+      "algorithm": "bc_rnn_gmm_visual_distilled",
+      "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_100.pth",
+      "checkpoint_sha256": "8365b5142bd397929147588748e2cf65a9061660bebd8fe0ef815ce58070fcdc",
+      "normalizer": null,
+      "observation_shape": null,
+      "training_steps": 100,
+      "training_unit": "epoch",
+      "uses_privileged_input": false
+    },
+    "candidate_index": 0,
+    "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/can/visual/runs/handback_visual_student_can/20260908052329_seed22/models/model_epoch_100.pth",
+    "eligible": true,
+    "engineering_failures": 0,
+    "roots": 20,
+    "success_rate": 1.0,
+    "successes": 20
+  },
+  "status": "QUALIFIED",
+  "task": "can"
+}

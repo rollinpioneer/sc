@@ -1,0 +1,327 @@
+{
+  "base": {
+    "action_bounds": [
+      [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "action_dim": 7,
+    "algorithm": "bc_rnn_gmm",
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/runs/handback_base_square/20260906084525_seed0/models/model_epoch_200.pth",
+    "checkpoint_sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+    "frozen": true,
+    "observation_protocol": "raw_rgb_uint8_hwc_plus_proprio",
+    "observation_shapes": {
+      "agentview_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_eef_pos": [
+        3
+      ],
+      "robot0_eef_quat": [
+        4
+      ],
+      "robot0_eye_in_hand_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_gripper_qpos": [
+        2
+      ]
+    },
+    "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+    "schema_version": "hb1_base_policy_v1",
+    "selected_training_epoch": 200,
+    "selection_evaluations": [
+      {
+        "name": "epoch_200",
+        "success_rate": 0.15,
+        "training_epoch": 200
+      },
+      {
+        "name": "epoch_050",
+        "success_rate": 0.0,
+        "training_epoch": 50
+      },
+      {
+        "name": "epoch_100",
+        "success_rate": 0.0,
+        "training_epoch": 100
+      }
+    ],
+    "selection_success_rate": 0.15,
+    "state_history_protocol": "shadow_update_once_per_env_step",
+    "task": "square",
+    "uses_privileged_input": false
+  },
+  "frozen": true,
+  "qualification": {
+    "anchors": 72,
+    "candidates": [
+      {
+        "anchors": 72,
+        "base_failed_repair_succeeded_roots": 14,
+        "base_succeeded_repair_failed_roots": 0,
+        "baseline_engineering_complete": 72,
+        "baseline_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 0,
+          "wall_seconds": 5209.30721449852
+        },
+        "baseline_success_rate": 0.0,
+        "baseline_successes": 0,
+        "candidate_index": 0,
+        "engineering_complete": 72,
+        "harmed_root_ids": [],
+        "paired_success_rate_difference": 0.25,
+        "repair": {
+          "action_mode": "direct",
+          "algorithm": "robomimic_bc_gmm_direct",
+          "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs/handback_privileged_teacher_square/20260907151442_seed11/models/model_epoch_100.pth",
+          "checkpoint_sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+          "normalizer": null,
+          "observation_shape": null,
+          "training_steps": 100,
+          "training_unit": "epoch",
+          "uses_privileged_input": true
+        },
+        "repair_evaluation_cost": {
+          "base_policy_calls": 25584,
+          "branches": 72,
+          "continuation_env_steps": 19344,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 19344,
+          "wall_seconds": 4972.993954896927
+        },
+        "repair_success_rate": 0.25,
+        "repair_successes": 18,
+        "rescued_root_ids": [
+          "square:repair_val:130000",
+          "square:repair_val:130001",
+          "square:repair_val:130002",
+          "square:repair_val:130003",
+          "square:repair_val:130006",
+          "square:repair_val:130009",
+          "square:repair_val:130010",
+          "square:repair_val:130014",
+          "square:repair_val:130016",
+          "square:repair_val:130017",
+          "square:repair_val:130019",
+          "square:repair_val:130020",
+          "square:repair_val:130021",
+          "square:repair_val:130023"
+        ]
+      },
+      {
+        "anchors": 72,
+        "base_failed_repair_succeeded_roots": 10,
+        "base_succeeded_repair_failed_roots": 0,
+        "baseline_engineering_complete": 72,
+        "baseline_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 0,
+          "wall_seconds": 5209.30721449852
+        },
+        "baseline_success_rate": 0.0,
+        "baseline_successes": 0,
+        "candidate_index": 1,
+        "engineering_complete": 72,
+        "harmed_root_ids": [],
+        "paired_success_rate_difference": 0.19444444444444445,
+        "repair": {
+          "action_mode": "direct",
+          "algorithm": "robomimic_bc_gmm_direct",
+          "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs/handback_privileged_teacher_square/20260907151442_seed11/models/model_epoch_200.pth",
+          "checkpoint_sha256": "0778eb827d8218c2493adb1b307f2ebb1de28e3ed8526b2919a8306acc44911b",
+          "normalizer": null,
+          "observation_shape": null,
+          "training_steps": 200,
+          "training_unit": "epoch",
+          "uses_privileged_input": true
+        },
+        "repair_evaluation_cost": {
+          "base_policy_calls": 26190,
+          "branches": 72,
+          "continuation_env_steps": 19950,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 19950,
+          "wall_seconds": 4896.14948964119
+        },
+        "repair_success_rate": 0.19444444444444445,
+        "repair_successes": 14,
+        "rescued_root_ids": [
+          "square:repair_val:130000",
+          "square:repair_val:130005",
+          "square:repair_val:130006",
+          "square:repair_val:130009",
+          "square:repair_val:130014",
+          "square:repair_val:130017",
+          "square:repair_val:130019",
+          "square:repair_val:130021",
+          "square:repair_val:130022",
+          "square:repair_val:130023"
+        ]
+      },
+      {
+        "anchors": 72,
+        "base_failed_repair_succeeded_roots": 7,
+        "base_succeeded_repair_failed_roots": 0,
+        "baseline_engineering_complete": 72,
+        "baseline_evaluation_cost": {
+          "base_policy_calls": 28800,
+          "branches": 72,
+          "continuation_env_steps": 22560,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 0,
+          "wall_seconds": 5209.30721449852
+        },
+        "baseline_success_rate": 0.0,
+        "baseline_successes": 0,
+        "candidate_index": 2,
+        "engineering_complete": 72,
+        "harmed_root_ids": [],
+        "paired_success_rate_difference": 0.125,
+        "repair": {
+          "action_mode": "direct",
+          "algorithm": "robomimic_bc_gmm_direct",
+          "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs/handback_privileged_teacher_square/20260907151442_seed11/models/model_epoch_400.pth",
+          "checkpoint_sha256": "60011d98a07daa0fc24eb8b524d3df03f1e7331ec8706d9f843afae9ed281e6b",
+          "normalizer": null,
+          "observation_shape": null,
+          "training_steps": 400,
+          "training_unit": "epoch",
+          "uses_privileged_input": true
+        },
+        "repair_evaluation_cost": {
+          "base_policy_calls": 27222,
+          "branches": 72,
+          "continuation_env_steps": 20982,
+          "prefix_env_steps": 6240,
+          "repair_policy_calls": 20982,
+          "wall_seconds": 4973.4004645347595
+        },
+        "repair_success_rate": 0.125,
+        "repair_successes": 9,
+        "rescued_root_ids": [
+          "square:repair_val:130000",
+          "square:repair_val:130003",
+          "square:repair_val:130006",
+          "square:repair_val:130016",
+          "square:repair_val:130017",
+          "square:repair_val:130021",
+          "square:repair_val:130023"
+        ]
+      }
+    ],
+    "independent_roots": 24,
+    "schema_version": "hb1_repair_qualification_v1",
+    "selected_repair": {
+      "action_mode": "direct",
+      "algorithm": "robomimic_bc_gmm_direct",
+      "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs/handback_privileged_teacher_square/20260907151442_seed11/models/model_epoch_100.pth",
+      "checkpoint_sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+      "normalizer": null,
+      "observation_shape": null,
+      "training_steps": 100,
+      "training_unit": "epoch",
+      "uses_privileged_input": true
+    },
+    "selection": {
+      "anchors": 72,
+      "base_failed_repair_succeeded_roots": 14,
+      "base_succeeded_repair_failed_roots": 0,
+      "baseline_engineering_complete": 72,
+      "baseline_evaluation_cost": {
+        "base_policy_calls": 28800,
+        "branches": 72,
+        "continuation_env_steps": 22560,
+        "prefix_env_steps": 6240,
+        "repair_policy_calls": 0,
+        "wall_seconds": 5209.30721449852
+      },
+      "baseline_success_rate": 0.0,
+      "baseline_successes": 0,
+      "candidate_index": 0,
+      "engineering_complete": 72,
+      "harmed_root_ids": [],
+      "paired_success_rate_difference": 0.25,
+      "repair": {
+        "action_mode": "direct",
+        "algorithm": "robomimic_bc_gmm_direct",
+        "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs/handback_privileged_teacher_square/20260907151442_seed11/models/model_epoch_100.pth",
+        "checkpoint_sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+        "normalizer": null,
+        "observation_shape": null,
+        "training_steps": 100,
+        "training_unit": "epoch",
+        "uses_privileged_input": true
+      },
+      "repair_evaluation_cost": {
+        "base_policy_calls": 25584,
+        "branches": 72,
+        "continuation_env_steps": 19344,
+        "prefix_env_steps": 6240,
+        "repair_policy_calls": 19344,
+        "wall_seconds": 4972.993954896927
+      },
+      "repair_success_rate": 0.25,
+      "repair_successes": 18,
+      "rescued_root_ids": [
+        "square:repair_val:130000",
+        "square:repair_val:130001",
+        "square:repair_val:130002",
+        "square:repair_val:130003",
+        "square:repair_val:130006",
+        "square:repair_val:130009",
+        "square:repair_val:130010",
+        "square:repair_val:130014",
+        "square:repair_val:130016",
+        "square:repair_val:130017",
+        "square:repair_val:130019",
+        "square:repair_val:130020",
+        "square:repair_val:130021",
+        "square:repair_val:130023"
+      ]
+    },
+    "status": "QUALIFIED",
+    "task": "square"
+  },
+  "repair": {
+    "action_mode": "direct",
+    "algorithm": "robomimic_bc_gmm_direct",
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1/square/teacher/runs/handback_privileged_teacher_square/20260907151442_seed11/models/model_epoch_100.pth",
+    "checkpoint_sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+    "normalizer": null,
+    "observation_shape": null,
+    "training_steps": 100,
+    "training_unit": "epoch",
+    "uses_privileged_input": true
+  },
+  "runtime_semantics_version": "hb1_runtime_v2_no_extra_observation",
+  "schema_version": "hb1_policy_pair_v1",
+  "task": "square"
+}

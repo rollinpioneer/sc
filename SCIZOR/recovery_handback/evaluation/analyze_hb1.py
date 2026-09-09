@@ -247,7 +247,7 @@ def _decision(paired: pd.DataFrame, opportunities: pd.DataFrame, policy_pairs_di
         elif rescued_roots >= int(config["feasibility"]["min_genuine_rescued_roots"]) and control_roots >= int(config["feasibility"]["min_control_roots"]):
             status = "READY_HB2"
             qualified_tasks.append(task)
-        elif y["full"].sum() > 0:
+        elif rescued_roots == 0 and y["full"].sum() > 0:
             status = "NO_LOCAL_HANDOFF_EVIDENCE_FOR_CURRENT_PAIR_AND_GRID"
         else:
             status = "NEED_STRONGER_REPAIRER"
