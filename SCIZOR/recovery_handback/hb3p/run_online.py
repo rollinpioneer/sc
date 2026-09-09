@@ -31,11 +31,16 @@ def main() -> None:
     roots = read_jsonl(args.roots)
     roots = [row for index, row in enumerate(roots) if index % args.num_shards == args.shard_index]
     alias_map = {row["alias"]: row["canonical_execution"] for row in protocol.get("method_aliases", [])}
-    requested = args.methods or list(protocol["methods"])
+    explicitly_requested = args.methods is not None
+    requested = args.methods if explicitly_requested else list(protocol["methods"])
     methods = []
     for method in requested:
+        if method not in protocol["methods"]:
+            raise ValueError(f"method is not in the frozen protocol: {method}")
         canonical = alias_map.get(method, method)
-        if canonical != "NONE" and canonical not in methods:
+        if canonical == "NONE" and not explicitly_requested:
+            continue
+        if canonical not in methods:
             methods.append(canonical)
     runner = OnlineRunner(args.config, args.protocol, args.queue_dir)
     records = []

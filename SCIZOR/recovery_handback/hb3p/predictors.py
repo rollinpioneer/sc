@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import time
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from recovery_handback.common import sha256_file
 from recovery_handback.hb2.features import CAMERA_KEYS, PROPRIO_KEYS
 from recovery_handback.hb2.metrics import choose_length, finite_probs
 from recovery_handback.hb2.models import build_model
+from recovery_handback.hb2.predict import _m0_logits
 
 
 def proprio_vector(obs: dict) -> np.ndarray:
@@ -24,6 +26,7 @@ def proprio_vector(obs: dict) -> np.ndarray:
 
 
 def history_arrays(history: list[dict], horizon: int = 400) -> dict[str, np.ndarray]:
+    del horizon
     if not 1 <= len(history) <= 4:
         raise ValueError("history must contain 1..4 frames")
     frames = [history[0]] * (4 - len(history)) + list(history)
@@ -37,25 +40,36 @@ def history_arrays(history: list[dict], horizon: int = 400) -> dict[str, np.ndar
     return {"rgb": rgb, "proprio": proprio, "base_actions": actions, "absolute_times": times}
 
 
+def arrays_sha256(arrays: dict[str, np.ndarray]) -> str:
+    digest = hashlib.sha256()
+    for key in sorted(arrays):
+        value = np.ascontiguousarray(arrays[key])
+        digest.update(key.encode("ascii"))
+        digest.update(value.dtype.str.encode("ascii"))
+        digest.update(str(value.shape).encode("ascii"))
+        digest.update(value.tobytes())
+    return digest.hexdigest()
+
+
 class M0Predictor:
     def __init__(self, protocol: dict):
         entry = protocol["models"]["M0_time"]
         checkpoint = Path(entry["checkpoint"])
         if sha256_file(checkpoint) != entry["checkpoint_sha256"]:
             raise ValueError("M0 checkpoint hash mismatch")
-        self.payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
+        self.logits_by_time = {
+            absolute_t: _m0_logits(checkpoint, [{"anchor_t": absolute_t}])
+            for absolute_t in (20, 80, 160)
+        }
         self.temperature = float(entry["temperature"])
         self.decision = protocol["decision"]
 
     def predict(self, history: list[dict], absolute_t: int) -> dict:
         del history
         started = time.perf_counter()
-        entry = self.payload["by_time"].get(str(int(absolute_t)), self.payload["overall"])
-        logits = np.asarray([[
-            np.log(entry["p0"] / (1 - entry["p0"])),
-            *[np.log(max(value, 1e-7)) for group in entry["categories"] for value in group],
-            np.log(entry["pfull"] / (1 - entry["pfull"])),
-        ]], np.float32)
+        if int(absolute_t) not in self.logits_by_time:
+            raise ValueError(f"M0 queried outside the frozen grid: {absolute_t}")
+        logits = self.logits_by_time[int(absolute_t)]
         values = finite_probs(logits, self.temperature)
         result = {key: float(value[0]) for key, value in values.items()}
         result["selected_length"] = choose_length(
@@ -66,6 +80,7 @@ class M0Predictor:
         )
         result.update(backbone_seconds=0.0, prediction_head_seconds=time.perf_counter() - started)
         result["inference_seconds"] = result["prediction_head_seconds"]
+        result["history_sha256"] = None
         return result
 
 
@@ -84,6 +99,7 @@ class M1Predictor:
         self.model.eval()
         self.temperature = float(entry["temperature"])
         self.decision = protocol["decision"]
+        self.horizon = int(protocol["horizon_steps"])
         normalizer = json.loads(Path(protocol["normalizer"]).read_text(encoding="utf-8"))
         self.pm = np.asarray(normalizer["proprio_mean"], np.float32)
         self.ps = np.asarray(normalizer["proprio_std"], np.float32)
@@ -92,13 +108,15 @@ class M1Predictor:
 
     def predict(self, history: list[dict], absolute_t: int) -> dict:
         started = time.perf_counter()
-        arrays = history_arrays(history)
+        arrays = history_arrays(history, self.horizon)
         if int(arrays["absolute_times"][-1]) != int(absolute_t):
             raise ValueError("history absolute time mismatch")
         inputs = {
             "proprio": torch.from_numpy(((arrays["proprio"] - self.pm) / self.ps)[None]).to(self.device),
             "base_actions": torch.from_numpy(((arrays["base_actions"] - self.am) / self.ass)[None]).to(self.device),
-            "time": torch.from_numpy((arrays["absolute_times"].astype(np.float32) / 400.0)[None, :, None]).to(self.device),
+            "time": torch.from_numpy(
+                (arrays["absolute_times"].astype(np.float32) / float(self.horizon))[None, :, None]
+            ).to(self.device),
         }
         head_started = time.perf_counter()
         with torch.inference_mode():
@@ -112,5 +130,10 @@ class M1Predictor:
             denominator=float(self.decision["cost_denominator"]),
             tolerance=float(self.decision["tie_tolerance"]),
         )
-        result.update(backbone_seconds=0.0, prediction_head_seconds=head_seconds, inference_seconds=time.perf_counter() - started)
+        result.update(
+            backbone_seconds=0.0,
+            prediction_head_seconds=head_seconds,
+            inference_seconds=time.perf_counter() - started,
+            history_sha256=arrays_sha256(arrays),
+        )
         return result

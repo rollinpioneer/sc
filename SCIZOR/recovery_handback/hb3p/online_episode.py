@@ -13,6 +13,7 @@ from recovery_handback.adapters.env_adapter import EnvAdapter, load_observation_
 from recovery_handback.common import atomic_json_dump, sha256_file, sha256_json
 from recovery_handback.execution.label_reference import apply_success_labels
 from recovery_handback.execution.paired_branch import build_repair_adapter
+from recovery_handback.hb2.metrics import choose_length
 from recovery_handback.hb3p.controller import Rule, SingleIntervention
 from recovery_handback.hb3p.predictors import M0Predictor, M1Predictor
 from recovery_handback.hb3p.rpc_client import FileQueueClient
@@ -72,6 +73,37 @@ def _save_handoff(history: list[dict], path: Path) -> None:
     path.with_suffix(".json").write_text(json.dumps(meta, indent=2, sort_keys=True), encoding="utf-8")
 
 
+def _validate_execution(result: dict, helper_mask: list[bool]) -> None:
+    end = int(result["episode_end_state_index"])
+    if int(result["base_policy_calls"]) != end:
+        raise RuntimeError("base policy was not called exactly once per executed environment step")
+    if int(result["repair_policy_calls"]) != int(result["helper_steps_actual"]):
+        raise RuntimeError("repair call count disagrees with helper step count")
+    if int(result["repair_calls_after_handoff"]) != 0:
+        raise RuntimeError("repair policy was called after permanent handback")
+    if int(result["takeover_count"]) not in (0, 1):
+        raise RuntimeError("more than one takeover was recorded")
+    if int(result["query_count"]) != len(result["queried_times"]):
+        raise RuntimeError("query count disagrees with decision trace")
+    if any(int(t) not in (20, 80, 160) for t in result["queried_times"]):
+        raise RuntimeError("selector was queried outside the frozen grid")
+    active = [index for index, value in enumerate(helper_mask) if value]
+    if not result["takeover_count"]:
+        if active or result["takeover_t"] is not None or int(result["selected_length"]) != 0:
+            raise RuntimeError("helper activity exists without a takeover")
+        return
+    takeover = int(result["takeover_t"])
+    planned = int(result["selected_length"])
+    expected = list(range(takeover, min(takeover + planned, end)))
+    if active != expected:
+        raise RuntimeError("helper ownership is not one exact contiguous frozen interval")
+    if any(int(t) > takeover for t in result["queried_times"]):
+        raise RuntimeError("selector was queried after the first takeover")
+    if result["handoff_executed"]:
+        if int(result["handoff_t"]) != takeover + planned:
+            raise RuntimeError("handoff time disagrees with takeover plus fixed length")
+
+
 class OnlineRunner:
     def __init__(self, config_path: Path, protocol_path: Path, queue_dir: Path | None, *, device: str = "cuda"):
         self.config_path = Path(config_path)
@@ -114,6 +146,8 @@ class OnlineRunner:
         env = EnvAdapter(source, **load_observation_spec(source), observation_tape=_observation_tape(Path(root["rollout_path"])))
         result = {
             "schema_version": "hb3p_online_episode_v1",
+            "task": str(root.get("task", "square")),
+            "role": str(root.get("role", root.get("exposure_role", "unknown"))),
             "root_id": root_id,
             "stat_group_id": str(root.get("stat_group_id") or root_id),
             "method_id": method_id,
@@ -144,6 +178,8 @@ class OnlineRunner:
             "inference_wall_seconds": 0.0,
             "simulation_wall_seconds": 0.0,
             "root_seed": int(root["seed"]),
+            "initial_state_hash": root.get("initial_state_hash"),
+            "horizon_steps": int(self.protocol["horizon_steps"]),
             "checkpoint_sha256": {
                 "base": self.pair["base"]["checkpoint_sha256"],
                 "repair": self.pair["repair"]["checkpoint_sha256"],
@@ -153,6 +189,7 @@ class OnlineRunner:
             "decision_trace_path": str(trace_path.resolve()),
             "handoff_history_path": None,
             "end_reason": "exception",
+            "raw_return": 0.0,
         }
         actions = []
         base_actions = []
@@ -190,11 +227,22 @@ class OnlineRunner:
                         "model": model,
                         "probabilities": {key: value for key, value in probabilities.items() if key.startswith("p")},
                         "reported_selected_length": probabilities.get("selected_length"),
+                        "client_selected_length": probabilities.get("client_selected_length"),
+                        "history_sha256": probabilities.get("history_sha256"),
                         "inference_seconds": elapsed,
                         "backbone_seconds": probabilities.get("backbone_seconds", 0.0),
                         "prediction_head_seconds": probabilities.get("prediction_head_seconds", 0.0),
                         "ipc_roundtrip_seconds": probabilities.get("ipc_roundtrip_seconds", 0.0),
                     })
+                    if self.protocol["methods"][method_id]["kind"] == "model":
+                        selected = choose_length(
+                            probabilities,
+                            float(self.protocol["decision"]["primary_lambda"]),
+                            denominator=float(self.protocol["decision"]["cost_denominator"]),
+                            tolerance=float(self.protocol["decision"]["tie_tolerance"]),
+                        )
+                        if int(probabilities.get("selected_length", -1)) != selected:
+                            raise RuntimeError("predictor selected length disagrees with frozen formula")
                 owner, event = controller.owner_before_action(
                     t, probabilities, result["first_raw_success_state"] is not None
                 )
@@ -243,6 +291,7 @@ class OnlineRunner:
                 helper_mask.append(owner == "repair")
                 successes.append(bool(raw_success))
                 rewards.append(float(reward))
+                result["raw_return"] += float(reward)
                 states.append(env.physical_state())
                 result["episode_end_state_index"] = next_state
                 if len(stable) == stable.maxlen and all(stable):
@@ -257,6 +306,7 @@ class OnlineRunner:
             result["base_policy_calls"] = self.base._calls
             result["query_count"] = controller.query_count
             result["queried_times"] = [int(row["absolute_t"]) for row in trace]
+            _validate_execution(result, helper_mask)
             result["engineering_ok"] = True
         except Exception as exc:
             result["exception_reason"] = f"{type(exc).__name__}: {exc}"
