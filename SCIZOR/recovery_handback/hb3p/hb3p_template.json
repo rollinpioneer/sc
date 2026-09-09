@@ -1,0 +1,46 @@
+{
+  "schema": "hb3p_fixed_grid_single_takeover_v1",
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8",
+  "repository": "rollinpioneer/sc",
+  "research_branch": "exp/hb3p-square-v1",
+  "roles": {
+    "hb3p_test": {
+      "seed_start": 400000,
+      "roots_per_task": 80
+    }
+  },
+  "hb3p": {
+    "scope": "fixed_candidate_times_single_takeover_fixed_exit",
+    "entry_rule": "first_nonzero_on_frozen_candidate_grid",
+    "max_takeovers": 1,
+    "allow_retakeover": false,
+    "learned_exit_enabled": false,
+    "candidate_times": [20, 80, 160],
+    "helper_lengths": [5, 20, 80],
+    "primary_method": "M1_GRID",
+    "primary_comparator": "S_STAR",
+    "secondary_visual_method": "M4_GRID",
+    "canonical_seed": 0,
+    "logical_methods": ["NONE", "S_STAR", "M0_GRID", "RISK_GRID", "M1_GRID", "M4_GRID"],
+    "schedule_selection_split": "hb2_validation_only",
+    "schedule_include_none": true,
+    "schedule_tie_break": ["lower_mean_actual_helper_cost", "shorter_planned_length", "earlier_time"],
+    "primary_lambda": 0.25,
+    "cost_denominator": 400,
+    "tie_tolerance": 1e-8,
+    "new_test_roots": 80,
+    "new_test_adaptive_expansion": false,
+    "pilot_source": "existing_hb2_pilot_4_roots",
+    "repeat_model_training": false,
+    "deduplicate_only_symbolically_equivalent_rules": true,
+    "inherit_frozen_risk_rule": true,
+    "statistics": {"unit": "one_complete_episode_per_stat_group_id", "bootstrap_repeats": 2000, "seed": 20260909}
+  },
+  "expected_checkpoints": {
+    "square_base": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+    "square_repair": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+    "M0_time_seed0": "8c33c1903eab53fe36a2180109e877750698a8bd85204bbaa3a4ac729f54128e",
+    "M1_proprio_seed0": "8358f8be97c7b22d275f469a1ebfa6dac0f6ff6ba7081ef568775ee6ba2f2e23",
+    "M4_paired_seed0": "1fc1f89c3820c2b4d98f31ad33acc1c8d84605d8e4665c6f8f8f2af4c1b415d3"
+  }
+}
