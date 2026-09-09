@@ -6,7 +6,8 @@ PROBE="${PROBE:-/home/__compress_data/xushijie/work/cr_scizor/experiments/handba
 WT="${WT:-/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb3p-stop-continue-v1}"
 CODE="${CODE:-$WT/SCIZOR}"
 PY_SIM="${PY_SIM:-/home/xushijie/.conda/envs/handback-hb1/bin/python}"
-GPU_SIM="${GPU_SIM:-1}"
+GPU_SIM0="${GPU_SIM0:-1}"
+GPU_SIM1="${GPU_SIM1:-2}"
 DEVICE="${DEVICE:-cuda}"
 CONFIG="$OUT/config/stop_continue.json"
 DRAFT="$OUT/config/protocol.draft.json"
@@ -27,7 +28,7 @@ fail() { code=$?; rm -f "$STATUS/stop-continue.running"; printf '%s failed line=
 trap 'fail $LINENO' ERR
 
 rm -f "$STATUS/stop-continue.failed" "$STATUS/stop-continue.done"
-mark stop-continue.running "pid=$$ gpu=$GPU_SIM"
+mark stop-continue.running "pid=$$ train_gpu=$GPU_SIM0 sim_gpus=$GPU_SIM0,$GPU_SIM1"
 
 "$PY_SIM" -m compileall -q "$CODE/recovery_handback/hb3p_stop"
 git -C "$WT" diff --check -- SCIZOR/recovery_handback/hb3p_stop
@@ -43,7 +44,7 @@ mark dataset.done "build paired L60/L80 labels"
   > "$LOGS/dataset.log" 2>&1
 
 mark train.running "train OOF/final stop-continue MLP"
-CUDA_VISIBLE_DEVICES="${GPU_TRAIN:-$GPU_SIM}" \
+CUDA_VISIBLE_DEVICES="${GPU_TRAIN:-$GPU_SIM0}" \
   "$PY_SIM" -m recovery_handback.hb3p_stop.train \
   --dataset-dir "$OUT/dataset" --output-dir "$OUT/model" --device "$DEVICE" \
   > "$LOGS/train.log" 2>&1
@@ -56,22 +57,32 @@ mark code-freeze.required "commit hb3p_stop code before running freeze.py"
   > "$LOGS/freeze.log" 2>&1
 
 mark collect.running "collect independent label-free test roots"
-CUDA_VISIBLE_DEVICES="$GPU_SIM" MUJOCO_EGL_DEVICE_ID="$GPU_SIM" \
+CUDA_VISIBLE_DEVICES="$GPU_SIM0" MUJOCO_EGL_DEVICE_ID="$GPU_SIM0" \
   "$PY_SIM" -m recovery_handback.hb3p_stop.collect \
   --config "$CONFIG" --protocol "$PROTOCOL" --output-dir "$OUT/roots" --resume \
   > "$LOGS/collect.log" 2>&1
 mark collect.done "40 test roots collected"
 
 mark online.running "run NONE, FIXED_L60, FIXED_L80, and learned methods"
-CUDA_VISIBLE_DEVICES="$GPU_SIM" MUJOCO_EGL_DEVICE_ID="$GPU_SIM" \
+CUDA_VISIBLE_DEVICES="$GPU_SIM0" MUJOCO_EGL_DEVICE_ID="$GPU_SIM0" \
   "$PY_SIM" -m recovery_handback.hb3p_stop.run_online \
-  --config "$CONFIG" --protocol "$PROTOCOL" --roots "$OUT/roots/roots/runtime_root_manifest.jsonl" \
-  --num-shards 1 --shard-index 0 --output-dir "$OUT/episodes" --device "$DEVICE" --resume \
-  > "$LOGS/online.log" 2>&1
+  --config "$CONFIG" --protocol "$PROTOCOL" --roots "$OUT/roots/runtime_root_manifest.jsonl" \
+  --num-shards 2 --shard-index 0 --output-dir "$OUT/episodes/shard0" --device "$DEVICE" --resume \
+  > "$LOGS/online0.log" 2>&1 &
+pid0=$!
+CUDA_VISIBLE_DEVICES="$GPU_SIM1" MUJOCO_EGL_DEVICE_ID="$GPU_SIM1" \
+  "$PY_SIM" -m recovery_handback.hb3p_stop.run_online \
+  --config "$CONFIG" --protocol "$PROTOCOL" --roots "$OUT/roots/runtime_root_manifest.jsonl" \
+  --num-shards 2 --shard-index 1 --output-dir "$OUT/episodes/shard1" --device "$DEVICE" --resume \
+  > "$LOGS/online1.log" 2>&1 &
+pid1=$!
+printf '%s\n' "$pid0" "$pid1" > "$STATUS/online-workers.pid"
+wait "$pid0"
+wait "$pid1"
 mark online.done "all stop-continue episodes complete"
 
 "$PY_SIM" -m recovery_handback.hb3p_stop.aggregate \
-  --roots "$OUT/roots/roots/runtime_root_manifest.jsonl" --episodes-root "$OUT/episodes" \
+  --roots "$OUT/roots/runtime_root_manifest.jsonl" --episodes-root "$OUT/episodes" \
   --protocol "$PROTOCOL" --output-dir "$OUT/metrics" \
   > "$LOGS/aggregate.log" 2>&1
 "$PY_SIM" -m recovery_handback.hb3p_stop.evaluate \

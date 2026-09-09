@@ -17,7 +17,7 @@ def collect_test(config_path: Path, protocol_path: Path, output_dir: Path, *, re
     if not protocol.get("frozen") or not protocol.get("test_locked"):
         raise RuntimeError("test roots require a frozen stop/continue protocol")
     output_dir = Path(output_dir)
-    roots_dir = output_dir / "roots"
+    roots_dir = output_dir
     roots_dir.mkdir(parents=True, exist_ok=True)
     root_table = roots_dir / "roots.jsonl"
     expected_seeds = list(map(int, protocol["test_seeds"]))
@@ -62,4 +62,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
