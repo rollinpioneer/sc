@@ -278,7 +278,7 @@ class OnlineRunner:
                 if not np.allclose(action, base_action, atol=1e-7, rtol=0.0):
                     result["changed_action_steps"] += 1
                 obs_next, reward, raw_success, _ = env.step(action)
-                if hasattr(self.repair, "observe_executed_action"):
+                if controller.takeovers and hasattr(self.repair, "observe_executed_action"):
                     self.repair.observe_executed_action(action)
                 next_state = t + 1
                 if raw_success and result["first_raw_success_state"] is None:

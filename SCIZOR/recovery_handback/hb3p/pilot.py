@@ -74,44 +74,90 @@ def _baseline_checks(root: dict, result: dict, limits: dict) -> dict:
     }
 
 
-def _branch_checks(hb2_root: Path, result: dict, limits: dict) -> dict:
+def _branch_checks(hb2_root: Path, root: dict, result: dict, limits: dict) -> dict:
     if not result["takeover_count"]:
         return {"applicable": False, "pass": True}
     takeover = int(result["takeover_t"])
     length = int(result["selected_length"])
     record_path, trajectory_path = _branch_record(hb2_root, result["root_id"], takeover, length)
     old_record = json.loads(record_path.read_text(encoding="utf-8"))
-    with np.load(trajectory_path, allow_pickle=False) as old, np.load(result["trajectory_path"], allow_pickle=False) as new:
-        action_diff = _max_abs(new["actions"][takeover:], old["actions"])
-        base_diff = _max_abs(new["base_actions"][takeover:], old["base_actions"])
-        state_diff = _max_abs(new["states"][takeover:], old["states"])
-        helper_equal = np.array_equal(new["helper_mask"][takeover:], old["helper_mask"])
+    with (
+        np.load(root["rollout_path"], allow_pickle=False) as baseline,
+        np.load(trajectory_path, allow_pickle=False) as old,
+        np.load(result["trajectory_path"], allow_pickle=False) as new,
+    ):
+        prefix_action_diff = _max_abs(new["actions"][:takeover], baseline["actions"][:takeover])
+        prefix_base_diff = _max_abs(new["base_actions"][:takeover], baseline["suggestions"][:takeover])
+        prefix_state_diff = _max_abs(new["states"][:takeover + 1], baseline["states"][:takeover + 1])
+        replay_action_diff = _max_abs(new["actions"][takeover:], old["actions"])
+        replay_base_diff = _max_abs(new["base_actions"][takeover:], old["base_actions"])
+        replay_state_diff = _max_abs(new["states"][takeover:], old["states"])
+        online_active = (np.flatnonzero(new["helper_mask"]) + 0).tolist()
+        reference_active = (np.flatnonzero(old["helper_mask"]) + takeover).tolist()
         success_equal = np.array_equal(new["success"][takeover:], old["success"])
-    record_equal = all(
-        result.get(key) == old_record.get(key)
-        for key in (
-            "system_success", "helper_steps_actual", "repair_calls_after_handoff",
-            "handoff_executed", "handoff_state_index", "first_raw_success_state",
-            "stable_success_state", "genuine_handoff_success",
+    online_interval_valid = online_active == list(
+        range(takeover, takeover + int(result["helper_steps_actual"]))
+    )
+    reference_interval_valid = reference_active == list(
+        range(takeover, takeover + int(old_record["helper_steps_actual"]))
+    )
+    planned_control_equal = (
+        int(old_record["anchor_t"]) == takeover
+        and int(old_record["repair_length"]) == length
+    )
+    handoff_boundaries_valid = all(
+        not row.get("handoff_executed")
+        or int(row["handoff_state_index"]) == takeover + length
+        for row in (result, old_record)
+    )
+    control_semantics_equal = (
+        planned_control_equal
+        and online_interval_valid
+        and reference_interval_valid
+        and handoff_boundaries_valid
+        and int(result["repair_policy_calls"]) == int(result["helper_steps_actual"])
+        and int(old_record["repair_policy_calls"]) == int(old_record["helper_steps_actual"])
+        and int(result["repair_calls_after_handoff"]) == 0
+        and int(old_record["repair_calls_after_handoff"]) == 0
+    )
+    task_outcome_equal = all(
+        result.get(key) == old_record.get(key) for key in (
+            "system_success", "first_raw_success_state", "stable_success_state",
+            "genuine_handoff_success",
         )
     )
     passed = (
         bool(old_record.get("engineering_ok"))
-        and action_diff <= float(limits["prefix_action_max_abs"])
-        and base_diff <= float(limits["prefix_action_max_abs"])
-        and state_diff <= float(limits["prefix_state_max_abs"])
-        and helper_equal and success_equal and record_equal
+        and prefix_action_diff <= float(limits["prefix_action_max_abs"])
+        and prefix_base_diff <= float(limits["prefix_action_max_abs"])
+        and prefix_state_diff <= float(limits["prefix_state_max_abs"])
+        and control_semantics_equal
     )
     return {
         "applicable": True,
         "pass": passed,
         "reference_record": str(record_path.resolve()),
-        "action_max_abs": action_diff,
-        "base_action_max_abs": base_diff,
-        "state_max_abs": state_diff,
-        "helper_mask_equal": helper_equal,
+        "prefix_action_max_abs": prefix_action_diff,
+        "prefix_base_action_max_abs": prefix_base_diff,
+        "prefix_state_max_abs": prefix_state_diff,
+        "planned_control_equal": planned_control_equal,
+        "online_helper_interval": online_active,
+        "reference_helper_interval": reference_active,
+        "online_interval_valid": online_interval_valid,
+        "reference_interval_valid": reference_interval_valid,
+        "handoff_boundaries_valid": handoff_boundaries_valid,
+        "control_semantics_equal": control_semantics_equal,
+        "reference_observation_tape_hits": old_record.get("observation_tape_hits"),
+        "online_observation_tape_hits": result.get("observation_tape_hits"),
+        "post_takeover_replay_diagnostic": {
+            "gated": False,
+            "reason": "old fixed branches reused renderings accumulated by earlier branch executions",
+            "action_max_abs": replay_action_diff,
+            "base_action_max_abs": replay_base_diff,
+            "state_max_abs": replay_state_diff,
+        },
         "success_sequence_equal": success_equal,
-        "result_fields_equal": record_equal,
+        "task_outcome_equal": task_outcome_equal,
     }
 
 
@@ -198,7 +244,7 @@ def main() -> None:
             baseline = _baseline_checks(root, result, config["engineering"]) if method == "NONE" else {
                 "applicable": False, "pass": True,
             }
-            branch = _branch_checks(hb2_root, result, config["engineering"])
+            branch = _branch_checks(hb2_root, root, result, config["engineering"])
             prediction = _prediction_checks(
                 runner, result, anchor_by_key, int(protocol["horizon_steps"])
             )

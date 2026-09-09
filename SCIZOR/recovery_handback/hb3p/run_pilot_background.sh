@@ -32,6 +32,7 @@ cleanup() {
 }
 fail() {
   code=$?
+  rm -f "$STATUS/hb3p-pilot.running"
   printf '%s failed line=%s exit=%s\n' "$(stamp)" "$1" "$code" > "$STATUS/hb3p-pilot.failed"
   exit "$code"
 }
@@ -62,3 +63,4 @@ CUDA_VISIBLE_DEVICES="$GPU_SIM" MUJOCO_EGL_DEVICE_ID="$GPU_SIM" \
   --output-dir "$OUT/metrics/pilot" > "$LOGS/hb3p_pilot.log" 2>&1
 
 mark hb3p-pilot.done "pilot parity complete"
+rm -f "$STATUS/hb3p-pilot.running"

@@ -27,8 +27,19 @@ def main() -> None:
     parser.add_argument("--methods", nargs="*")
     args = parser.parse_args()
     protocol = json.loads(args.protocol.read_text(encoding="utf-8"))
+    if not protocol.get("frozen") or not protocol.get("test_locked"):
+        raise RuntimeError("formal online execution requires the frozen test protocol")
+    if args.num_shards < 1 or not 0 <= args.shard_index < args.num_shards:
+        raise ValueError("invalid shard selection")
     protocol_hash = sha256_file(args.protocol)
-    roots = read_jsonl(args.roots)
+    all_roots = read_jsonl(args.roots)
+    root_ids = [str(row["root_id"]) for row in all_roots]
+    seeds = [int(row["seed"]) for row in all_roots]
+    if len(all_roots) != 80 or len(set(root_ids)) != 80:
+        raise RuntimeError("formal online execution requires 80 unique preregistered roots")
+    if sorted(seeds) != list(range(500000, 500080)):
+        raise RuntimeError("formal online root seeds do not match the frozen 500000..500079 manifest")
+    roots = all_roots
     roots = [row for index, row in enumerate(roots) if index % args.num_shards == args.shard_index]
     alias_map = {row["alias"]: row["canonical_execution"] for row in protocol.get("method_aliases", [])}
     explicitly_requested = args.methods is not None
@@ -50,7 +61,17 @@ def main() -> None:
             if args.resume and output.is_file():
                 old = json.loads(output.read_text(encoding="utf-8"))
                 trajectory = Path(old.get("trajectory_path", ""))
-                if old.get("protocol_hash") == protocol_hash and old.get("engineering_ok") and trajectory.is_file():
+                reusable = (
+                    old.get("protocol_hash") == protocol_hash
+                    and old.get("semantic_pair_id") == protocol["semantic_pair_id"]
+                    and old.get("method_id") == method
+                    and old.get("root_id") == root["root_id"]
+                    and int(old.get("root_seed", -1)) == int(root["seed"])
+                    and old.get("initial_state_hash") == root.get("initial_state_hash")
+                    and old.get("engineering_ok")
+                    and trajectory.is_file()
+                )
+                if reusable:
                     records.append(old)
                     continue
             result = runner.run(root, method, output)
