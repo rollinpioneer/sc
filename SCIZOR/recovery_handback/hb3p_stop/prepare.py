@@ -79,6 +79,8 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
         "test_seeds": list(range(SEED_START, SEED_START + ROOT_COUNT)),
         "success_rate_noninferiority_margin_absolute": 0.05,
         "noninferiority_margin_absolute": 0.05,
+        "noninferiority_comparator": "FIXED_L80",
+        "short_exit_comparator": "FIXED_L60",
         "pilot": True,
         "pilot_reason": "40 roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
         "input_schema": {

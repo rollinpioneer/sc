@@ -75,16 +75,18 @@ def evaluate(episode_path: Path, coverage_path: Path, protocol: dict, output_dir
         comparisons[name] = {"utility": utility, "system_success": system, "autonomous_completion": autonomous, "helper_steps": cost,
                              "system_fourfold": _fourfold({root: bool(grouped[left][root]["system_success"]) for root in grouped[left]}, {root: bool(grouped[right][root]["system_success"]) for root in grouped[right]}),
                              "autonomous_fourfold": _fourfold({root: bool(grouped[left][root]["autonomous_completion"]) for root in grouped[left]}, {root: bool(grouped[right][root]["autonomous_completion"]) for root in grouped[right]})}
-    primary = comparisons["LEARNED_STOP_CONTINUE_minus_FIXED_L60"]
+    comparator = str(protocol["noninferiority_comparator"])
+    primary = comparisons[f"LEARNED_STOP_CONTINUE_minus_{comparator}"]
     margin = float(protocol["noninferiority_margin_absolute"])
     decision = {
         "schema_version": "hb3p_stop_continue_decision_v1",
         "status": "PILOT_ONLY",
         "formal_claim_allowed": False,
         "reason": "40 test roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+        "noninferiority_comparator": comparator,
         "noninferiority_margin_absolute": margin,
-        "learned_vs_fixed_l60_system_success_lower_ci": float(primary["system_success"]["ci95_percentile"][0]),
-        "learned_vs_fixed_l60_autonomous_lower_ci": float(primary["autonomous_completion"]["ci95_percentile"][0]),
+        "learned_vs_comparator_system_success_lower_ci": float(primary["system_success"]["ci95_percentile"][0]),
+        "learned_vs_comparator_autonomous_lower_ci": float(primary["autonomous_completion"]["ci95_percentile"][0]),
         "system_success_noninferiority_diagnostic": bool(primary["system_success"]["ci95_percentile"][0] >= -margin),
         "autonomous_noninferiority_diagnostic": bool(primary["autonomous_completion"]["ci95_percentile"][0] >= -margin),
         "interpretation": "diagnostic only; do not report as a proof",
@@ -113,4 +115,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

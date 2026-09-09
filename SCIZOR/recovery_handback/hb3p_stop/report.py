@@ -37,6 +37,7 @@ def write_report(config_path: Path, protocol_path: Path, dataset_summary_path: P
         f"- CONTINUE: helper interval `[20,100)`, permanent handback at `t=100`.",
         f"- Methods: `{', '.join(protocol['methods'])}`.",
         f"- Declared absolute success-rate non-inferiority margin: `{config['noninferiority_margin_absolute']}`.",
+        f"- Non-inferiority comparator: `{protocol['noninferiority_comparator']}`; short-exit comparator: `{protocol['short_exit_comparator']}`.",
         f"- Independent test roots: `{protocol['new_test_roots']}`; this run is explicitly `{ 'PILOT' if protocol['pilot'] else 'FORMAL' }`.",
         "",
         "## Label And Model",
@@ -75,8 +76,8 @@ def write_report(config_path: Path, protocol_path: Path, dataset_summary_path: P
         "",
         "## Interpretation",
         "",
-        f"- Diagnostic system-success non-inferiority check versus FIXED_L60: `{decision['system_success_noninferiority_diagnostic']}`.",
-        f"- Diagnostic autonomous-completion non-inferiority check versus FIXED_L60: `{decision['autonomous_noninferiority_diagnostic']}`.",
+        f"- Diagnostic system-success non-inferiority check versus {decision['noninferiority_comparator']}: `{decision['system_success_noninferiority_diagnostic']}`.",
+        f"- Diagnostic autonomous-completion non-inferiority check versus {decision['noninferiority_comparator']}: `{decision['autonomous_noninferiority_diagnostic']}`.",
         "- These checks do not establish non-inferiority: the sample is 40 roots, while the pre-run estimate was roughly 354 roots for about 0.05 precision (worst-case binary proportion approximately 384 roots).",
         "- The result should be used to decide whether a larger preregistered run is warranted, not as a deployment guarantee.",
         "",
@@ -109,4 +110,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

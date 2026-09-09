@@ -79,7 +79,7 @@ def _validate(result: dict, helper_mask: list[bool]) -> None:
     if int(result["takeover_count"]) not in (0, 1):
         raise RuntimeError("more than one takeover")
     if not result["takeover_count"]:
-        if any(helper_mask) or result["handoff_t"] is not None:
+        if any(helper_mask) or result["handoff_t"] is not None or int(result["selected_length"]) != 0:
             raise RuntimeError("helper activity exists without takeover")
         return
     if result["selected_length"] not in (60, 80):
@@ -166,7 +166,7 @@ class OnlineRunner:
                 base_memory = self.base.memory_snapshot()
                 frame = {"absolute_t": t, "obs": _obs_frame(obs), "base_action": base_action.copy()}
                 recent.append(frame)
-                if kind == "LEARNED" and t == 80 and result["stop_continue_decision"] is None:
+                if kind == "LEARNED" and t == 80 and result["takeover_count"] == 1 and result["stop_continue_decision"] is None:
                     predict_started = time.perf_counter()
                     prediction = self.predict_stop_continue(list(recent), t, int(self.protocol["horizon_steps"]))
                     inference_seconds += time.perf_counter() - predict_started
