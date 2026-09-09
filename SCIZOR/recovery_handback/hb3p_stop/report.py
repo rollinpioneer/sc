@@ -106,7 +106,16 @@ def main() -> None:
     parser.add_argument("--decision", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    print(json.dumps(write_report(**vars(args)), indent=2))
+    print(json.dumps(write_report(
+        config_path=args.config,
+        protocol_path=args.protocol,
+        dataset_summary_path=args.dataset_summary,
+        training_summary_path=args.training_summary,
+        coverage_path=args.coverage,
+        evaluation_summary_path=args.evaluation_summary,
+        decision_path=args.decision,
+        output=args.output,
+    ), indent=2))
 
 
 if __name__ == "__main__":

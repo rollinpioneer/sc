@@ -63,7 +63,12 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(collect_test(**vars(args)), indent=2))
+    print(json.dumps(collect_test(
+        config_path=args.config,
+        protocol_path=args.protocol,
+        output_dir=args.output_dir,
+        resume=args.resume,
+    ), indent=2))
 
 
 if __name__ == "__main__":
