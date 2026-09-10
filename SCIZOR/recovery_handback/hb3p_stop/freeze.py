@@ -42,7 +42,7 @@ def freeze(config_path: Path, draft_path: Path, training_summary_path: Path, cod
     if not model.is_file() or not normalizer.is_file():
         raise FileNotFoundError("trained stop/continue model or normalizer is missing")
     repo = Path(code_root)
-    if _git(repo, "status", "--porcelain", "--", "SCIZOR/recovery_handback/hb3p_stop"):
+    if _git(repo, "status", "--porcelain", "--", "recovery_handback/hb3p_stop"):
         raise RuntimeError("stop/continue code must be committed before protocol freeze")
     head = _git(repo, "rev-parse", "HEAD")
     seeds = list(range(int(draft["test_seed_start"]), int(draft["test_seed_start"]) + int(draft["new_test_roots"])))
