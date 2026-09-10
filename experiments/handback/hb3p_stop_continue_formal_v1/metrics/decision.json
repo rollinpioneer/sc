@@ -1,0 +1,14 @@
+{
+  "autonomous_noninferiority_diagnostic": true,
+  "formal_claim_allowed": true,
+  "interpretation": "formal root-level comparison under the frozen protocol",
+  "learned_vs_comparator_autonomous_lower_ci": -0.0125,
+  "learned_vs_comparator_system_success_lower_ci": -0.0175,
+  "noninferiority_comparator": "FIXED_L80",
+  "noninferiority_margin_absolute": 0.05,
+  "pilot": false,
+  "reason": "the preregistered root-level lower confidence bounds meet the absolute margin",
+  "schema_version": "hb3p_stop_continue_decision_v1",
+  "status": "FORMAL_NONINFERIORITY_PASS",
+  "system_success_noninferiority_diagnostic": true
+}

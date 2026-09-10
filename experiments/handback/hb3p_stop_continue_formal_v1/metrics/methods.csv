@@ -1,0 +1,5 @@
+method_id,roots,system_success_count,system_success_rate,autonomous_completion_count,autonomous_completion_rate,mean_utility,mean_helper_steps,mean_inference_seconds,takeover_count
+NONE,400,27,0.0675,27,0.0675,0.0675,0.0,0.0,0
+FIXED_L60,400,66,0.165,66,0.165,0.1275,60.0,0.0,400
+FIXED_L80,400,93,0.2325,84,0.21,0.16,80.0,0.0,400
+LEARNED_STOP_CONTINUE,400,90,0.225,82,0.205,0.15575,78.8,0.0014564788484130987,400
