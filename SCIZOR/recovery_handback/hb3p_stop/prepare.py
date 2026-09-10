@@ -13,7 +13,8 @@ SEED_START = 700000
 ROOT_COUNT = 40
 
 
-def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
+def prepare(probe_root: Path, output_root: Path, code_root: Path, *, seed_start: int = SEED_START,
+            root_count: int = ROOT_COUNT, formal: bool = False) -> dict:
     probe_root, output_root, code_root = Path(probe_root), Path(output_root), Path(code_root)
     for relative in ("config", "assets", "dataset", "model", "roots", "episodes", "metrics", "report", "package", "logs", "status"):
         (output_root / relative).mkdir(parents=True, exist_ok=True)
@@ -21,6 +22,7 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
         shutil.copy2(probe_root / "assets" / name, output_root / "assets" / name)
     parent_protocol = json.loads((probe_root / "config/frozen_protocol.json").read_text(encoding="utf-8"))
     config = json.loads((probe_root / "config/exit_probe.json").read_text(encoding="utf-8"))
+    role = "hb3p_stop_continue_formal" if formal else "hb3p_stop_continue_test"
     config.update({
         "schema_version": "hb3p_stop_continue_config_v1",
         "assets_file": str((output_root / "assets/assets.json").resolve()),
@@ -37,9 +39,9 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
         "probe_root": str(probe_root.resolve()),
         "probe_protocol_sha256": sha256_file(probe_root / "config/frozen_protocol.json"),
         "policy_pair_path": str((output_root / "assets/policy_pair_square.json").resolve()),
-        "role": "hb3p_stop_continue_test",
-        "test_seed_start": SEED_START,
-        "new_test_roots": ROOT_COUNT,
+        "role": role,
+        "test_seed_start": int(seed_start),
+        "new_test_roots": int(root_count),
         "features": {
             "frames": 4,
             "proprio_dim": 9,
@@ -61,7 +63,7 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
         "source_probe_root": str(probe_root.resolve()),
         "source_ref": parent_protocol["source_ref"],
         "semantic_pair_id": parent_protocol["semantic_pair_id"],
-        "role": "hb3p_stop_continue_test",
+        "role": role,
         "horizon_steps": 400,
         "minimum_autonomous_steps": 20,
         "lambda": 0.25,
@@ -74,16 +76,20 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
         "model_queries": [80],
         "selected_short_exit": 60,
         "methods": ["NONE", "FIXED_L60", "FIXED_L80", "LEARNED_STOP_CONTINUE"],
-        "new_test_roots": ROOT_COUNT,
-        "test_seed_start": SEED_START,
-        "test_seeds": list(range(SEED_START, SEED_START + ROOT_COUNT)),
+        "new_test_roots": int(root_count),
+        "test_seed_start": int(seed_start),
+        "test_seeds": list(range(int(seed_start), int(seed_start) + int(root_count))),
         "success_rate_noninferiority_margin_absolute": 0.05,
         "noninferiority_margin_absolute": 0.05,
         "noninferiority_comparator": "FIXED_L80",
         "short_exit_comparator": "FIXED_L60",
-        "pilot": True,
-        "formal_claim_allowed": False,
-        "pilot_reason": "40 roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+        "pilot": not formal,
+        "formal_claim_allowed": bool(formal),
+        "pilot_reason": None if formal else "40 roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+        "formal_sample_size_rationale": (
+            "400 roots pre-registered as a conservative round-up of the worst-case paired binary estimate (~384 roots)"
+            if formal else None
+        ),
         "input_schema": {
             "allowed": ["robot0_eef_pos", "robot0_eef_quat", "robot0_gripper_qpos", "base_action_history", "absolute_time"],
             "forbidden": ["reward", "success", "object_state", "future_result", "root_id", "seed", "repair_action", "images"],
@@ -91,7 +97,12 @@ def prepare(probe_root: Path, output_root: Path, code_root: Path) -> dict:
     }
     atomic_json_dump(draft, output_root / "config/protocol.draft.json")
     (output_root / "config/source_commit.txt").write_text(parent_protocol["source_ref"] + "\n", encoding="utf-8")
-    return {"output_root": str(output_root.resolve()), "seed_range": [SEED_START, SEED_START + ROOT_COUNT - 1], "code_root": str(code_root.resolve())}
+    return {
+        "output_root": str(output_root.resolve()),
+        "seed_range": [int(seed_start), int(seed_start) + int(root_count) - 1],
+        "code_root": str(code_root.resolve()),
+        "formal": bool(formal),
+    }
 
 
 def main() -> None:
@@ -99,6 +110,9 @@ def main() -> None:
     parser.add_argument("--probe-root", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--code-root", type=Path, required=True)
+    parser.add_argument("--seed-start", type=int, default=SEED_START)
+    parser.add_argument("--root-count", type=int, default=ROOT_COUNT)
+    parser.add_argument("--formal", action="store_true")
     args = parser.parse_args()
     print(json.dumps(prepare(**vars(args)), indent=2))
 

@@ -1,4 +1,4 @@
-"""Build a strict lightweight package for the stop/continue pilot."""
+"""Build a strict lightweight package for a stop/continue evaluation."""
 from __future__ import annotations
 
 import argparse
@@ -37,6 +37,7 @@ def package(experiment_root: Path, code_root: Path, output: Path) -> dict:
     protocol = json.loads((root / "config/frozen_protocol.json").read_text(encoding="utf-8"))
     manifest = {
         "schema_version": "hb3p_stop_continue_lightweight_package_v1",
+        "pilot": bool(protocol.get("pilot", True)),
         "source_probe_protocol_sha256": protocol["source_probe_protocol_sha256"],
         "frozen_code_commit": protocol["code_commit"],
         "included_files": [name for _, name in files],

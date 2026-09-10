@@ -50,6 +50,8 @@ def freeze(config_path: Path, draft_path: Path, training_summary_path: Path, cod
     if overlap:
         raise RuntimeError(f"stop/continue test seeds overlap prior handback roots: {overlap}")
     frozen = dict(draft)
+    pilot = bool(draft.get("pilot", True))
+    formal_claim_allowed = bool(draft.get("formal_claim_allowed", not pilot))
     frozen.update({
         "schema_version": "hb3p_stop_continue_protocol_v1",
         "frozen": True,
@@ -82,10 +84,15 @@ def freeze(config_path: Path, draft_path: Path, training_summary_path: Path, cod
             "repair_calls_after_handoff_required": 0,
             "base_calls_once_per_executed_step": True,
         },
-        "pilot": True,
-        "formal_claim_allowed": False,
-        "formal_claim_blocker": "40 test roots is under the estimated ~354 roots for 0.05 precision and therefore this is a pilot",
+        "pilot": pilot,
+        "formal_claim_allowed": formal_claim_allowed,
     })
+    if pilot:
+        frozen["formal_claim_blocker"] = (
+            "test-root count is below the preregistered formal evaluation size; this is a pilot"
+        )
+    else:
+        frozen["formal_claim_blocker"] = None
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     atomic_json_dump(frozen, output)

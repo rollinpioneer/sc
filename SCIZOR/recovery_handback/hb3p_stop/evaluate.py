@@ -78,18 +78,38 @@ def evaluate(episode_path: Path, coverage_path: Path, protocol: dict, output_dir
     comparator = str(protocol["noninferiority_comparator"])
     primary = comparisons[f"LEARNED_STOP_CONTINUE_minus_{comparator}"]
     margin = float(protocol["noninferiority_margin_absolute"])
+    pilot = bool(protocol.get("pilot", True))
+    formal_claim_allowed = bool(protocol.get("formal_claim_allowed", not pilot))
+    lower_system = float(primary["system_success"]["ci95_percentile"][0])
+    lower_autonomous = float(primary["autonomous_completion"]["ci95_percentile"][0])
+    margin = float(protocol["noninferiority_margin_absolute"])
+    system_pass = bool(lower_system >= -margin)
+    autonomous_pass = bool(lower_autonomous >= -margin)
+    if pilot:
+        status = "PILOT_ONLY"
+        reason = "frozen protocol is explicitly a pilot; no formal non-inferiority claim is allowed"
+    elif formal_claim_allowed and system_pass and autonomous_pass:
+        status = "FORMAL_NONINFERIORITY_PASS"
+        reason = "the preregistered root-level lower confidence bounds meet the absolute margin"
+    else:
+        status = "FORMAL_NONINFERIORITY_NOT_SHOWN"
+        reason = "at least one preregistered root-level lower confidence bound is below the absolute margin"
     decision = {
         "schema_version": "hb3p_stop_continue_decision_v1",
-        "status": "PILOT_ONLY",
-        "formal_claim_allowed": False,
-        "reason": "40 test roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+        "status": status,
+        "formal_claim_allowed": formal_claim_allowed,
+        "pilot": pilot,
+        "reason": reason,
         "noninferiority_comparator": comparator,
         "noninferiority_margin_absolute": margin,
-        "learned_vs_comparator_system_success_lower_ci": float(primary["system_success"]["ci95_percentile"][0]),
-        "learned_vs_comparator_autonomous_lower_ci": float(primary["autonomous_completion"]["ci95_percentile"][0]),
-        "system_success_noninferiority_diagnostic": bool(primary["system_success"]["ci95_percentile"][0] >= -margin),
-        "autonomous_noninferiority_diagnostic": bool(primary["autonomous_completion"]["ci95_percentile"][0] >= -margin),
-        "interpretation": "diagnostic only; do not report as a proof",
+        "learned_vs_comparator_system_success_lower_ci": lower_system,
+        "learned_vs_comparator_autonomous_lower_ci": lower_autonomous,
+        "system_success_noninferiority_diagnostic": system_pass,
+        "autonomous_noninferiority_diagnostic": autonomous_pass,
+        "interpretation": (
+            "diagnostic only; do not report as a proof"
+            if pilot else "formal root-level comparison under the frozen protocol"
+        ),
     }
     output_dir = Path(output_dir); output_dir.mkdir(parents=True, exist_ok=True)
     atomic_json_dump({"schema_version": "hb3p_stop_continue_summary_v1", "methods": summaries, "comparisons": comparisons}, output_dir / "summary.json")

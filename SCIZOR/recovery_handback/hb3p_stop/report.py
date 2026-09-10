@@ -24,10 +24,16 @@ def write_report(config_path: Path, protocol_path: Path, dataset_summary_path: P
     summary = json.loads(Path(evaluation_summary_path).read_text(encoding="utf-8"))
     decision = json.loads(Path(decision_path).read_text(encoding="utf-8"))
     method_by_id = {row["method_id"]: row for row in summary["methods"]}
+    pilot = bool(protocol.get("pilot", True))
+    run_label = "PILOT" if pilot else "FORMAL"
     lines = [
-        "# HB3-P Stop/Continue Pilot",
+        f"# HB3-P Stop/Continue {run_label.title()}",
         "",
-        "This report covers one frozen fixed-entry pilot. It is not a formal non-inferiority result.",
+        (
+            "This report covers one frozen fixed-entry pilot. It is not a formal non-inferiority result."
+            if pilot else
+            "This report covers one frozen fixed-entry formal evaluation. The result is interpreted only under the preregistered protocol."
+        ),
         "",
         "## Frozen Protocol",
         "",
@@ -38,7 +44,7 @@ def write_report(config_path: Path, protocol_path: Path, dataset_summary_path: P
         f"- Methods: `{', '.join(protocol['methods'])}`.",
         f"- Declared absolute success-rate non-inferiority margin: `{config['noninferiority_margin_absolute']}`.",
         f"- Non-inferiority comparator: `{protocol['noninferiority_comparator']}`; short-exit comparator: `{protocol['short_exit_comparator']}`.",
-        f"- Independent test roots: `{protocol['new_test_roots']}`; this run is explicitly `{ 'PILOT' if protocol['pilot'] else 'FORMAL' }`.",
+        f"- Independent test roots: `{protocol['new_test_roots']}`; this run is explicitly `{run_label}`.",
         "",
         "## Label And Model",
         "",
@@ -79,8 +85,11 @@ def write_report(config_path: Path, protocol_path: Path, dataset_summary_path: P
         "",
         f"- Diagnostic system-success non-inferiority check versus {decision['noninferiority_comparator']}: `{decision['system_success_noninferiority_diagnostic']}`.",
         f"- Diagnostic autonomous-completion non-inferiority check versus {decision['noninferiority_comparator']}: `{decision['autonomous_noninferiority_diagnostic']}`.",
-        "- These checks do not establish non-inferiority: the sample is 40 roots, while the pre-run estimate was roughly 354 roots for about 0.05 precision (worst-case binary proportion approximately 384 roots).",
-        "- The result should be used to decide whether a larger preregistered run is warranted, not as a deployment guarantee.",
+        (
+            "- These checks do not establish non-inferiority because the frozen run is a pilot."
+            if pilot else
+            "- The confidence bounds are the prespecified formal decision quantities; this is not a deployment guarantee."
+        ),
         "",
         "## Provenance",
         "",
