@@ -1,0 +1,24 @@
+{
+  "decision": "HB4_DEVELOPMENT_NO_GO",
+  "gate": {
+    "development_go": false,
+    "engineering_valid": true,
+    "handoff_mean_not_below_trained_controls": true,
+    "handoff_point_gain_vs_base_at_least_0_05": false,
+    "handoff_positive_seeds_vs_base": 1,
+    "handoff_positive_seeds_vs_base_at_least_2": false,
+    "seed_mean_gains_vs_controls": {
+      "FIXED_L80_RECOVERY": {
+        "0": 0.0625,
+        "1": 0.0,
+        "2": -0.025
+      },
+      "MATCHED_STANDARD_DATA": {
+        "0": 0.075,
+        "1": 0.05,
+        "2": 0.05
+      }
+    }
+  },
+  "schema_version": "hb4_development_decision_v1"
+}

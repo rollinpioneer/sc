@@ -1,0 +1,76 @@
+{
+  "compatibility": {
+    "action_dim": 7,
+    "action_match": true,
+    "actual_obs_keys": [
+      "agentview_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_eye_in_hand_image",
+      "robot0_gripper_qpos"
+    ],
+    "expected_obs_keys": [
+      "agentview_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_eye_in_hand_image",
+      "robot0_gripper_qpos"
+    ],
+    "obs_keys_match": true,
+    "rnn_enabled": true,
+    "rnn_horizon": 10,
+    "rnn_match": true,
+    "shape_match": true,
+    "teacher_privileged_low_dim": [
+      "object",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ]
+  },
+  "file_roles": [
+    {
+      "bytes": 98543053,
+      "path_basename": "square_base_epoch_200.pth",
+      "role": "square_base_checkpoint",
+      "sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6"
+    },
+    {
+      "bytes": 4618949,
+      "path_basename": "square_teacher_epoch_100.pth",
+      "role": "square_frozen_repair_teacher",
+      "sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62"
+    },
+    {
+      "bytes": 2603429840,
+      "path_basename": "image.hdf5",
+      "role": "square_visual_source_hdf5",
+      "sha256": "8901b2e4546c59d57436e2dcad4ba643c806ae3db0133b4bd1859236a0f4eae0"
+    },
+    {
+      "bytes": 3793,
+      "path_basename": "bc_source_manifest.json",
+      "role": "square_D0_source_manifest",
+      "sha256": "efc1eb2d7d7aa80071c0d64a2486a9a551939bad325a056ab8bd987972489e6c"
+    },
+    {
+      "bytes": 3580371,
+      "path_basename": "episodes.jsonl",
+      "role": "historical_episode_table",
+      "sha256": "534084e5f8bddf7b3afe179eada130caa596a1e31bc0b3087536f2acb9235546"
+    },
+    {
+      "bytes": 10323,
+      "path_basename": "frozen_protocol.json",
+      "role": "historical_protocol",
+      "sha256": "040b679569eaab02f577c056fdc85f2049a19af3ad8351fc50d35c7afe46c3d3"
+    },
+    {
+      "bytes": 27190,
+      "path_basename": "branch_parity.csv",
+      "role": "historical_branch_parity",
+      "sha256": "7cf77221bee002a2d1217b0fa8e6250c2d9ceb7a8748ca6ccb58ffd78af5931e"
+    }
+  ],
+  "schema_version": "hb4_resolved_inputs_public_v1"
+}

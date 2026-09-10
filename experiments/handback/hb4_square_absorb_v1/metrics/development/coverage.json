@@ -1,0 +1,38 @@
+{
+  "complete": true,
+  "duplicate_records": 0,
+  "engineering_failures": 0,
+  "expected_records": 1040,
+  "expected_roots": 80,
+  "methods": {
+    "BASE_FROZEN": {
+      "None": 80
+    },
+    "FIXED_L80_RECOVERY": {
+      "0": 80,
+      "1": 80,
+      "2": 80
+    },
+    "HANDOFF_RECOVERY": {
+      "0": 80,
+      "1": 80,
+      "2": 80
+    },
+    "MATCHED_STANDARD_DATA": {
+      "0": 80,
+      "1": 80,
+      "2": 80
+    },
+    "REPLAY_ONLY": {
+      "0": 80,
+      "1": 80,
+      "2": 80
+    }
+  },
+  "missing_method_keys": [],
+  "mode": "development",
+  "records": 1040,
+  "unexpected_method_keys": [],
+  "unique_record_keys": 1040,
+  "unique_roots": 80
+}

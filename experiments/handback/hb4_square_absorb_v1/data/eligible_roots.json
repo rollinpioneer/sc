@@ -1,0 +1,327 @@
+{
+  "count": 53,
+  "definition": "NONE.system_success==0 AND FIXED_L60.genuine_handoff_success==1 AND complete_pair_and_shared_prefix",
+  "root_seeds": [
+    800012,
+    800018,
+    800022,
+    800024,
+    800025,
+    800038,
+    800053,
+    800054,
+    800055,
+    800056,
+    800061,
+    800069,
+    800070,
+    800074,
+    800075,
+    800077,
+    800084,
+    800105,
+    800109,
+    800123,
+    800125,
+    800148,
+    800171,
+    800178,
+    800188,
+    800189,
+    800196,
+    800202,
+    800217,
+    800218,
+    800250,
+    800254,
+    800263,
+    800268,
+    800291,
+    800298,
+    800300,
+    800306,
+    800307,
+    800308,
+    800311,
+    800320,
+    800324,
+    800334,
+    800343,
+    800358,
+    800363,
+    800364,
+    800376,
+    800385,
+    800388,
+    800393,
+    800399
+  ],
+  "rows": [
+    {
+      "canonical_group_id": "square:hb4_source:800012",
+      "root_id": "square:hb3p_stop_continue_formal:800012",
+      "root_seed": 800012
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800018",
+      "root_id": "square:hb3p_stop_continue_formal:800018",
+      "root_seed": 800018
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800022",
+      "root_id": "square:hb3p_stop_continue_formal:800022",
+      "root_seed": 800022
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800024",
+      "root_id": "square:hb3p_stop_continue_formal:800024",
+      "root_seed": 800024
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800025",
+      "root_id": "square:hb3p_stop_continue_formal:800025",
+      "root_seed": 800025
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800038",
+      "root_id": "square:hb3p_stop_continue_formal:800038",
+      "root_seed": 800038
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800053",
+      "root_id": "square:hb3p_stop_continue_formal:800053",
+      "root_seed": 800053
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800054",
+      "root_id": "square:hb3p_stop_continue_formal:800054",
+      "root_seed": 800054
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800055",
+      "root_id": "square:hb3p_stop_continue_formal:800055",
+      "root_seed": 800055
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800056",
+      "root_id": "square:hb3p_stop_continue_formal:800056",
+      "root_seed": 800056
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800061",
+      "root_id": "square:hb3p_stop_continue_formal:800061",
+      "root_seed": 800061
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800069",
+      "root_id": "square:hb3p_stop_continue_formal:800069",
+      "root_seed": 800069
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800070",
+      "root_id": "square:hb3p_stop_continue_formal:800070",
+      "root_seed": 800070
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800074",
+      "root_id": "square:hb3p_stop_continue_formal:800074",
+      "root_seed": 800074
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800075",
+      "root_id": "square:hb3p_stop_continue_formal:800075",
+      "root_seed": 800075
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800077",
+      "root_id": "square:hb3p_stop_continue_formal:800077",
+      "root_seed": 800077
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800084",
+      "root_id": "square:hb3p_stop_continue_formal:800084",
+      "root_seed": 800084
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800105",
+      "root_id": "square:hb3p_stop_continue_formal:800105",
+      "root_seed": 800105
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800109",
+      "root_id": "square:hb3p_stop_continue_formal:800109",
+      "root_seed": 800109
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800123",
+      "root_id": "square:hb3p_stop_continue_formal:800123",
+      "root_seed": 800123
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800125",
+      "root_id": "square:hb3p_stop_continue_formal:800125",
+      "root_seed": 800125
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800148",
+      "root_id": "square:hb3p_stop_continue_formal:800148",
+      "root_seed": 800148
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800171",
+      "root_id": "square:hb3p_stop_continue_formal:800171",
+      "root_seed": 800171
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800178",
+      "root_id": "square:hb3p_stop_continue_formal:800178",
+      "root_seed": 800178
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800188",
+      "root_id": "square:hb3p_stop_continue_formal:800188",
+      "root_seed": 800188
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800189",
+      "root_id": "square:hb3p_stop_continue_formal:800189",
+      "root_seed": 800189
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800196",
+      "root_id": "square:hb3p_stop_continue_formal:800196",
+      "root_seed": 800196
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800202",
+      "root_id": "square:hb3p_stop_continue_formal:800202",
+      "root_seed": 800202
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800217",
+      "root_id": "square:hb3p_stop_continue_formal:800217",
+      "root_seed": 800217
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800218",
+      "root_id": "square:hb3p_stop_continue_formal:800218",
+      "root_seed": 800218
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800250",
+      "root_id": "square:hb3p_stop_continue_formal:800250",
+      "root_seed": 800250
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800254",
+      "root_id": "square:hb3p_stop_continue_formal:800254",
+      "root_seed": 800254
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800263",
+      "root_id": "square:hb3p_stop_continue_formal:800263",
+      "root_seed": 800263
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800268",
+      "root_id": "square:hb3p_stop_continue_formal:800268",
+      "root_seed": 800268
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800291",
+      "root_id": "square:hb3p_stop_continue_formal:800291",
+      "root_seed": 800291
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800298",
+      "root_id": "square:hb3p_stop_continue_formal:800298",
+      "root_seed": 800298
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800300",
+      "root_id": "square:hb3p_stop_continue_formal:800300",
+      "root_seed": 800300
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800306",
+      "root_id": "square:hb3p_stop_continue_formal:800306",
+      "root_seed": 800306
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800307",
+      "root_id": "square:hb3p_stop_continue_formal:800307",
+      "root_seed": 800307
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800308",
+      "root_id": "square:hb3p_stop_continue_formal:800308",
+      "root_seed": 800308
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800311",
+      "root_id": "square:hb3p_stop_continue_formal:800311",
+      "root_seed": 800311
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800320",
+      "root_id": "square:hb3p_stop_continue_formal:800320",
+      "root_seed": 800320
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800324",
+      "root_id": "square:hb3p_stop_continue_formal:800324",
+      "root_seed": 800324
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800334",
+      "root_id": "square:hb3p_stop_continue_formal:800334",
+      "root_seed": 800334
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800343",
+      "root_id": "square:hb3p_stop_continue_formal:800343",
+      "root_seed": 800343
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800358",
+      "root_id": "square:hb3p_stop_continue_formal:800358",
+      "root_seed": 800358
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800363",
+      "root_id": "square:hb3p_stop_continue_formal:800363",
+      "root_seed": 800363
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800364",
+      "root_id": "square:hb3p_stop_continue_formal:800364",
+      "root_seed": 800364
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800376",
+      "root_id": "square:hb3p_stop_continue_formal:800376",
+      "root_seed": 800376
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800385",
+      "root_id": "square:hb3p_stop_continue_formal:800385",
+      "root_seed": 800385
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800388",
+      "root_id": "square:hb3p_stop_continue_formal:800388",
+      "root_seed": 800388
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800393",
+      "root_id": "square:hb3p_stop_continue_formal:800393",
+      "root_seed": 800393
+    },
+    {
+      "canonical_group_id": "square:hb4_source:800399",
+      "root_id": "square:hb3p_stop_continue_formal:800399",
+      "root_seed": 800399
+    }
+  ],
+  "schema_version": "hb4_eligible_roots_v1"
+}

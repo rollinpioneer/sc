@@ -1,0 +1,97 @@
+{
+  "schema_version": "hb4_source_passport_v1",
+  "experiment_id": "hb4_square_absorb_v1",
+  "source_commit_at_freeze": "febb2cdde6acea51e06d9f1c9623ef36f4b465bd",
+  "task": "robomimic_square",
+  "source_experiment": {
+    "role": "HB3 historical source cohort",
+    "name": "hb3p_stop_continue_formal_v1",
+    "historical_protocol_sha256": "040b679569eaab02f577c056fdc85f2049a19af3ad8351fc50d35c7afe46c3d3",
+    "historical_episode_table_sha256": "534084e5f8bddf7b3afe179eada130caa596a1e31bc0b3087536f2acb9235546",
+    "historical_branch_parity_sha256": "7cf77221bee002a2d1217b0fa8e6250c2d9ceb7a8748ca6ccb58ffd78af5931e"
+  },
+  "frozen_inputs": [
+    {
+      "role": "square_base_checkpoint",
+      "basename": "square_base_epoch_200.pth",
+      "bytes": 98543053,
+      "sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+      "read_only": true
+    },
+    {
+      "role": "square_frozen_repair_teacher",
+      "basename": "square_teacher_epoch_100.pth",
+      "bytes": 4618949,
+      "sha256": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62",
+      "read_only": true,
+      "online_use_forbidden": true
+    },
+    {
+      "role": "square_visual_source_hdf5",
+      "basename": "image.hdf5",
+      "bytes": 2603429840,
+      "sha256": "8901b2e4546c59d57436e2dcad4ba643c806ae3db0133b4bd1859236a0f4eae0",
+      "read_only": true
+    },
+    {
+      "role": "square_D0_source_manifest",
+      "basename": "bc_source_manifest.json",
+      "bytes": 3793,
+      "sha256": "efc1eb2d7d7aa80071c0d64a2486a9a551939bad325a056ab8bd987972489e6c",
+      "read_only": true
+    }
+  ],
+  "data_roles": {
+    "historical_cohort": {
+      "seed_range": [800000, 800399],
+      "role": "source/development only",
+      "test_reuse_forbidden": true
+    },
+    "standard_source": {
+      "seed_range": [920000, 920199],
+      "count": 200,
+      "role": "ordinary successful teacher demonstrations"
+    },
+    "pilot": {
+      "seed_range": [929000, 929003],
+      "count": 4,
+      "role": "interface and pilot checks"
+    },
+    "development": {
+      "seed_range": [930000, 930079],
+      "count": 80,
+      "role": "development gate only"
+    },
+    "test": {
+      "seed_range": [940000, 940399],
+      "count": 400,
+      "role": "formal evaluation only"
+    }
+  },
+  "training_design": {
+    "recovery_candidate_roots": 53,
+    "matched_examples_per_arm": 2120,
+    "arms": [
+      "REPLAY_ONLY",
+      "MATCHED_STANDARD_DATA",
+      "FIXED_L80_RECOVERY",
+      "HANDOFF_RECOVERY"
+    ],
+    "training_seeds": [0, 1, 2],
+    "optimizer_updates": 4000,
+    "checkpoint_step": 4000
+  },
+  "evaluation_design": {
+    "horizon_steps": 400,
+    "stable_success_steps": 5,
+    "no_help": true,
+    "secondary_assisted_eval_enabled": false,
+    "statistics_unit": "canonical_group_id",
+    "bootstrap_repeats": 5000,
+    "bootstrap_seed": 20260910
+  },
+  "large_assets": {
+    "policy": "remain in RUN_ROOT and are excluded from the lightweight Git export",
+    "excluded": ["checkpoint files", "HDF5 files", "image caches", "full logs", "full episode trajectories"]
+  }
+}

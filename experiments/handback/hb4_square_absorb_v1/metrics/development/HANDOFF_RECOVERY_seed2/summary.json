@@ -1,0 +1,12 @@
+{
+  "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/HANDOFF_RECOVERY/seed2/model_step_4000.pth",
+  "checkpoint_sha256": "659f9f2d644a117876fb17c521f72b6b108c1a8db74b0828e81754107b70f748",
+  "elapsed_seconds": 986.6867775917053,
+  "engineering_failures": 0,
+  "method_id": "HANDOFF_RECOVERY",
+  "roots": 80,
+  "rows_path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/metrics/development/HANDOFF_RECOVERY_seed2/episodes.jsonl",
+  "schema_version": "hb4_no_help_evaluation_summary_v1",
+  "successes": 6,
+  "training_seed": 2
+}

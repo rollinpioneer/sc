@@ -151,10 +151,11 @@ def load_dict_from_checkpoint(ckpt_path):
         ckpt_dict (dict): Loaded checkpoint dictionary.
     """
     ckpt_path = os.path.expanduser(ckpt_path)
-    if not torch.cuda.is_available():
-        ckpt_dict = torch.load(ckpt_path, map_location=lambda storage, loc: storage)
-    else:
-        ckpt_dict = torch.load(ckpt_path)
+    # Checkpoints are staged on CPU before the caller constructs the model on
+    # its requested device.  Loading directly onto the current CUDA device can
+    # transiently duplicate a large visual checkpoint and trigger OOM during
+    # otherwise valid training or evaluation jobs.
+    ckpt_dict = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     return ckpt_dict
 
 

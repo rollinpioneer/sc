@@ -1,0 +1,224 @@
+{
+  "comparisons": [
+    {
+      "ci95": [
+        -0.05833333333333335,
+        0.07916666666666665
+      ],
+      "comparison": "HANDOFF_RECOVERY-BASE_FROZEN",
+      "estimate": 0.008333333333333328,
+      "lower_bound_gt_zero": false,
+      "paired_roots": 80
+    },
+    {
+      "ci95": [
+        0.020833333333333332,
+        0.1125
+      ],
+      "comparison": "HANDOFF_RECOVERY-REPLAY_ONLY",
+      "estimate": 0.06250000000000001,
+      "lower_bound_gt_zero": true,
+      "paired_roots": 80
+    },
+    {
+      "ci95": [
+        0.016666666666666666,
+        0.10416666666666666
+      ],
+      "comparison": "HANDOFF_RECOVERY-MATCHED_STANDARD_DATA",
+      "estimate": 0.05833333333333333,
+      "lower_bound_gt_zero": true,
+      "paired_roots": 80
+    },
+    {
+      "ci95": [
+        -0.0375,
+        0.0625
+      ],
+      "comparison": "HANDOFF_RECOVERY-FIXED_L80_RECOVERY",
+      "estimate": 0.012499999999999999,
+      "lower_bound_gt_zero": false,
+      "paired_roots": 80
+    },
+    {
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "comparison": "HANDOFF_RECOVERY-HANDOFF_RECOVERY",
+      "estimate": 0.0,
+      "lower_bound_gt_zero": false,
+      "paired_roots": 80
+    }
+  ],
+  "coverage": {
+    "complete": true,
+    "duplicate_records": 0,
+    "engineering_failures": 0,
+    "expected_records": 1040,
+    "expected_roots": 80,
+    "methods": {
+      "BASE_FROZEN": {
+        "None": 80
+      },
+      "FIXED_L80_RECOVERY": {
+        "0": 80,
+        "1": 80,
+        "2": 80
+      },
+      "HANDOFF_RECOVERY": {
+        "0": 80,
+        "1": 80,
+        "2": 80
+      },
+      "MATCHED_STANDARD_DATA": {
+        "0": 80,
+        "1": 80,
+        "2": 80
+      },
+      "REPLAY_ONLY": {
+        "0": 80,
+        "1": 80,
+        "2": 80
+      }
+    },
+    "missing_method_keys": [],
+    "mode": "development",
+    "records": 1040,
+    "unexpected_method_keys": [],
+    "unique_record_keys": 1040,
+    "unique_roots": 80
+  },
+  "gate": {
+    "development_go": false,
+    "engineering_valid": true,
+    "handoff_mean_not_below_trained_controls": true,
+    "handoff_point_gain_vs_base_at_least_0_05": false,
+    "handoff_positive_seeds_vs_base": 1,
+    "handoff_positive_seeds_vs_base_at_least_2": false,
+    "seed_mean_gains_vs_controls": {
+      "FIXED_L80_RECOVERY": {
+        "0": 0.0625,
+        "1": 0.0,
+        "2": -0.025
+      },
+      "MATCHED_STANDARD_DATA": {
+        "0": 0.075,
+        "1": 0.05,
+        "2": 0.05
+      }
+    }
+  },
+  "methods": {
+    "BASE_FROZEN": {
+      "root_mean": 0.075,
+      "training_seed": null
+    },
+    "FIXED_L80_RECOVERY": {
+      "gain_ci95": [
+        -0.075,
+        0.0625
+      ],
+      "gain_vs_base": -0.004166666666666674,
+      "paired_roots": 80,
+      "root_mean_success_rate": 0.07083333333333333,
+      "seed_stats": {
+        "0": {
+          "gain_vs_base": -0.0375,
+          "roots": 80,
+          "success_rate": 0.0375
+        },
+        "1": {
+          "gain_vs_base": 0.0,
+          "roots": 80,
+          "success_rate": 0.075
+        },
+        "2": {
+          "gain_vs_base": 0.025,
+          "roots": 80,
+          "success_rate": 0.1
+        }
+      }
+    },
+    "HANDOFF_RECOVERY": {
+      "gain_ci95": [
+        -0.0625,
+        0.07499999999999998
+      ],
+      "gain_vs_base": 0.008333333333333328,
+      "paired_roots": 80,
+      "root_mean_success_rate": 0.08333333333333333,
+      "seed_stats": {
+        "0": {
+          "gain_vs_base": 0.025,
+          "roots": 80,
+          "success_rate": 0.1
+        },
+        "1": {
+          "gain_vs_base": 0.0,
+          "roots": 80,
+          "success_rate": 0.075
+        },
+        "2": {
+          "gain_vs_base": 0.0,
+          "roots": 80,
+          "success_rate": 0.075
+        }
+      }
+    },
+    "MATCHED_STANDARD_DATA": {
+      "gain_ci95": [
+        -0.10833333333333335,
+        -2.7755575615628915e-18
+      ],
+      "gain_vs_base": -0.05,
+      "paired_roots": 80,
+      "root_mean_success_rate": 0.024999999999999998,
+      "seed_stats": {
+        "0": {
+          "gain_vs_base": -0.05,
+          "roots": 80,
+          "success_rate": 0.025
+        },
+        "1": {
+          "gain_vs_base": -0.05,
+          "roots": 80,
+          "success_rate": 0.025
+        },
+        "2": {
+          "gain_vs_base": -0.05,
+          "roots": 80,
+          "success_rate": 0.025
+        }
+      }
+    },
+    "REPLAY_ONLY": {
+      "gain_ci95": [
+        -0.11666666666666665,
+        -2.7755575615628915e-18
+      ],
+      "gain_vs_base": -0.054166666666666675,
+      "paired_roots": 80,
+      "root_mean_success_rate": 0.020833333333333332,
+      "seed_stats": {
+        "0": {
+          "gain_vs_base": -0.05,
+          "roots": 80,
+          "success_rate": 0.025
+        },
+        "1": {
+          "gain_vs_base": -0.0375,
+          "roots": 80,
+          "success_rate": 0.0375
+        },
+        "2": {
+          "gain_vs_base": -0.075,
+          "roots": 80,
+          "success_rate": 0.0
+        }
+      }
+    }
+  },
+  "mode": "development",
+  "schema_version": "hb4_analysis_summary_v1"
+}

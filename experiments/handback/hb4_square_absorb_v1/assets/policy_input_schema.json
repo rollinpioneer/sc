@@ -1,0 +1,57 @@
+{
+  "schema_version": "hb4_policy_input_schema_v1",
+  "student_action_bounds": [
+    -1.0,
+    1.0
+  ],
+  "student_action_dim": 7,
+  "student_extra_features_forbidden": [
+    "object",
+    "base_suggestion",
+    "success",
+    "reward",
+    "seed",
+    "future_result",
+    "helper_mask",
+    "stop_continue"
+  ],
+  "student_input_keys": [
+    "agentview_image",
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_eye_in_hand_image",
+    "robot0_gripper_qpos"
+  ],
+  "student_input_layout": {
+    "images": "HWC uint8 source; checkpoint preprocessing exactly once",
+    "proprio": "float arrays"
+  },
+  "student_input_shapes": {
+    "agentview_image": [
+      3,
+      84,
+      84
+    ],
+    "robot0_eef_pos": [
+      3
+    ],
+    "robot0_eef_quat": [
+      4
+    ],
+    "robot0_eye_in_hand_image": [
+      3,
+      84,
+      84
+    ],
+    "robot0_gripper_qpos": [
+      2
+    ]
+  },
+  "teacher_input_keys": [
+    "object",
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos"
+  ],
+  "teacher_is_offline_label_source_only": true
+}

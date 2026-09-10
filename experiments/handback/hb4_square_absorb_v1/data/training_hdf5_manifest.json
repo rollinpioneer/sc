@@ -1,0 +1,28 @@
+{
+  "arms": {
+    "FIXED_L80_RECOVERY": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/data/training_hdf5/FIXED_L80_RECOVERY.hdf5",
+    "HANDOFF_RECOVERY": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/data/training_hdf5/HANDOFF_RECOVERY.hdf5",
+    "MATCHED_STANDARD_DATA": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/data/training_hdf5/MATCHED_STANDARD_DATA.hdf5",
+    "REPLAY_ONLY": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/data/training_hdf5/REPLAY_ONLY.hdf5"
+  },
+  "base_demo_count": 160,
+  "base_source_manifest": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/data/bc_source_manifest.json",
+  "base_training_view": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/data/source_train.hdf5",
+  "d0_is_external_linked": true,
+  "new_data_is_external_source_only": false,
+  "schema_version": "hb4_training_hdf5_manifest_v1",
+  "sequence_length": 10,
+  "student_observation_keys": [
+    "agentview_image",
+    "robot0_eye_in_hand_image",
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos"
+  ],
+  "unique_new_labels": {
+    "FIXED_L80_RECOVERY": 2120,
+    "HANDOFF_RECOVERY": 2120,
+    "MATCHED_STANDARD_DATA": 2120,
+    "REPLAY_ONLY": 0
+  }
+}

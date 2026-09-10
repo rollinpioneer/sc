@@ -1,0 +1,12 @@
+{
+  "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/MATCHED_STANDARD_DATA/seed2/model_step_4000.pth",
+  "checkpoint_sha256": "41ec73de807fe4653bdb0b5030629bb37f38ddf4ab9d17175768858f7a81cd29",
+  "elapsed_seconds": 1192.434529542923,
+  "engineering_failures": 0,
+  "method_id": "MATCHED_STANDARD_DATA",
+  "roots": 80,
+  "rows_path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/metrics/development/MATCHED_STANDARD_DATA_seed2/episodes.jsonl",
+  "schema_version": "hb4_no_help_evaluation_summary_v1",
+  "successes": 2,
+  "training_seed": 2
+}

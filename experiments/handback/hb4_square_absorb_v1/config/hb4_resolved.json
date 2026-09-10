@@ -1,0 +1,63 @@
+{
+  "compatibility": {
+    "action_dim": 7,
+    "action_match": true,
+    "actual_obs_keys": [
+      "agentview_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_eye_in_hand_image",
+      "robot0_gripper_qpos"
+    ],
+    "expected_obs_keys": [
+      "agentview_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_eye_in_hand_image",
+      "robot0_gripper_qpos"
+    ],
+    "obs_keys_match": true,
+    "rnn_enabled": true,
+    "rnn_horizon": 10,
+    "rnn_match": true,
+    "shape_match": true,
+    "teacher_privileged_low_dim": [
+      "object",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ]
+  },
+  "experiment_id": "hb4_square_absorb_v1",
+  "paths": {
+    "base_checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+    "base_source_manifest": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/data/bc_source_manifest.json",
+    "code_root": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1",
+    "export_root": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1",
+    "historical_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_formal_v1",
+    "run_root": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1",
+    "source_hdf5": "/home/__compress_data/xushijie/work/cr_scizor/data/robomimic/square/ph/image.hdf5",
+    "teacher_checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_teacher_epoch_100.pth"
+  },
+  "protocol": {
+    "block_length": 10,
+    "blocks_per_root": 4,
+    "entry_t": 20,
+    "fixed_length": 80,
+    "horizon_steps": 400,
+    "labels_per_root": 40,
+    "short_length": 60,
+    "state_atol": 1e-10
+  },
+  "research_branch": "exp/hb4-square-absorb-v1",
+  "schema_version": "hb4_resolved_config_v1",
+  "scope": {
+    "new_rl": false,
+    "no_help_main_evaluation": true,
+    "online_updates": false,
+    "secondary_assisted_eval_enabled": false,
+    "task": "square"
+  },
+  "source_commit": "febb2cdde6acea51e06d9f1c9623ef36f4b465bd",
+  "status": "A_FROZEN_ASSETS_B_PENDING"
+}

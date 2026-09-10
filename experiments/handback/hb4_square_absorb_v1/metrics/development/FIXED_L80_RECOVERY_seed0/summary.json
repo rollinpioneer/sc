@@ -1,0 +1,12 @@
+{
+  "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/FIXED_L80_RECOVERY/seed0/model_step_4000.pth",
+  "checkpoint_sha256": "e6a04c3cbf579a28d5593daefe106d2d6ee558d535242013c8d6b435eed692c4",
+  "elapsed_seconds": 1054.9646146297455,
+  "engineering_failures": 0,
+  "method_id": "FIXED_L80_RECOVERY",
+  "roots": 80,
+  "rows_path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/metrics/development/FIXED_L80_RECOVERY_seed0/episodes.jsonl",
+  "schema_version": "hb4_no_help_evaluation_summary_v1",
+  "successes": 3,
+  "training_seed": 0
+}

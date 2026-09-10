@@ -1,0 +1,120 @@
+{
+  "base_checkpoint": {
+    "path": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+    "sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6"
+  },
+  "data_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/data/training_hdf5_manifest.json",
+    "sha256": "7667f35d62a897619028afca3769c76c06db6d42b197ce3958369b15759641ed"
+  },
+  "evaluation_roots": {
+    "count": 80,
+    "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/data/development_roots/roots.jsonl",
+    "sha256": "60d6b202ad3a3c051218324bf8d65558d92ba26b4efb56bca868b5739673ca06"
+  },
+  "experiment_id": "hb4_square_absorb_v1",
+  "frozen_at": "2026-09-10T22:12:29+08:00",
+  "input_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/assets/resolved_inputs_public.json",
+    "sha256": "ea9540134f873ec061b570f83cc47abd4b4ecd767ffe240dfe87c20368b5277c"
+  },
+  "schema_version": "hb4_training_protocol_v1",
+  "scope": {
+    "horizon_steps": 400,
+    "no_help": true,
+    "secondary_assisted_eval_enabled": false,
+    "stable_success_steps": 5,
+    "task": "square"
+  },
+  "source_commit": "febb2cdde6acea51e06d9f1c9623ef36f4b465bd",
+  "statistics": {
+    "bootstrap_repeats": 5000,
+    "bootstrap_seed": 20260910,
+    "interval": "two_sided_95_percentile_paired_root",
+    "unit": "canonical_group_id"
+  },
+  "training": {
+    "arms": [
+      "REPLAY_ONLY",
+      "MATCHED_STANDARD_DATA",
+      "FIXED_L80_RECOVERY",
+      "HANDOFF_RECOVERY"
+    ],
+    "batch_sequences": 32,
+    "checkpoint_step": 4000,
+    "checkpoints": {
+      "FIXED_L80_RECOVERY:seed0": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/FIXED_L80_RECOVERY/seed0/model_step_4000.pth",
+        "sha256": "e6a04c3cbf579a28d5593daefe106d2d6ee558d535242013c8d6b435eed692c4",
+        "step": 4000
+      },
+      "FIXED_L80_RECOVERY:seed1": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/FIXED_L80_RECOVERY/seed1/model_step_4000.pth",
+        "sha256": "667c62397b2c8f2e97a6ec98d451416418394626d069dc3431346f0cbacdbece",
+        "step": 4000
+      },
+      "FIXED_L80_RECOVERY:seed2": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/FIXED_L80_RECOVERY/seed2/model_step_4000.pth",
+        "sha256": "9f118a1e37f521141cb10077160559337c987494963f7e3fb4c2656437a6ca5d",
+        "step": 4000
+      },
+      "HANDOFF_RECOVERY:seed0": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/HANDOFF_RECOVERY/seed0/model_step_4000.pth",
+        "sha256": "0bfbbdcffc66bbf26564548cfb31931a543a5cb161985139e59d655983188f98",
+        "step": 4000
+      },
+      "HANDOFF_RECOVERY:seed1": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/HANDOFF_RECOVERY/seed1/model_step_4000.pth",
+        "sha256": "5a5cb113417fae0ba1c9a0d61ee8699a237a20334fddb9fc803e2aeb73972a13",
+        "step": 4000
+      },
+      "HANDOFF_RECOVERY:seed2": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/HANDOFF_RECOVERY/seed2/model_step_4000.pth",
+        "sha256": "659f9f2d644a117876fb17c521f72b6b108c1a8db74b0828e81754107b70f748",
+        "step": 4000
+      },
+      "MATCHED_STANDARD_DATA:seed0": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/MATCHED_STANDARD_DATA/seed0/model_step_4000.pth",
+        "sha256": "86d2ff23f7cb49422d9916172774df1b102bf8b1bbbf4e3ae53e400954e514a4",
+        "step": 4000
+      },
+      "MATCHED_STANDARD_DATA:seed1": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/MATCHED_STANDARD_DATA/seed1/model_step_4000.pth",
+        "sha256": "7cd49a7846143471ab0d2a4a46d7a079dbd8a73aefda0c900ec4bed5a6643347",
+        "step": 4000
+      },
+      "MATCHED_STANDARD_DATA:seed2": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/MATCHED_STANDARD_DATA/seed2/model_step_4000.pth",
+        "sha256": "41ec73de807fe4653bdb0b5030629bb37f38ddf4ab9d17175768858f7a81cd29",
+        "step": 4000
+      },
+      "REPLAY_ONLY:seed0": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/REPLAY_ONLY/seed0/model_step_4000.pth",
+        "sha256": "6cb1be873e6f2ff28c4161fb35ccbc5cb171bf23360ebe28a43438e1e3559434",
+        "step": 4000
+      },
+      "REPLAY_ONLY:seed1": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/REPLAY_ONLY/seed1/model_step_4000.pth",
+        "sha256": "c83cb42be4f02df4c0b459504eaa545a9164032da79e4dda8dea2d00d478ac4d",
+        "step": 4000
+      },
+      "REPLAY_ONLY:seed2": {
+        "path": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/training/REPLAY_ONLY/seed2/model_step_4000.pth",
+        "sha256": "f34ae2b655081934df35b1960fc899ccbfdccd8cd5ef8df6c2dc3c155ccea76e",
+        "step": 4000
+      }
+    },
+    "learning_rate": 3e-05,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "sequence_length": 10,
+    "updates": 4000
+  },
+  "training_blocks_manifest": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/data/training_blocks_manifest.jsonl",
+    "sha256": "0cb08ccca538b71402e05814c10920a16741f6ea7259e847ca8dd7bd923466f6"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "checkpoint": {
+    "action_dim": 7,
+    "action_max_abs": 0.0,
+    "base_calls_each": [
+      1,
+      1
+    ],
+    "passed": true,
+    "same_checkpoint": true,
+    "same_observation": true,
+    "same_random_tape": true
+  },
+  "input_whitelist": true,
+  "passed": true,
+  "schema_version": "hb4_d_reference_interface_tests_v1",
+  "strict_load": true
+}

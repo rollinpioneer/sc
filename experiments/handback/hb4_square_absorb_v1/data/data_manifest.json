@@ -1,0 +1,12 @@
+{
+  "K": 53,
+  "N": 2120,
+  "arms": {
+    "FIXED_L80_RECOVERY": 2120,
+    "HANDOFF_RECOVERY": 2120,
+    "MATCHED_STANDARD_DATA": 2120
+  },
+  "manifest": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/data/training_blocks_manifest.jsonl",
+  "schema_version": "hb4_data_manifest_v1",
+  "sha256": "0cb08ccca538b71402e05814c10920a16741f6ea7259e847ca8dd7bd923466f6"
+}

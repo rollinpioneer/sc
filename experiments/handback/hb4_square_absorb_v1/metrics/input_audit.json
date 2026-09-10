@@ -1,0 +1,36 @@
+{
+  "cache": "/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/observations/800012/FIXED_L60.npz",
+  "cache_sha256": "36a5c6bd2bd2fb519b902f88d2eb05e10715a322599ca18419c767d756735d5f",
+  "forbidden_cache_keys": [],
+  "input_whitelist_passed": true,
+  "observed_shapes": {
+    "agentview_image": [
+      84,
+      84,
+      3
+    ],
+    "robot0_eef_pos": [
+      3
+    ],
+    "robot0_eef_quat": [
+      4
+    ],
+    "robot0_eye_in_hand_image": [
+      84,
+      84,
+      3
+    ],
+    "robot0_gripper_qpos": [
+      2
+    ]
+  },
+  "raw_image_layout": "HWC_uint8",
+  "student_extra_features": false,
+  "student_keys": [
+    "agentview_image",
+    "robot0_eye_in_hand_image",
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos"
+  ]
+}

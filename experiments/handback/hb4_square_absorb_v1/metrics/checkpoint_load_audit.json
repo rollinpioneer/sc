@@ -1,0 +1,42 @@
+{
+  "algo_name": "bc",
+  "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+  "checkpoint_sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+  "device": "cuda:1",
+  "missing_keys": [],
+  "model_key_count": 524,
+  "shape_metadata": {
+    "ac_dim": 7,
+    "all_obs_keys": [
+      "agentview_image",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_eye_in_hand_image",
+      "robot0_gripper_qpos"
+    ],
+    "all_shapes": {
+      "agentview_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_eef_pos": [
+        3
+      ],
+      "robot0_eef_quat": [
+        4
+      ],
+      "robot0_eye_in_hand_image": [
+        3,
+        84,
+        84
+      ],
+      "robot0_gripper_qpos": [
+        2
+      ]
+    },
+    "use_images": true
+  },
+  "strict_deserialize": true,
+  "unexpected_keys": []
+}

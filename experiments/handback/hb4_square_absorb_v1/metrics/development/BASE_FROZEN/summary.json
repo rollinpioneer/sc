@@ -1,0 +1,12 @@
+{
+  "checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
+  "checkpoint_sha256": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+  "elapsed_seconds": 2122.0981245040894,
+  "engineering_failures": 0,
+  "method_id": "BASE_FROZEN",
+  "roots": 80,
+  "rows_path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/metrics/development/BASE_FROZEN/episodes.jsonl",
+  "schema_version": "hb4_no_help_evaluation_summary_v1",
+  "successes": 6,
+  "training_seed": null
+}

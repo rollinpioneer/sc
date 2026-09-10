@@ -1,0 +1,37 @@
+{
+  "collision_audit_path": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1/experiments/handback/hb4_square_absorb_v1/assets/seed_collision_audit.json",
+  "historical_roots": "registered_from_hb3_formal_episode_table",
+  "new_ranges_collision_checked": true,
+  "ranges": {
+    "collision_audit": "pending_before_new_root_collection",
+    "development": {
+      "count": 80,
+      "role": "HB4_development",
+      "seed_start": 930000
+    },
+    "historical_cohort": {
+      "new_role": "HB4_source_development",
+      "old_role": "HB3_FORMAL_TEST",
+      "seed_start": 800000,
+      "seed_stop_exclusive": 800400,
+      "test_reuse_forbidden": true
+    },
+    "pilot": {
+      "count": 4,
+      "role": "HB4_pilot",
+      "seed_start": 929000
+    },
+    "schema_version": "hb4_data_roles_v1",
+    "standard_source": {
+      "count": 200,
+      "role": "HB4_standard_source",
+      "seed_start": 920000
+    },
+    "test": {
+      "count": 400,
+      "role": "HB4_test",
+      "seed_start": 940000
+    }
+  },
+  "schema_version": "hb4_seed_registry_v1"
+}

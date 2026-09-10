@@ -1,0 +1,33 @@
+{
+  "historical_collisions": [],
+  "historical_range": {
+    "count": 400,
+    "start": 800000,
+    "stop_exclusive": 800400
+  },
+  "passed": true,
+  "range_collisions": [],
+  "ranges": {
+    "development": {
+      "count": 80,
+      "start": 930000,
+      "stop_exclusive": 930080
+    },
+    "pilot": {
+      "count": 4,
+      "start": 929000,
+      "stop_exclusive": 929004
+    },
+    "standard_source": {
+      "count": 200,
+      "start": 920000,
+      "stop_exclusive": 920200
+    },
+    "test": {
+      "count": 400,
+      "start": 940000,
+      "stop_exclusive": 940400
+    }
+  },
+  "schema_version": "hb4_seed_collision_audit_v1"
+}

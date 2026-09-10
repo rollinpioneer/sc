@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import random
 from contextlib import contextmanager
 from copy import deepcopy
@@ -51,6 +52,11 @@ class EnvAdapter:
         self.env_meta = get_env_metadata_from_dataset(str(self.source_hdf5))
         kwargs = deepcopy(self.env_meta["env_kwargs"])
         kwargs["reward_shaping"] = True
+        # CUDA_VISIBLE_DEVICES remaps physical GPUs to logical EGL indices. The
+        # dataset may contain a stale physical render_gpu_device_id, so honor the
+        # runtime-selected logical device without changing physics or actions.
+        if os.environ.get("MUJOCO_GL", "").lower() == "egl":
+            kwargs["render_gpu_device_id"] = int(os.environ.get("MUJOCO_EGL_DEVICE_ID", "0"))
         self.control_freq = int(kwargs.get("control_freq", 20))
         self.env_name = str(self.env_meta["env_name"])
         self.camera_keys = list(camera_keys or ["agentview_image", "robot0_eye_in_hand_image"])

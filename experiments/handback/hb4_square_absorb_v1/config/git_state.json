@@ -1,0 +1,7 @@
+{
+  "branch": "exp/hb4-square-absorb-v1",
+  "code_root": "/home/__compress_data/xushijie/work/cr_scizor_github_sc_worktrees/hb4-square-absorb-v1",
+  "commit": "febb2cdde6acea51e06d9f1c9623ef36f4b465bd",
+  "remote": "github-deploy\tgit@github.com:rollinpioneer/sc.git (fetch)\ngithub-deploy\tgit@github.com:rollinpioneer/sc.git (push)\norigin\tgit@github.com:rollinpioneer/sc.git (fetch)\norigin\tgit@github.com:rollinpioneer/sc.git (push)",
+  "status": "M SCIZOR/recovery_handback/adapters/env_adapter.py\n?? SCIZOR/recovery_handback/hb4/\n?? experiments/handback/hb4_square_absorb_v1/"
+}

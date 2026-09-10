@@ -1,0 +1,9 @@
+{
+  "approximate_mde_80pct": 0.04391239200486931,
+  "fixed_formal_n": 400,
+  "formula": "(1.96 + 0.84) * sd / sqrt(400)",
+  "handoff_minus_base_root_diff_sd": 0.31365994289192367,
+  "interpretation": "planning quantity only; not a guarantee of power and conditional on frozen checkpoints",
+  "paired_root_count_observed": 80,
+  "schema_version": "hb4_power_planning_v1"
+}
