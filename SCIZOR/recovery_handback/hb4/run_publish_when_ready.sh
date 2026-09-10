@@ -106,14 +106,14 @@ else
   git commit -m "Add HB4 square absorb experiment results"
 fi
 
-GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+GIT_SSH_COMMAND="ssh -F /dev/null -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
   git push "$REMOTE" "HEAD:refs/heads/$BRANCH"
 
 local_head="$(git rev-parse HEAD)"
-remote_head="$(GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" git ls-remote "$REMOTE" "refs/heads/$BRANCH" | awk '{print $1}')"
+remote_head="$(GIT_SSH_COMMAND="ssh -F /dev/null -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" git ls-remote "$REMOTE" "refs/heads/$BRANCH" | awk '{print $1}')"
 [[ "$local_head" == "$remote_head" ]]
 
-GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+GIT_SSH_COMMAND="ssh -F /dev/null -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
   git fetch "$REMOTE" "$BRANCH:refs/remotes/$REMOTE/$BRANCH"
 git show "$REMOTE/$BRANCH:experiments/handback/hb4_square_absorb_v1/report/HB4_REPORT.md" >/tmp/hb4_remote_report_check.md
 git show "$REMOTE/$BRANCH:experiments/handback/hb4_square_absorb_v1/metrics/decision.json" >/tmp/hb4_remote_decision_check.json 2>/dev/null || true
