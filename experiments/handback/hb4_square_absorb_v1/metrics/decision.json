@@ -21,6 +21,17 @@
         }
       }
     },
+    "layered_status": {
+      "baseline_preservation_evidence": "LIMITED_OR_INCONCLUSIVE",
+      "engineering_valid": true,
+      "extra_training_control_gain": true,
+      "handoff_positive_seeds_vs_base": 1,
+      "no_help_autonomy_gain": false,
+      "ordinary_data_increment": true,
+      "short_handoff_data_increment": false,
+      "status": "HB4_NO_CONFIRMED_AUTONOMY_GAIN",
+      "training_seed_consistency": false
+    },
     "schema_version": "hb4_development_decision_v1"
   },
   "formal": {
