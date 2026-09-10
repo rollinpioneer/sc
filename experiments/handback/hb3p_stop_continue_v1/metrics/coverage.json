@@ -1,0 +1,23 @@
+{
+  "branch_parity_failures": [],
+  "branch_parity_verified_roots": 40,
+  "complete": true,
+  "complete_records": 160,
+  "engineering_failures": [],
+  "expected_records": 160,
+  "expected_roots": 40,
+  "helper_predecision_t80_verified_roots": 40,
+  "methods": [
+    "NONE",
+    "FIXED_L60",
+    "FIXED_L80",
+    "LEARNED_STOP_CONTINUE"
+  ],
+  "missing_records": [],
+  "prefix_failures": [],
+  "prefix_verified_roots": 40,
+  "protocol_sha256": "7e762f5a5df4c06f9aa9c77e11435b594687d28c72c61dcf9ebde7fbe9ee0a8e",
+  "schema_version": "hb3p_stop_continue_coverage_v1",
+  "shared_t20_verified_roots": 40,
+  "unique_rollouts": 160
+}

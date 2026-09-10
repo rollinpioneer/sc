@@ -1,0 +1,178 @@
+{
+  "anchor_t": 20,
+  "code_commit": "28565d3054fb251593e5ef73b4d6f896d6a6d2a5",
+  "code_manifest": {
+    "files": {
+      "__init__.py": "b486aebd85de8689490d382182237242173660b16489583b7d4669afb3590d9b",
+      "aggregate.py": "1331e09b05c4520047419cb96aa5ad3b573de6d0aedc2f6edc58820fc09ed2be",
+      "collect.py": "2ab4e3fbf98a1865553f9b7b1bb96e7e143feb0fdc70b46b061aa96de675145e",
+      "dataset.py": "b12c5f4f3da18800c4b646534653bcd0153f389ae216ef185a7d6e8cdcafe614",
+      "evaluate.py": "e181852550aca3ee5d700de806b1b3ca3c7c211575ce6f57badf51e421577fa1",
+      "export_lightweight.py": "9a05545e6025cb9a0761a8e2bad377a5e346ac367e4d63428e92126230fa669b",
+      "features.py": "91af3177a86b88d5ee2a0c0b70357d7e0eed41b3e3976b99d9844da6212d37af",
+      "freeze.py": "ef39fa31808d6fbf710ddc89eb4f34e3696bb71a56bb50f26bfeddad919cf9d5",
+      "io.py": "c9f413b09c3cad33bdf586eeafb6cbcfd4c334907c7b87a9aa61cb5790e040dc",
+      "model.py": "bd94c897bd22960601a2875d1602d484d91e5f9cd492d3e45e1bba760d6e5725",
+      "online.py": "9da2040881bc5bac9cbffde5a00691135f50ec18549ce2d2d278b067fe5a0cc7",
+      "package.py": "506ea6c918183ee0cbfd9271c96d00cca5a00bd51a0e7f586dd87a95618d23cd",
+      "prepare.py": "18fecc767ff672068ab72b39fe96174cc8e8fdf510134320ca68e19ed38ce069",
+      "report.py": "dbc7f6fbfa2da5caacafc38b97b6e968b7c3e0da741116ab223572e213db40ef",
+      "run_online.py": "3e3ecd712c85310d3c91298d0f40a2e108c4f10bb434b2bbfe50c701b5139636",
+      "run_stop_continue_background.sh": "eee96bedd0d6ead08ecbdf775bdc674d6efe091a4ae9ba2d8ab2b31684773fb0",
+      "test_references.py": "52e5e0088dd2b62c519a2c6cbb022a8d552831dbefdf9fe641cf79ee5ad3e3ae",
+      "train.py": "8fa2c093f0bd7c7462d9d7c6a3ccc3f80ac669f4568fd889d5d26febeeafa644"
+    },
+    "tree_sha256": "f16e3a7c79a75d3a710672da9d3e9e37dfcf07eabb3ac54a54b32319fdb2954f"
+  },
+  "config": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/config/stop_continue.json",
+    "sha256": "07b5a8f363aa3fb9e348db8e8f782a36f99c8792180f3e301160a80c6ed2f10c"
+  },
+  "continue_interval": [
+    20,
+    100
+  ],
+  "decision_t": 80,
+  "draft": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/config/protocol.draft.json",
+    "sha256": "a53c932355616dd3c5d7238414f878562b03da7dfb945e893ad870d821e92819"
+  },
+  "formal_claim_allowed": false,
+  "formal_claim_blocker": "40 test roots is under the estimated ~354 roots for 0.05 precision and therefore this is a pilot",
+  "frozen": true,
+  "horizon_steps": 400,
+  "input_schema": {
+    "allowed": [
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos",
+      "base_action_history",
+      "absolute_time"
+    ],
+    "forbidden": [
+      "reward",
+      "success",
+      "object_state",
+      "future_result",
+      "root_id",
+      "seed",
+      "repair_action",
+      "images"
+    ]
+  },
+  "lambda": 0.25,
+  "max_takeovers": 1,
+  "methods": [
+    "NONE",
+    "FIXED_L60",
+    "FIXED_L80",
+    "LEARNED_STOP_CONTINUE"
+  ],
+  "minimum_autonomous_steps": 20,
+  "model": {
+    "architecture": [
+      64,
+      32
+    ],
+    "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/model/stop_continue.pt",
+    "checkpoint_sha256": "25c29777ede276b2cfd83c978d25d0989a63511aae359de21b57448ef15b6863",
+    "input_dim": 65,
+    "label_source": "paired realized utility of FIXED_L60 vs FIXED_L80",
+    "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/model/normalizer.json",
+    "normalizer_sha256": "a3d559333f57cd83fc4540a2d14152b9924456560cf84d8292f0b4d401d76f8c",
+    "threshold": 0.0002843305410351604
+  },
+  "model_queries": [
+    80
+  ],
+  "new_test_roots": 40,
+  "noninferiority_comparator": "FIXED_L80",
+  "noninferiority_margin_absolute": 0.05,
+  "online_constraints": {
+    "base_calls_once_per_executed_step": true,
+    "continue_handoff_t": 100,
+    "fixed_entry_t": 20,
+    "max_takeovers": 1,
+    "model_query_only_at_t": 80,
+    "repair_calls_after_handoff_required": 0,
+    "repair_interval_continue": [
+      20,
+      100
+    ],
+    "repair_interval_stop": [
+      20,
+      80
+    ],
+    "stop_handoff_t": 80
+  },
+  "pilot": true,
+  "pilot_reason": "40 roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+  "prior_manifest_seed_overlap": [],
+  "role": "hb3p_stop_continue_test",
+  "schema_version": "hb3p_stop_continue_protocol_v1",
+  "scope": "fixed_entry_t20_stop_at_t80_or_continue_to_t100",
+  "selected_short_exit": 60,
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "short_exit_comparator": "FIXED_L60",
+  "source_probe_protocol_sha256": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "source_probe_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_exit_probe_v1",
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8",
+  "statistics": {
+    "bootstrap_repeats": 2000,
+    "seed": 20260909,
+    "unit": "one_complete_episode_per_stat_group_id"
+  },
+  "stop_interval": [
+    20,
+    80
+  ],
+  "success_rate_noninferiority_margin_absolute": 0.05,
+  "test_locked": true,
+  "test_seed_start": 700000,
+  "test_seeds": [
+    700000,
+    700001,
+    700002,
+    700003,
+    700004,
+    700005,
+    700006,
+    700007,
+    700008,
+    700009,
+    700010,
+    700011,
+    700012,
+    700013,
+    700014,
+    700015,
+    700016,
+    700017,
+    700018,
+    700019,
+    700020,
+    700021,
+    700022,
+    700023,
+    700024,
+    700025,
+    700026,
+    700027,
+    700028,
+    700029,
+    700030,
+    700031,
+    700032,
+    700033,
+    700034,
+    700035,
+    700036,
+    700037,
+    700038,
+    700039
+  ],
+  "training_summary": {
+    "path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/model/training_summary.json",
+    "sha256": "3922c3a0b9c780c7a95cbd2b92b870e7ef33da0a0cee21f7a72efefdc08e411f"
+  }
+}

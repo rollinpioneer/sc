@@ -1,0 +1,13 @@
+{
+  "autonomous_noninferiority_diagnostic": false,
+  "formal_claim_allowed": false,
+  "interpretation": "diagnostic only; do not report as a proof",
+  "learned_vs_comparator_autonomous_lower_ci": -0.075,
+  "learned_vs_comparator_system_success_lower_ci": -0.075,
+  "noninferiority_comparator": "FIXED_L80",
+  "noninferiority_margin_absolute": 0.05,
+  "reason": "40 test roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+  "schema_version": "hb3p_stop_continue_decision_v1",
+  "status": "PILOT_ONLY",
+  "system_success_noninferiority_diagnostic": false
+}

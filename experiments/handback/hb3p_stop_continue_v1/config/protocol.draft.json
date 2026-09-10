@@ -1,0 +1,110 @@
+{
+  "anchor_t": 20,
+  "continue_interval": [
+    20,
+    100
+  ],
+  "decision_t": 80,
+  "formal_claim_allowed": false,
+  "frozen": false,
+  "horizon_steps": 400,
+  "input_schema": {
+    "allowed": [
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos",
+      "base_action_history",
+      "absolute_time"
+    ],
+    "forbidden": [
+      "reward",
+      "success",
+      "object_state",
+      "future_result",
+      "root_id",
+      "seed",
+      "repair_action",
+      "images"
+    ]
+  },
+  "lambda": 0.25,
+  "max_takeovers": 1,
+  "methods": [
+    "NONE",
+    "FIXED_L60",
+    "FIXED_L80",
+    "LEARNED_STOP_CONTINUE"
+  ],
+  "minimum_autonomous_steps": 20,
+  "model_queries": [
+    80
+  ],
+  "new_test_roots": 40,
+  "noninferiority_comparator": "FIXED_L80",
+  "noninferiority_margin_absolute": 0.05,
+  "pilot": true,
+  "pilot_reason": "40 roots is below the estimated sample size for a formal 0.05 non-inferiority claim",
+  "role": "hb3p_stop_continue_test",
+  "schema_version": "hb3p_stop_continue_protocol_draft_v1",
+  "scope": "fixed_entry_t20_stop_at_t80_or_continue_to_t100",
+  "selected_short_exit": 60,
+  "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+  "short_exit_comparator": "FIXED_L60",
+  "source_probe_protocol_sha256": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "source_probe_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_exit_probe_v1",
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8",
+  "statistics": {
+    "bootstrap_repeats": 2000,
+    "seed": 20260909,
+    "unit": "one_complete_episode_per_stat_group_id"
+  },
+  "stop_interval": [
+    20,
+    80
+  ],
+  "success_rate_noninferiority_margin_absolute": 0.05,
+  "test_locked": false,
+  "test_seed_start": 700000,
+  "test_seeds": [
+    700000,
+    700001,
+    700002,
+    700003,
+    700004,
+    700005,
+    700006,
+    700007,
+    700008,
+    700009,
+    700010,
+    700011,
+    700012,
+    700013,
+    700014,
+    700015,
+    700016,
+    700017,
+    700018,
+    700019,
+    700020,
+    700021,
+    700022,
+    700023,
+    700024,
+    700025,
+    700026,
+    700027,
+    700028,
+    700029,
+    700030,
+    700031,
+    700032,
+    700033,
+    700034,
+    700035,
+    700036,
+    700037,
+    700038,
+    700039
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "continue_labels": 5,
+  "dataset_file_sha256": "d4a513fbba08a63b1d07634e982c1ebb429b97ab6e55ef4a5de8483905edb042",
+  "feature_array_sha256": "a53eca16a729aea992f3bcd1691a937733d6706c10ca290df2943935275c3bdc",
+  "feature_shape": [
+    40,
+    65
+  ],
+  "input_schema": {
+    "allowed": [
+      "proprio",
+      "base_action_history",
+      "time"
+    ],
+    "base_action_history": {
+      "dim_per_frame": 7,
+      "frames": 4,
+      "source": "L60 handoff_history"
+    },
+    "feature_dim": 65,
+    "forbidden": [
+      "reward",
+      "success",
+      "object_state",
+      "privileged_state",
+      "future_result",
+      "root_id",
+      "seed",
+      "repair_action",
+      "images"
+    ],
+    "proprio_keys": [
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_gripper_qpos"
+    ],
+    "schema_version": "hb3p_stop_continue_input_schema_v1",
+    "time": "current absolute_t divided by horizon"
+  },
+  "label_array_sha256": "9656aa0d01532104ecef2aa3d5fbf44683de078989d141aa2e93efa170eefa30",
+  "label_rule": "CONTINUE iff realized utility(FIXED_L80) > realized utility(FIXED_L60) by >1e-8",
+  "probe_frozen_protocol_sha256": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "probe_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_exit_probe_v1",
+  "roots": 40,
+  "schema_version": "hb3p_stop_continue_paired_dataset_v1",
+  "stop_labels": 35,
+  "utility": {
+    "denominator": 400,
+    "lambda": 0.25
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "checkpoint": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/model/stop_continue.pt",
+  "checkpoint_sha256": "25c29777ede276b2cfd83c978d25d0989a63511aae359de21b57448ef15b6863",
+  "continue_labels": 5,
+  "dataset_manifest_sha256": "64d4907f7034ad09be2eea455d25e0e3605cf9ab59d6acd98772275682923df5",
+  "dataset_matrix_sha256": "d4a513fbba08a63b1d07634e982c1ebb429b97ab6e55ef4a5de8483905edb042",
+  "folds": [
+    {
+      "fold": 0,
+      "holdout_roots": 8,
+      "train_roots": 32
+    },
+    {
+      "fold": 1,
+      "holdout_roots": 8,
+      "train_roots": 32
+    },
+    {
+      "fold": 2,
+      "holdout_roots": 8,
+      "train_roots": 32
+    },
+    {
+      "fold": 3,
+      "holdout_roots": 8,
+      "train_roots": 32
+    },
+    {
+      "fold": 4,
+      "holdout_roots": 8,
+      "train_roots": 32
+    }
+  ],
+  "input_protocol": "9-D proprio + four 7-D base-action frames + current normalized time; no images or privileged labels",
+  "normalizer": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/model/normalizer.json",
+  "normalizer_sha256": "a3d559333f57cd83fc4540a2d14152b9924456560cf84d8292f0b4d401d76f8c",
+  "oof_continue_false_negative": 0,
+  "oof_continue_false_positive": 28,
+  "oof_continue_true_negative": 7,
+  "oof_continue_true_positive": 5,
+  "oof_label_accuracy": 0.3,
+  "pilot_warning": "40-root source set is insufficient for a formal non-inferiority claim",
+  "roots": 40,
+  "schema_version": "hb3p_stop_continue_training_summary_v1",
+  "stop_labels": 35,
+  "threshold_selection": {
+    "candidate_count": 42,
+    "oof_continue_count": 33,
+    "oof_mean_realized_utility": 0.25218749999999995,
+    "selection_rule": "maximize root-mean paired realized utility; ties prefer fewer CONTINUE decisions",
+    "threshold": 0.0002843305410351604
+  }
+}

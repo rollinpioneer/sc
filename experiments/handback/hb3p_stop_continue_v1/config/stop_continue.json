@@ -1,0 +1,467 @@
+{
+  "anchor_t": 20,
+  "anchor_times": [
+    20
+  ],
+  "assets_file": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/assets/assets.json",
+  "base_training": {
+    "algorithm": "bc_rnn_gmm",
+    "batch_size": 32,
+    "checkpoint_epochs": [
+      50,
+      100,
+      200
+    ],
+    "epochs": 200,
+    "learning_rate": 0.0001,
+    "seed": 0,
+    "seq_length": 10,
+    "steps_per_epoch": 250
+  },
+  "capability_repair": {
+    "can_diagnostic": {
+      "algorithm": "bc_gmm_privileged_direct",
+      "batch_size": 256,
+      "checkpoint_epochs": [
+        100,
+        200,
+        400
+      ],
+      "epochs": 400,
+      "learning_rate": 0.0001,
+      "minimum_successes_on_base_val": 3,
+      "seed": 21,
+      "steps_per_epoch": 500
+    },
+    "can_distill": {
+      "minimum_successful_rollouts": 40,
+      "requested_roots": 200,
+      "single_allowed_expansion_roots": 200
+    },
+    "can_visual": {
+      "algorithm": "bc_rnn_gmm_visual_distilled",
+      "batch_size": 64,
+      "checkpoint_epochs": [
+        100,
+        200,
+        400
+      ],
+      "crop_height": 76,
+      "crop_width": 76,
+      "epochs": 400,
+      "learning_rate": 0.0001,
+      "minimum_successes_on_base_val": 3,
+      "seed": 22,
+      "seq_length": 20,
+      "steps_per_epoch": 500
+    },
+    "square_teacher": {
+      "algorithm": "bc_gmm_privileged_direct",
+      "batch_size": 256,
+      "checkpoint_epochs": [
+        100,
+        200,
+        400
+      ],
+      "epochs": 400,
+      "gmm_modes": 5,
+      "learning_rate": 0.0001,
+      "minimum_rescued_roots": 5,
+      "rnn_enabled": false,
+      "seed": 11,
+      "steps_per_epoch": 500
+    },
+    "square_teacher_residual": {
+      "algorithm": "sac_teacher_centered_residual",
+      "batch_size": 256,
+      "buffer_size": 300000,
+      "gamma": 0.99,
+      "learning_rate": 0.0003,
+      "learning_starts": 5000,
+      "minimum_rescued_roots": 5,
+      "net_arch": [
+        256,
+        256
+      ],
+      "phase_totals": [
+        100000,
+        250000,
+        500000
+      ],
+      "residual_penalty": 0.002,
+      "residual_scale": [
+        0.35,
+        0.35,
+        0.35,
+        0.35,
+        0.35,
+        0.35,
+        2.0
+      ],
+      "seed": 12,
+      "stage_delta_scale": 2.0,
+      "step_penalty": 0.002,
+      "success_bonus": 10.0,
+      "tau": 0.005
+    }
+  },
+  "continue_length": 80,
+  "decision_t": 80,
+  "engineering": {
+    "policy_memory_max_abs": 1e-06,
+    "prefix_action_max_abs": 1e-06,
+    "prefix_state_max_abs": 1e-10,
+    "zero_residual_state_max_abs": 1e-10
+  },
+  "execution_order": [
+    "can",
+    "square"
+  ],
+  "expected_control_freq": 20,
+  "feasibility": {
+    "min_baseline_failed_roots": 10,
+    "min_control_roots": 5,
+    "min_genuine_rescued_roots": 5,
+    "min_probe_roots": 20
+  },
+  "features": {
+    "action_dim": 7,
+    "feature_dim": 65,
+    "frames": 4,
+    "proprio_dim": 9,
+    "source": "FIXED_L60 handoff history at t=80"
+  },
+  "frozen_protocol_sha256": "7e762f5a5df4c06f9aa9c77e11435b594687d28c72c61dcf9ebde7fbe9ee0a8e",
+  "hb2": {
+    "calibration": {
+      "fit_role": "validation",
+      "max": 5.0,
+      "method": "shared_temperature",
+      "min": 0.5
+    },
+    "data_gate": {
+      "baseline_preservation_roots_descriptive_below": 5,
+      "result_driven_test_expansion_allowed": false,
+      "selected_test_rescue_roots_minimum": 3,
+      "single_train_val_expansion_allowed": true,
+      "test_oracle_rescuable_roots_minimum": 5,
+      "test_valid_roots_minimum": 30,
+      "train_rescue_negative_roots": 10,
+      "train_rescue_positive_roots": 10,
+      "validation_rescue_negative_roots": 5,
+      "validation_rescue_positive_roots": 5
+    },
+    "decision": {
+      "cost_denominator": 400,
+      "include_full_in_selector": false,
+      "lambda_curve": [
+        0,
+        0.25,
+        0.5,
+        1,
+        2
+      ],
+      "lengths": [
+        0,
+        5,
+        20,
+        80
+      ],
+      "objective": "autonomous_completion",
+      "primary_lambda": 0.25,
+      "risk_thresholds": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "tie_break": "shorter",
+      "tie_tolerance": 1e-08
+    },
+    "encoder": {
+      "antialias": true,
+      "cache_dtype": "float16",
+      "frozen": true,
+      "input_size": 224,
+      "local_pool_grid": [
+        4,
+        4
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "name": "dinov2_vits14",
+      "resize": "bicubic",
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "feature_history": 4,
+    "handoff": {
+      "classes": 3,
+      "exclude_success_seen_under_helper": true,
+      "minimum_remaining_steps": 20,
+      "models": [
+        "proprio",
+        "selected_visual"
+      ],
+      "seed": 0
+    },
+    "legacy_probe_role": "legacy_train",
+    "models": [
+      "M0_time",
+      "M1_proprio",
+      "M2_global",
+      "M3_local",
+      "M4_paired",
+      "M5_single"
+    ],
+    "runtime_root": "/tmp/hb1_runtime/hb1_repair_v1",
+    "selected_policy_pair_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/assets/policy_pair_square.json",
+    "semantic_pair_id": "a8ca96a4f5975b211053a3b6a1d34bc15a77b5ef2297cf6d8a7c97ac30fb1236",
+    "source_policy_pair_hash": "e465f728fb077f9078251ac488612b10bbf44bbdf859c7900d74800cd4418776",
+    "source_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_repair_v1",
+    "statistics": {
+      "bootstrap_repeats": 2000,
+      "seed": 20260908,
+      "unit": "global_stat_group_id"
+    },
+    "training": {
+      "batch_size": 32,
+      "canonical_seed": 0,
+      "checkpoint_criterion": "root_equal_mean_five_head_outcome_nll",
+      "class_weights": false,
+      "dropout": 0.1,
+      "early_stop_validation_checks": 4,
+      "gradient_clip_norm": 1.0,
+      "hidden_size": 128,
+      "initial_seed": 0,
+      "learning_rate": 0.0003,
+      "max_epochs": 150,
+      "pair_loss_weight": 0.25,
+      "sampler": "uniform_root_then_uniform_anchor",
+      "selected_model_additional_seeds": [
+        1,
+        2
+      ],
+      "validate_every": 5,
+      "weight_decay": 0.0001
+    }
+  },
+  "hb3p": {
+    "allow_retakeover": false,
+    "candidate_times": [
+      20
+    ],
+    "canonical_seed": 0,
+    "cost_denominator": 400,
+    "deduplicate_only_symbolically_equivalent_rules": true,
+    "entry_rule": "first_nonzero_on_frozen_candidate_grid",
+    "expected_checkpoints": {
+      "M0_time_seed0": "8c33c1903eab53fe36a2180109e877750698a8bd85204bbaa3a4ac729f54128e",
+      "M1_proprio_seed0": "8358f8be97c7b22d275f469a1ebfa6dac0f6ff6ba7081ef568775ee6ba2f2e23",
+      "M4_paired_seed0": "1fc1f89c3820c2b4d98f31ad33acc1c8d84605d8e4665c6f8f8f2af4c1b415d3",
+      "square_base": "e4d5c7d0e873198d21321f29f3aa38492b115d6a3d31a8c9449453af58a5a0d6",
+      "square_repair": "7b2e5f22e0bc3722c9c70f4d6bcb3ab79696026500fc121572d50bf530349d62"
+    },
+    "h_control_enabled": false,
+    "hb2_frozen_handoff_protocol": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/config/frozen_handoff_protocol.json",
+    "hb2_frozen_protocol": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1/config/frozen_protocol.json",
+    "hb2_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb2_v1",
+    "hb2_status_preserved": "HB2_SIGNAL_PRESENT_VISUAL_GAIN_UNPROVEN",
+    "helper_lengths": [
+      40,
+      60,
+      80
+    ],
+    "inherit_frozen_risk_rule": true,
+    "learned_exit_enabled": false,
+    "logical_methods": [
+      "NONE",
+      "S_STAR",
+      "M0_GRID",
+      "RISK_GRID",
+      "M1_GRID",
+      "M4_GRID"
+    ],
+    "max_takeovers": 1,
+    "new_test_adaptive_expansion": false,
+    "new_test_roots": 40,
+    "parent_experiment": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_v1",
+    "pilot_source": "existing_hb2_pilot_4_roots",
+    "primary_comparator": "S_STAR",
+    "primary_lambda": 0.25,
+    "primary_method": "M1_GRID",
+    "repeat_model_training": false,
+    "role": "hb3p_exit_probe",
+    "schedule_include_none": true,
+    "schedule_selection_split": "hb2_validation_only",
+    "schedule_tie_break": [
+      "lower_mean_actual_helper_cost",
+      "shorter_planned_length",
+      "earlier_time"
+    ],
+    "scope": "fixed_entry_exit_probe",
+    "secondary_visual_method": "M4_GRID",
+    "statistics": {
+      "bootstrap_repeats": 2000,
+      "seed": 20260909,
+      "unit": "one_complete_episode_per_stat_group_id"
+    },
+    "test_seed_start": 600000,
+    "tie_tolerance": 1e-08
+  },
+  "horizon_steps": 400,
+  "include_full_repair": true,
+  "lambda": 0.25,
+  "merge_into_hb1_config": true,
+  "minimum_autonomous_steps": 20,
+  "minimum_remaining_steps": 100,
+  "new_test_roots": 40,
+  "noninferiority_margin_absolute": 0.05,
+  "output_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1",
+  "outputs": {
+    "max_case_videos": 8,
+    "store_all_step_images": false,
+    "store_anchor_and_handoff_history": 4,
+    "store_full_state_actions": true
+  },
+  "policy_history_protocol": "shadow_update_once_per_env_step",
+  "policy_pair_path": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_stop_continue_v1/assets/policy_pair_square.json",
+  "probe_expansion": {
+    "allowed_reason": "insufficient_valid_roots_or_natural_failures_only",
+    "block_size": 20,
+    "max_roots_per_task": 80
+  },
+  "probe_protocol_sha256": "2dc31f4aefb76dd25658a90e6c989bceffc24604be44efe6b172a3cdceb60c31",
+  "probe_root": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb3p_exit_probe_v1",
+  "random_tape": "sha256(task,role,root_id,absolute_t,component)",
+  "repair_lengths": [
+    0,
+    5,
+    20,
+    80
+  ],
+  "repair_training": {
+    "algorithm": "sac_bounded_residual_adapter",
+    "batch_size": 256,
+    "buffer_size": 300000,
+    "checkpoint_steps": [
+      125000,
+      250000,
+      500000
+    ],
+    "gamma": 0.99,
+    "gradient_steps": 1,
+    "initial_reset_fraction": 0.5,
+    "learning_rate": 0.0003,
+    "learning_starts": 5000,
+    "net_arch": [
+      256,
+      256
+    ],
+    "optional_extension_total": 1000000,
+    "privileged_repairer": true,
+    "residual_scale": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      2.0
+    ],
+    "seed": 0,
+    "tau": 0.005,
+    "total_steps": 500000,
+    "train_freq": 1
+  },
+  "repeats_per_root": 1,
+  "repository": "rollinpioneer/sc",
+  "research_branch": "exp/hb3p-square-v1",
+  "role": "hb3p_stop_continue_test",
+  "roles": {
+    "base_val": {
+      "roots_per_task": 20,
+      "seed_start": 10000
+    },
+    "distill_train": {
+      "roots_per_task": 200,
+      "seed_start": 80000
+    },
+    "hb2_pilot": {
+      "roots_per_task": 4,
+      "seed_start": 203000
+    },
+    "hb2_test": {
+      "roots_per_task": 40,
+      "seed_start": 202000
+    },
+    "hb2_train": {
+      "roots_per_task": 40,
+      "seed_start": 200000
+    },
+    "hb2_train_extra": {
+      "roots_per_task": 40,
+      "seed_start": 204000
+    },
+    "hb2_val": {
+      "roots_per_task": 40,
+      "seed_start": 201000
+    },
+    "hb2_val_extra": {
+      "roots_per_task": 20,
+      "seed_start": 205000
+    },
+    "hb3p_exit_probe": {
+      "roots_per_task": 40,
+      "seed_start": 500000
+    },
+    "hb3p_test": {
+      "roots_per_task": 80,
+      "seed_start": 400000
+    },
+    "pilot": {
+      "roots_per_task": 4,
+      "seed_start": 60000
+    },
+    "probe": {
+      "roots_per_task": 40,
+      "seed_start": 61000
+    },
+    "repair_train": {
+      "roots_per_task": 100,
+      "seed_start": 20000
+    },
+    "repair_val": {
+      "roots_per_task": 24,
+      "seed_start": 30000
+    }
+  },
+  "schema": "hb3p_fixed_grid_single_takeover_v1",
+  "schema_version": "hb3p_stop_continue_config_v1",
+  "source_demo_split_seed": 20260905,
+  "source_ref": "732d2ead92b5e4117c595049496dbbc3706f62e8",
+  "source_train_fraction": 0.8,
+  "square_seed_offset": 100000,
+  "statistics": {
+    "bootstrap_groups": 1000,
+    "seed": 20260905
+  },
+  "stop_length": 60,
+  "success_consecutive_steps": 5,
+  "tasks": [
+    "square"
+  ],
+  "test_seed_start": 700000,
+  "training": {
+    "device": "cuda",
+    "epochs": 300,
+    "seed": 20260909
+  }
+}
