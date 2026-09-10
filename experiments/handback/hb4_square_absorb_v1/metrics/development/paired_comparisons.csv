@@ -2,4 +2,3 @@
 {"ci95": "[0.020833333333333332, 0.1125]", "comparison": "HANDOFF_RECOVERY-REPLAY_ONLY", "estimate": 0.06250000000000001, "lower_bound_gt_zero": true, "paired_roots": 80}
 {"ci95": "[0.016666666666666666, 0.10416666666666666]", "comparison": "HANDOFF_RECOVERY-MATCHED_STANDARD_DATA", "estimate": 0.05833333333333333, "lower_bound_gt_zero": true, "paired_roots": 80}
 {"ci95": "[-0.0375, 0.0625]", "comparison": "HANDOFF_RECOVERY-FIXED_L80_RECOVERY", "estimate": 0.012499999999999999, "lower_bound_gt_zero": false, "paired_roots": 80}
-{"ci95": "[0.0, 0.0]", "comparison": "HANDOFF_RECOVERY-HANDOFF_RECOVERY", "estimate": 0.0, "lower_bound_gt_zero": false, "paired_roots": 80}

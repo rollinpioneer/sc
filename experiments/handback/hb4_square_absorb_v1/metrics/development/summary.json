@@ -39,16 +39,6 @@
       "estimate": 0.012499999999999999,
       "lower_bound_gt_zero": false,
       "paired_roots": 80
-    },
-    {
-      "ci95": [
-        0.0,
-        0.0
-      ],
-      "comparison": "HANDOFF_RECOVERY-HANDOFF_RECOVERY",
-      "estimate": 0.0,
-      "lower_bound_gt_zero": false,
-      "paired_roots": 80
     }
   ],
   "coverage": {

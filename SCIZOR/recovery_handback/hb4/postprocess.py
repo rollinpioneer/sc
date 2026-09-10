@@ -181,7 +181,7 @@ def main() -> None:
     _local_artifacts(args.export_root, args.run_root)
     _report(args.export_root, args.run_root, formal, development, power, methods, preservation)
     archive, digest = _package(args.export_root)
-    print(json.dumps({"archive": str(archive.resolve()), "sha256": digest, "formal_records": len(records)}, indent=2, sort_keys=True))
+    print(json.dumps({"archive": str(archive.resolve()), "sha256": digest, "records": len(records), "formal": formal is not None}, indent=2, sort_keys=True))
 
 
 if __name__ == "__main__":

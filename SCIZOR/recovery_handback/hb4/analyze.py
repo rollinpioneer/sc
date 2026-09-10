@@ -11,7 +11,8 @@ from recovery_handback.common import atomic_json_dump, write_table
 
 
 ARMS = ("REPLAY_ONLY", "MATCHED_STANDARD_DATA", "FIXED_L80_RECOVERY", "HANDOFF_RECOVERY")
-COMPARATORS = ("BASE_FROZEN",) + ARMS
+# The handoff arm is the method under test, not a comparator against itself.
+COMPARATORS = ("BASE_FROZEN",) + tuple(arm for arm in ARMS if arm != "HANDOFF_RECOVERY")
 
 
 def _rows(path: Path) -> list[dict]:
