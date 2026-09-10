@@ -15,9 +15,10 @@ def _git(repo: Path, *args: str) -> str:
 
 def _code_manifest(code_root: Path) -> dict:
     files = {}
-    for path in sorted(Path(code_root).iterdir()):
+    code_dir = Path(code_root) / "recovery_handback/hb3p_stop"
+    for path in sorted(code_dir.iterdir()):
         if path.is_file() and path.suffix in {".py", ".sh", ".json"}:
-            files[path.name] = sha256_file(path)
+            files[str(path.relative_to(code_dir))] = sha256_file(path)
     return {"files": files, "tree_sha256": sha256_json(files)}
 
 
@@ -40,7 +41,7 @@ def freeze(config_path: Path, draft_path: Path, training_summary_path: Path, cod
     normalizer = Path(training["normalizer"])
     if not model.is_file() or not normalizer.is_file():
         raise FileNotFoundError("trained stop/continue model or normalizer is missing")
-    repo = Path(code_root).parents[2]
+    repo = Path(code_root)
     if _git(repo, "status", "--porcelain", "--", "SCIZOR/recovery_handback/hb3p_stop"):
         raise RuntimeError("stop/continue code must be committed before protocol freeze")
     head = _git(repo, "rev-parse", "HEAD")
