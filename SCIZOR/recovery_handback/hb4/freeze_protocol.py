@@ -50,6 +50,11 @@ def freeze(export_root: Path, run_root: Path, roots_path: Path | None = None, te
     output = export_root / "config" / name
     atomic_json_dump(payload, output)
     atomic_json_dump({"protocol": name, "sha256": sha256_file(output)}, export_root / "config" / f"{name}.sha256.json")
+    if not test:
+        (export_root / "config" / "training_frozen.sha256").write_text(
+            f"{sha256_file(output)}  {name}\n",
+            encoding="ascii",
+        )
     return {"path": str(output.resolve()), "sha256": sha256_file(output), "checkpoints": len(checkpoints), "test": test}
 
 
