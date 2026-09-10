@@ -87,7 +87,13 @@ def _methods(records: list[dict], output: Path) -> list[dict]:
 
 def _report(export_root: Path, run_root: Path, formal_summary: dict | None, development_summary: dict | None, power: dict, methods: list[dict], preservation: list[dict]) -> None:
     cfg = json.loads((export_root / "config/hb4_resolved.json").read_text(encoding="utf-8"))
-    lines = ["# HB4 Square 基础策略恢复经验吸收报告", "", "## Material Passport", "", f"- Execution status: {'FORMAL_COMPLETE' if formal_summary and formal_summary.get('coverage', {}).get('complete') else 'INCOMPLETE'}", f"- Source commit: {cfg.get('source_commit', 'NA')}", f"- Scope: no-help Square evaluation after matched-budget offline finetuning", f"- Run root: `{run_root}`", "", "## 历史状态", "", "保留 HB3 `FORMAL_NONINFERIORITY_PASS` 的边界；本报告不将其改写为学习型退出的效用优越性。", "", "## 数据与训练", "", "- HB4-C matching audit: see `data/matching_audit.json`.", "- Training matrix: four arms x three seeds, 4000 optimizer updates, final step only used for evaluation.", "- Student input: two RGB cameras plus 9-D proprioception; helper policy and selector are excluded from the no-help evaluator.", "", "## 开发门槛"]
+    if formal_summary and formal_summary.get("coverage", {}).get("complete"):
+        execution_status = "FORMAL_COMPLETE"
+    elif development_summary and development_summary.get("coverage", {}).get("complete"):
+        execution_status = "DEVELOPMENT_COMPLETE_FORMAL_NOT_RUN"
+    else:
+        execution_status = "INCOMPLETE"
+    lines = ["# HB4 Square 基础策略恢复经验吸收报告", "", "## Material Passport", "", f"- Execution status: `{execution_status}`", f"- Source commit: {cfg.get('source_commit', 'NA')}", f"- Scope: no-help Square evaluation after matched-budget offline finetuning", f"- Run root: `{run_root}`", "", "## 历史状态", "", "保留 HB3 `FORMAL_NONINFERIORITY_PASS` 的边界；本报告不将其改写为学习型退出的效用优越性。", "", "## 数据与训练", "", "- HB4-C matching audit: see `data/matching_audit.json`.", "- Training matrix: four arms x three seeds, 4000 optimizer updates, final step only used for evaluation.", "- Student input: two RGB cameras plus 9-D proprioception; helper policy and selector are excluded from the no-help evaluator.", "", "## 开发门槛"]
     if development_summary:
         gate = development_summary.get("gate", {})
         lines += ["", f"- Development coverage complete: `{development_summary.get('coverage', {}).get('complete')}`", f"- Development decision: `{json.loads((export_root / 'metrics/development/decision.json').read_text()).get('decision', 'NA')}`", f"- Gate details: `{json.dumps(gate, ensure_ascii=False, sort_keys=True)}`"]
@@ -98,7 +104,7 @@ def _report(export_root: Path, run_root: Path, formal_summary: dict | None, deve
         cov = formal_summary.get("coverage", {})
         lines += [f"- Coverage: `{cov.get('records', 0)}` records, `{cov.get('expected_roots', 400)}` roots, engineering failures `{cov.get('engineering_failures', 'NA')}`.", f"- Main comparisons: `{json.dumps(formal_summary.get('comparisons', []), ensure_ascii=False)}`", f"- Formal decision: `{json.loads((export_root / 'metrics/test/decision.json').read_text()).get('decision', 'NA')}`"]
     else:
-        lines += ["- Formal test: `NOT_RUN` or incomplete; no PASS is inferred from missing records."]
+        lines += ["- Formal test: `NOT_RUN_DEVELOPMENT_NO_GO`; the development gate did not unlock formal evaluation, and no PASS is inferred from missing records."]
     lines += ["", "## 功效规划与能力保留", "", f"- Approximate fixed-n=400 MDE: `{power.get('approximate_mde_80pct', 'NA')}`; this is planning only.", f"- Methods summary: `{json.dumps(methods, ensure_ascii=False)}`", f"- Baseline preservation rows: `{len(preservation)}`", "", "## 局限", "", "单任务 Square、同分布新根、固定基础 checkpoint/教师、条件化恢复源选择、三个训练种子；本轮没有在线帮助需求结论。", "", "## 本地大资产", "", "完整 checkpoint、HDF5、图像缓存和运行日志保留在 `RUN_ROOT`，不进入轻量仓库包；其路径与哈希见 `report/LOCAL_ONLY_ARTIFACTS.md`。"]
     (export_root / "report").mkdir(parents=True, exist_ok=True)
     (export_root / "report/HB4_REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -132,7 +138,7 @@ def _package(export_root: Path) -> tuple[Path, str]:
             # workspace for audit, but are intentionally excluded from the
             # lightweight handoff package. The formal JSONL projection below
             # is the only episode-level artifact published by this package.
-            if path.name == "episodes.jsonl":
+            if path.name == "episodes.jsonl" or path.relative_to(export_root).as_posix() == "assets/resolved_inputs.json":
                 continue
             output.write(path, path.relative_to(export_root.parent))
     digest = sha256_file(archive)
@@ -149,6 +155,16 @@ def main() -> None:
     development_path = args.export_root / "metrics/development/summary.json"
     formal = json.loads(formal_path.read_text()) if formal_path.is_file() else None
     development = json.loads(development_path.read_text()) if development_path.is_file() else None
+    resolved_config_path = args.export_root / "config/hb4_resolved.json"
+    if resolved_config_path.is_file():
+        resolved_config = json.loads(resolved_config_path.read_text(encoding="utf-8"))
+        resolved_config.setdefault("initial_status", resolved_config.get("status"))
+        if formal and formal.get("coverage", {}).get("complete"):
+            resolved_config["status"] = "HB4_FORMAL_COMPLETE"
+        elif development and development.get("coverage", {}).get("complete"):
+            resolved_config["status"] = "HB4_DEVELOPMENT_GO" if json.loads((args.export_root / "metrics/development/decision.json").read_text()).get("decision") == "HB4_DEVELOPMENT_GO" else "HB4_DEVELOPMENT_NO_GO"
+            resolved_config["formal_status"] = "NOT_RUN_DEVELOPMENT_NO_GO" if resolved_config["status"] == "HB4_DEVELOPMENT_NO_GO" else "UNLOCKED"
+        atomic_json_dump(resolved_config, resolved_config_path)
     records_root = args.export_root / "metrics/test" if formal else args.export_root / "metrics/development"
     records = _load_records(records_root)
     metrics_output = args.export_root / "metrics/test" if formal else args.export_root / "metrics/development"
@@ -175,6 +191,15 @@ def main() -> None:
                 "schema_version": "hb4_decision_summary_v1",
                 "development": json.loads((args.export_root / "metrics/development/decision.json").read_text()) if (args.export_root / "metrics/development/decision.json").is_file() else None,
                 "formal": formal_decision,
+            },
+            args.export_root / "metrics/decision.json",
+        )
+    else:
+        atomic_json_dump(
+            {
+                "schema_version": "hb4_decision_summary_v1",
+                "development": json.loads((args.export_root / "metrics/development/decision.json").read_text()) if (args.export_root / "metrics/development/decision.json").is_file() else None,
+                "formal": {"status": "NOT_RUN_DEVELOPMENT_NO_GO", "decision": None},
             },
             args.export_root / "metrics/decision.json",
         )

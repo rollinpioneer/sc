@@ -29,6 +29,8 @@
     ]
   },
   "experiment_id": "hb4_square_absorb_v1",
+  "formal_status": "NOT_RUN_DEVELOPMENT_NO_GO",
+  "initial_status": "A_FROZEN_ASSETS_B_PENDING",
   "paths": {
     "base_checkpoint": "/tmp/hb1_runtime/hb1_repair_v1/checkpoints/square_base_epoch_200.pth",
     "base_source_manifest": "/home/__compress_data/xushijie/work/cr_scizor/experiments/handback/hb1_v1/base/square/data/bc_source_manifest.json",
@@ -59,5 +61,5 @@
     "task": "square"
   },
   "source_commit": "febb2cdde6acea51e06d9f1c9623ef36f4b465bd",
-  "status": "A_FROZEN_ASSETS_B_PENDING"
+  "status": "HB4_DEVELOPMENT_NO_GO"
 }

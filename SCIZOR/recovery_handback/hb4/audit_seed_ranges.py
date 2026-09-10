@@ -46,6 +46,9 @@ def audit(export_root: Path) -> dict:
     registry = _load(registry_path)
     registry["new_ranges_collision_checked"] = bool(result["passed"])
     registry["collision_audit_path"] = str((export_root / "assets/seed_collision_audit.json").resolve())
+    roles["collision_audit"] = "PASS_HB4_SEED_COLLISION_AUDIT" if result["passed"] else "HOLD_HB4_SEED_COLLISION"
+    registry["ranges"] = roles
+    atomic_json_dump(roles, roles_path)
     atomic_json_dump(registry, registry_path)
     return result
 

@@ -3,7 +3,7 @@
   "historical_roots": "registered_from_hb3_formal_episode_table",
   "new_ranges_collision_checked": true,
   "ranges": {
-    "collision_audit": "pending_before_new_root_collection",
+    "collision_audit": "PASS_HB4_SEED_COLLISION_AUDIT",
     "development": {
       "count": 80,
       "role": "HB4_development",

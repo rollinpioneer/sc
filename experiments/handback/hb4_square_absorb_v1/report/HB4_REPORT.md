@@ -2,7 +2,7 @@
 
 ## Material Passport
 
-- Execution status: INCOMPLETE
+- Execution status: `DEVELOPMENT_COMPLETE_FORMAL_NOT_RUN`
 - Source commit: febb2cdde6acea51e06d9f1c9623ef36f4b465bd
 - Scope: no-help Square evaluation after matched-budget offline finetuning
 - Run root: `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1`
@@ -25,7 +25,7 @@
 
 ## 正式测试
 
-- Formal test: `NOT_RUN` or incomplete; no PASS is inferred from missing records.
+- Formal test: `NOT_RUN_DEVELOPMENT_NO_GO`; the development gate did not unlock formal evaluation, and no PASS is inferred from missing records.
 
 ## 功效规划与能力保留
 

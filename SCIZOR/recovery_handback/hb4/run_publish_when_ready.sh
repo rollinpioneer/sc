@@ -33,6 +33,7 @@ tmp2="$(mktemp -d /tmp/hb4_zipcheck_2.XXXXXX)"
 unzip -q "$ARCHIVE" -d "$tmp1"
 unzip -q "$ARCHIVE" -d "$tmp2"
 ! unzip -Z1 "$ARCHIVE" | grep -E 'HB4_results_lightweight\.zip(\.sha256)?$'
+! unzip -Z1 "$ARCHIVE" | grep -E '(^|/)episodes\.jsonl$|(^|/)assets/resolved_inputs\.json$'
 
 "$PYTHON" - <<'PY' "$tmp1" "$tmp2" "$EXPORT_ROOT"
 import csv
@@ -47,6 +48,7 @@ required = [
     "hb4_square_absorb_v1/report/HB4_REPORT.md",
     "hb4_square_absorb_v1/report/LOCAL_ONLY_ARTIFACTS.md",
     "hb4_square_absorb_v1/metrics/power_planning.json",
+    "hb4_square_absorb_v1/metrics/decision.json",
 ]
 if (export / "metrics/development/decision.json").is_file():
     required.extend([
@@ -97,8 +99,10 @@ git add \
 # Raw per-episode records are retained locally for audit and are excluded from
 # the lightweight GitHub handoff, matching the ZIP packaging rule.
 git reset -- \
+  experiments/handback/hb4_square_absorb_v1/assets/resolved_inputs.json \
   experiments/handback/hb4_square_absorb_v1/metrics/development/*/episodes.jsonl \
-  experiments/handback/hb4_square_absorb_v1/metrics/test/*/episodes.jsonl
+  experiments/handback/hb4_square_absorb_v1/metrics/test/*/episodes.jsonl \
+  2>/dev/null || true
 
 if git diff --cached --quiet; then
   echo "nothing_to_commit=1"

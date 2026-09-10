@@ -1,5 +1,5 @@
 {
-  "collision_audit": "pending_before_new_root_collection",
+  "collision_audit": "PASS_HB4_SEED_COLLISION_AUDIT",
   "development": {
     "count": 80,
     "role": "HB4_development",
