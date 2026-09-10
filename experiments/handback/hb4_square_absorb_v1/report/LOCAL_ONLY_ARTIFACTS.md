@@ -260,6 +260,7 @@ These files remain outside the GitHub lightweight export.
 - `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/development_matrix.log` | 533 bytes | SHA256 `711a9e3b39fb0a22c4ae8f931d1c25b1691d95394ead5c57d443f55ca8e1dd2f`
 - `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/development_roots.log` | 719 bytes | SHA256 `557efc76bede017e152a27b1789a2bc1bd6713de4f04053d7dcf556155e8feab`
 - `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/finalize.launch.log` | 0 bytes | SHA256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/finalize.lock` | 0 bytes | SHA256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
 - `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/finalize.pid` | 2 bytes | SHA256 `53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3`
 - `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/formal_matrix.launch.log` | 48 bytes | SHA256 `58fe5ef477b06c184d95f51b2ebab00b185a7a52529e478413561565184c8a79`
 - `/home/__compress_data/xushijie/work/cr_scizor_hb4_runs/hb4_square_absorb_v1/logs/formal_matrix.log` | 288 bytes | SHA256 `d7f6917a87b94eb069dc6bae3383707cded0d10ff4f7cd59f2e499c8e9f943b2`
